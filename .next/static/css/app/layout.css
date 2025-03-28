@@ -559,9 +559,6 @@
   .w-\[120px\] {
     width: 120px;
   }
-  .w-\[400px\] {
-    width: 400px;
-  }
   .w-\[calc\(100\%-2\.625rem\)\] {
     width: calc(100% - 2.625rem);
   }
@@ -624,9 +621,6 @@
   .items-center {
     align-items: center;
   }
-  .items-end {
-    align-items: flex-end;
-  }
   .items-start {
     align-items: flex-start;
   }
@@ -668,9 +662,6 @@
   }
   .gap-16 {
     gap: calc(var(--spacing) * 16);
-  }
-  .gap-20 {
-    gap: calc(var(--spacing) * 20);
   }
   .space-y-2 {
     :where(& > :not(:last-child)) {
