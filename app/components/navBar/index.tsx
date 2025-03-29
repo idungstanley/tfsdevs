@@ -15,13 +15,11 @@ interface NavbarProps {
 
 const Navbar = ({
   color = 'text-black dark:text-white',
-  border = 'border-b-[1.5px]',
-  borderColour = 'border-[#C9B3EF]',
   zIndex = 'z-[999]'
 }: NavbarProps) => {
   return (
     <nav
-      className={`${zIndex} flex-shrink-0 w-full fixed h-[8vh] top-0 flex items-center right-0 left-0 bg-white  mb-1 ${borderColour} ${border} ${color}`}
+      className={`${zIndex} flex-shrink-0 w-full h-[10vh] top-0 flex items-center right-0 left-0 bg-[#080F1C] rounded-full  mb-1 ${color}`}
     >
       <DesktopNav />
       <MobileNav />

@@ -3,7 +3,7 @@ import { BsArrowUpRightCircleFill } from 'react-icons/bs';
 import Button from '../button/Button';
 import Link from 'next/link';
 import Image from 'next/image';
-import { navItems, socials } from '@/app/constants/navigation';
+import { footerItems, socials } from '@/app/constants/navigation';
 
 const Footer = () => {
   return (
@@ -46,7 +46,7 @@ const Footer = () => {
           <p className="text-gray-700 text-[12px]">@2024theFullSnackDev.copyright</p>
         </div>
         <div className="flex flex-col md:flex-row gap-4 md:gap-10 text-[14px]">
-          {navItems.map((item, index) => (
+          {footerItems.map((item, index) => (
             <Link key={index} href={item.url}>
               {item.title}
             </Link>

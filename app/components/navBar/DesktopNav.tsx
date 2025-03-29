@@ -1,52 +1,79 @@
 'use client';
 import Link from 'next/link';
-import React from 'react';
-import { usePathname, useRouter } from 'next/navigation';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Button from '../button/Button';
 import { navItems } from '@/app/constants/navigation';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaCartPlus, FaSearch } from 'react-icons/fa';
 
 const DesktopNav = () => {
-  const pathname = usePathname();
-  const router = useRouter();
-
-  const handleClick = (item: string) => {
-    router.push(item);
-  };
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   return (
-    <div className="lg:flex items-center justify-between px-4 w-full hidden text-gray-700">
+    <div className="lg:flex items-center justify-between px-4 w-full hidden text-white">
       <Link href="/">
-        <div className="items-center justify-center w-full flex gap-4">
+        <div className="items-center justify-center w-full flex gap-4 hover:text-[#684DF4]">
           <Image src="/logo.png" alt="logo" width={500} height={500} className="h-[50px] w-[60px]" />
           <p className="font-[800]">TheFullSnackDev</p>
         </div>
       </Link>
-      <div className="text-gray-700 flex text-sm gap-6 ml-9">
+      <ul className="flex space-x-6">
         {navItems.map((item, index) => (
-          <div
-            key={index}
-            onClick={() => handleClick(item.url)}
-            className={`cursor-pointer relative group transition-all duration-300 ${
-              pathname === item.url ? 'underline' : ''
-            }`}
-          >
-            <p className="group-hover:text-[#b49aeb] group-hover:font-bold transition-all duration-300">{item.title}</p>
-            <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-[#b49aeb] transition-all duration-300 group-hover:w-full"></span>
-          </div>
+          <li key={index} className="relative">
+            {item.children ? (
+              <div
+                className="relative"
+                onMouseEnter={() => setActiveDropdown(item.label)}
+                onMouseLeave={() => setActiveDropdown(null)}
+              >
+                <button className="text-white font-medium hover:text-[#736e89] cursor-pointer">
+                  {item.label} &#x25BE;
+                </button>
+                <AnimatePresence>
+                  {activeDropdown === item.label && (
+                    <motion.ul
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute left-0 mt-2 bg-white shadow-lg rounded-md w-fit min-w-40 p-2 pointer-events-auto"
+                    >
+                      {item.children.map((child, idx) => (
+                        <li key={idx}>
+                          <Link
+                            href={child.route}
+                            className="block px-4 py-2 text-gray-800 hover:bg-gray-200 rounded-md hover:text-[#684DF4] text-nowrap"
+                          >
+                            {child.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </motion.ul>
+                  )}
+                </AnimatePresence>
+              </div>
+            ) : (
+              <Link href={item.route} className="text-white font-medium hover:text-[#684DF4]">
+                {item.label}
+              </Link>
+            )}
+          </li>
         ))}
-      </div>
+      </ul>
       <div className="flex items-center gap-2 md:gap-4">
         <div className="flex items-center gap-2 md:gap-5">
-          <div className="flex items-center justify-end w-full gap-4">
+          <div className="flex items-center justify-end w-full gap-5">
+            <FaCartPlus className="transition-transform hover:text-[#684DF4] duration-300 ease-in-out hover:scale-110 cursor-pointer hover:shadow-md hover:opacity-90 text-white text-xl" />
+            <FaSearch className="transition-transform hover:text-[#684DF4] duration-300 ease-in-out hover:scale-110 cursor-pointer hover:shadow-md hover:opacity-90 text-white text-xl" />
             <Link href="/auth/signup">
               <Button
-                label="Sign up"
+                label="Login"
                 width="w-[120px]"
                 buttonStyle="custom"
                 height="h-[36px]"
                 labelSize="text-[15px] font-lg rounded-md"
-                customClasses="cursor-pointer text-white hover:bg-indigo-500 bg-indigo-400 rounded-full"
+                customClasses="cursor-pointer text-[#080F1C] border border-[#684DF4] hover:text-white hover:bg-[#684DF4] bg-white rounded-full transition-transform duration-300 ease-in-out hover:scale-110 hover:opacity-90"
               />
             </Link>
             <Link href="/auth/login">
@@ -56,7 +83,7 @@ const DesktopNav = () => {
                 buttonStyle="custom"
                 height="h-[36px]"
                 labelSize="text-[15px] font-lg"
-                customClasses="text-[#3A414CE5] hover:text-white hover:bg-[#b49aeb] cursor-pointer border border-[#b49aeb] rounded-full"
+                customClasses="text-[#684DF4] hover:text-white hover:bg-[#684DF4] cursor-pointer border border-[#684DF4] rounded-full transition-transform duration-300 ease-in-out hover:scale-110 hover:opacity-90"
               />
             </Link>
           </div>
