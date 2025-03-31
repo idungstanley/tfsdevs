@@ -20,7 +20,7 @@ const Footer = () => {
       {/* Background Animation */}
       <div className="absolute inset-0 bg-[url('/path-to-network-pattern.png')] bg-cover opacity-40"></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 flex flex-col md:flex-col items-center justify-between gap-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
         {/* About Section */}
         <div className="flex flex-col gap-4 md:w-[30%] w-full">
           <div>
@@ -39,7 +39,7 @@ const Footer = () => {
             ))}
           </div>
         </div>
-        <div className="flex flex-col md:flex-col w-full justify-end gap-20">
+        <div className="flex flex-col md:flex-row w-full justify-end gap-20">
           {/* Quick Links */}
           <div className="flex flex-col gap-4">
             <div>
@@ -73,7 +73,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom Section */}
-      <div className="border-t border-gray-600 mt-8 py-6 px-6 h-20 flex justify-center w-full items-center">
+      <div className="border-t border-gray-600 mt-8 py-6 px-6 md:px-28 h-20 w-full">
         <div className="relative z-10 flex flex-col md:flex-row items-center justify-between w-full">
           <p className="text-gray-400 text-sm">
             Copyright © 2024 <span className="text-[#684DF4]">TheFullSnackDevs</span>
