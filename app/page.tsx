@@ -1,10 +1,13 @@
 import Navbar from './components/navBar';
-import Hero from './components/hero';
 import Features from './components/features';
 import WhatMakesUsUnique from './components/what-makes-us-unique';
 import CoursesWeOffers from './components/what-we-offer';
 import Reviews from './components/reviews';
 import Footer from './components/footer';
+import HeroSection from './components/hero';
+import ContactInfo from './components/contact-info';
+import ScrollingLogos from './components/ScrollingLogos';
+import StatsCounter from './components/StatsCounter';
 
 export default function Home() {
   return (
@@ -17,19 +20,20 @@ export default function Home() {
           backgroundSize: '100 100'
         }}
       >
-        <div
-          className="px-10 pt-10"
-        >
+        <div className="md:px-10 px-4 md:pt-10 pt-4">
           <Navbar />
         </div>
-        <Hero />
-      </div>
-      <div className="flex flex-col flex-1">
+        <HeroSection />
         <Features />
-        <WhatMakesUsUnique />
+      </div>
+      <WhatMakesUsUnique />
+      <div className="flex flex-col flex-1">
+        <StatsCounter/>
         <CoursesWeOffers />
+        <ScrollingLogos />
         <Reviews />
       </div>
+      <ContactInfo />
       <Footer />
     </div>
   );

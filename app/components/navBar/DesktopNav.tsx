@@ -11,11 +11,11 @@ const DesktopNav = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   return (
-    <div className="lg:flex items-center justify-between px-4 w-full hidden text-white">
+    <div className="lg:flex items-center justify-between px-10 w-full hidden text-white">
       <Link href="/">
-        <div className="items-center justify-center w-full flex gap-4 hover:text-[#684DF4]">
-          <Image src="/logo.png" alt="logo" width={500} height={500} className="h-[50px] w-[60px]" />
-          <p className="font-[800]">TheFullSnackDev</p>
+        <div className="items-center justify-center w-full flex hover:text-[#684DF4]">
+          <Image src="/iconpurple.svg" alt="logo" width={500} height={500} className="h-[50px] w-[60px]" />
+          <Image src="/logotext.svg" alt="logo" width={500} height={500} className="h-[50px] w-[60px]" />
         </div>
       </Link>
       <ul className="flex space-x-6">
@@ -64,7 +64,9 @@ const DesktopNav = () => {
       <div className="flex items-center gap-2 md:gap-4">
         <div className="flex items-center gap-2 md:gap-5">
           <div className="flex items-center justify-end w-full gap-5">
-            <FaCartPlus className="transition-transform hover:text-[#684DF4] duration-300 ease-in-out hover:scale-110 cursor-pointer hover:shadow-md hover:opacity-90 text-white text-xl" />
+            <Link href="https://shop.thefullsnackdevs.com" target='_blank'>
+              <FaCartPlus className="transition-transform hover:text-[#684DF4] duration-300 ease-in-out hover:scale-110 cursor-pointer hover:shadow-md hover:opacity-90 text-white text-xl" />
+            </Link>
             <FaSearch className="transition-transform hover:text-[#684DF4] duration-300 ease-in-out hover:scale-110 cursor-pointer hover:shadow-md hover:opacity-90 text-white text-xl" />
             <Link href="/auth/signup">
               <Button

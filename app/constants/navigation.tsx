@@ -1,5 +1,5 @@
 import { AiFillInstagram } from "react-icons/ai";
-import { FaFacebook } from "react-icons/fa";
+import { FaCloud, FaDatabase, FaFacebook, FaNetworkWired } from "react-icons/fa";
 import { RiTwitterXLine } from "react-icons/ri";
 
 export const navItems = [
@@ -36,4 +36,27 @@ export const footerItems = [
   { title: 'Courses', url: '/courses' },
   { title: 'FAQ', url: '/faq' },
   { title: 'Contact', url: '/contact' }
+];
+
+export const cardData = [
+  {
+    title: 'IT Management',
+    description: 'Promote transparent materials and stand-alone strategic theme areas.',
+    icon: <FaNetworkWired className="text-[#684DF4] text-[14px]" />
+  },
+  {
+    title: 'Cloud Computing',
+    description: 'Enable secure, scalable cloud solutions for businesses.',
+    icon: <FaCloud className="text-[#684DF4] text-[14px]" />
+  },
+  {
+    title: 'Database Systems',
+    description: 'Manage and optimize data storage with high availability.',
+    icon: <FaDatabase className="text-[#684DF4] text-[14px]" />
+  },
+  {
+    title: 'Cyber Security',
+    description: 'Protect critical assets and prevent cyber threats effectively.',
+    icon: <FaNetworkWired className="text-[#684DF4] text-[14px]" />
+  }
 ];

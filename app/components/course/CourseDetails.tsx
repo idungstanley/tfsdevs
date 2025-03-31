@@ -13,7 +13,7 @@ const CourseDetails: React.FC<{ course: Course }> = ({ course }) => {
       <h2 className="text-2xl font-semibold text-gray-800">{course.title}</h2>
       <p className="mt-2 text-gray-600">{course.description}</p>
 
-      <button onClick={toggleCollapse} className="mt-4 text-[#a785f1] hover:underline cursor-pointer">
+      <button onClick={toggleCollapse} className="mt-4 text-[#684DF4] hover:underline cursor-pointer">
         {isOpen ? 'Hide Features' : 'Show Features'}
       </button>
 

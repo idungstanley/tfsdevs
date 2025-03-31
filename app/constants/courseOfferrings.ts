@@ -1,4 +1,6 @@
+import { IoCall, IoMail } from "react-icons/io5";
 import { Course } from "../types/index.interface";
+import { FaLocationDot } from "react-icons/fa6";
 
 // Constants for Course Data
 export const courseData: Course[] = [
@@ -36,3 +38,12 @@ export const courseData: Course[] = [
         ]
     }
 ];
+
+
+export const whatWeOffer = ["Certification", "24/7 Support", "Skilled Tutors", "Recorded Classes", "Guaranteed Internship", "Professional guidiance"];
+
+export const contactInformations = [
+    { icon: IoCall, message: "Quick Call Us:", link: "tel:+2349039267685", value: "+234-903926-7685" },
+    { icon: IoMail, message: "Mail Us On:", link: "mailto: info@thefullsnacksdevs.com", value: "info@thefullsnacksdevs.com" },
+    { icon: FaLocationDot, message: "Visit Location:", link: "", value: "" },
+]

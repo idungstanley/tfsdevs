@@ -15,7 +15,7 @@ const Hamburger = ({ isToggle, color, size, toggleFn, width, height, classname }
       {isToggle ? (
         <IoCloseOutline
           onClick={handleCloseModal}
-          className={`${classname} z-[999] absolute top-4 right-12 text-gray-700`}
+          className={`${classname} z-[999] absolute top-4 right-12 text-white`}
           size={size}
           width={width}
           height={height}
@@ -23,7 +23,7 @@ const Hamburger = ({ isToggle, color, size, toggleFn, width, height, classname }
       ) : (
         <HiMenuAlt3
           onClick={handleOpenModal}
-          className="text-gray-700"
+          className="text-white"
           color={color}
           size={size}
           width={width}

@@ -1,70 +1,100 @@
-import React from 'react';
-import { BsArrowUpRightCircleFill } from 'react-icons/bs';
-import Button from '../button/Button';
-import Link from 'next/link';
-import Image from 'next/image';
-import { footerItems, socials } from '@/app/constants/navigation';
+'use client';
+
+import React, { ReactNode } from 'react';
+import { SOCIAL_LINKS, QUICK_LINKS, IT_SERVICES, FOOTER_LINKS } from '@/app/constants/footerData';
+import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram, FaYoutube, FaArrowUp } from 'react-icons/fa';
+import ProgressBar from '../ProgressBar';
+import { GoChevronRight } from 'react-icons/go';
+
+const ICON_MAP: { [key: string]: ReactNode } = {
+  facebook: <FaFacebookF />,
+  twitter: <FaTwitter />,
+  linkedin: <FaLinkedinIn />,
+  instagram: <FaInstagram />,
+  youtube: <FaYoutube />
+};
 
 const Footer = () => {
   return (
-    <footer className="md:px-20 p-6 pt-20 flex bg-[#ECE0FF] flex-col md:gap-20 gap-10 w-full">
-      <div className="flex flex-col md:flex-row md:items-center justify-between w-full gap-6">
-        <div className="flex flex-col gap-4">
-          <h1 className="font-[700] text-black md:text-[45px] text-[30px]">
-            Join the <span className="text-[#b49aeb]">Community</span>
-          </h1>
-          <p className="text-[14px]">Here we believe that learning thrives through collaboration</p>
-          <div className="flex items-center justify-between p-1 bg-[#E3D4FB] rounded-full w-full md:w-[400px] px-2">
-            <input type="text" placeholder="Enter your email" className="focus:outline-none px-2 w-full" />
-            <Button
-              label="Subscribe"
-              width="w-fit"
-              buttonStyle="custom"
-              height="h-[36px]"
-              labelSize="text-[15px] font-lg rounded-md"
-              customClasses="cursor-pointer text-white bg-[#b49aeb] px-2 rounded-full"
-              icon={<BsArrowUpRightCircleFill className="text-white text-[20px]" />}
-              iconPosition="right"
-            />
+    <footer className="relative bg-[#0E1225] text-white pt-12">
+      {/* Background Animation */}
+      <div className="absolute inset-0 bg-[url('/path-to-network-pattern.png')] bg-cover opacity-40"></div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 flex flex-col md:flex-col items-center justify-between gap-8">
+        {/* About Section */}
+        <div className="flex flex-col gap-4 md:w-[30%] w-full">
+          <div>
+            <h2 className="text-xl font-bold mb-2">ABOUT COMPANY</h2>
+            <ProgressBar />
           </div>
-        </div>
-        <div className="flex flex-col gap-4 items-start md:items-end text-[14px]">
-          <h5 className="text-[#b49aeb] font-bold">Contact</h5>
-          <p>Monday - Sunday</p>
-          <p>8:00am - 5:00pm</p>
-          <p>thefullsnackdevs@gmail.com</p>
-        </div>
-      </div>
-      <div className="flex flex-col md:flex-row justify-between gap-6">
-        <div className="flex flex-col gap-8">
-          <Link href="/">
-            <div className="items-center w-full flex gap-4">
-              <Image src="/logo.png" alt="logo" width={500} height={500} className="h-[50px] w-[60px]" />
-              <p className="font-[800]">TheFullSnackDev</p>
-            </div>
-          </Link>
-          <p className="text-gray-700 text-[12px]">@2024theFullSnackDev.copyright</p>
-        </div>
-        <div className="flex flex-col md:flex-row gap-4 md:gap-10 text-[14px]">
-          {footerItems.map((item, index) => (
-            <Link key={index} href={item.url}>
-              {item.title}
-            </Link>
-          ))}
-        </div>
-        <div className="flex-col flex justify-between gap-5">
-          <div className="flex items-center md:gap-3 gap-6 text-[#b49aeb]">
-            {socials.map((item, index) => (
-              <Link
-                key={index}
-                href={item.url}
-                className="size-7 bg-white rounded-full flex items-center justify-center"
-              >
-                {item.icon}
-              </Link>
+          <p className="text-sm text-gray-400">
+            Professionally redefine transparent ROI through low-risk high-yield imperatives. Progressively create
+            empowered, cost-effective users via team-driven solutions.
+          </p>
+          <div className="flex gap-3 mt-4">
+            {SOCIAL_LINKS.map(({ icon, link }) => (
+              <a key={icon} href={link} className="p-3 border rounded-full hover:bg-[#684DF4] transition">
+                {ICON_MAP[icon]}
+              </a>
             ))}
           </div>
-          <p className="text-gray-700 text-[12px]">Terms and condition</p>
+        </div>
+        <div className="flex flex-col md:flex-col w-full justify-end gap-20">
+          {/* Quick Links */}
+          <div className="flex flex-col gap-4">
+            <div>
+              <h2 className="text-xl font-bold mb-4">QUICK LINKS</h2>
+              <ProgressBar />
+            </div>
+            <ul className="text-gray-400 space-y-2">
+              {QUICK_LINKS.map((item) => (
+                <li key={item} className="flex items-center gap-2 hover:text-[#684DF4] cursor-pointer">
+                  <GoChevronRight /> {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* IT Services */}
+          <div className="flex flex-col gap-4">
+            <div>
+              <h2 className="text-xl font-bold mb-4">IT SERVICES</h2>
+              <ProgressBar />
+            </div>
+            <ul className="text-gray-400 space-y-2">
+              {IT_SERVICES.map((item) => (
+                <li key={item} className="flex items-center gap-2 hover:text-[#684DF4] cursor-pointer">
+                  <GoChevronRight /> {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Section */}
+      <div className="border-t border-gray-600 mt-8 py-6 px-6 h-20 flex justify-center w-full items-center">
+        <div className="relative z-10 flex flex-col md:flex-row items-center justify-between w-full">
+          <p className="text-gray-400 text-sm">
+            Copyright © 2024 <span className="text-[#684DF4]">TheFullSnackDevs</span>
+          </p>
+
+          {/* Footer Links */}
+          <div className="flex gap-4 text-gray-400 text-sm">
+            {FOOTER_LINKS.map(({ name, link }) => (
+              <a key={name} href={link} className="hover:text-white">
+                {name}
+              </a>
+            ))}
+          </div>
+
+          {/* Scroll to Top */}
+          <button
+            className="fixed bottom-6 right-6 bg-purple-500 text-white p-3 rounded-full shadow-lg hover:bg-purple-700 transition"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          >
+            <FaArrowUp />
+          </button>
         </div>
       </div>
     </footer>

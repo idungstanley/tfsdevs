@@ -16,7 +16,7 @@ const CursorFollower = () => {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 w-5 h-5 border border-[#684DF4] bg-transparent rounded-full pointer-events-none shadow-lg"
+      className="fixed top-0 z-[99999] left-0 w-5 h-5 border border-[#684DF4] bg-transparent rounded-full pointer-events-none shadow-lg"
       animate={{ x: position.x - 12, y: position.y - 12 }} // Center the ball
       transition={{ type: 'spring', stiffness: 100, damping: 40 }}
     />
