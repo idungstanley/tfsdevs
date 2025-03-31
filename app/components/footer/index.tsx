@@ -2,12 +2,13 @@
 
 import React, { ReactNode } from 'react';
 import { SOCIAL_LINKS, QUICK_LINKS, IT_SERVICES, FOOTER_LINKS } from '@/app/constants/footerData';
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram, FaYoutube, FaArrowUp } from 'react-icons/fa';
+import { FaTwitter, FaLinkedinIn, FaInstagram, FaYoutube, FaArrowUp } from 'react-icons/fa';
 import ProgressBar from '../ProgressBar';
 import { GoChevronRight } from 'react-icons/go';
+import { FaFacebook } from 'react-icons/fa6';
 
 const ICON_MAP: { [key: string]: ReactNode } = {
-  facebook: <FaFacebookF />,
+  facebook: <FaFacebook />,
   twitter: <FaTwitter />,
   linkedin: <FaLinkedinIn />,
   instagram: <FaInstagram />,
@@ -90,7 +91,7 @@ const Footer = () => {
 
           {/* Scroll to Top */}
           <button
-            className="fixed bottom-6 right-6 bg-purple-500 text-white p-3 rounded-full shadow-lg hover:bg-purple-700 transition"
+            className="fixed bottom-6 right-6 bg-[#684DF4] text-white p-3 rounded-full shadow-lg hover:bg-[#684DF4] transition"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
             <FaArrowUp />
