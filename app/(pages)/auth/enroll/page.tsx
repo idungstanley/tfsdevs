@@ -3,11 +3,13 @@ import Link from 'next/link';
 import React from 'react'
 import Enroll from './component/Enroll';
 import TextWithLinks from '@/app/components/text/TextWithLinks';
+import AuthTabs from '@/app/components/tabs/AuthTab';
 
 const EnrollPage = () => {
   return (
     <div className="text-white w-full h-full flex flex-col p-4">
-      <div className="w-full flex mt-2">
+      <AuthTabs />
+      <div className="w-full mt-2 md:flex hidden">
         <TextWithLinks
           text="Already a fullSnackDev?"
           linkLabel="Sign In!"
