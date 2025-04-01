@@ -12,7 +12,7 @@ const AuthTabs = () => {
       <button
         onClick={() => router.push('/auth/login')}
         className={`flex-1 py-2 text-center rounded-lg transition-all ${
-          pathname === '/auth/login' ? 'bg-white shadow-md font-semibold text-black' : 'text-gray-500'
+          pathname === '/auth/login' ? 'bg-white shadow-md font-semibold text-black' : 'text-white'
         }`}
       >
         Sign In
@@ -22,7 +22,7 @@ const AuthTabs = () => {
       <button
         onClick={() => router.push('/auth/enroll')}
         className={`flex-1 py-2 text-center rounded-lg transition-all ${
-          pathname === '/auth/enroll' ? 'bg-white shadow-md font-semibold text-black' : 'text-gray-500'
+          pathname === '/auth/enroll' ? 'bg-white shadow-md font-semibold text-black' : 'text-white'
         }`}
       >
         Signup
