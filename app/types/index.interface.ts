@@ -1,4 +1,4 @@
-import { CSSProperties, SetStateAction } from "react";
+import { CSSProperties, ReactElement, SetStateAction } from "react";
 
 export interface HamburgerProps {
     isToggle: boolean;
@@ -58,3 +58,59 @@ export interface Testimonial {
   testimonial: string;
   reviewLink: string;
 }
+
+export interface displayItemsProps {
+    image: string;
+    sloganHeader?: string;
+    sloganText?: string;
+}
+
+export interface TextWithLinksProps {
+    linkRoute?: string;
+    textColor?: string;
+    linkLabel: string;
+    text?: string;
+    textPosition?: string;
+    handleClick?: () => void;
+}
+
+export interface InputDataTypes {
+    label?: string;
+    required?: boolean;
+    placeholder?: string;
+    hint?: string;
+    name: string;
+    cornerHint?: string;
+    type?: string;
+    autoComplete?: string;
+    value?: string | number;
+    leadingIcon?: string | ReactElement;
+    trailingIcon?: string | ReactElement;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    keyDownFunc?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+    onBlur?: (e: React.FocusEvent<HTMLInputElement, Element>) => void;
+    trailingClick?: () => void;
+    bgColor?: string;
+    borderRadius?: string;
+    height?: string;
+    isBorder?: boolean;
+    classes?: string;
+    styles?: {
+        color: string;
+        fontSize?: string;
+        fontWeight?: string;
+        lineHeight?: string;
+    };
+    labelClasses?: string;
+    width?: string;
+    valueAsNumber?: boolean;
+    isError?: boolean;
+    errorMessage?: string;
+    handleSelect?: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+    selectValue?: string;
+}
+
+export type LoginProps = {
+    email: string;
+    password: string;
+};

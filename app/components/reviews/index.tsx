@@ -9,7 +9,7 @@ const Reviews = () => {
   return (
     <section className="w-full flex-col flex gap-4 bg-[#F7F5FF] md:px-20 md:pt-20 p-6">
       <h1 className="font-[700] text-black md:text-[45px] text-[30px]">
-        Our <span className="text-[#684DF4]">Course</span> Offerings
+        Our <span className="text-[#684DF4]">Testimonials</span> and Reviews
       </h1>
       <div className="flex flex-col md:flex-row gap-4 w-full">
         {testimonials.map((testimonial) => (
@@ -17,7 +17,13 @@ const Reviews = () => {
         ))}
       </div>
       <div className="flex flex-col md:flex-row rounded-lg bg-white shadow-md mt-4">
-        <Image alt="together" src="/together.jpg" width={700} height={700} className="md:rounded-l-lg rounded-r-none rounded-t-lg" />
+        <Image
+          alt="together"
+          src="/together.jpg"
+          width={700}
+          height={700}
+          className="md:rounded-l-lg rounded-r-none rounded-t-lg"
+        />
         <div className="bg-[#684DF4]/60 md:rounded-r-lg md:round rounded-b-lg px-8 py-6 gap-6 flex flex-col justify-center">
           <div className="flex flex-col gap-3">
             <h3 className="font-bold text-[30px]">Get in Touch</h3>

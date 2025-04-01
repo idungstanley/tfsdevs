@@ -1,0 +1,32 @@
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react'
+import Enroll from './component/Enroll';
+import TextWithLinks from '@/app/components/text/TextWithLinks';
+
+const EnrollPage = () => {
+  return (
+    <div className="text-white w-full h-full flex flex-col p-4">
+      <div className="w-full flex mt-2">
+        <TextWithLinks
+          text="Already a fullSnackDev?"
+          linkLabel="Sign In!"
+          linkRoute="/auth/enroll"
+          textColor="text-gray-700"
+          textPosition="md:justify-end justify-center font-[600]"
+        />
+      </div>
+      <div className="flex items-center flex-col w-full h-full pt-10 overflow-y-auto">
+        <Link href="/">
+          <div className="items-center justify-center w-full flex hover:text-[#684DF4]">
+            <Image src="/iconpurple.svg" alt="logo" width={500} height={500} className="h-[50px] w-[60px]" />
+            <Image src="/black-logo-text.svg" alt="logo" width={500} height={500} className="h-[50px] w-[100px]" />
+          </div>
+        </Link>
+        <Enroll />
+      </div>
+    </div>
+  );
+}
+
+export default EnrollPage

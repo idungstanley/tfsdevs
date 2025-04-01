@@ -68,7 +68,7 @@ const DesktopNav = () => {
               <FaCartPlus className="transition-transform hover:text-[#684DF4] duration-300 ease-in-out hover:scale-110 cursor-pointer hover:shadow-md hover:opacity-90 text-white text-xl" />
             </Link>
             <FaSearch className="transition-transform hover:text-[#684DF4] duration-300 ease-in-out hover:scale-110 cursor-pointer hover:shadow-md hover:opacity-90 text-white text-xl" />
-            <Link href="/auth/signup">
+            <Link href="/auth/login">
               <Button
                 label="Login"
                 width="w-[120px]"
@@ -78,7 +78,7 @@ const DesktopNav = () => {
                 customClasses="cursor-pointer text-[#080F1C] border border-[#684DF4] hover:text-white hover:bg-[#684DF4] bg-white rounded-full transition-transform duration-300 ease-in-out hover:scale-110 hover:opacity-90"
               />
             </Link>
-            <Link href="/auth/login">
+            <Link href="/auth/enroll">
               <Button
                 label="Enroll now"
                 width="w-fit"
