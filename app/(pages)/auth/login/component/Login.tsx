@@ -54,7 +54,7 @@ const Login = () => {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit} className="w-[80%]">
+    <form onSubmit={formik.handleSubmit} className="md:w-[80%] w-full p-4 md:p-0 pt-0">
       <div className="text-left lg:my-4 mb-1">
         <Header text="Sign In" textColor="text-gray-700" textSize="text-[30px]" />
         <p className="text-gray-500">Enter your email address and password to log in to your dashboard</p>
