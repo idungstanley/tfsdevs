@@ -38,9 +38,9 @@ const MobileNav = () => {
             }`}
           >
             <div className="flex flex-col items-center justify-between w-full gap-4 text-center">
-              <Link href="/auth/signup" className="w-full">
+              <Link href="/auth/enroll" className="w-full">
                 <Button
-                  label="Sign up"
+                  label="Enroll now"
                   width="w-full"
                   buttonStyle="custom"
                   height="h-[36px]"
@@ -50,7 +50,7 @@ const MobileNav = () => {
               </Link>
               <Link href="/auth/login" className="w-full">
                 <Button
-                  label="Enroll now"
+                  label="Login"
                   width="w-full"
                   buttonStyle="custom"
                   height="h-[36px]"
