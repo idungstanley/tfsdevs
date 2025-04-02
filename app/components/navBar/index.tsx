@@ -7,10 +7,11 @@ import MobileNav from './MobileNav';
 interface NavbarProps {
   color?: string;
   zIndex?: string;
+  sticky?: boolean;
 }
 
-const Navbar = ({ color = 'text-black dark:text-white', zIndex = 'z-[999]' }: NavbarProps) => {
-  const [isSticky, setIsSticky] = useState(false);
+const Navbar = ({ color = 'text-black dark:text-white', zIndex = 'z-[999]', sticky = false }: NavbarProps) => {
+  const [isSticky, setIsSticky] = useState(sticky);
 
   useEffect(() => {
     const handleScroll = () => {
