@@ -11,7 +11,7 @@ const AuthTabs = () => {
       {/* Sign In Tab */}
       <button
         onClick={() => router.push('/auth/login')}
-        className={`flex-1 py-2 text-center rounded-lg transition-all ${
+        className={`flex-1 py-2 text-center cursor-pointer rounded-lg transition-all ${
           pathname === '/auth/login' ? 'bg-white shadow-md font-semibold text-black' : 'text-white'
         }`}
       >
@@ -21,7 +21,7 @@ const AuthTabs = () => {
       {/* Sign Up Tab */}
       <button
         onClick={() => router.push('/auth/enroll')}
-        className={`flex-1 py-2 text-center rounded-lg transition-all ${
+        className={`flex-1 py-2 cursor-pointer text-center rounded-lg transition-all ${
           pathname === '/auth/enroll' ? 'bg-white shadow-md font-semibold text-black' : 'text-white'
         }`}
       >

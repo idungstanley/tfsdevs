@@ -13,7 +13,7 @@ const EnrollPage = () => {
         <TextWithLinks
           text="Already a fullSnackDev?"
           linkLabel="Sign In!"
-          linkRoute="/auth/enroll"
+          linkRoute="/auth/login"
           textColor="text-gray-700"
           textPosition="md:justify-end justify-center font-[600]"
         />
