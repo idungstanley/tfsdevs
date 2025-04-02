@@ -7,7 +7,7 @@ const AuthTabs = () => {
   const pathname = usePathname();
 
   return (
-    <div className="flex w-full max-w-sm bg-gray-900 rounded-lg p-1">
+    <div className="flex md:hidden w-full max-w-sm bg-gray-900 rounded-lg p-1">
       {/* Sign In Tab */}
       <button
         onClick={() => router.push('/auth/login')}
