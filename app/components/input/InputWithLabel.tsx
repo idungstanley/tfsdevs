@@ -41,7 +41,7 @@ function InputWithLabel({
         )}
         {label && (
           <div className="flex justify-between">
-            <label htmlFor={name} className={`z-10 ${labelClasses}`}>
+            <label htmlFor={name} className={`z-10 text-[14px] ${labelClasses}`}>
               {label} {required && <span className="ml-1 text-red-500">*</span>}
             </label>
             {cornerHint && <span className="text-gray-500">{cornerHint}</span>}

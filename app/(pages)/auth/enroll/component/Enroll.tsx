@@ -144,7 +144,7 @@ const Enroll = () => {
             height="h-[40px] rounded-lg"
           />
         </div>
-        <div className="mt-[15px] text-gray-700 flex gap-5  flex-col md:flex-row w-full">
+        <div className="text-gray-700 flex gap-5 flex-col md:flex-row w-full">
           <InputWithLabel
             isError={!!formik.errors.password && formik.touched.password}
             errorMessage={formik.touched.password ? formik.errors.password : ''}
@@ -186,7 +186,7 @@ const Enroll = () => {
             onBlur={formik.handleBlur}
           />
         </div>
-        <div className="mt-[15px] text-gray-700 flex gap-4 w-full">
+        <div className="text-gray-700 flex gap-4 w-full">
           <InputWithLabel
             name="aboutus"
             isError={!!formik.errors.password && formik.touched.password}
