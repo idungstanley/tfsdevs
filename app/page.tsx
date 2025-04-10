@@ -11,7 +11,7 @@ import StatsCounter from './components/StatsCounter';
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen font-[family-name:var(--font-geist-sans)] bg-[#F7F5FF] w-full">
+    <div className="flex flex-col min-h-screen font-[family-name:var(--font-geist-sans)] bg-[#111111] w-full">
       <div
         className="bg-cover bg-no-repeat"
         style={{
@@ -28,7 +28,7 @@ export default function Home() {
       </div>
       <WhatMakesUsUnique />
       <div className="flex flex-col flex-1">
-        <StatsCounter/>
+        <StatsCounter />
         <CoursesWeOffers />
         <ScrollingLogos />
         <Reviews />

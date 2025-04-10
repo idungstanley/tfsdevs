@@ -1,7 +1,6 @@
 import { Course } from '@/app/types/index.interface';
 import React, { useState } from 'react';
 
-
 // CourseDetails Component (remains the same)
 const CourseDetails: React.FC<{ course: Course }> = ({ course }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,16 +8,16 @@ const CourseDetails: React.FC<{ course: Course }> = ({ course }) => {
   const toggleCollapse = () => setIsOpen(!isOpen);
 
   return (
-    <div className="bg-white shadow-lg rounded-lg p-6 mb-6">
-      <h2 className="text-2xl font-semibold text-gray-800">{course.title}</h2>
-      <p className="mt-2 text-gray-600">{course.description}</p>
+    <div className="bg-[#101010] shadow-lg rounded-lg p-6 mb-6 text-white">
+      <h2 className="text-2xl font-semibold">{course.title}</h2>
+      <p className="mt-2">{course.description}</p>
 
       <button onClick={toggleCollapse} className="mt-4 text-[#684DF4] hover:underline cursor-pointer">
         {isOpen ? 'Hide Features' : 'Show Features'}
       </button>
 
       {isOpen && (
-        <ul className="mt-4 space-y-2 text-gray-700">
+        <ul className="mt-4 space-y-2">
           {course.features.map((feature, index) => (
             <li key={index} className="flex items-center space-x-2">
               <svg

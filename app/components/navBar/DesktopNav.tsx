@@ -37,13 +37,13 @@ const DesktopNav = () => {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute left-0 mt-2 bg-white shadow-lg rounded-md w-fit min-w-40 p-2 pointer-events-auto"
+                      className="absolute left-0 mt-2 bg-[#0E1225] shadow-lg rounded-md w-fit min-w-40 p-2 pointer-events-auto"
                     >
                       {item.children.map((child, idx) => (
                         <li key={idx}>
                           <Link
                             href={child.route}
-                            className="block px-4 py-2 text-gray-800 hover:bg-gray-200 rounded-md hover:text-[#684DF4] text-nowrap"
+                            className="block px-4 py-2 text-white hover:bg-gray-200 rounded-md hover:text-[#684DF4] text-nowrap"
                           >
                             {child.label}
                           </Link>
@@ -64,7 +64,7 @@ const DesktopNav = () => {
       <div className="flex items-center gap-2 md:gap-4">
         <div className="flex items-center gap-2 md:gap-5">
           <div className="flex items-center justify-end w-full gap-5">
-            <Link href="https://shop.thefullsnackdevs.com" target='_blank'>
+            <Link href="https://shop.thefullsnackdevs.com" target="_blank">
               <FaCartPlus className="transition-transform hover:text-[#684DF4] duration-300 ease-in-out hover:scale-110 cursor-pointer hover:shadow-md hover:opacity-90 text-white text-xl" />
             </Link>
             <FaSearch className="transition-transform hover:text-[#684DF4] duration-300 ease-in-out hover:scale-110 cursor-pointer hover:shadow-md hover:opacity-90 text-white text-xl" />

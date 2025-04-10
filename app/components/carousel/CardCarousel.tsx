@@ -42,7 +42,7 @@ const Carousel: React.FC<CarouselProps> = ({ cards, interval = 3000, primaryColo
             i // Duplicating the first 3 cards for infinite loop effect
           ) => (
             <div
-              className="relative p-6 rounded-xl shadow-lg bg-white flex flex-col items-center text-center shrink-0 md:h-full w-[300px] md:w-[23.2%]  md:max-h-[250px] max-h-[200px]"
+              className="relative p-6 rounded-xl shadow-lg bg-[#111111]/90 flex flex-col items-center text-center shrink-0 md:h-full w-[300px] md:w-[23.2%]  md:max-h-[250px] max-h-[200px]"
               key={i}
             >
               <div className="flex flex-col items-center text-center shrink-0 w-full">
@@ -67,8 +67,8 @@ const Carousel: React.FC<CarouselProps> = ({ cards, interval = 3000, primaryColo
                     }}
                   ></div>
                 </div>
-                <h2 className="mt-4 text-lg font-bold">{card.title}</h2>
-                <p className="text-gray-500 text-sm mt-2">{card.description}</p>
+                <h2 className="mt-4 text-white text-lg font-bold">{card.title}</h2>
+                <p className="text-white text-sm mt-2">{card.description}</p>
               </div>
               <motion.button
                 whileHover={{ scale: 1.1 }}

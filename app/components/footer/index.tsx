@@ -91,7 +91,7 @@ const Footer = () => {
 
           {/* Scroll to Top */}
           <button
-            className="fixed bottom-6 right-6 bg-[#684DF4] text-white p-3 rounded-full shadow-lg hover:bg-[#684DF4] transition"
+            className="fixed bottom-6 cursor-pointer right-6 bg-[#684DF4] text-white p-3 rounded-full shadow-lg hover:bg-[#684DF4] transition"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
             <FaArrowUp />

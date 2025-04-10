@@ -19,10 +19,10 @@ const logosBottom = [
 
 const ScrollingLogos = () => {
   return (
-    <div className="w-full bg-white py-8 flex flex-col gap-10 items-center px-4">
+    <div className="w-full bg-[#11111] py-8 flex flex-col gap-10 items-center px-4">
       <div className="flex items-center justify-center gap-2">
         <Image src="/title_shape.svg" alt="title shape" width={500} height={500} className="h-8 w-8" />
-        <h1 className="font-[700] text-black md:text-[20px] text-[16px]">
+        <h1 className="font-[700] text-white md:text-[20px] text-[16px]">
           Where our <span className="text-[#684DF4]">Mentees</span> work
         </h1>
       </div>
@@ -31,7 +31,7 @@ const ScrollingLogos = () => {
       <div className="flex flex-col gap-7">
         <div className="overflow-hidden relative w-full">
           {/* Upper Row - Scroll Left */}
-          <div className="flex md:w-max w-full animate-scrollLeft md:gap-10 gap-4">
+          <div className="flex md:w-max w-full animate-scrollLeft md:gap-16 gap-4">
             {logosTop.map((logo, index) => (
               <img key={index} src={logo} alt="Company Logo" className="h-12 object-contain" />
             ))}
@@ -41,7 +41,7 @@ const ScrollingLogos = () => {
 
         {/* Lower Row - Scroll Right */}
         <div className="overflow-hidden relative mt-4 w-full">
-          <div className="flex md:w-max w-full animate-scrollRight space-x-10">
+          <div className="flex md:w-max w-full animate-scrollRight space-x-16">
             {logosBottom.map((logo, index) => (
               <img key={index} src={logo} alt="Company Logo" className="h-12 object-contain" />
             ))}

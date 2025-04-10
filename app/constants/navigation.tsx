@@ -15,8 +15,9 @@ export const navItems = [
   {
     label: 'Courses',
     children: [
-      { label: 'React', route: '/courses/react' },
-      { label: 'Next.js', route: '/courses/nextjs' }
+      { label: 'Frontend Development', route: '/courses/frontend' },
+      { label: 'Backend Development', route: '/courses/backend' },
+      { label: 'Fullstack Development', route: '/courses/fullstack' }
     ]
   },
   { label: 'FAQ', route: '/faq' },

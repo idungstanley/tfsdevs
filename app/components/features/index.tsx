@@ -7,15 +7,15 @@ import { cardData } from '@/app/constants/navigation';
 const Features = () => {
   return (
     <section
-      className="relative md:px-20 md:py-6 pb-10 p-6 flex flex-col gap-4 mt-20 md:m-10 m-4 md:rounded-[50px] rounded-2xl bg-cover bg-no-repeat bg-fixed"
+      className="relative md:px-20 md:py-6 pb-10 p-6 flex flex-col gap-4 mt-28 md:m-18 m-4 rounded-2xl bg-cover bg-no-repeat bg-fixed"
       style={{
-        backgroundImage: "url('/group.jpg')",
+        backgroundImage: "url('/coding-env.jpg')",
         backgroundPosition: 'center',
         backgroundSize: 'cover'
       }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-[#684DF4] opacity-20 rounded-2xl  md:rounded-[50px]"></div>
+      <div className="absolute inset-0 bg-[#111111] opacity-30 rounded-2xl"></div>
       <div className="absolute md:right-14 right-6 -top-6 flex justify-center h-screen">
         <AnimatedButton
           label="Over 2K active members"

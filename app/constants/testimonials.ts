@@ -4,7 +4,7 @@ import { Testimonial } from "../types/index.interface";
 export const testimonials: Testimonial[] = [
     {
         id: 1,
-        name: 'John Doe',
+        name: 'thecodedchamp',
         profilePicture: '/twitter-photo.jpg',
         stars: 5,
         testimonial: 'This course was fantastic! I learned so much, and the instructors were really helpful.',
@@ -12,8 +12,8 @@ export const testimonials: Testimonial[] = [
     },
     {
         id: 2,
-        name: 'Jane Smith',
-        profilePicture: '/twitter-photo.jpg',
+        name: 'Gabriel Nicholas',
+        profilePicture: '/avatar.jpg',
         stars: 4,
         testimonial: 'Great content and resources. The only downside is the pace of the course, which could be improved.',
         reviewLink: '/review/2'
@@ -35,3 +35,11 @@ export const testimonials: Testimonial[] = [
         reviewLink: '/review/4'
     }
 ];
+
+export const stacks = [
+    { label: "javascript", imgSrc: "/javascript.svg"},
+    { label: "react", imgSrc: "/react.svg"},
+    { label: "node", imgSrc: "/node.svg"},
+    { label: "fullstack", imgSrc: "/fullstack.svg"},
+    { label: "nextjs", imgSrc: "/nextjs.svg"},
+]
