@@ -24,12 +24,12 @@ const LearningCard: React.FC<LearningCardProps> = ({ thumbnailUrl, title, tags =
   const exceedsWordLimit = wordCount > 40;
 
   // Truncated description (first 100 words) for mobile
-  const truncatedDescription = truncateWords(description, 100);
+  const truncatedDescription = truncateWords(description, 40);
 
   return (
     <div className="flex flex-col md:flex-row bg-gray-900 text-white rounded-lg overflow-hidden shadow-lg min-h-[250px] h-fit">
       {/* Thumbnail Section */}
-      <div className="relative w-full md:w-1/3 h-full md:h-auto">
+      <div className="relative w-full md:w-1/3 h-[200px] md:h-auto">
         <Image
           src={thumbnailUrl}
           alt={title}
