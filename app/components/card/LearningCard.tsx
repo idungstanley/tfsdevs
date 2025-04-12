@@ -21,7 +21,7 @@ const LearningCard: React.FC<LearningCardProps> = ({ thumbnailUrl, title, tags =
 
   // Check if description exceeds 250 words
   const wordCount = countWords(description);
-  const exceedsWordLimit = wordCount > 250;
+  const exceedsWordLimit = wordCount > 40;
 
   // Truncated description (first 100 words) for mobile
   const truncatedDescription = truncateWords(description, 100);
