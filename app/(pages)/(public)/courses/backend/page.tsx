@@ -1,8 +1,9 @@
 import React from 'react'
+import BackendLearningPath from './components/BackendLearningPath';
 
 const page = () => {
   return (
-    <div>page</div>
+    <BackendLearningPath />
   )
 }
 

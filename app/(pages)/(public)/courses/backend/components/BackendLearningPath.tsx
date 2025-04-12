@@ -6,7 +6,7 @@ import React from 'react';
 const BackendLearningPath = () => {
   return (
     <main>
-      <section className="p-10 px-20 flex items-center gap-4 w-full">
+      <section className="p-8 md:px-20 flex flex-col md:flex-row items-center gap-4 w-full">
         <div className="text-white md:w-1/2 w-full">
           <h1 className="md:text-[50px] text-[35px] font-[700]">Backend Learning Path (Node.js, MongoDB, Express)</h1>
           <p className="font-semibold text-xl">Unlock your potential, one step at a time.</p>
@@ -21,7 +21,7 @@ const BackendLearningPath = () => {
         </div>
         <Image src="/learning-paths-hero.webp" alt="" width={500} height={500} />
       </section>
-      <section className="p-10 px-20 flex flex-col gap-6">
+      <section className="p-8 md:px-20 flex flex-col gap-6">
         {backendLearningData.map((video, index) => (
           <LearningCard
             key={index}
