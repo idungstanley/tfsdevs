@@ -1,13 +1,13 @@
 import LearningCard from '@/app/components/card/LearningCard';
-import { learningData } from '@/app/constants';
+import { frontendLearningData } from '@/app/constants';
 import Image from 'next/image';
 import React from 'react';
 
 const FrontendLearningPath = () => {
   return (
     <main>
-      <section className="p-10 px-20 flex items-center gap-4 w-full">
-        <div className="text-white min-w-[30rem] w-1/2">
+      <section className="p-10 md:px-20 flex md:flex-row flex-col items-center gap-4 w-full">
+        <div className="text-white md:w-1/2 w-full">
           <h1 className="md:text-[50px] text-[35px] font-[700]">Frontend Learning Path</h1>
           <p className="font-semibold text-xl">Unlock your potential, one step at a time.</p>
           <p>
@@ -19,8 +19,8 @@ const FrontendLearningPath = () => {
         </div>
         <Image src="/learning-paths-hero.webp" alt="" width={500} height={500} />
       </section>
-      <section className="p-10 px-20 flex flex-col gap-6">
-        {learningData.map((video, index) => (
+      <section className="p-10 md:px-20 flex flex-col gap-6">
+        {frontendLearningData.map((video, index) => (
           <LearningCard
             key={index}
             thumbnailUrl={video.thumbnailUrl}

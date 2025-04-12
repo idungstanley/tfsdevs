@@ -1,8 +1,31 @@
-import React from 'react';
+'use client'
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { LearningCardProps } from '@/app/types/index.interface';
 
 const LearningCard: React.FC<LearningCardProps> = ({ thumbnailUrl, title, tags = [], description = '' }) => {
+  // State to manage the "See More" toggle
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  // Function to count words in the description
+  const countWords = (text: string): number => {
+    return text.trim().split(/\s+/).filter(Boolean).length;
+  };
+
+  // Function to truncate the description to a specified number of words
+  const truncateWords = (text: string, wordLimit: number): string => {
+    const words = text.trim().split(/\s+/).filter(Boolean);
+    if (words.length <= wordLimit) return text;
+    return words.slice(0, wordLimit).join(' ') + '...';
+  };
+
+  // Check if description exceeds 250 words
+  const wordCount = countWords(description);
+  const exceedsWordLimit = wordCount > 250;
+
+  // Truncated description (first 100 words) for mobile
+  const truncatedDescription = truncateWords(description, 100);
+
   return (
     <div className="flex flex-col md:flex-row bg-gray-900 text-white rounded-lg overflow-hidden shadow-lg min-h-[250px] h-fit">
       {/* Thumbnail Section */}
@@ -47,8 +70,26 @@ const LearningCard: React.FC<LearningCardProps> = ({ thumbnailUrl, title, tags =
         {/* Title */}
         <h2 className="text-2xl font-bold mb-2">{title}</h2>
 
-        {/* Description */}
-        {description && <p className="text-gray-400 mb-3">{description}</p>}
+        {/* Description with "See More" on mobile */}
+        {description && (
+          <div>
+            {/* On mobile (<md), show truncated description with "See More" if over 250 words */}
+            <p className="text-gray-400 mb-3 md:block hidden">{description}</p>
+            <div className="md:hidden">
+              <p className="text-gray-400 mb-3">
+                {exceedsWordLimit && !isExpanded ? truncatedDescription : description}
+              </p>
+              {exceedsWordLimit && (
+                <button
+                  onClick={() => setIsExpanded(!isExpanded)}
+                  className="text-blue-400 hover:text-blue-300 text-sm font-semibold focus:outline-none"
+                >
+                  {isExpanded ? 'See Less' : 'See More'}
+                </button>
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import { LearningCardProps } from '@/app/types/index.interface';
 
-export const learningData: LearningCardProps[] = [
+export const frontendLearningData: LearningCardProps[] = [
     {
         thumbnailUrl: '/html.jpg',
         title: 'HTML Basics: Build Your First Webpage',
@@ -87,5 +87,100 @@ export const learningData: LearningCardProps[] = [
         tags: ['ADVANCED', 'REACT', 'TESTING'],
         description:
             'Ensure the reliability of your React applications by learning how to write effective tests with Jest and React Testing Library. This advanced lesson covers the fundamentals of testing, including unit tests, integration tests, and end-to-end tests. You’ll learn how to set up a testing environment, write tests for React components (testing props, state, and user interactions), and mock API calls using Jest’s mocking capabilities. We’ll also explore best practices for testing, such as focusing on user behavior and avoiding implementation details. As a project, you’ll write a comprehensive test suite for the task manager app, covering component rendering, user interactions, and edge cases. Prerequisites include strong React knowledge (components, hooks, state management) and JavaScript proficiency. Tools required: Node.js, npm, a text editor, and a browser. Ideal for advanced developers who want to build robust, bug-free applications.',
+    },
+];
+
+
+export const backendLearningData: LearningCardProps[] = [
+    // Beginner Level (3 entries)
+    {
+        thumbnailUrl: 'https://source.unsplash.com/random/640x360?nodejs,beginner1',
+        title: 'Node.js Basics: Getting Started with Backend',
+        tags: ['BEGINNER', 'NODEJS'],
+        description:
+            'This beginner-friendly tutorial introduces you to Node.js, a powerful JavaScript runtime for building server-side applications. You’ll learn what Node.js is, how it differs from browser-based JavaScript, and how to set up your development environment. We’ll cover the basics of Node.js, including the event loop, modules (CommonJS and ES Modules), and the Node Package Manager (npm). You’ll also write your first Node.js script to create a simple HTTP server using the built-in http module. As a practical project, you’ll build a basic server that responds with "Hello, World!" when accessed in the browser. No prior backend experience is required, but basic JavaScript knowledge (variables, functions, arrays) is recommended. Tools needed: Node.js, npm, a text editor (VS Code recommended), and a browser. Perfect for absolute beginners looking to start their backend development journey with Node.js.',
+    },
+    {
+        thumbnailUrl: 'https://source.unsplash.com/random/640x360?express,beginner2',
+        title: 'Express Basics: Building Your First Server',
+        tags: ['BEGINNER', 'EXPRESS'],
+        description:
+            'In this lesson, you’ll get started with Express, a minimalist web framework for Node.js that simplifies building backend servers. You’ll learn how to set up an Express application, create routes to handle HTTP requests (GET, POST), and serve static files like HTML or CSS. We’ll cover the basics of Express routing, middleware, and how to handle query parameters and request bodies. As a hands-on project, you’ll build a simple server that serves a static homepage and responds to a GET request with a JSON message (e.g., {"message": "Welcome to my API"}). Prerequisites include basic Node.js knowledge (modules, npm) and familiarity with JavaScript. Tools required: Node.js, npm, Express (installed via npm), a text editor, and a tool like Postman to test API requests. This lesson is ideal for beginners who want to create web servers and APIs with Express.',
+    },
+    {
+        thumbnailUrl: 'https://source.unsplash.com/random/640x360?mongodb,beginner3',
+        title: 'MongoDB Basics: Introduction to NoSQL Databases',
+        tags: ['BEGINNER', 'MONGODB'],
+        description:
+            'This introductory course teaches you the fundamentals of MongoDB, a popular NoSQL database for storing data in a flexible, JSON-like format. You’ll learn the differences between SQL and NoSQL databases, how to install MongoDB locally, and how to use the MongoDB Shell to perform basic operations like creating databases, collections, and documents. We’ll cover essential MongoDB concepts such as documents, collections, and basic queries (insert, find, update, delete). As a practical exercise, you’ll create a MongoDB database for a blog application, adding sample posts as documents. No prior database experience is required, but basic JavaScript knowledge (objects, arrays) is helpful. Tools needed: MongoDB (local installation or MongoDB Atlas for cloud), a text editor, and the MongoDB Shell or a GUI like MongoDB Compass. Perfect for beginners looking to store and manage data in a backend application.',
+    },
+
+    // Junior Level (3 entries)
+    {
+        thumbnailUrl: 'https://source.unsplash.com/random/640x360?api,junior1',
+        title: 'Building a REST API with Express',
+        tags: ['JUNIOR', 'EXPRESS', 'API'],
+        description:
+            'Learn how to build a RESTful API using Express, a key skill for backend developers. This lesson covers the principles of REST, including HTTP methods (GET, POST, PUT, DELETE), status codes (200, 404, 500), and RESTful routing (e.g., /users, /users/:id). You’ll set up an Express server with routes to handle these methods, use middleware to parse JSON request bodies, and organize your code using the MVC (Model-View-Controller) pattern. As a project, you’ll create a REST API for a todo list application, with endpoints to list all todos (GET /todos), add a new todo (POST /todos), update a todo (PUT /todos/:id), and delete a todo (DELETE /todos/:id). Prerequisites include basic Express knowledge (routing, middleware) and JavaScript proficiency (objects, arrays, functions). Tools required: Node.js, npm, Express, a text editor, and Postman for API testing. Ideal for junior developers looking to build APIs for web or mobile applications.',
+    },
+    {
+        thumbnailUrl: 'https://source.unsplash.com/random/640x360?mongodb,junior2',
+        title: 'CRUD Operations with MongoDB and Mongoose',
+        tags: ['JUNIOR', 'MONGODB', 'EXPRESS'],
+        description:
+            'Enhance your backend skills by learning how to perform CRUD (Create, Read, Update, Delete) operations with MongoDB and Mongoose, an Object Data Modeling (ODM) library for Node.js. You’ll learn how to connect your Express app to MongoDB using Mongoose, define schemas and models for your data, and perform CRUD operations on a collection. We’ll cover creating documents (Create), querying documents (Read), updating documents (Update), and deleting documents (Delete), as well as basic data validation with Mongoose schemas. As a project, you’ll integrate MongoDB into the todo list API from the previous lesson, replacing the in-memory data with a MongoDB database to persist todos. Prerequisites include basic Express knowledge, familiarity with MongoDB, and JavaScript (objects, async/await). Tools required: Node.js, npm, Express, MongoDB, Mongoose, a text editor, and Postman. This lesson is perfect for junior developers ready to work with databases in their backend applications.',
+    },
+    {
+        thumbnailUrl: 'https://source.unsplash.com/random/640x360?error,junior3',
+        title: 'Error Handling in Express Applications',
+        tags: ['JUNIOR', 'EXPRESS'],
+        description:
+            'Learn how to handle errors effectively in your Express applications to ensure a robust and user-friendly API. This lesson covers synchronous and asynchronous error handling in Express, including creating custom error middleware, handling 404 (Not Found) errors, and returning meaningful error messages with appropriate status codes (e.g., 400 for bad requests, 500 for server errors). You’ll also learn how to validate request data using a library like express-validator and handle MongoDB errors (e.g., duplicate key errors). As a practical exercise, you’ll add error handling to the todo list API, ensuring it gracefully handles invalid inputs (e.g., missing fields) and database errors (e.g., connection failures). Prerequisites include experience with Express (routing, middleware) and basic JavaScript (try/catch, async/await). Tools required: Node.js, npm, Express, a text editor, and Postman. Ideal for junior developers who want to build reliable and production-ready APIs.',
+    },
+
+    // Intermediate Level (3 entries)
+    {
+        thumbnailUrl: 'https://source.unsplash.com/random/640x360?auth,intermediate1',
+        title: 'User Authentication with JWT in Express',
+        tags: ['INTERMEDIATE', 'EXPRESS', 'AUTH', 'FEATURED'],
+        description:
+            'Secure your Express API by implementing user authentication using JSON Web Tokens (JWT). This intermediate lesson covers the authentication flow: user registration, login, and protecting routes. You’ll learn how to hash passwords with bcrypt, generate and verify JWTs with the jsonwebtoken library, and create middleware to authenticate requests. We’ll also discuss best practices for securely storing JWTs (e.g., in HTTP-only cookies) and handling token expiration. As a project, you’ll add authentication to the todo list API, allowing users to register, log in, and access protected routes (e.g., only authenticated users can create todos). Prerequisites include experience with Express (routing, middleware), MongoDB (CRUD operations), and JavaScript (async/await, objects). Tools required: Node.js, npm, Express, MongoDB, Mongoose, bcrypt, jsonwebtoken, a text editor, and Postman. Perfect for intermediate developers looking to add secure authentication to their backend applications.',
+    },
+    {
+        thumbnailUrl: 'https://source.unsplash.com/random/640x360?middleware,intermediate2',
+        title: 'Custom Middleware in Express: Logging and Rate Limiting',
+        tags: ['INTERMEDIATE', 'EXPRESS'],
+        description:
+            'Deepen your understanding of Express middleware by creating custom middleware for logging and rate limiting. This lesson explains the middleware pipeline in Express, how to write custom middleware functions, and how to apply them globally or to specific routes. You’ll create a logging middleware to log request details (method, URL, timestamp) to a file using the fs module, and a rate-limiting middleware to prevent abuse by limiting the number of requests per user (e.g., 100 requests per hour). We’ll also use the express-rate-limit library for comparison. As a project, you’ll add these middleware functions to the todo list API, ensuring all requests are logged and protected from excessive usage. Prerequisites include solid Express knowledge (routing, middleware) and JavaScript (functions, async/await). Tools required: Node.js, npm, Express, express-rate-limit, a text editor, and Postman. Ideal for intermediate developers who want to enhance their Express applications with custom functionality.',
+    },
+    {
+        thumbnailUrl: 'https://source.unsplash.com/random/640x360?mongodb,intermediate3',
+        title: 'MongoDB Relationships: Referencing and Embedding Documents',
+        tags: ['INTERMEDIATE', 'MONGODB'],
+        description:
+            'Learn how to model relationships in MongoDB, a NoSQL database, using referencing and embedding techniques. This lesson covers the differences between relational (SQL) and non-relational (NoSQL) data modeling, focusing on two approaches in MongoDB: embedding documents (storing related data in a single document) and referencing documents (using ObjectIds to link documents across collections). You’ll learn when to use each approach, how to define relationships with Mongoose schemas, and how to query related data using population (for references) and aggregation (for embedded data). As a project, you’ll extend the todo list app to include users and todos, modeling a one-to-many relationship (one user has many todos) using both embedding and referencing. Prerequisites include experience with MongoDB (CRUD operations, Mongoose) and Express. Tools required: Node.js, npm, Express, MongoDB, Mongoose, a text editor, and Postman. Perfect for intermediate developers looking to manage complex data relationships in MongoDB.',
+    },
+
+    // Advanced Level (3 entries)
+    {
+        thumbnailUrl: 'https://source.unsplash.com/random/640x360?scaling,advanced1',
+        title: 'Scaling Node.js Applications: Load Balancing and Clustering',
+        tags: ['ADVANCED', 'NODEJS', 'EXPRESS'],
+        description:
+            'Learn how to scale your Node.js applications to handle high traffic and ensure reliability in production. This advanced lesson covers two key scaling techniques: load balancing and clustering. You’ll learn how to use the cluster module in Node.js to take advantage of multi-core systems by spawning worker processes, and how to set up a load balancer (e.g., using Nginx or a cloud provider like AWS ELB) to distribute traffic across multiple Node.js instances. We’ll also discuss session management in a clustered environment (e.g., using Redis for session storage) and handling graceful shutdowns. As a project, you’ll scale the todo list API by implementing clustering and simulating high traffic using a tool like Apache JMeter. Prerequisites include experience with Node.js, Express, and deploying applications. Tools required: Node.js, npm, Express, Redis (optional), Nginx (optional), a text editor, and Postman. Ideal for advanced developers preparing their applications for production environments.',
+    },
+    {
+        thumbnailUrl: 'https://source.unsplash.com/random/640x360?performance,advanced2',
+        title: 'Optimizing Backend Performance with Node.js and MongoDB',
+        tags: ['ADVANCED', 'NODEJS', 'MONGODB', 'FEATURED'],
+        description:
+            'Optimize the performance of your Node.js and MongoDB backend to deliver fast, efficient APIs. This advanced lesson covers performance optimization techniques, including indexing in MongoDB to speed up queries, caching frequently accessed data with Redis, and profiling Node.js applications using tools like clinic.js to identify bottlenecks. You’ll also learn how to optimize Express routes (e.g., avoiding synchronous code, using async middleware), implement pagination for large datasets, and reduce database load with aggregation pipelines. As a project, you’ll optimize the todo list API by adding indexes to the MongoDB collection, caching user data in Redis, and implementing pagination for the GET /todos endpoint. Prerequisites include experience with Node.js, Express, MongoDB, and JavaScript (async/await, promises). Tools required: Node.js, npm, Express, MongoDB, Redis, clinic.js, a text editor, and Postman. Perfect for advanced developers focused on building high-performance backend systems.',
+    },
+    {
+        thumbnailUrl: 'https://source.unsplash.com/random/640x360?testing,advanced3',
+        title: 'Testing Node.js APIs with Mocha, Chai, and Supertest',
+        tags: ['ADVANCED', 'NODEJS', 'EXPRESS', 'TESTING'],
+        description:
+            'Ensure the reliability of your Node.js APIs by learning how to write comprehensive tests with Mocha, Chai, and Supertest. This advanced lesson covers the fundamentals of backend testing, including unit tests (testing individual functions), integration tests (testing API endpoints), and mocking dependencies (e.g., mocking MongoDB with mongodb-memory-server). You’ll learn how to set up a testing environment, write tests for your Express routes (e.g., testing GET /todos, POST /todos), and assert responses using Chai’s expect syntax. We’ll also cover best practices for testing, such as isolating tests, handling async code, and cleaning up the database between tests. As a project, you’ll write a test suite for the todo list API, covering all CRUD operations and authentication routes. Prerequisites include strong Node.js and Express knowledge (routing, middleware, authentication) and JavaScript proficiency. Tools required: Node.js, npm, Express, MongoDB, Mocha, Chai, Supertest, a text editor, and Postman. Ideal for advanced developers who want to build robust, bug-free APIs.',
     },
 ];
