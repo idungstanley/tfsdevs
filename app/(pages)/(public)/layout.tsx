@@ -4,13 +4,11 @@ import React, { ReactNode } from 'react';
 
 const PublicLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="flex flex-col min-h-screen font-[family-name:var(--font-geist-sans)] bg-[#080F1C] w-full">
-      <div>
-        <div className="md:px-10 px-4 md:pt-10 pt-4">
-          <Navbar sticky />
-        </div>
+    <div className="flex flex-col min-h-screen bg-[#080F1C] w-full">
+      <div className="md:px-10 px-4 md:pt-10 pt-4">
+        <Navbar />
       </div>
-      <div>{children}</div>
+      <div className="grow flex-1 h-full">{children}</div>
       <Footer />
     </div>
   );

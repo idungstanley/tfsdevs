@@ -1,9 +1,8 @@
-import React from 'react'
+import React from 'react';
+import FrontendLearningPath from './components/FrontendLearningPath';
 
 const page = () => {
-  return (
-    <div>page</div>
-  )
-}
+  return <FrontendLearningPath />;
+};
 
-export default page
+export default page;

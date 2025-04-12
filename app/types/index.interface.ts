@@ -51,12 +51,12 @@ export interface Course {
 }
 
 export interface Testimonial {
-  id: number;
-  name: string;
-  profilePicture: string;
-  stars: number;
-  testimonial: string;
-  reviewLink: string;
+    id: number;
+    name: string;
+    profilePicture: string;
+    stars: number;
+    testimonial: string;
+    reviewLink: string;
 }
 
 export interface displayItemsProps {
@@ -114,3 +114,10 @@ export type LoginProps = {
     email: string;
     password: string;
 };
+
+export interface LearningCardProps {
+    thumbnailUrl: string;
+    title: string;
+    tags?: string[];
+    description?: string;
+}

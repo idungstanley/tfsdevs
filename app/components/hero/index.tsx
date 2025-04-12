@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 const HeroSection = () => {
   return (
-    <section className="md:px-20 p-6 flex items-center bg-cover bg-no-repeat box-border pt-20 h-[80vh]">
+    <section className="md:px-20 p-6 flex items-center bg-cover bg-no-repeat box-border pt-10 h-[80vh]">
       <motion.div
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
