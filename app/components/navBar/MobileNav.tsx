@@ -6,11 +6,13 @@ import Button from '../button/Button';
 import { motion } from 'framer-motion';
 import { navItems } from '@/app/constants/navigation';
 import { FaCaretDown, FaCaretUp } from 'react-icons/fa6';
+import { useRouter } from 'next/navigation';
 
 const MobileNav = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<null | number>(null);
   const ref = useRef(null);
+  const router = useRouter();
 
   const handleToggleFn = () => {
     setMenuOpen((prev) => !prev);
@@ -18,6 +20,11 @@ const MobileNav = () => {
 
   const handleDropdown = (index: number | null) => {
     setOpenDropdown(openDropdown === index ? null : index);
+  };
+
+  const handleRoute = (route: string) => {
+    router.push(route);
+    setMenuOpen(false);
   };
 
   useEffect(() => {
@@ -83,7 +90,7 @@ const MobileNav = () => {
                 <div className="w-full">
                   <button
                     className="flex items-center justify-between text-[16px] w-full text-whitek py-4"
-                    onClick={() => (route.children ? handleDropdown(idx) : setMenuOpen(false))}
+                    onClick={() => (route.children ? handleDropdown(idx) : handleRoute(route.route))}
                   >
                     <span className="flex gap-1 lg:text-[16px] text-[14px] whitespace-nowrap">{route.label}</span>
                     {route.children && <span>{openDropdown === idx ? <FaCaretUp /> : <FaCaretDown />}</span>}
