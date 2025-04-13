@@ -17,7 +17,7 @@ const Navbar = ({ color = 'text-black dark:text-white', zIndex = 'z-[999]' }: Na
     >
       <nav
         className={`
-        ${zIndex} w-full h-[10vh] flex items-center px-4 inset-x-0
+        ${zIndex} w-full md:h-[10vh] h-[8vh] mt-2 flex items-center px-4 inset-x-0
        duration-300 ease-in-out relative bg-gray-900 rounded-full shadow-lg opacity-100
         
         mb-1 ${color}

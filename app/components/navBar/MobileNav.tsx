@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Hamburger from '../menu/HamburgerMenu';
 import Image from 'next/image';
 import Button from '../button/Button';
@@ -19,6 +19,19 @@ const MobileNav = () => {
   const handleDropdown = (index: number | null) => {
     setOpenDropdown(openDropdown === index ? null : index);
   };
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    // Cleanup to reset on unmount
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [menuOpen]);
 
   return (
     <div className="flex items-center justify-between w-full px-4 lg:hidden relative">
