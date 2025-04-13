@@ -1,3 +1,4 @@
+import { Compass, Globe, LayoutGrid, Route, ScrollText, Trophy } from "lucide-react";
 import { AiFillInstagram } from "react-icons/ai";
 import { FaCloud, FaDatabase, FaFacebook, FaNetworkWired } from "react-icons/fa";
 import { RiTwitterXLine } from "react-icons/ri";
@@ -54,5 +55,45 @@ export const cardData = [
     title: 'Cyber Security',
     description: 'Protect critical assets and prevent cyber threats effectively.',
     icon: <FaNetworkWired className="text-[#684DF4] text-[14px]" />
+  }
+];
+
+
+export const descData = [
+  {
+    icon: <Route className="w-8 h-8" />,
+    title: 'Learning Paths',
+    description:
+      'Pick your goal, and get a recommended set of courses complete with electives, editor notes, and progress tracking.'
+  },
+  {
+    icon: <Compass className="w-8 h-8" />,
+    title: 'Advanced Player',
+    description:
+      'All courses are presented in a custom built player, complete with annotations, notes, transcripts, lesson descriptions, progress syncing, and much more!'
+  },
+  {
+    icon: <Trophy className="w-8 h-8" />,
+    title: 'Interact with Masters',
+    description:
+      'Access to Live Workshops – gain access to our live streamed workshops where you can participate with QA and chat, and learn alongside the masters!'
+  },
+  {
+    icon: <ScrollText className="w-8 h-8" />,
+    title: 'Course Completion Certificates',
+    description:
+      "After completing a course, you'll receive a certificate that serves as proof of your achievement, showcasing your expertise, and commitment to professional development."
+  },
+  {
+    icon: <LayoutGrid className="w-8 h-8" />,
+    title: 'Personalized Dashboard',
+    description:
+      'Allows you to rearrange and prioritize courses, upcoming workshops, current learning paths, notes, and more.'
+  },
+  {
+    icon: <Globe className="w-8 h-8" />,
+    title: 'Learn Anywhere',
+    description:
+      'iOS and Android – featuring offline playback, our tablet and phone apps let you take everything with you wherever you go.'
   }
 ];

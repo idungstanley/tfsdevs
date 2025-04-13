@@ -121,3 +121,12 @@ export interface LearningCardProps {
     tags?: string[];
     description?: string;
 }
+
+// types/index.interface.ts
+export interface CourseCardProps {
+    label: string;
+    route: string;
+    storage?: string; // Mock "storage" field like in the image (e.g., "100GB")
+    price?: string; // Mock price field (e.g., "1 month, then $1.7/month")
+    features?: string[]; // Mock features (e.g., "100 GB storage", "Option to add members")
+}
