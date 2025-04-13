@@ -3,28 +3,28 @@ import './globals.css';
 import CursorFollower from './components/CursorFollower';
 
 export const metadata: Metadata = {
-  title: 'Thefullsnacksdevs',
+  title: 'Thefullsnackdevs',
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',
     apple: '/favicon.ico'
   },
   manifest: '/manifest.json',
-  keywords: 'Thefullsnacksdevs, academy, learn software development, software development, courses, online courses, programming, coding, web development, mobile development, data science, cloud computing, cybersecurity, IT management, frontend development, best online learning platform, learn coding, learn programming, software engineering, software development courses, online learning, online education, learn software engineering, learn web development, learn mobile development, learn data science, learn cloud computing, learn cybersecurity, data analysis, UI/UX design, fullstack development, backend development, learn UI/UX design, learn fullstack development, learn backend development, learn data analysis, learn IT management, learn software development online, learn software development for free, learn software development in Africa, learn software development in Nigeria, learn software development in Kenya, learn software development in South Africa, learn software development in Ghana, learn software development in Uganda, learn software development in Tanzania',
-  authors: [{ name: 'Thefullsnacksdevs', url: 'https://thefullsnacksdevs.com' }],
-  creator: 'Thefullsnacksdevs',
-  publisher: 'Thefullsnacksdevs',
+  keywords: 'thefullsnackdevs, academy, learn software development, software development, courses, online courses, programming, coding, web development, mobile development, data science, cloud computing, cybersecurity, IT management, frontend development, best online learning platform, learn coding, learn programming, software engineering, software development courses, online learning, online education, learn software engineering, learn web development, learn mobile development, learn data science, learn cloud computing, learn cybersecurity, data analysis, UI/UX design, fullstack development, backend development, learn UI/UX design, learn fullstack development, learn backend development, learn data analysis, learn IT management, learn software development online, learn software development for free, learn software development in Africa, learn software development in Nigeria, learn software development in Kenya, learn software development in South Africa, learn software development in Ghana, learn software development in Uganda, learn software development in Tanzania',
+  authors: [{ name: 'thefullsnackdevs', url: 'https://thefullsnackdevs.com' }],
+  creator: 'thefullsnackdevs',
+  publisher: 'thefullsnackdevs',
   openGraph: {
-    title: 'Thefullsnacksdevs',
+    title: 'thefullsnackdevs',
     description: 'Building Africa’s Biggest Developer Community',
-    url: 'https://thefullsnacksdevs.com',
-    siteName: 'Thefullsnacksdevs',
+    url: 'https://thefullsnackdevs.com',
+    siteName: 'thefullsnackdevs',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Thefullsnacksdevs'
+        alt: 'thefullsnackdevs'
       }
     ],
     locale: 'en-US',
@@ -32,18 +32,18 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Thefullsnacksdevs',
+    title: 'thefullsnackdevs',
     description: 'Building Africa’s Biggest Developer Community',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Thefullsnacksdevs'
+        alt: 'thefullsnackdevs'
       }
     ],
-    site: '@thefullsnacksdevs',
-    creator: '@thefullsnacksdevs'
+    site: '@thefullsnackdevs',
+    creator: '@thefullsnackdevs'
   },
   themeColor: '#000000',
   viewport: {
@@ -57,13 +57,13 @@ export const metadata: Metadata = {
     telephone: false
   },
   alternates: {
-    canonical: 'https://thefullsnacksdevs.com',
+    canonical: 'https://thefullsnackdevs.com',
     languages: {
-      'en-US': 'https://thefullsnacksdevs.com',
-      'es-ES': 'https://thefullsnacksdevs.com/es',
-      'fr-FR': 'https://thefullsnacksdevs.com/fr',
-      'de-DE': 'https://thefullsnacksdevs.com/de',
-      'zh-CN': 'https://thefullsnacksdevs.com/zh'
+      'en-US': 'https://thefullsnackdevs.com',
+      'es-ES': 'https://thefullsnackdevs.com/es',
+      'fr-FR': 'https://thefullsnackdevs.com/fr',
+      'de-DE': 'https://thefullsnackdevs.com/de',
+      'zh-CN': 'https://thefullsnackdevs.com/zh'
     }
   },
   description: 'Building Africa’s Biggest Developer Community'
