@@ -10,13 +10,13 @@ export const metadata: Metadata = {
     apple: '/favicon.ico'
   },
   manifest: '/manifest.json',
-  keywords: 'Thefullsnacksdevs, fullsnacksdevs, fullsnacks, snacksdevs',
+  keywords: 'Thefullsnacksdevs, academy, learn software development, software development, courses, online courses, programming, coding, web development, mobile development, data science, cloud computing, cybersecurity, IT management, frontend development, best online learning platform, learn coding, learn programming, software engineering, software development courses, online learning, online education, learn software engineering, learn web development, learn mobile development, learn data science, learn cloud computing, learn cybersecurity, data analysis, UI/UX design, fullstack development, backend development, learn UI/UX design, learn fullstack development, learn backend development, learn data analysis, learn IT management, learn software development online, learn software development for free, learn software development in Africa, learn software development in Nigeria, learn software development in Kenya, learn software development in South Africa, learn software development in Ghana, learn software development in Uganda, learn software development in Tanzania',
   authors: [{ name: 'Thefullsnacksdevs', url: 'https://thefullsnacksdevs.com' }],
   creator: 'Thefullsnacksdevs',
   publisher: 'Thefullsnacksdevs',
   openGraph: {
     title: 'Thefullsnacksdevs',
-    description: 'Thefullsnacksdevs',
+    description: 'Building Africa’s Biggest Developer Community',
     url: 'https://thefullsnacksdevs.com',
     siteName: 'Thefullsnacksdevs',
     images: [
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Thefullsnacksdevs',
-    description: 'Thefullsnacksdevs',
+    description: 'Building Africa’s Biggest Developer Community',
     images: [
       {
         url: '/og-image.png',
@@ -45,30 +45,7 @@ export const metadata: Metadata = {
     site: '@thefullsnacksdevs',
     creator: '@thefullsnacksdevs'
   },
-  robots: {
-    index: true,
-    follow: true,
-    nocache: false,
-    noarchive: false,
-    noimageindex: false,
-    notranslate: false
-  },
   themeColor: '#000000',
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: 'default',
-    title: 'Thefullsnacksdevs',
-    startupImage: [
-      '/apple-touch-icon.png',
-      '/apple-touch-icon-120x120.png',
-      '/apple-touch-icon-152x152.png',
-      '/apple-touch-icon-167x167.png',
-      '/apple-touch-icon-180x180.png',
-      '/apple-touch-icon-192x192.png',
-      '/apple-touch-icon-384x384.png',
-      '/apple-touch-icon-512x512.png'
-    ]
-  },
   viewport: {
     width: 'device-width',
     initialScale: 1,
