@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://tfsdevs.vercel.app/
+
+# Sitemaps
+Sitemap: https://tfsdevs.vercel.app/sitemap.xml
