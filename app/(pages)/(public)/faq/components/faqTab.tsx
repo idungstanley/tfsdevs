@@ -9,13 +9,13 @@ const FaqTab = ({
   activeTab: string;
 }) => {
   return (
-    <div className="flex gap-4 py-4">
+    <div className="flex gap-4 py-4 overflow-y-auto">
       {faqData.map((item) => (
         <li
           key={item.id}
           className={`${
             activeTab === item.id ? 'bg-[#684DF4]' : 'border border-white text-white'
-          } h-10 w-fit p-2 px-4 list-none rounded-full cursor-pointer transition-all duration-75 ease-in-out delay-75`}
+          } h-10 w-fit p-2 px-4 list-none rounded-full cursor-pointer transition-all text-nowrap duration-75 ease-in-out delay-75`}
           onClick={() => setActiveTab(item.id)}
         >
           {item.title}

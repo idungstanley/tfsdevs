@@ -15,7 +15,7 @@ const FAQ = () => {
   }, [activeTab]);
 
   return (
-    <div className="w-full p-20 text-white flex flex-col gap-6">
+    <div className="w-full md:p-20 p-8 text-white flex flex-col gap-6">
       <div className="flex flex-col items-center">
         <Image src="/question.svg" alt="faq" width={200} height={200} className="h-16 w-16" />
         <h1 className="md:text-[50px] text-[35px] font-[700]">Frequently Asked Questions</h1>
@@ -29,8 +29,8 @@ const FAQ = () => {
           ))}
         </div>
       )}
-      <div className="h-24 w-full rounded-md bg-gray-900">
-        <span className="flex items-center gap-2 h-full justify-center">
+      <div className="md:h-24 p-4 h-fit w-full rounded-md bg-gray-900">
+        <span className="flex items-center gap-2 h-full justify-center md:flex-row flex-col">
           <MdAlternateEmail className="text-[#684DF4] text-[24px]" />
           For quick reach, send us an email at:{' '}
           <Link href="mailto:info@thefullsnacksdevs.com" className="text-[#684DF4] underline">
