@@ -4,24 +4,19 @@ import { RiTwitterXLine } from "react-icons/ri";
 
 export const navItems = [
   { label: 'About us', route: '/about' },
-  {
-    label: 'Services',
-    children: [
-      { label: 'Web Development', route: '/services/web-development' },
-      { label: 'Mobile Apps', route: '/services/mobile-apps' }
-    ]
-  },
   { label: 'Experience', route: '/experience' },
   {
     label: 'Courses',
     children: [
       { label: 'Frontend Development', route: '/courses/frontend' },
       { label: 'Backend Development', route: '/courses/backend' },
-      { label: 'Fullstack Development', route: '/courses/fullstack' }
+      { label: 'Fullstack Development', route: '/courses/fullstack' },
+      { label: 'UI/UX', route: '/courses/ui-ux' },
+      { label: 'Data Analysis', route: '/courses/data-analysis' }
     ]
   },
   { label: 'FAQ', route: '/faq' },
-  { label: 'Contact', route: '/contact' }
+  { label: 'Pricing', route: '/pricing' },
 ];
 
 export const socials = [
