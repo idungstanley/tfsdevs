@@ -1,5 +1,16 @@
 import { CSSProperties, ReactElement, SetStateAction } from "react";
 
+export type ErrorResponse = {
+    data: {
+        code: number;
+        message: string;
+    };
+    status: number;
+    statusText: string;
+};
+export interface ISuccessRequest {
+    message: string;
+}
 export interface HamburgerProps {
     isToggle: boolean;
     color?: string;

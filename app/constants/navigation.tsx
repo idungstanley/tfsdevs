@@ -1,6 +1,6 @@
 import { Compass, Globe, LayoutGrid, Route, ScrollText, Trophy } from "lucide-react";
 import { AiFillInstagram } from "react-icons/ai";
-import { FaCloud, FaDatabase, FaFacebook, FaNetworkWired } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
 import { RiTwitterXLine } from "react-icons/ri";
 
 export const navItems = [
@@ -37,26 +37,33 @@ export const footerItems = [
 
 export const cardData = [
   {
-    title: 'IT Management',
-    description: 'Promote transparent materials and stand-alone strategic theme areas.',
-    icon: <FaNetworkWired className="text-[#684DF4] text-[14px]" />
+    title: 'Frontend Development',
+    description: 'Build interactive, responsive, and high-performance user interfaces using modern web technologies.',
+    src: '/react.webp'
   },
   {
-    title: 'Cloud Computing',
-    description: 'Enable secure, scalable cloud solutions for businesses.',
-    icon: <FaCloud className="text-[#684DF4] text-[14px]" />
+    title: 'Backend Development',
+    description: 'Design robust server-side logic and APIs that power scalable and secure web applications.',
+    src: '/node-js.png'
   },
   {
-    title: 'Database Systems',
-    description: 'Manage and optimize data storage with high availability.',
-    icon: <FaDatabase className="text-[#684DF4] text-[14px]" />
+    title: 'Data Analysis',
+    description: 'Extract insights from raw data to drive smarter decisions using analytical tools and techniques.',
+    src: '/data-analysis.png'
   },
   {
     title: 'Cyber Security',
-    description: 'Protect critical assets and prevent cyber threats effectively.',
-    icon: <FaNetworkWired className="text-[#684DF4] text-[14px]" />
+    description: 'Implement advanced strategies to secure systems, networks, and data from cyber threats.',
+    src: '/cyber-security.png'
+  },
+  {
+    title: 'UI - UX',
+    description:
+      'Craft intuitive and visually compelling digital experiences that prioritize user needs and usability.',
+    src: '/figma.avif'
   }
 ];
+
 
 
 export const descData = [

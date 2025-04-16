@@ -1,13 +1,14 @@
 'use client';
-import { useState, useEffect, ReactNode } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { LuArrowRight } from 'react-icons/lu';
 import { useMediaQuery } from 'react-responsive';
+import Image from 'next/image';
 
 interface CardProps {
   title: string;
   description: string;
-  icon: ReactNode;
+  src: string;
 }
 
 interface CarouselProps {
@@ -16,7 +17,7 @@ interface CarouselProps {
   primaryColor?: string;
 }
 
-const Carousel: React.FC<CarouselProps> = ({ cards, interval = 3000, primaryColor = '#684DF4' }) => {
+const Carousel: React.FC<CarouselProps> = ({ cards, interval = 3000 }) => {
   const [index, setIndex] = useState(0);
   const isMobile = useMediaQuery({ maxWidth: 900 });
 
@@ -32,9 +33,9 @@ const Carousel: React.FC<CarouselProps> = ({ cards, interval = 3000, primaryColo
     <div className="relative w-full flex items-center justify-center overflow-x-hidden overflow-y-hidden md:overflow-y-auto md:h-[300px] h-[250px] flex-col md:flex-row">
       <motion.div
         className="flex gap-4 md:gap-6 w-full md:w-[900px] h-full"
-        animate={{ x: `-${index * (isMobile ? 100 : 25)}%` }} // Moves the cards smoothly left
+        animate={{ x: `-${index * (isMobile ? 100 : 33.3)}%` }} // Moves the cards smoothly left
         transition={{ duration: 0.8, ease: 'easeInOut' }}
-        style={{ display: 'flex', width: `${cards.length * (isMobile ? 100 : 25)}%` }}
+        style={{ display: 'flex', width: `${cards.length * (isMobile ? 100 : 33.3)}%` }}
       >
         {cards.concat(cards.slice(0, 4)).map(
           (
@@ -47,32 +48,20 @@ const Carousel: React.FC<CarouselProps> = ({ cards, interval = 3000, primaryColo
             >
               <div className="flex flex-col items-center text-center shrink-0 w-full">
                 <div className="relative">
-                  <div className="bg-gray-200 p-4 text-[10px] rounded-full">{card.icon}</div>
-                  <div
-                    className="absolute -top-2 -right-2"
-                    style={{
-                      backgroundColor: primaryColor,
-                      width: '12px',
-                      height: '12px',
-                      borderRadius: '50%'
-                    }}
-                  ></div>
-                  <div
-                    className="absolute bottom-0 left-0"
-                    style={{
-                      backgroundColor: primaryColor,
-                      width: '4px',
-                      height: '4px',
-                      borderRadius: '50%'
-                    }}
-                  ></div>
+                  <Image
+                    src={card.src}
+                    alt=""
+                    width="500"
+                    height="500"
+                    className="w-14 h-14 p-1 rounded-full bg-white flex items-center justify-center"
+                  />
                 </div>
                 <h2 className="mt-4 text-white text-lg font-bold">{card.title}</h2>
                 <p className="text-white text-sm mt-2">{card.description}</p>
               </div>
               <motion.button
                 whileHover={{ scale: 1.1 }}
-                className="mt-4 w-8 h-8 flex items-center justify-center rounded-full text-white shadow-lg absolute -bottom-4 bg-[#684DF4] hover:text-[#684DF4] hover:bg-[white]"
+                className="mt-4 w-8 h-8 flex items-center cursor-pointer justify-center rounded-full text-white shadow-lg absolute -bottom-4 bg-[#684DF4] hover:text-[#684DF4] hover:bg-white transition duration-300 ease-in-out"
               >
                 <LuArrowRight />
               </motion.button>

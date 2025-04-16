@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import CursorFollower from './components/CursorFollower';
+import { Providers } from './store/Provider';
 
 export const metadata: Metadata = {
   title: 'TheFullSnackDevs, Build. Learn. Grow.',
@@ -79,10 +80,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Providers>
       <body className="antialiased relative">
         {children}
         <CursorFollower />
       </body>
+      </Providers>
     </html>
   );
 }

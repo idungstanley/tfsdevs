@@ -8,7 +8,7 @@ const CourseDetails: React.FC<{ course: Course }> = ({ course }) => {
   const toggleCollapse = () => setIsOpen(!isOpen);
 
   return (
-    <div className="bg-[#101010] shadow-lg rounded-lg p-6 mb-6 text-white">
+    <div className="bg-slate-800 shadow-lg rounded-lg p-6 mb-6 text-white">
       <h2 className="text-2xl font-semibold">{course.title}</h2>
       <p className="mt-2">{course.description}</p>
 
