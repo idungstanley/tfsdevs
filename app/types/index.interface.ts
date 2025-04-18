@@ -126,6 +126,24 @@ export type LoginProps = {
     password: string;
 };
 
+export type SignupProps = {
+    email: string;
+    firstName: string;
+    lastName: string;
+    password: string;
+    countryOfResidence: string;
+    stateOfResidence: string;
+    phoneNumber: string;
+    confirmPassword?: string;
+    referrerCode?: string;
+    bootcampID?: number;
+    specialRequests?: string;
+    assignedInstructor?: string;
+    notes?: string;
+    signUpDate?: string;
+    startDate?: string;
+};
+
 export interface LearningCardProps {
     thumbnailUrl: string;
     title: string;

@@ -2,52 +2,60 @@
 import Button from '@/app/components/button/Button';
 import InputWithLabel from '@/app/components/input/InputWithLabel';
 import Header from '@/app/components/text/Header';
-import Toast from '@/app/lib/Toast';
-import { LoginProps } from '@/app/types/index.interface';
-import { loginSchema } from '@/app/validationSchema';
+import { useSignupMutation } from '@/app/features/auth/authService';
+import { SignupProps } from '@/app/types/index.interface';
+import { signupSchema } from '@/app/validationSchema';
 import { useFormik } from 'formik';
 import dynamic from 'next/dynamic';
 import { useState } from 'react';
-import toast from 'react-hot-toast';
 import { FaArrowRight, FaEye, FaEyeSlash } from 'react-icons/fa6';
 
 const Enroll = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const { mutateAsync, isPending } = useSignupMutation();
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
   const togglePasswordVisibility = () => {
     setShowPassword((prevState) => !prevState);
+  };
+
+  const toggleConfirmPasswordVisibility = () => {
+    setShowConfirmPassword((prevState) => !prevState);
   };
 
   const formik = useFormik({
     initialValues: {
       email: '',
-      password: ''
+      password: '',
+      firstName: '',
+      lastName: '',
+      countryOfResidence: '',
+      stateOfResidence: '',
+      phoneNumber: '',
+      confirmPassword: '',
+      referrerCode: ''
     },
     validateOnBlur: true,
-    validationSchema: loginSchema,
-    onSubmit: async (values: LoginProps) => {
-      try {
-        setIsLoading(true);
-        console.log(values);
-        // await SignIn({
-        //   email: values.email,
-        //   password: values.password
-        // });
-        window.location.reload(); // This will reload the current page
-        // Re-fetch the session immediately
-      } catch (error) {
-        if (error) {
-          return toast.custom((t) => <Toast type="error" title="Credentials are not valid" toastId={t.id} />, {
-            duration: 1000
-          });
+    validationSchema: signupSchema,
+    onSubmit: async (values: SignupProps) => {
+      await mutateAsync(values);
+      const { usePaystackPayment: PaystackPayment } = await import('react-paystack');
+      const config = {
+        reference: new Date().getTime().toString(),
+        email: values.email,
+        amount: 250000 * 100,
+        publicKey: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY || ''
+      };
+
+      const initializePayment = PaystackPayment(config);
+      initializePayment({
+        onSuccess: (reference) => {
+          console.log(reference);
+        },
+        onClose: () => {
+          console.log('closed');
         }
-        return toast.custom((t) => <Toast type="error" title="Something went wrong" toastId={t.id} />, {
-          duration: 1000
-        });
-        // throw error;
-      } finally {
-        setIsLoading(false);
-      }
+      });
     }
   });
 
@@ -67,9 +75,11 @@ const Enroll = () => {
             label="First Name"
             labelClasses="text-gray-700"
             classes={`border px-2 text-[15px] text-gray-700 ${
-              formik.errors.email && formik.touched.email ? 'border-red-400 text-red-400' : 'border border-gray-200'
+              formik.errors.firstName && formik.touched.firstName
+                ? 'border-red-400 text-red-400'
+                : 'border border-gray-200'
             }`}
-            value={formik.values.email}
+            value={formik.values.firstName}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             height="h-[40px] rounded-lg"
@@ -80,9 +90,11 @@ const Enroll = () => {
             label="Last Name"
             labelClasses="text-gray-700"
             classes={`border px-2 text-[15px] text-gray-700 ${
-              formik.errors.email && formik.touched.email ? 'border-red-400 text-red-400' : 'border border-gray-200'
+              formik.errors.lastName && formik.touched.lastName
+                ? 'border-red-400 text-red-400'
+                : 'border border-gray-200'
             }`}
-            value={formik.values.email}
+            value={formik.values.lastName}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             height="h-[40px] rounded-lg"
@@ -95,9 +107,11 @@ const Enroll = () => {
             label="Country of Residence"
             labelClasses="text-gray-700"
             classes={`border px-2 text-[15px] text-gray-700 ${
-              formik.errors.email && formik.touched.email ? 'border-red-400 text-red-400' : 'border border-gray-200'
+              formik.errors.countryOfResidence && formik.touched.countryOfResidence
+                ? 'border-red-400 text-red-400'
+                : 'border border-gray-200'
             }`}
-            value={formik.values.email}
+            value={formik.values.countryOfResidence}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             height="h-[40px] rounded-lg"
@@ -108,9 +122,11 @@ const Enroll = () => {
             label="State of Residence"
             labelClasses="text-gray-700"
             classes={`border px-2 text-[15px] text-gray-700 ${
-              formik.errors.email && formik.touched.email ? 'border-red-400 text-red-400' : 'border border-gray-200'
+              formik.errors.stateOfResidence && formik.touched.stateOfResidence
+                ? 'border-red-400 text-red-400'
+                : 'border border-gray-200'
             }`}
-            value={formik.values.email}
+            value={formik.values.stateOfResidence}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             height="h-[40px] rounded-lg"
@@ -136,9 +152,11 @@ const Enroll = () => {
             label="Phone Number"
             labelClasses="text-gray-700"
             classes={`border px-2 text-[15px] text-gray-700 ${
-              formik.errors.email && formik.touched.email ? 'border-red-400 text-red-400' : 'border border-gray-200'
+              formik.errors.phoneNumber && formik.touched.phoneNumber
+                ? 'border-red-400 text-red-400'
+                : 'border border-gray-200'
             }`}
-            value={formik.values.email}
+            value={formik.values.phoneNumber}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             height="h-[40px] rounded-lg"
@@ -166,40 +184,42 @@ const Enroll = () => {
             onBlur={formik.handleBlur}
           />
           <InputWithLabel
-            isError={!!formik.errors.password && formik.touched.password}
-            errorMessage={formik.touched.password ? formik.errors.password : ''}
+            isError={!!formik.errors.confirmPassword && formik.touched.confirmPassword}
+            errorMessage={formik.touched.confirmPassword ? formik.errors.confirmPassword : ''}
             label="Confirm Password"
             labelClasses="text-gray-900"
             classes={`border px-2 text-[15px] text-gray-900 ${
-              formik.errors.password && formik.touched.password
+              formik.errors.confirmPassword && formik.touched.confirmPassword
                 ? 'border-red-400 text-red-400'
                 : 'border border-gray-200'
             }`}
             height="h-[40px] rounded-lg"
-            trailingIcon={showPassword ? <FaEye className="text-gray-900" /> : <FaEyeSlash className="text-gray-900" />}
+            trailingIcon={
+              showConfirmPassword ? <FaEye className="text-gray-900" /> : <FaEyeSlash className="text-gray-900" />
+            }
             name="confirmPassword"
-            value={formik.values.password}
-            type={showPassword ? 'text' : 'password'}
-            placeholder="Password"
-            trailingClick={togglePasswordVisibility}
+            value={formik.values.confirmPassword}
+            type={showConfirmPassword ? 'text' : 'password'}
+            placeholder="Confirm Password"
+            trailingClick={toggleConfirmPasswordVisibility}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
         </div>
         <div className="text-gray-700 flex gap-4 w-full">
           <InputWithLabel
-            name="aboutus"
-            isError={!!formik.errors.password && formik.touched.password}
-            errorMessage={formik.touched.password ? formik.errors.password : ''}
+            name="referrerCode"
+            isError={!!formik.errors.referrerCode && formik.touched.referrerCode}
+            errorMessage={formik.touched.referrerCode ? formik.errors.referrerCode : ''}
             label="How did you hear about us?"
             labelClasses="text-gray-900"
             classes={`border px-2 text-[15px] text-gray-900 ${
-              formik.errors.password && formik.touched.password
+              formik.errors.referrerCode && formik.touched.referrerCode
                 ? 'border-red-400 text-red-400'
                 : 'border border-gray-200'
             }`}
             height="h-[40px] rounded-lg"
-            value={formik.values.password}
+            value={formik.values.referrerCode}
             type="text"
             placeholder="Optional: let us know where you hear about us/referral id"
             onChange={formik.handleChange}
@@ -208,13 +228,13 @@ const Enroll = () => {
         </div>
         <div className="flex flex-col items-center justify-between w-full gap-4 text-center lg:justify-center">
           <Button
-            loading={isLoading}
+            loading={isPending}
             type="submit"
             label="Enroll"
             width="w-full"
             buttonStyle="custom"
             height="h-[48px]"
-            customClasses="bg-[#684DF4] hover:bg-base-light-hover text-white rounded-[8px]"
+            customClasses="bg-[#684DF4] hover:bg-base-light-hover text-white rounded-[8px] cursor-pointer"
             icon={<FaArrowRight className="text-white" />}
             iconPosition="right"
           />

@@ -22,7 +22,7 @@ export const publicRoutes = [
 export const authRoutes = [
   '/',
   '/auth/login',
-  '/auth/signup',
+  '/auth/enroll',
   '/about',
   '/courses',
   '/pricing', 

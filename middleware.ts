@@ -42,7 +42,6 @@ export default auth((req) => {
   return NextResponse.next();
 });
 
-// Optionally, don't invoke Middleware on some paths (like static files)
 export const config = {
-  matcher: ['/((?!api|_next/static|_next/image|.*\\.$).*)']
+  matcher: "/((?!api|static|.*\\..*|_next).*)",
 };

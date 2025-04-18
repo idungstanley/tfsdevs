@@ -1,9 +1,7 @@
-import React from 'react'
+import React, { ReactNode } from 'react';
 
-const ProtectedLayout = () => {
-  return (
-    <div>ProtectedLayout</div>
-  )
-}
+const ProtectedLayout = ({ children }: { children: ReactNode }) => {
+  return <div>{children}</div>;
+};
 
-export default ProtectedLayout
+export default ProtectedLayout;

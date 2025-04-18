@@ -5,20 +5,13 @@
 import axios from 'axios';
 import { NextAuthConfig, Profile } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
-import GoogleProvider from 'next-auth/providers/google';
-import TwitterProvider from 'next-auth/providers/twitter';
 
 export const options = {
   session: {
-    // Set session maxAge to 24 hours (in seconds)
-    maxAge: 24 * 60 * 60, // 24 hours
-    strategy: 'jwt'
+    strategy: 'jwt',
   },
-  jwt: {
-    // Set the JWT maxAge to 24 hours (in seconds)
-    maxAge: 24 * 60 * 60 // 24 hours
-  },
-  debug: true,
+  secret: process.env.AUTH_SECRET,
+  debug: process.env.NODE_ENV === 'development',
   trustHost: true,
   pages: {
     signIn: '/auth/login',
@@ -34,41 +27,23 @@ export const options = {
           password: string;
         };
         const body = {
-          email,
-          password
+          emailAddress:email,
+          passWord: password
         };
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        // Add logic here to look up the user from the credentials supplied
-        const res = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL}/auth/login`, {
-          username: !emailRegex.test(body.email) ? email : undefined,
-          password,
-          email: emailRegex.test(body.email) ? email.toLowerCase() : undefined
-        });
-
-        const { user, token } = res.data;
-        if (user && token) return { ...user, token };
-        return null;
-      }
-    }),
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      authorization: {
-        params: {
-          prompt: 'consent',
-          access_type: 'offline',
-          response_type: 'code',
-          scope: 'openid profile email'
+        try {
+          const user = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/v1/auth/login`, body);
+          console.log('user', user.data);
+          if (!user.data.status) {
+            throw new Error("Invalid email or password");
+          }
+          return user.data; // must return user object or throw
+        } catch (error) {
+          console.error('Authorization error:', error);
+          return null;
         }
       }
-    }),
-    TwitterProvider({
-      clientId: process.env.TWITTER_ID,
-      clientSecret: process.env.TWITTER_SECRET
     })
   ],
-  secret: process.env.AUTH_SECRET,
   callbacks: {
     async signIn({ profile, account, user }) {
       if (account?.provider === 'google') {
@@ -96,7 +71,7 @@ export const options = {
     },
     jwt: async ({ token, user, account, profile }) => {
       if (user) {
-        token = user as unknown as { [key: string]: any };
+        token = user as unknown as { [key: string]: any; };
         token.exp = Math.floor(Date.now() / 1000) + 24 * 60 * 60;
 
         if (account?.provider === 'google') {

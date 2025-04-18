@@ -1,21 +1,24 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 import Button from '@/app/components/button/Button';
 import InputWithLabel from '@/app/components/input/InputWithLabel';
 import Header from '@/app/components/text/Header';
-import Toast from '@/app/lib/Toast';
+import { SignIn } from '@/app/lib/action';
 import { LoginProps } from '@/app/types/index.interface';
 import { loginSchema } from '@/app/validationSchema';
 import { useFormik } from 'formik';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import toast from 'react-hot-toast';
 import { FaEye, FaEyeSlash } from 'react-icons/fa6';
 import { MdOutlineLogin } from 'react-icons/md';
+import { toast } from 'react-toastify';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
   const togglePasswordVisibility = () => {
     setShowPassword((prevState) => !prevState);
   };
@@ -31,22 +34,19 @@ const Login = () => {
       try {
         setIsLoading(true);
         console.log(values);
-        // await SignIn({
-        //   email: values.email,
-        //   password: values.password
-        // });
-        window.location.reload(); // This will reload the current page
-        // Re-fetch the session immediately
-      } catch (error) {
-        if (error) {
-          return toast.custom((t) => <Toast type="error" title="Credentials are not valid" toastId={t.id} />, {
-            duration: 1000
-          });
-        }
-        return toast.custom((t) => <Toast type="error" title="Something went wrong" toastId={t.id} />, {
-          duration: 1000
+        await SignIn({
+          email: values.email,
+          password: values.password
         });
-        // throw error;
+        router.push('/dashboard');
+        window.location.reload();
+      } catch (error: any) {
+        console.error('Login error:', error);
+        if (error instanceof Error) {
+          return toast.error(error.message); // 👈 use error.message
+        } else {
+         return toast.error('Something went wrong'); // fallback
+        }
       } finally {
         setIsLoading(false);
       }
@@ -88,13 +88,7 @@ const Login = () => {
             }`}
             height="h-[40px] rounded-lg"
             hint="Must be at least 8 characters"
-            trailingIcon={
-              showPassword ? (
-                <FaEye className="text-gray-900" />
-              ) : (
-                <FaEyeSlash className="text-gray-900" />
-              )
-            }
+            trailingIcon={showPassword ? <FaEye className="text-gray-900" /> : <FaEyeSlash className="text-gray-900" />}
             name="password"
             value={formik.values.password}
             type={showPassword ? 'text' : 'password'}
@@ -120,7 +114,7 @@ const Login = () => {
             width="w-full"
             buttonStyle="custom"
             height="h-[48px]"
-            customClasses="bg-[#684DF4] hover:bg-base-light-hover text-white rounded-[8px]"
+            customClasses="bg-[#684DF4] hover:bg-base-light-hover text-white rounded-[8px] cursor-pointer"
             icon={<MdOutlineLogin className="text-white" />}
             iconPosition="right"
           />
