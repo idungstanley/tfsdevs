@@ -56,12 +56,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Providers>
-        <body className="antialiased relative">
+      <body className="antialiased relative">
+        <Providers>
           {children}
           <CursorFollower />
-        </body>
-      </Providers>
+        </Providers>
+      </body>
     </html>
   );
 }

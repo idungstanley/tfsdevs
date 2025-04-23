@@ -8,6 +8,7 @@ import { ErrorResponse, ISuccessRequest } from '../types/index.interface';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loading from '../loading';
+import { ThemeProvider } from '../context/ThemeContext';
 
 export function Providers({ children }: React.PropsWithChildren) {
   const onError = (error: unknown): unknown => {
@@ -61,12 +62,13 @@ export function Providers({ children }: React.PropsWithChildren) {
   const [client] = React.useState(queryClient);
 
   return (
-    <QueryClientProvider client={client}>
-      <Provider store={store}>
-        <Suspense fallback={<Loading />}>
-          <SessionProvider>{children}</SessionProvider>
-        </Suspense>
-      </Provider>
+    <ThemeProvider>
+      <QueryClientProvider client={client}>
+        <Provider store={store}>
+          <Suspense fallback={<Loading />}>
+            <SessionProvider>{children}</SessionProvider>
+          </Suspense>
+        </Provider>
         <ToastContainer
           position="top-right"
           autoClose={5000}
@@ -79,6 +81,7 @@ export function Providers({ children }: React.PropsWithChildren) {
           pauseOnHover
           theme="dark"
         />
-    </QueryClientProvider>
+      </QueryClientProvider>
+    </ThemeProvider>
   );
 }

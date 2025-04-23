@@ -223,3 +223,94 @@ export const courses: CourseCardProps[] = [
         features: ['90 Lessons', 'Data Projects', 'Certification Included'],
     },
 ];
+
+
+export const recentActivities = [
+    {
+        id: 1,
+        user: 'Alex Johnson',
+        action: 'completed',
+        target: 'Introduction to React',
+        time: '5 minutes ago'
+    },
+    {
+        id: 2,
+        user: 'Sara Williams',
+        action: 'enrolled in',
+        target: 'Advanced JavaScript',
+        time: '2 hours ago'
+    },
+    {
+        id: 3,
+        user: 'Michael Brown',
+        action: 'submitted assignment for',
+        target: 'UI/UX Design Principles',
+        time: 'Yesterday at 11:30 PM'
+    },
+    {
+        id: 4,
+        user: 'Jessica Lee',
+        action: 'started',
+        target: 'Data Analysis Fundamentals',
+        time: '2 days ago'
+    }
+];
+
+export const programsData = [
+    {
+        id: 1,
+        title: 'Web Development',
+        description: 'Learn frontend and backend technologies to build modern web applications',
+        image:
+            'https://images.pexels.com/photos/11035380/pexels-photo-11035380.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+        progress: 75
+    },
+    {
+        id: 2,
+        title: 'Data Science',
+        description: 'Master data analysis, visualization and machine learning techniques',
+        image:
+            'https://images.pexels.com/photos/2004161/pexels-photo-2004161.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+        progress: 45
+    },
+    {
+        id: 3,
+        title: 'UI/UX Design',
+        description: 'Create beautiful user interfaces and seamless user experiences',
+        image:
+            'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+        progress: 30
+    },
+    {
+        id: 4,
+        title: 'Mobile Development',
+        description: 'Build cross-platform mobile applications with React Native',
+        image:
+            'https://images.pexels.com/photos/193004/pexels-photo-193004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+        progress: 15
+    }
+];
+
+export const notifications = [
+    {
+        id: 1,
+        title: 'New message received',
+        description: 'You have a new message from Alex',
+        time: '5 min ago',
+        read: false
+    },
+    {
+        id: 2,
+        title: 'Meeting reminder',
+        description: 'Team meeting in 30 minutes',
+        time: '30 min ago',
+        read: false
+    },
+    {
+        id: 3,
+        title: 'Task completed',
+        description: 'Project "Dashboard" has been completed',
+        time: '2 hours ago',
+        read: true
+    }
+];
