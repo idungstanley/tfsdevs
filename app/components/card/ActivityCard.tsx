@@ -21,7 +21,7 @@ const ActivityCard: React.FC<ActivityCardProps> = ({ activities }) => {
   const borderColor = theme === 'dark' ? 'border-gray-700' : 'border-gray-200';
 
   return (
-    <div className={`rounded-lg ${bgColor} shadow p-6 border ${borderColor}`}>
+    <div className={`rounded-lg ${bgColor} shadow p-6 h-fit border ${borderColor}`}>
       <h3 className="text-lg font-medium mb-4">Recent Activity</h3>
 
       <div className="space-y-4">

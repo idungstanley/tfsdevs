@@ -25,11 +25,15 @@ export const authRoutes = [
   '/auth/enroll',
   '/about',
   '/courses',
-  '/pricing', 
+  '/pricing',
   '/api/auth/providers',
   '/faq',
   '/auth/forgot-password',
   '/auth/reset-password',
+  '/courses/frontend',
+  '/courses/backend',
+  '/courses/fullstack',
+  // '/courses',
 ];
 
 /**

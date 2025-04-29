@@ -2,14 +2,14 @@ import React from 'react';
 import {
   Home,
   BarChart2,
-  Users,
-  FileText,
   Settings,
   Calendar,
   HelpCircle,
-  Briefcase,
   BookOpen,
-  LogOut
+  LogOut,
+  ClipboardList,
+  CreditCard,
+  Gift
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import Logo from './Logo';
@@ -43,21 +43,26 @@ const Sidebar = ({
       {/* Navigation items */}
       <nav className="flex-1 pt-4 overflow-y-auto">
         <ul className="space-y-1 px-2">
-          <SidebarItem icon={<Home size={20} />} text="Dashboard" active expanded={expanded} />
-          <SidebarItem icon={<BarChart2 size={20} />} text="Analytics" expanded={expanded} />
-          <SidebarItem icon={<Calendar size={20} />} text="Application History" expanded={expanded} />
-          <SidebarItem icon={<Briefcase size={20} />} text="Projects" expanded={expanded} />
-          <SidebarItem icon={<BookOpen size={20} />} text="Courses" expanded={expanded} />
-          <SidebarItem icon={<FileText size={20} />} text="Documents" expanded={expanded} />
-          <SidebarItem icon={<Users size={20} />} text="Earn" expanded={expanded} />
+          <SidebarItem icon={<Home size={20} />} text="Dashboard" route="dashboard" expanded={expanded} />
+          <SidebarItem icon={<BarChart2 size={20} />} text="Analytics" route="analytics" expanded={expanded} />
+          <SidebarItem icon={<Calendar size={20} />} text="Calendar" route="calendar" expanded={expanded} />
+          <SidebarItem icon={<BookOpen size={20} />} text="Courses" route="courses" expanded={expanded} />
+          <SidebarItem
+            icon={<ClipboardList size={20} />}
+            text="Applications"
+            route="application-history"
+            expanded={expanded}
+          />
+          <SidebarItem icon={<CreditCard size={20} />} text="Payments" route="payment-history" expanded={expanded} />
+          <SidebarItem icon={<Gift size={20} />} text="Earn" route="earn" expanded={expanded} />
         </ul>
 
         <div className="mt-8 px-3">
           <div className="border-t border-gray-700 pt-4">
             <ul className="space-y-1 px-2">
-              <SidebarItem icon={<Settings size={20} />} text="Settings" expanded={expanded} />
-              <SidebarItem icon={<HelpCircle size={20} />} text="Help" expanded={expanded} />
-              <SidebarItem icon={<LogOut size={20} />} text="Logout" expanded={expanded} />
+              <SidebarItem icon={<Settings size={20} />} text="Settings" route="settings" expanded={expanded} />
+              <SidebarItem icon={<HelpCircle size={20} />} text="Help" route="help" expanded={expanded} />
+              <SidebarItem icon={<LogOut size={20} />} text="Logout" route="logout" expanded={expanded} />
             </ul>
           </div>
         </div>
@@ -72,7 +77,7 @@ const Sidebar = ({
         </div>
         {expanded && (
           <div className="flex-1 min-w-0">
-            <p className="text-sm font-medium text-gray-300 truncate">John Smith</p>
+            <p className="text-sm font-medium text-gray-300 truncate">Stanley Sunday</p>
             <p className="text-xs text-gray-500 truncate">john@example.com</p>
           </div>
         )}
