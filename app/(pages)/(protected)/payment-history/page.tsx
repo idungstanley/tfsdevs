@@ -1,6 +1,6 @@
 'use client'
-import React, { useState } from 'react';
-import { Loader, Download } from 'lucide-react';
+import React from 'react';
+import { Download } from 'lucide-react';
 import { useTheme } from '@/app/context/ThemeContext';
 
 interface Payment {
@@ -39,7 +39,7 @@ const payments: Payment[] = [
 
 const PaymentHistory: React.FC = () => {
   const { theme } = useTheme();
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
 
   const bgColor = theme === 'dark' ? 'bg-gray-800' : 'bg-white';
   const borderColor = theme === 'dark' ? 'border-gray-700' : 'border-gray-200';
@@ -55,13 +55,13 @@ const PaymentHistory: React.FC = () => {
     }
   };
 
-  if (isLoading) {
-    return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <Loader className="w-8 h-8 animate-spin text-indigo-500" />
-      </div>
-    );
-  }
+  // if (isLoading) {
+  //   return (
+  //     <div className="flex items-center justify-center min-h-[400px]">
+  //       <Loader className="w-8 h-8 animate-spin text-indigo-500" />
+  //     </div>
+  //   );
+  // }
 
   if (payments.length === 0) {
     return (

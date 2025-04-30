@@ -1,7 +1,7 @@
 'use client'
-import React, { useState } from 'react';
+import React from 'react';
 import { useTheme } from '../../../context/ThemeContext';
-import { Loader } from 'lucide-react';
+// import { Loader } from 'lucide-react';
 
 interface Application {
   id: string;
@@ -36,7 +36,7 @@ const applications: Application[] = [
 
 const ApplicationHistory: React.FC = () => {
   const { theme } = useTheme();
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
 
   const bgColor = theme === 'dark' ? 'bg-gray-800' : 'bg-white';
   const borderColor = theme === 'dark' ? 'border-gray-700' : 'border-gray-200';
@@ -52,13 +52,13 @@ const ApplicationHistory: React.FC = () => {
     }
   };
 
-  if (isLoading) {
-    return (
-      <div className="flex items-center justify-center min-h-[400px]">
-        <Loader className="w-8 h-8 animate-spin text-indigo-500" />
-      </div>
-    );
-  }
+  // if (isLoading) {
+  //   return (
+  //     <div className="flex items-center justify-center min-h-[400px]">
+  //       <Loader className="w-8 h-8 animate-spin text-indigo-500" />
+  //     </div>
+  //   );
+  // }
 
   if (applications.length === 0) {
     return (
