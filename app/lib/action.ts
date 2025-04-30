@@ -14,7 +14,7 @@ export async function SignIn(
   } catch (error) {
     console.error('Login error:', error);
     if (error instanceof AuthError) {
-      switch (error.type) {
+      switch (error.name) {
         case 'CredentialsSignin':
           throw new Error('Invalid email or password');
         default:
