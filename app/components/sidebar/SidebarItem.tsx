@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import React from 'react';
 
 interface SidebarItemProps {
@@ -10,7 +11,8 @@ interface SidebarItemProps {
 }
 
 const SidebarItem: React.FC<SidebarItemProps> = ({ icon, text, expanded = true, route }) => {
-  const isActive = location.pathname === `/${route || ''}`;
+  const pathname = usePathname()
+  const isActive = pathname === `/${route || ''}`;
 
   return (
     <li>
