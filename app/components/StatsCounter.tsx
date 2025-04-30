@@ -29,7 +29,7 @@ const StatsCounter = () => {
               </div>
               <div className="flex flex-col gap-2 text-start">
                 <h2 className="text-4xl font-bold">
-                  <CountUp start={0} end={stat.value} duration={3} />+
+                  <CountUp start={0} end={stat.value} />+
                 </h2>
                 <p className="text-lg">{stat.label}</p>
               </div>
