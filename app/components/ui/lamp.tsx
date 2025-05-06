@@ -26,7 +26,7 @@ export const LampContainer = ({ children, className }: { children: React.ReactNo
   return (
     <div
       className={cn(
-        'relative flex md:min-h-screen h-full m-4 flex-col items-center justify-center overflow-hidden bg-slate-950  md:m-18 mt-28 rounded-md md:rounded-2xl z-0',
+        'relative flex md:min-h-screen h-full m-4 flex-col items-center justify-center overflow-hidden bg-slate-950 pt-50  md:m-18 mt-28 rounded-md md:rounded-2xl z-0',
         className
       )}
     >

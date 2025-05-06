@@ -67,7 +67,7 @@ export interface Testimonial {
     profilePicture: string;
     stars: number;
     testimonial: string;
-    reviewLink: string;
+    title: string;
 }
 
 export interface displayItemsProps {

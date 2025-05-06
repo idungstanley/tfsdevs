@@ -1,20 +1,18 @@
 import { stacks, testimonials } from '@/app/constants/testimonials';
 import React from 'react';
-import TestimonialCard from '../card/TestimonialCards';
 import { BsArrowUpRightCircleFill } from 'react-icons/bs';
 import Button from '../button/Button';
 import Image from 'next/image';
+import { InfiniteMovingCards } from '../card/InfiniteMovingCard';
 
 const Reviews = () => {
   return (
     <section className="w-full flex-col flex gap-4 bg-[#11111] md:px-20 md:pt-20 p-6">
-      <h1 className="font-[700] text-white md:text-[45px] text-[30px]">
-        Our <span className="text-[#684DF4]">Testimonials</span> and Reviews
+      <h1 className="font-[700] text-white text-xs">
+        [ Our <span className="text-[#684DF4]">Testimonials</span> and Reviews ]
       </h1>
       <div className="flex flex-col md:flex-row gap-4 w-full">
-        {testimonials.map((testimonial) => (
-          <TestimonialCard key={testimonial.id} testimonial={testimonial} />
-        ))}
+        <InfiniteMovingCards items={testimonials} direction="right" speed="slow" />
       </div>
       <div className="flex flex-col py-20 bg-slate-950 rounded-2xl">
         <div className="md:round-2xl rounded-b-lg px-8 py-6 space-y-16 flex flex-col items-center text-white">

@@ -8,7 +8,8 @@ export const testimonials: Testimonial[] = [
         profilePicture: '/twitter-photo.jpg',
         stars: 5,
         testimonial: 'This course was fantastic! I learned so much, and the instructors were really helpful.',
-        reviewLink: '/review/1'
+        title: "Software developer",
+
     },
     {
         id: 2,
@@ -16,7 +17,8 @@ export const testimonials: Testimonial[] = [
         profilePicture: '/avatar.jpg',
         stars: 4,
         testimonial: 'Great content and resources. The only downside is the pace of the course, which could be improved.',
-        reviewLink: '/review/2'
+        title: "Software developer",
+
     },
     {
         id: 3,
@@ -24,7 +26,7 @@ export const testimonials: Testimonial[] = [
         profilePicture: '/twitter-photo.jpg',
         stars: 5,
         testimonial: 'The project work really helped me apply what I learned. I’m now more confident in my skills.',
-        reviewLink: '/review/3'
+        title: "Software developer",
     },
     {
         id: 4,
@@ -32,7 +34,7 @@ export const testimonials: Testimonial[] = [
         profilePicture: '/twitter-photo.jpg',
         stars: 5,
         testimonial: 'The best course I’ve taken! Clear explanations and amazing support from the mentors.',
-        reviewLink: '/review/4'
+        title: "Frontend developer",
     }
 ];
 
