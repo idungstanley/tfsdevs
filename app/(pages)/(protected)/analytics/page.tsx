@@ -6,7 +6,6 @@ import StatCard from '@/app/components/card/StatCard';
 
 const Analytics: React.FC = () => {
   const { theme } = useTheme();
-
   const bgColor = theme === 'dark' ? 'bg-gray-800' : 'bg-white';
   const borderColor = theme === 'dark' ? 'border-gray-700' : 'border-gray-200';
 

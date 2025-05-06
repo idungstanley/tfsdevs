@@ -15,11 +15,11 @@ const About = () => {
           backgroundImage: "url('/counter-bg.webp')"
         }}
       >
-        <h1 className="font-[700] text-white md:text-[50px] text-[30px] text-wrap w-full]">
+        <h1 className="font-[700] px-10 text-white md:text-[50px] text-[30px] text-wrap w-full]">
           About our <span className="text-[#684DF4]"> program</span>
         </h1>
       </div>
-      <div className="flex flex-col gap-2 bg-[#33333] p-10 text-white">
+      <div className="flex flex-col gap-2 bg-[#33333] p-10 text-white px-20">
         <h1 className="font-[700] md:text-[50px] text-[30px] text-wrap">Cutting-Edge Coding Academy</h1>
         <p>
           TheFullSnackDevs because of its commitment to delivering top-tier frontend, backend, and full-stack
@@ -38,7 +38,7 @@ const About = () => {
         </div>
       </div>
       <div className="h-fit border-t border-gray-900 flex">
-        <div className="w-1/2 flex grow bg-slate-800 h-full flex-col gap-3 p-10">
+        <div className="w-1/2 pl-20 flex grow bg-slate-800 h-full flex-col gap-3 p-10">
           <span className="font-bold p-3 text-white rounded-full bg-[#684DF4] w-fit">Why Choose Thefullsnackdevs</span>
           <h1
             className="font-[700] md:text-[50px] text-[30px] text-wrap text-transparent bg-clip-text bg-center bg-cover"
@@ -52,7 +52,7 @@ const About = () => {
           </p>
           <Image src="/next-code.jpg" alt="about us" width={500} height={500} className="w-full" />
         </div>
-        <div className="w-1/2 flex items-center h-full p-10 bg-[#080F1C]">
+        <div className="w-1/2 flex items-center h-full p-10 bg-[#080F1C] pr-20">
           <div className="max-w-4xl mx-auto space-y-6">
             {whatWeDo.map((feature, index) => (
               <FeatureCard key={index} {...feature} />

@@ -41,11 +41,11 @@ const MobileNav = () => {
   }, [menuOpen]);
 
   return (
-    <div className="flex items-center justify-between w-full px-4 lg:hidden relative">
+    <div className="flex items-center justify-between w-full px-2 lg:hidden relative">
       <Link href="/">
         <div className="items-center justify-center w-full flex hover:text-[#684DF4]">
-          <Image src="/iconpurple.svg" alt="logo" width={500} height={500} className="h-[50px] w-[60px]" />
-          <Image src="/logotext.svg" alt="logo" width={500} height={500} className="h-[50px] w-[60px]" />
+          <Image src="/iconpurple.svg" alt="logo" width={500} height={500} className="h-[30px] w-[40px]" />
+          <Image src="/logotext.svg" alt="logo" width={500} height={500} className="h-[30px] w-[50px]" />
         </div>
       </Link>
       <div className="flex items-center gap-2 md:gap-4">

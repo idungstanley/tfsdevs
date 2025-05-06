@@ -23,7 +23,7 @@ export interface Module {
   id: string;
   title: string;
   description: string;
-  duration: number; // in minutes
+  duration: number;
   completed?: boolean;
   lessons: Lesson[];
 }

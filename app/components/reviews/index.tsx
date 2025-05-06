@@ -16,8 +16,8 @@ const Reviews = () => {
           <TestimonialCard key={testimonial.id} testimonial={testimonial} />
         ))}
       </div>
-      <div className="flex flex-col py-20 bg-[#333333]">
-        <div className=" md:round rounded-b-lg px-8 py-6 space-y-16 flex flex-col items-center text-white">
+      <div className="flex flex-col py-20 bg-slate-950 rounded-2xl">
+        <div className="md:round-2xl rounded-b-lg px-8 py-6 space-y-16 flex flex-col items-center text-white">
           <div className="flex flex-col gap-3 items-center">
             <h3 className="font-bold text-[30px]">Gain Practical Tech Skills from Experts You Can Trust</h3>
             <p>JavaScript, React, and TypeScript to Node.js and Backend (Git, Docker, & More)</p>

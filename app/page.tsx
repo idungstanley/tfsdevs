@@ -8,6 +8,7 @@ import HeroSection from './components/hero';
 import ContactInfo from './components/contact-info';
 import ScrollingLogos from './components/ScrollingLogos';
 import StatsCounter from './components/StatsCounter';
+import { RemoteWorldMap } from './components/remote-map';
 
 export default function Home() {
   return (
@@ -20,12 +21,13 @@ export default function Home() {
           backgroundSize: '100 100'
         }}
       >
-        <div className="md:px-10 px-4 md:pt-10 pt-4">
+        <div className="md:px-10 px-4 pt-4">
           <Navbar />
         </div>
         <HeroSection />
         <Features />
       </div>
+      <RemoteWorldMap />
       <WhatMakesUsUnique />
       <div className="flex flex-col flex-1">
         <StatsCounter />

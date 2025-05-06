@@ -13,7 +13,7 @@ const initialStats = [
 const StatsCounter = () => {
   return (
     <section
-      className="bg-no-repeat bg-cover bg-[#684DF4]"
+      className="bg-no-repeat bg-cover"
       style={{
         backgroundImage: "url('/counter-bg.webp')",
         backgroundPosition: 'center center',
@@ -21,7 +21,7 @@ const StatsCounter = () => {
       }}
     >
       <div className="w-full py-12">
-        <div className="container flex flex-col md:flex-row md:justify-around justify-start md:items-center md:flex-wrap gap-6 px-4">
+        <div className="container flex flex-col md:flex-row md:justify-around justify-start md:items-center md:flex-wrap gap-6 px-10">
           {initialStats.map((stat) => (
             <div key={stat.id} className="text-center text-white flex items-center gap-4">
               <div className="relative w-16 h-16 flex items-center justify-center bg-white rounded-full text-[30px]">

@@ -7,18 +7,15 @@ import StackedIcon from '../StackedIcon';
 
 const ContactInfo = () => {
   return (
-    <section className="flex flex-col md:flex-row bg-white md:h-[150px] h-full items-center relative">
-      <Link
-        href="/"
-        className="bg-[#080F1C] w-full md:w-[30%] h-[100px] md:h-full justify-start flex items-center px-10"
-      >
+    <section className="flex flex-col md:flex-row md:h-[150px] h-full items-center relative">
+      <Link href="/" className="w-full md:w-[30%] h-[100px] md:h-full justify-start flex items-center px-10">
         <div className="items-center justify-start md:justify-center w-full flex hover:text-[#684DF4]">
           <Image src="/iconpurple.svg" alt="logo" width={500} height={500} className="h-[50px] w-[60px]" />
           <Image src="/logotext.svg" alt="logo" width={500} height={500} className="h-[50px] w-[60px]" />
         </div>
       </Link>
 
-      <div className="px-10 pt-5 flex items-center justify-center bg-[#684DF4] h-full w-full">
+      <div className="px-10 pt-5 flex items-center justify-center bg-slate-950 h-full w-full">
         <div className="flex flex-col md:flex-row md:items-center gap-10 w-full h-full">
           {contactInformations.map((info, index) => (
             <div key={index} className="flex items-center gap-2 cursor-pointer text-white">

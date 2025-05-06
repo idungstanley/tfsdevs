@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import CursorFollower from './components/CursorFollower';
 import { Providers } from './store/Provider';
+import SnowEffect from './components/SnowEffect';
 
 export const metadata: Metadata = {
   title: 'TheFullSnackDevs, Build. Learn. Grow.',
@@ -60,6 +61,7 @@ export default function RootLayout({
         <Providers>
           {children}
           <CursorFollower />
+          <SnowEffect />
         </Providers>
       </body>
     </html>

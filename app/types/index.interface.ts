@@ -159,3 +159,15 @@ export interface CourseCardProps {
     price?: string; // Mock price field (e.g., "1 month, then $1.7/month")
     features?: string[]; // Mock features (e.g., "100 GB storage", "Option to add members")
 }
+
+export interface CardProps {
+    title: string;
+    description: string;
+    src: string;
+}
+
+export interface CarouselProps {
+    cards: CardProps[];
+    intSec?: number;
+    primaryColor?: string;
+}

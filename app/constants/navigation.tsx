@@ -5,7 +5,7 @@ import { RiTwitterXLine } from "react-icons/ri";
 
 export const navItems = [
   { label: 'About us', route: '/about' },
-  { label: 'Experience', route: '/experience' },
+  // { label: 'Experience', route: '/experience' },
   {
     label: 'Courses',
     children: [
@@ -29,7 +29,7 @@ export const socials = [
 export const footerItems = [
   { title: 'About us', url: '/about' },
   { title: 'Services', url: '/services' },
-  { title: 'Experience', url: '/experience' },
+  // { title: 'Experience', url: '/experience' },
   { title: 'Courses', url: '/courses' },
   { title: 'FAQ', url: '/faq' },
   { title: 'Contact', url: '/contact' }

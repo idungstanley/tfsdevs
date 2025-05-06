@@ -15,7 +15,7 @@ const FAQ = () => {
   }, [activeTab]);
 
   return (
-    <div className="w-full md:p-20 p-8 text-white flex flex-col gap-6">
+    <div className="w-full md:p-20 p-8 md:mt-16 mt-20 text-white flex flex-col gap-6">
       <div className="flex flex-col items-center">
         <Image src="/question.svg" alt="faq" width={200} height={200} className="h-16 w-16" />
         <h1 className="md:text-[50px] text-[35px] font-[700]">Frequently Asked Questions</h1>

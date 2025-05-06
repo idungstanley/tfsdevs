@@ -6,7 +6,7 @@ import FloatingBubble from '../FloatingBubble';
 
 const WhatMakesUsUnique = () => {
   return (
-    <section className="w-full flex flex-col md:flex-row gap-8 bg-[#333333] md:p-20 p-6 items-center">
+    <section className="w-full flex flex-col md:flex-row gap-8 md:p-20 p-6 items-center">
       <div className="md:w-1/2 w-full">
         <div className="flex items-center gap-2">
           <Image src="/title_shape.svg" alt="title shape" width={500} height={500} className="h-8 w-8" />
@@ -32,7 +32,7 @@ const WhatMakesUsUnique = () => {
           ))}
         </ul>
       </div>
-      <FloatingBubble imageUrl="/focus.jpg" />
+      <FloatingBubble imageUrl="/self-learning.jpg" />
     </section>
   );
 };

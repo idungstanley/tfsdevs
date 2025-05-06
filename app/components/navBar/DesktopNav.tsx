@@ -6,9 +6,14 @@ import Button from '../button/Button';
 import { navItems } from '@/app/constants/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaCartPlus, FaSearch } from 'react-icons/fa';
+import HyphenIcon from '@/public/HyphenIcon';
+import PlusIcon from '@/public/PlusIcon';
+import ArrowRightIcon from '@/public/ArrowRightIcon';
+import { usePathname } from 'next/navigation';
 
 const DesktopNav = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const pathname = usePathname();
 
   return (
     <div className="lg:flex items-center justify-between px-10 w-full hidden text-white">
@@ -27,8 +32,8 @@ const DesktopNav = () => {
                 onMouseEnter={() => setActiveDropdown(item.label)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <button className="text-white font-medium hover:text-[#736e89] cursor-pointer">
-                  {item.label} &#x25BE;
+                <button className="text-white font-medium hover:text-[#736e89] cursor-pointer flex items-center gap-1">
+                  <span>{item.label}</span> {activeDropdown === item.label ? <HyphenIcon /> : <PlusIcon />}
                 </button>
                 <AnimatePresence>
                   {activeDropdown === item.label && (
@@ -37,15 +42,21 @@ const DesktopNav = () => {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute left-0 mt-2 bg-[#0E1225] shadow-lg rounded-md w-fit min-w-40 p-2 pointer-events-auto"
+                      className="absolute left-0 mt-2 bg-[#222523bf] shadow-lg rounded-md w-fit min-w-40 p-2 pointer-events-auto"
                     >
                       {item.children.map((child, idx) => (
                         <li key={idx}>
                           <Link
                             href={child.route}
-                            className="block px-4 py-2 text-white hover:bg-gray-200 rounded-md hover:text-[#684DF4] text-nowrap"
+                            className="group relative flex flex-col gap-1 px-4 py-2 text-white rounded-md transition-all text-nowrap"
                           >
-                            {child.label}
+                            <div className="flex items-center justify-between gap-4">
+                              <span className="group-hover:text-[#684DF4] transition-colors">{child.label}</span>
+                              <ArrowRightIcon />
+                            </div>
+
+                            {/* Hover underline */}
+                            <div className="h-0.5 bg-[#684DF4] w-0 transition-all duration-500 origin-left rounded-full group-hover:w-full"></div>
                           </Link>
                         </li>
                       ))}
@@ -54,7 +65,12 @@ const DesktopNav = () => {
                 </AnimatePresence>
               </div>
             ) : (
-              <Link href={item.route} className="text-white font-medium hover:text-[#684DF4]">
+              <Link
+                href={item.route}
+                className={`text-white font-medium hover:text-[#684DF4] transition-all relative px-2 py-1 ${
+                  pathname === item.route ? 'border border-[#684DF4] rounded-md' : ''
+                }`}
+              >
                 {item.label}
               </Link>
             )}
@@ -73,8 +89,8 @@ const DesktopNav = () => {
                 label="Login"
                 width="w-[120px]"
                 buttonStyle="custom"
-                height="h-[36px]"
-                labelSize="text-[15px] font-lg rounded-md"
+                height="h-[32px]"
+                labelSize="text-[15px] font-lg"
                 customClasses="cursor-pointer text-[#080F1C] border border-[#684DF4] hover:text-white hover:bg-[#684DF4] bg-white rounded-full transition-transform duration-300 ease-in-out hover:scale-110 hover:opacity-90"
               />
             </Link>
@@ -83,7 +99,7 @@ const DesktopNav = () => {
                 label="Enroll now"
                 width="w-fit"
                 buttonStyle="custom"
-                height="h-[36px]"
+                height="h-[32px]"
                 labelSize="text-[15px] font-lg"
                 customClasses="text-[#684DF4] hover:text-white hover:bg-[#684DF4] cursor-pointer border border-[#684DF4] rounded-full transition-transform duration-300 ease-in-out hover:scale-110 hover:opacity-90"
               />

@@ -17,7 +17,7 @@ const ICON_MAP: { [key: string]: ReactNode } = {
 
 const Footer = () => {
   return (
-    <footer className="relative bg-[#0E1225] text-white pt-12">
+    <footer className="relative text-white pt-12">
       {/* Background Animation */}
       <div className="absolute inset-0 bg-[url('/path-to-network-pattern.png')] bg-cover opacity-40"></div>
 

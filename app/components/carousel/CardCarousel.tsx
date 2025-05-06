@@ -4,30 +4,19 @@ import { motion } from 'framer-motion';
 import { LuArrowRight } from 'react-icons/lu';
 import { useMediaQuery } from 'react-responsive';
 import Image from 'next/image';
+import { CarouselProps } from '@/app/types/index.interface';
 
-interface CardProps {
-  title: string;
-  description: string;
-  src: string;
-}
-
-interface CarouselProps {
-  cards: CardProps[];
-  interval?: number;
-  primaryColor?: string;
-}
-
-const Carousel: React.FC<CarouselProps> = ({ cards, interval = 3000 }) => {
+const Carousel: React.FC<CarouselProps> = ({ cards, intSec = 3000 }) => {
   const [index, setIndex] = useState(0);
   const isMobile = useMediaQuery({ maxWidth: 900 });
 
   useEffect(() => {
     const slideInterval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % cards.length);
-    }, interval);
+    }, intSec);
 
     return () => clearInterval(slideInterval);
-  }, [interval, cards.length]);
+  }, [intSec, cards.length]);
 
   return (
     <div className="relative w-full flex items-center justify-center overflow-x-hidden overflow-y-hidden md:overflow-y-auto md:h-[300px] h-[250px] flex-col md:flex-row">
