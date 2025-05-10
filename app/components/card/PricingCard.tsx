@@ -60,7 +60,7 @@ export const PricingCard: React.FC<CourseCardProps> = ({
       <li
         ref={slideRef}
         className="flex flex-1 flex-col items-center justify-center relative text-center text-white opacity-100 transition-all duration-300 ease-in-out w-[60vmin] h-[70vmin] z-10 "
-        onClick={() => handleSlideClick(index)}
+        onClick={() => handleSlideClick?.(index as number)}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         style={{
