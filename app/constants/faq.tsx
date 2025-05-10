@@ -78,3 +78,74 @@ export const faqData = [
   { title: 'Courses & Curriculum', id: 'courses', questions: groupedFAQs.programCurriculum },
   { title: 'Career Support', id: 'career', questions: groupedFAQs.careerSupport }
 ];
+
+export const content = [
+  {
+    title: 'Collaborative Learning Experience',
+    description:
+      "We foster a strong learning community where students share insights, work together, and support each other to enhance understanding. You're never alone on your learning journey.",
+    content: (
+      <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] text-white">
+        <img src="/group.jpg" width={300} height={300} className="h-full w-full object-cover" alt="linear board demo" />
+      </div>
+    )
+  },
+  {
+    title: 'Learn Anytime, Anywhere',
+    description:
+      'Gain knowledge at your own pace, from any location. We make learning flexible and accessible, ensuring you have the freedom to choose your learning environment.',
+    content: (
+      <div className="flex h-full w-full items-center justify-center text-white">
+        <img
+          src="/focus.jpg"
+          width={300}
+          height={300}
+          className="h-full w-full object-cover"
+          alt="linear board demo"
+        />
+      </div>
+    )
+  },
+  {
+    title: 'Engaging & Interactive Learning',
+    description:
+      'Forget outdated materials and boring lectures! Our approach to learning is dynamic, engaging, and designed to spark curiosity, critical thinking, and a love for knowledge.',
+    content: (
+      <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] text-white">
+        <img src="/group.jpg" width={300} height={300} className="h-full w-full object-cover" alt="linear board demo" />
+      </div>
+    )
+  },
+  {
+    title: 'Learn from Top Experts',
+    description:
+      'Our instructors are carefully selected professionals, ensuring that you receive the best industry-relevant knowledge from experts who truly understand the field.',
+    content: (
+      <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] text-white">
+        <img
+          src="/code-demo.jpg"
+          width={300}
+          height={300}
+          className="h-full w-full object-cover"
+          alt="linear board demo"
+        />
+      </div>
+    )
+  },
+  {
+    title: 'Career-Driven Learning',
+    description:
+      "We focus on equipping you with the right skills to advance your career. Whether you're upskilling, changing fields, or starting fresh, our programs are designed to help you achieve success.",
+    content: (
+      <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] text-white">
+        <img
+          src="/coding-env.jpg"
+          width={300}
+          height={300}
+          className="h-full w-full object-cover"
+          alt="linear board demo"
+        />
+      </div>
+    )
+  }
+];

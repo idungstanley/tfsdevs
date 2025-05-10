@@ -1,17 +1,15 @@
 export const SOCIAL_LINKS = [
-    { icon: "facebook", link: "#" },
-    { icon: "twitter", link: "#" },
-    { icon: "linkedin", link: "#" },
-    { icon: "instagram", link: "#" },
-    { icon: "youtube", link: "#" },
+    // { icon: "facebook", link: "#" },
+    { icon: "twitter", link: "https://x.com/fullsnackdevs_" },
+    { icon: "linkedin", link: "https://www.linkedin.com/company/thefullsnack-devs" },
+    { icon: "instagram", link: "https://www.instagram.com/thefullsnackdevs" },
+    // { icon: "youtube", link: "#" },
 ];
 
-export const QUICK_LINKS = ["About Us", "Team", "FAQ", "Projects", "Contact Us"];
+export const QUICK_LINKS = ["About Us", "FAQ", "Contact Us"];
 
 export const IT_SERVICES = [
     "Web Development",
-    "Business Development",
-    "Product Management",
     "UI/UX Design",
     "Cloud Services",
 ];

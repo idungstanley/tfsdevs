@@ -21,15 +21,15 @@ export type IntegrationsType = typeof integrations;
 
 export default function Integrations() {
   return (
-    <section className="py-24 px-20 overflow-hidden">
+    <section className="md:py-24 py-10 md:px-20 px-6 overflow-hidden">
       <div className="container">
         <div className="grid lg:grid-cols-2 items-center lg:gap-16">
-          <div className="text-white">
+          <div className="text-white text-xs">
             [<Tag>Basic Tools and languages</Tag>]
-            <h2 className="text-6xl font-medium mt-6 ">
+            <h2 className="md:text-5xl text-3xl font-medium mt-3">
               Gain Practical Tech Skills from Experts You Can <span className="text-[#684DF4]">Trust</span>
             </h2>
-            <p className="text-white/50 my-4 text-lg">
+            <p className="text-neutral-400 text-sm md:text-base my-4">
               JavaScript, React, and TypeScript to Node.js and Backend (Git, Docker, & More)
             </p>
             <Button

@@ -11,7 +11,7 @@ const PricingPage = () => {
         router.push('/auth/enroll')
     }
   return (
-    <main className="h-full w-full">
+    <main className="h-full w-full mt-20">
       <section>
         <PricingCardList />
       </section>

@@ -6,6 +6,8 @@ import { FaTwitter, FaLinkedinIn, FaInstagram, FaYoutube, FaArrowUp } from 'reac
 import ProgressBar from '../ProgressBar';
 import { GoChevronRight } from 'react-icons/go';
 import { FaFacebook } from 'react-icons/fa6';
+import Logo from '../sidebar/Logo';
+import { contactInformations } from '@/app/constants/courseOfferrings';
 
 const ICON_MAP: { [key: string]: ReactNode } = {
   facebook: <FaFacebook />,
@@ -21,17 +23,25 @@ const Footer = () => {
       {/* Background Animation */}
       <div className="absolute inset-0 bg-[url('/path-to-network-pattern.png')] bg-cover opacity-40"></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-start justify-between gap-8">
         {/* About Section */}
         <div className="flex flex-col gap-4 md:w-[30%] w-full">
-          <div>
-            <h2 className="text-xl font-bold mb-2">ABOUT COMPANY</h2>
+          <div className="flex flex-col gap-2 w-full">
+            <Logo expanded={true} />
             <ProgressBar />
           </div>
-          <p className="text-sm text-gray-400">
-            Professionally redefine transparent ROI through low-risk high-yield imperatives. Progressively create
-            empowered, cost-effective users via team-driven solutions.
-          </p>
+          <div className="flex flex-col gap-3 w-full h-full">
+            {contactInformations.map((info, index) => (
+              <div key={index} className="flex items-center gap-2 cursor-pointer text-white text-sm">
+                <div className="flex flex-col gap-1">
+                  <p>{info.message}</p>
+                  <a href={info.link} className="font-[600] hover:text-gray-400/90">
+                    {info.value}
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
           <div className="flex gap-3 mt-4">
             {SOCIAL_LINKS.map(({ icon, link }) => (
               <a key={icon} href={link} className="p-3 border rounded-full hover:bg-[#684DF4] transition">

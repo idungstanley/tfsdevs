@@ -10,6 +10,7 @@ import HeroSection from './components/hero';
 import { RemoteWorldMap } from './components/remote-map';
 import Integrations from './components/Integrations';
 import { FeaturesSection } from './components/what-makes-us-unique/Features';
+import { Testimonials } from './components/testimonial';
 
 export default function Home() {
   return (
@@ -30,7 +31,7 @@ export default function Home() {
         <Integrations />
         <Reviews />
       </div>
-      {/* <ContactInfo /> */}
+      <Testimonials />
       <Footer />
     </div>
   );

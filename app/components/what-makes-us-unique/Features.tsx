@@ -14,43 +14,45 @@ import {
 export function FeaturesSection() {
   const features = [
     {
-      title: 'Built for developers',
-      description: 'Built for engineers, developers, dreamers, thinkers and doers.',
+      title: 'Built for Fullstackers',
+      description: 'Built for dreamers, builders, and job-getters.',
       icon: <IconTerminal2 />
     },
     {
-      title: 'Ease of use',
-      description: "It's as easy as using an Apple, and as expensive as buying one.",
+      title: 'Seamless Learning Experience',
+      description:
+        "Learning that feels smooth and natural. Like scrolling Twitter — but you're building skills instead of wasting time.",
       icon: <IconEaseInOut />
     },
     {
       title: 'Pricing like no other',
-      description: 'Our prices are best in the market. No cap, no lock, no credit card required.',
+      description: 'Our prices are best in the market.',
       icon: <IconCurrencyDollar />
     },
     {
-      title: '100% Uptime guarantee',
-      description: 'We just cannot be taken down by anyone.',
+      title: 'Always On, Always There',
+      description: 'Access your courses, projects, and mentorship 24/7, no downtimes.',
       icon: <IconCloud />
     },
     {
-      title: 'Multi-tenant Architecture',
-      description: 'You can simply share passwords instead of buying new seats',
+      title: 'Multi-Track Mastery',
+      description: 'Frontend? Backend? DevOps? Choose your stack or go full-snack. One account, multiple tracks.',
       icon: <IconRouteAltLeft />
     },
     {
       title: '24/7 Customer Support',
-      description: 'We are available a 100% of the time. Atleast our AI Agents are.',
+      description:
+        'We are available a 100% of the time, and real mentors are here day and night. Ask questions, get answers, and grow fast.',
       icon: <IconHelp />
     },
     {
-      title: 'Money back guarantee',
-      description: 'If you donot like EveryAI, we will convince you to like us.',
+      title: 'No-Risk Learning',
+      description: "Don’t vibe with us? We’ll make it right. We're committed to making you love your learning journey.",
       icon: <IconAdjustmentsBolt />
     },
     {
       title: 'And everything else',
-      description: 'I just ran out of copy ideas. Accept my sincere apologies',
+      description: 'Career prep, mock interviews, live projects — we’re just getting started. Stick around.',
       icon: <IconHeart />
     }
   ];

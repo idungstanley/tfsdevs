@@ -1,6 +1,5 @@
 import { IoCall, IoMail } from "react-icons/io5";
 import { Course } from "../types/index.interface";
-import { FaLocationDot } from "react-icons/fa6";
 
 // Constants for Course Data
 export const courseData: Course[] = [
@@ -39,11 +38,52 @@ export const courseData: Course[] = [
     }
 ];
 
+export const projects = [
+    {
+        title: "Front-End Development",
+        description:
+            "This course equips you with the skills to build beautiful, interactive websites and web applications using HTML, CSS, JavaScript, React, and Tailwind CSS.",
+        link: "https://stripe.com",
+    },
+    {
+        title: "Back-End Development",
+        description:
+            "Focus on the server-side of web applications with Node.js, Express.js, and databases like MongoDB and PostgreSQL. Learn to build APIs and manage data efficiently.",
+        link: "https://netflix.com",
+    },
+    {
+        title: "Full-Stack Development",
+        description:
+            "Learn both front-end and back-end technologies, including React, Node.js, Express, and MongoDB, to build complete, dynamic web applications.",
+        link: "https://google.com",
+    },
+    {
+        title: "Meta",
+        description:
+            "A technology company that focuses on building products that advance Facebook's mission of bringing the world closer together.",
+        link: "https://meta.com",
+    },
+    {
+        title: "Amazon",
+        description:
+            "A multinational technology company focusing on e-commerce, cloud computing, digital streaming, and artificial intelligence.",
+        link: "https://amazon.com",
+    },
+    {
+        title: "Microsoft",
+        description:
+            "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
+        link: "https://microsoft.com",
+    },
+];
+
+
+
+
 
 export const whatWeOffer = ["Certification", "24/7 Support", "Skilled Tutors", "Recorded Classes", "Guaranteed Internship", "Professional guidiance"];
 
 export const contactInformations = [
     { icon: IoCall, message: "Quick Call Us:", link: "tel:+2349039267685", value: "+234-903926-7685" },
     { icon: IoMail, message: "Mail Us On:", link: "mailto: info@thefullsnacksdevs.com", value: "info@thefullsnacksdevs.com" },
-    { icon: FaLocationDot, message: "Visit Location:", link: "", value: "" },
 ]

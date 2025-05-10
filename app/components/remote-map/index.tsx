@@ -22,7 +22,7 @@ export function RemoteWorldMap() {
             ))}
           </span>
         </p>
-        <p className="text-sm md:text-lg text-neutral-500 max-w-3xl mx-auto py-4">
+        <p className="text-sm md:text-lg text-neutral-500 max-w-[80%] mx-auto py-4">
           At TheFullSnacksDevs Academy, you&lsquo;re not tied to a classroom. Whether you&apos;re sipping coffee in Lagos, coding from
           a cozy studio in Nairobi, or backpacking through Accra, your education travels with you. We’re built for
           remote-first learners, digital nomads, and ambitious dreamers who want freedom without compromising quality.
