@@ -3,10 +3,13 @@ export interface Course {
   title: string;
   description: string;
   image: string;
-  category: 'frontend' | 'backend' | 'design' | 'mobile' | 'data';
+  price?: number;
+  features?: string[];
+  category: 'frontend' | 'backend' | 'design' | 'mobile' | 'data' | 'data-analysis';
   level: 'beginner' | 'intermediate' | 'advanced';
-  duration: number; // in hours
+  duration: number | string; // in hours
   modules: Module[];
+  brochureUrl?: string;
   prerequisites?: string[];
   instructor: {
     name: string;
@@ -46,3 +49,15 @@ export interface CourseProgress {
   lastAccessed: Date;
   certificateEarned: boolean;
 }
+
+export interface CheckoutCourses {
+  id: string;
+  title: string;
+  description: string;
+  image?: string;
+  price: number;
+  features: string[];
+  category: 'frontend' | 'backend' | 'design' | 'mobile' | 'devops' | 'data-analysis';
+  duration: number | string; // in hours
+  brochureUrl?: string;
+};

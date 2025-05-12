@@ -9,6 +9,8 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loading from '../loading';
 import { ThemeProvider } from '../context/ThemeContext';
+import '@radix-ui/themes/styles.css';
+import { Theme } from '@radix-ui/themes';
 
 export function Providers({ children }: React.PropsWithChildren) {
   const onError = (error: unknown): unknown => {
@@ -66,7 +68,9 @@ export function Providers({ children }: React.PropsWithChildren) {
       <QueryClientProvider client={client}>
         <Provider store={store}>
           <Suspense fallback={<Loading />}>
-            <SessionProvider>{children}</SessionProvider>
+            <Theme>
+              <SessionProvider>{children}</SessionProvider>
+            </Theme>
           </Suspense>
         </Provider>
         <ToastContainer

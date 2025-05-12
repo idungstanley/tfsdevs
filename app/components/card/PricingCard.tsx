@@ -95,9 +95,9 @@ export const PricingCard: React.FC<CourseCardProps> = ({
             </div>
           </div>
 
-          <Link href={route} className="">
+          <Link href={route} onClick={(e) => e.stopPropagation()} className="cursor-pointer">
             <button
-              className="w-full bg-[#684DF4]/90 hover:bg-[#684DF4] text-white py-2 rounded-lg transition-colors"
+              className="w-full bg-[#684DF4]/90 hover:bg-[#684DF4] text-white py-2 rounded-lg transition-colors cursor-pointer"
               onClick={(e) => e.stopPropagation()}
             >
               Enroll Now

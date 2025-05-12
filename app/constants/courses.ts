@@ -1,5 +1,5 @@
 import { BookOpen, Code, Database, Palette, Smartphone } from "lucide-react";
-import { Course } from "../types/courses";
+import { CheckoutCourses, Course } from "../types/courses";
 
 // Mock data for demonstration
 export const courseDetail: Course = {
@@ -102,3 +102,75 @@ export const courses: Course[] = [
     }
     // Add more courses here
 ];
+
+
+export const checkoutCourses: CheckoutCourses[] = [
+    {
+        id: 'frontend-master',
+        title: 'Frontend Development Master Course',
+        description: 'Master modern frontend development with React, Next.js, and more',
+        price: 250000,
+        duration: '6 months',
+        category: 'frontend',
+        features: [
+            'React & Next.js',
+            'TypeScript',
+            'UI/UX Design Principles',
+            'Performance Optimization',
+            'State Management',
+            'Testing Strategies'
+        ],
+        brochureUrl: '/brochures/frontend-master.pdf'
+    },
+    {
+        id: 'backend-pro',
+        title: 'Backend Development Professional',
+        description: 'Build scalable backend systems with Node.js and modern databases',
+        price: 250000,
+        duration: '8 months',
+        category: 'backend',
+        features: [
+            'Node.js & Express',
+            'Database Design',
+            'API Development',
+            'Authentication & Security',
+            'Microservices',
+            'Cloud Deployment'
+        ],
+        brochureUrl: '/brochures/backend-pro.pdf'
+    },
+    {
+        id: 'data-analysis',
+        title: 'Data Analysis & Visualization',
+        description: 'Learn to analyze and visualize data using modern tools and techniques',
+        price: 250000,
+        duration: '6 months',
+        category: 'data-analysis',
+        features: [
+            'Python for Data Analysis',
+            'SQL & Database Analytics',
+            'Data Visualization',
+            'Statistical Analysis',
+            'Machine Learning Basics',
+            'Business Intelligence'
+        ],
+        brochureUrl: '/brochures/data-analysis.pdf'
+    },
+    {
+        id: 'devops-master',
+        title: 'DevOps Engineering',
+        description: 'Master DevOps practices and tools for modern software delivery',
+        price: 250000,
+        duration: '8 months',
+        category: 'devops',
+        features: [
+            'CI/CD Pipelines',
+            'Container Orchestration',
+            'Infrastructure as Code',
+            'Cloud Services',
+            'Monitoring & Logging',
+            'Security Practices'
+        ],
+        brochureUrl: '/brochures/devops-master.pdf'
+    }
+  ];
