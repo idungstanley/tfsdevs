@@ -10,7 +10,10 @@ export const publicRoutes = [
   '/privacy-policy',
   '/pricing',
   '/',
-  '/auth/signup'
+  '/auth/signup',
+  '/bootcamp',
+  '/bootcamp/checkout',
+  '/bootcamp/checkout/[courseId]',
 ];
 
 /**
@@ -33,8 +36,10 @@ export const authRoutes = [
   '/courses/frontend',
   '/courses/backend',
   '/courses/fullstack',
-  // '/courses',
 ];
+
+export const openRoutes = [
+  '/bootcamp/checkout/:courseId*'];
 
 /**
  * The prefix for api authentication routes
