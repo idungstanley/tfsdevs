@@ -8,6 +8,7 @@ import { GoChevronRight } from 'react-icons/go';
 import { FaFacebook } from 'react-icons/fa6';
 import Logo from '../sidebar/Logo';
 import { contactInformations } from '@/app/constants/courseOfferrings';
+import Link from 'next/link';
 
 const ICON_MAP: { [key: string]: ReactNode } = {
   facebook: <FaFacebook />,
@@ -58,10 +59,14 @@ const Footer = () => {
               <ProgressBar />
             </div>
             <ul className="text-gray-400 space-y-2">
-              {QUICK_LINKS.map((item) => (
-                <li key={item.route} className="flex items-center gap-2 hover:text-[#684DF4] cursor-pointer">
+              {QUICK_LINKS.map((item, index) => (
+                <Link
+                  href={item.route}
+                  key={index}
+                  className="flex items-center gap-2 hover:text-[#684DF4] cursor-pointer"
+                >
                   <GoChevronRight /> {item.label}
-                </li>
+                </Link>
               ))}
             </ul>
           </div>
