@@ -26,7 +26,7 @@ export const LampContainer = ({ children, className }: { children: React.ReactNo
   return (
     <div
       className={cn(
-        'relative flex md:min-h-screen h-full m-4 flex-col items-center justify-center overflow-hidden bg-slate-950 md:pt-50 pt-[142px]  md:m-18 mt-10 rounded-md md:rounded-2xl z-0',
+        'relative flex md:min-h-screen h-full flex-col items-center justify-center overflow-hidden bg-slate-950 md:pt-50 pt-[142px]  md:m-18 mt-10 rounded-md md:rounded-2xl z-0',
         className
       )}
     >
@@ -90,7 +90,7 @@ export const LampContainer = ({ children, className }: { children: React.ReactNo
         <div className="absolute inset-auto z-40 h-44 w-full -translate-y-[12.5rem] bg-slate-950 "></div>
       </div>
 
-      <div className="relative z-50 flex -translate-y-20 flex-col items-center px-5">{children}</div>
+      <div className="relative z-50 flex -translate-t-20 flex-col items-center px-5">{children}</div>
     </div>
   );
 };

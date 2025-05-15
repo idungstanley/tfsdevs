@@ -43,38 +43,20 @@ export const projects = [
         title: "Front-End Development",
         description:
             "This course equips you with the skills to build beautiful, interactive websites and web applications using HTML, CSS, JavaScript, React, and Tailwind CSS.",
-        link: "https://stripe.com",
+        link: "/bootcamp/frontend",
     },
     {
         title: "Back-End Development",
         description:
             "Focus on the server-side of web applications with Node.js, Express.js, and databases like MongoDB and PostgreSQL. Learn to build APIs and manage data efficiently.",
-        link: "https://netflix.com",
+        link: "/bootcamp/backend",
     },
-    {
-        title: "Full-Stack Development",
-        description:
-            "Learn both front-end and back-end technologies, including React, Node.js, Express, and MongoDB, to build complete, dynamic web applications.",
-        link: "https://google.com",
-    },
-    {
-        title: "Meta",
-        description:
-            "A technology company that focuses on building products that advance Facebook's mission of bringing the world closer together.",
-        link: "https://meta.com",
-    },
-    {
-        title: "Amazon",
-        description:
-            "A multinational technology company focusing on e-commerce, cloud computing, digital streaming, and artificial intelligence.",
-        link: "https://amazon.com",
-    },
-    {
-        title: "Microsoft",
-        description:
-            "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
-        link: "https://microsoft.com",
-    },
+    // {
+    //     title: "Full-Stack Development",
+    //     description:
+    //         "Learn both front-end and back-end technologies, including React, Node.js, Express, and MongoDB, to build complete, dynamic web applications.",
+    //     link: "/bootcamp/frontend",
+    // }
 ];
 
 

@@ -14,7 +14,7 @@ import {
 export function FeaturesSection() {
   const features = [
     {
-      title: 'Built for Fullstackers',
+      title: 'Built for Fullsnackers',
       description: 'Built for dreamers, builders, and job-getters.',
       icon: <IconTerminal2 />
     },

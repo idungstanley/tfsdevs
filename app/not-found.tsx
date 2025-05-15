@@ -10,11 +10,11 @@ const Notfound = () => {
   return (
     <>
       <div
-        className="relative flex items-center justify-center h-screen px-4 text-center bg-center bg-no-repeat bg-cover dark:text-white bg-white dark:bg-brand-dark"
+        className="relative flex items-center justify-center h-screen px-4 text-center dark:text-white bg-[#111111]"
         data-aos="fade"
       >
-        <div className="content">
-          <div className="fixed transform -translate-x-1/2 top-4 left-1/2">
+        <div className="flex flex-col items-center justify-center">
+          <div className="flex items-center justify-center w-full ">
             <Logo expanded />
           </div>
           {/* End logo */}

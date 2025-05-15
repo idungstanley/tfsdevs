@@ -37,23 +37,11 @@ export const HeroHighlight = ({
   return (
     <div
       className={cn(
-        'group relative rounded-lg border-4 flex h-[30rem] w-full items-center justify-center bg-white dark:bg-black',
+        'group relative rounded-lg flex md:h-[30rem] h-[15rem] w-full items-center justify-center',
         containerClassName
       )}
       onMouseMove={handleMouseMove}
     >
-      <div
-        className="pointer-events-none absolute inset-0 dark:hidden"
-        style={{
-          backgroundImage: dotPatterns.light.default
-        }}
-      />
-      <div
-        className="pointer-events-none absolute inset-0 hidden dark:block"
-        style={{
-          backgroundImage: dotPatterns.dark.default
-        }}
-      />
       <motion.div
         className="pointer-events-none absolute inset-0 opacity-0 transition duration-300 group-hover:opacity-100 dark:hidden"
         style={{

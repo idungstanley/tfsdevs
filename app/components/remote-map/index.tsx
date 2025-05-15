@@ -4,7 +4,7 @@ import { WorldMap } from '../ui/world-map';
 
 export function RemoteWorldMap() {
   return (
-    <div className="md:py-20 w-full">
+    <div className="md:py-20 py-4 w-full">
       <div className="max-w-7xl mx-auto text-center">
         <p className="font-bold text-xl md:text-4xl dark:text-white text-black">
           Remote{' '}

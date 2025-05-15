@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { CourseCardProps } from '@/app/types/index.interface';
-import { CardSpotlight } from '../ui/card-spotlight';
 
 export const PricingCard: React.FC<CourseCardProps> = ({
   label,
@@ -56,56 +55,54 @@ export const PricingCard: React.FC<CourseCardProps> = ({
   };
 
   return (
-    <div className="[perspective:800px] [transform-style:preserve-3d]">
-      <li
-        ref={slideRef}
-        className="flex flex-1 flex-col items-center justify-center relative text-center text-white opacity-100 transition-all duration-300 ease-in-out w-[60vmin] h-[70vmin] z-10 "
-        onClick={() => handleSlideClick?.(index as number)}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        style={{
-          transform: current !== index ? 'scale(0.98) rotateX(8deg)' : 'scale(1) rotateX(0deg)',
-          transition: 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
-          transformOrigin: 'bottom'
-        }}
+    <li
+      ref={slideRef}
+      className="flex flex-1 flex-col items-center justify-center relative text-center text-white opacity-100 transition-all duration-300 ease-in-out md:w-[300px] min-w-max md:min-w-[400px] p-4 rounded-lg md:h-[400px] w-full bg-[#111111]  h-full z-10 "
+      onClick={() => handleSlideClick?.(index as number)}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        transform: current !== index ? 'scale(0.98) rotateX(8deg)' : 'scale(1) rotateX(0deg)',
+        transition: 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+        transformOrigin: 'bottom'
+      }}
+    >
+      <div
+        className={`relative w-full h-full flex flex-col justify-between text-left transition-opacity duration-1000 ease-in-out ${
+          current === index ? 'opacity-100 visible' : 'opacity-50'
+        }`}
       >
-        <CardSpotlight
-          className={`relative flex flex-col justify-between text-left transition-opacity duration-1000 ease-in-out ${
-            current === index ? 'opacity-100 visible' : 'opacity-50'
-          }`}
-        >
-          <div className="flex flex-col gap-4">
-            <div className="flex flex-col">
-              <h3 className="text-lg font-semibold uppercase">{label}</h3>
-              <div className="my-4">
-                <p className="text-4xl font-bold">{storage}</p>
-                <p className="text-sm text-gray-400">{price}</p>
-              </div>
-            </div>
-
-            <div className="text-neutral-200 mt-4 relative z-20 text-left">
-              Follow these steps to secure your account:
-              <ul className="list-none  mt-2">
-                {features?.map((feature, index) => (
-                  <li key={index} className="flex items-center text-gray-300">
-                    <Step title={feature} />
-                  </li>
-                ))}
-              </ul>
+        <div className="flex flex-col gap-4">
+          <div className="flex flex-col">
+            <h3 className="text-lg font-semibold uppercase">{label}</h3>
+            <div className="my-4">
+              <p className="text-4xl font-bold">{storage}</p>
+              <p className="text-sm text-gray-400">{price}</p>
             </div>
           </div>
 
-          <Link href={route} onClick={(e) => e.stopPropagation()} className="cursor-pointer">
-            <button
-              className="w-full bg-[#684DF4]/90 hover:bg-[#684DF4] text-white py-2 rounded-lg transition-colors cursor-pointer"
-              onClick={(e) => e.stopPropagation()}
-            >
-              Enroll Now
-            </button>
-          </Link>
-        </CardSpotlight>
-      </li>
-    </div>
+          <div className="text-neutral-200 mt-4 relative z-20 text-left">
+            Follow these steps to secure your account:
+            <ul className="list-none  mt-2">
+              {features?.map((feature, index) => (
+                <li key={index} className="flex items-center text-gray-300">
+                  <Step title={feature} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <Link href={route} onClick={(e) => e.stopPropagation()} className="cursor-pointer">
+          <button
+            className="w-full bg-[#684DF4]/90 hover:bg-[#684DF4] text-white py-2 rounded-lg transition-colors cursor-pointer"
+            onClick={(e) => e.stopPropagation()}
+          >
+            Enroll Now
+          </button>
+        </Link>
+      </div>
+    </li>
   );
 };
 

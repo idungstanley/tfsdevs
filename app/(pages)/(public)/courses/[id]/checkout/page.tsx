@@ -1,19 +1,26 @@
 import { CheckoutForm } from '@/app/components/checkout/CheckoutForm';
 import { checkoutCourses } from '@/app/constants/courses';
+import { notFound } from 'next/navigation';
 
-// // Make the export more explicit
-// export const generateStaticParams = async () => {
-//   return checkoutCourses.map((course) => ({
-//     courseId: course.id
-//   }));
-// };
+type Props = {
+  params: {
+    id: string;
+  };
+};
 
-export default function CheckoutPage({ params }: { params: { id: string } }) {
+// Generates static paths for all course IDs
+export async function generateStaticParams() {
+  return checkoutCourses.map((course) => ({
+    id: course.id // Note: The key must match the dynamic segment [id]
+  }));
+}
+
+export default function CheckoutPage({ params }: Props) {
   const course = checkoutCourses.find((c) => c.id === params.id);
-  console.log(params);
 
   if (!course) {
-    return <div>Course not found</div>;
+    // This triggers Next.js to show the 404 page
+    notFound();
   }
 
   return (

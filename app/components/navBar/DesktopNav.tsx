@@ -80,8 +80,13 @@ const DesktopNav = () => {
       <div className="flex items-center gap-2 md:gap-4">
         <div className="flex items-center gap-2 md:gap-5">
           <div className="flex items-center justify-end w-full gap-5">
-            <Link href="https://shop.thefullsnackdevs.com" target="_blank">
-              <FaCartPlus className="transition-transform hover:text-[#684DF4] duration-300 ease-in-out hover:scale-110 cursor-pointer hover:shadow-md hover:opacity-90 text-white text-xl" />
+            <Link
+              className="flex items-center gap-1 hover:text-[#684DF4] text-white"
+              href="https://shop.thefullsnackdevs.com"
+              target="_blank"
+            >
+              <p>Shop</p>
+              <FaCartPlus className="transition-transform duration-300 ease-in-out hover:scale-110 cursor-pointer hover:shadow-md hover:opacity-90 text-xl" />
             </Link>
             <FaSearch className="transition-transform hover:text-[#684DF4] duration-300 ease-in-out hover:scale-110 cursor-pointer hover:shadow-md hover:opacity-90 text-white text-xl" />
             <Link href="/auth/login">

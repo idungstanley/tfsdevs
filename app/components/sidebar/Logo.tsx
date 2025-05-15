@@ -8,7 +8,7 @@ interface LogoProps {
 
 const Logo: React.FC<LogoProps> = ({ expanded }) => {
   return (
-    <Link href="/" className="items-center justify-start cursor-pointer w-full flex hover:text-[#684DF4]">
+    <Link href="/" className="items-center cursor-pointer w-fit flex hover:text-[#684DF4]">
       <Image src="/iconpurple.svg" alt="logo" width={500} height={500} className="h-[50px] w-[60px]" />
       {expanded && <Image src="/logotext.svg" alt="logo" width={500} height={500} className="h-[50px] w-[60px]" />}
     </Link>

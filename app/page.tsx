@@ -20,8 +20,8 @@ export default function Home() {
           <Navbar />
         </div>
         <HeroSection />
-        <Features />
       </div>
+      <Features />
       <RemoteWorldMap />
       <WhatMakesUsUnique />
       <div className="flex flex-col flex-1">

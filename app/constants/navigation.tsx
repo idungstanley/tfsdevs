@@ -4,18 +4,19 @@ import { FaFacebook } from "react-icons/fa";
 import { RiTwitterXLine } from "react-icons/ri";
 
 export const navItems = [
-  { label: 'About us', route: '/about' },
+  { label: 'About program', route: '/about' },
   // { label: 'Experience', route: '/experience' },
   {
-    label: 'Courses',
+    label: 'Bootcamp',
     children: [
-      { label: 'Frontend Development', route: '/courses/frontend' },
-      { label: 'Backend Development', route: '/courses/backend' },
-      { label: 'Fullstack Development', route: '/courses/fullstack' },
-      { label: 'UI/UX', route: '/courses/ui-ux' },
-      { label: 'Data Analysis', route: '/courses/data-analysis' }
+      { label: 'Frontend Development', route: '/bootcamp/frontend' },
+      { label: 'Backend Development', route: '/bootcamp/backend' },
+      { label: 'Fullstack Development', route: '/bootcamp/fullstack' },
+      { label: 'UI/UX', route: '/bootcamp/ui-ux' },
+      { label: 'Data Analysis', route: '/bootcamp/data-analysis' }
     ]
   },
+  {label: 'Courses', route: '/courses'},
   { label: 'FAQ', route: '/faq' },
   { label: 'Pricing', route: '/pricing' },
 ];

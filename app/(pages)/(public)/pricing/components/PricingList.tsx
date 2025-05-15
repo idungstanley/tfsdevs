@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useId } from 'react';
+import React, { useState, useId, useEffect, useRef } from 'react';
 import { courses } from '@/app/constants';
 import { PricingCard } from '@/app/components/card/PricingCard';
 import { IconArrowNarrowRight } from '@tabler/icons-react';
@@ -25,6 +25,19 @@ const PricingCardList: React.FC = () => {
 
   const id = useId();
 
+  const carouselRef = useRef<HTMLUListElement>(null);
+
+  useEffect(() => {
+    if (carouselRef.current) {
+      const slide = carouselRef.current.children[current] as HTMLElement;
+      if (slide) {
+        // Center the active slide in the viewport
+        const offset = slide.offsetLeft - (carouselRef.current.offsetWidth - slide.offsetWidth) / 2;
+        carouselRef.current.scrollTo({ left: offset, behavior: 'smooth' });
+      }
+    }
+  }, [current]);
+
   return (
     <div className="py-10 h-full overflow-x-clip">
       <div className="max-w-7xl mx-auto px-4 h-full">
@@ -33,12 +46,14 @@ const PricingCardList: React.FC = () => {
           Select the perfect learning plan that matches your goals
         </p>
 
-        <div className="relative w-full h-[70vmin] mx-auto mb-10" aria-labelledby={`carousel-heading-${id}`}>
+        <div
+          className="relative w-full h-full gap-4 flex flex-col mx-auto mb-10"
+          aria-labelledby={`carousel-heading-${id}`}
+        >
           <ul
-            className="absolute flex mx-[-4vmin] w-full transition-transform duration-1000 ease-in-out"
-            style={{
-              transform: `translateX(-${current * (100 / courses.length)}%)`
-            }}
+            className="flex w-full overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-3"
+            ref={carouselRef}
+            style={{ scrollBehavior: 'smooth' }}
           >
             {courses.map((slide, index) => (
               <PricingCard
@@ -55,7 +70,7 @@ const PricingCardList: React.FC = () => {
             ))}
           </ul>
 
-          <div className="absolute flex justify-center w-full top-[calc(100%)] -translate-x-14">
+          <div className="flex items-center justify-center w-full z-50">
             <CarouselControl type="previous" title="Go to previous slide" handleClick={handlePreviousClick} />
 
             <CarouselControl type="next" title="Go to next slide" handleClick={handleNextClick} />
@@ -77,7 +92,7 @@ interface CarouselControlProps {
 const CarouselControl = ({ type, title, handleClick }: CarouselControlProps) => {
   return (
     <button
-      className={`w-10 h-10 flex items-center mx-2 justify-center bg-neutral-200 dark:bg-neutral-800 border-3 border-transparent rounded-full focus:border-[#6D64F7] focus:outline-none hover:-translate-y-0.5 active:translate-y-0.5 transition duration-200 ${
+      className={`w-10 h-10 flex items-center mx-2 justify-center bg-neutral-200 dark:bg-neutral-800 z-10 border-3 border-transparent rounded-full focus:border-[#6D64F7] focus:outline-none duration-200 ${
         type === 'previous' ? 'rotate-180' : ''
       }`}
       title={title}

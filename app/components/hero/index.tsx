@@ -17,7 +17,7 @@ const HeroSection = () => {
   const pathLengthFifth = useTransform(scrollYProgress, [0, 0.8], [0, 1.2]);
 
   return (
-    <section className="md:px-20 p-6 flex items-center bg-cover bg-no-repeat box-border md:pt-10 md:h-[500vh] h-[70vh] md:pb-66 pb-40">
+    <section className="md:px-20 p-6 flex items-center bg-cover bg-no-repeat box-border md:pt-56 md:h-[100vh] h-[70vh]  relative">
       <motion.div
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
