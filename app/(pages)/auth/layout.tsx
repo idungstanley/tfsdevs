@@ -8,7 +8,7 @@ const AuthLayout = ({ children }: { children: ReactNode }) => {
 
   return (
     <div className="flex flex-col md:flex-row min-h-screen w-full">
-      <div className="md:w-1/2 w-full shrink-0 h-[300px] md:h-full flex items-center justify-center bg-gray-900 text-white">
+      <div className="md:w-1/2 w-full shrink-0 h-[300px] md:h-screen flex items-center justify-center bg-gray-900 text-white">
         <DShapeSlider displayItems={displayItemsSample} activeIndex={activeIndex} setActiveIndex={setActiveIndex}>
           <div className="text-white">
             <h1 className="text-3xl font-bold">{displayItemsSample[activeIndex].sloganHeader}</h1>
