@@ -59,8 +59,8 @@ const Footer = () => {
             </div>
             <ul className="text-gray-400 space-y-2">
               {QUICK_LINKS.map((item) => (
-                <li key={item} className="flex items-center gap-2 hover:text-[#684DF4] cursor-pointer">
-                  <GoChevronRight /> {item}
+                <li key={item.route} className="flex items-center gap-2 hover:text-[#684DF4] cursor-pointer">
+                  <GoChevronRight /> {item.label}
                 </li>
               ))}
             </ul>

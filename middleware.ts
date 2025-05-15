@@ -34,17 +34,17 @@ export default auth((req) => {
 
   // If the route is an authentication route (e.g., login or signup)
   // Redirect logged-in users to the default login redirect (since they are already authenticated)
-  // if (isAuthRoute) {
-  //   if (isLoggedIn) {
-  //     return NextResponse.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl));
-  //   }
-  //   return NextResponse.next(); // Allow non-logged-in users to proceed
-  // }
+  if (isAuthRoute) {
+    if (isLoggedIn) {
+      return NextResponse.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl));
+    }
+    return NextResponse.next(); // Allow non-logged-in users to proceed
+  }
 
   // For non-public and non-authentication routes, restrict access to logged-in users only
-  // if (!isLoggedIn) {
-  //   return NextResponse.redirect(new URL('/auth/login', nextUrl));
-  // }
+  if (!isLoggedIn) {
+    return NextResponse.redirect(new URL('/auth/login', nextUrl));
+  }
   // If all checks pass, allow access
   return NextResponse.next();
 });

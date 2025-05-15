@@ -13,7 +13,7 @@ const PricingPage = () => {
   return (
     <main className="h-full w-full mt-20">
       <PricingCardList />
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto p-4 md:py-16">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Included with all plans:</h1>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">

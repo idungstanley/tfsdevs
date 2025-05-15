@@ -12,7 +12,7 @@ export const publicRoutes = [
   '/',
   '/auth/signup',
   '/bootcamp',
-  '/bootcamp/checkout',
+  '/bootcamp/frontend',
   '/bootcamp/checkout/[courseId]',
 ];
 

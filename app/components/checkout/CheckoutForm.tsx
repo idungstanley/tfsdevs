@@ -1,6 +1,5 @@
 'use client';
 import { CheckoutCourses } from '@/app/types/courses';
-import { Button } from '@radix-ui/themes';
 import { Download } from 'lucide-react';
 import { Input } from '../ui/input';
 import { useState } from 'react';
@@ -95,9 +94,9 @@ export function CheckoutForm({ course }: CheckoutFormProps) {
                 onChange={(e) => setCoupon(e.target.value)}
                 className="flex-1 border ring-0 focus:ring-0 focus:outline-none border-slate-400 bg-transparent outline-none"
               />
-              <Button size="3" onClick={handleApplyCoupon} disabled={isApplying}>
+              <button className="w-fit px-2 cursor-pointer bg-blue-600 rounded-md h-10"  onClick={handleApplyCoupon} disabled={isApplying}>
                 {isApplying ? 'Applying...' : 'Apply'}
-              </Button>
+              </button>
             </div>
             {error && <p className="text-sm text-red-500">{error}</p>}
           </div>
@@ -109,15 +108,15 @@ export function CheckoutForm({ course }: CheckoutFormProps) {
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
-            <Button className="w-full cursor-pointer" size="3" onClick={handleCheckout}>
+          <div className="flex flex-col md:flex-row items-center gap-3 w-full">
+            <button className="w-full cursor-pointer bg-blue-600 rounded-md h-10" onClick={handleCheckout}>
               Proceed to Payment
-            </Button>
+            </button>
 
-            <Button variant="outline" size="3" className="w-full cursor-pointer" onClick={handleDownloadBrochure}>
+            <button className="w-full h-10 rounded-md border flex items-center justify-center gap-4 border-p cursor-pointer" onClick={handleDownloadBrochure}>
               <Download className="mr-2 h-4 w-4" />
-              Download Brochure
-            </Button>
+              <p> Download Brochure</p>
+            </button>
           </div>
         </div>
       </div>

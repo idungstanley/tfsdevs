@@ -6,7 +6,10 @@ export const SOCIAL_LINKS = [
     // { icon: "youtube", link: "#" },
 ];
 
-export const QUICK_LINKS = ["About Us", "FAQ", "Contact Us"];
+export const QUICK_LINKS = [
+    {label: "About Us", route: "/about"},
+    {label: "FAQ", route: "/faq"},
+    { label: "Contact Us", route: "/contact-us"}];
 
 export const IT_SERVICES = [
     "Web Development",
