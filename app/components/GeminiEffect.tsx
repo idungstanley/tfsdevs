@@ -31,10 +31,9 @@ export const GeminiEffect = ({
         )}
       />
       <Spotlight className="-top-40 left-0 md:-top-20 md:left-60" fill="white" />
-      <div className="relative z-10 mx-auto w-full max-w-7xl p-4 pt-20 md:pt-0">
-        <p className="text-3xl md:text-7xl font-normal pb-4 text-center bg-clip-text text-transparent bg-gradient-to-b z-10 from-neutral-100 to-neutral-300">
+      <div className="relative z-10 md:mx-auto w-full md:max-w-7xl p-4 pt-20 md:pt-0">
+        <p className="text-3xl md:text-7xl font-normal pb-4 text-center bg-clip-text text-transparent bg-gradient-to-b w-full flex flex-col items-center z-10 from-neutral-100 to-neutral-300">
           TheFullSnackDevs Building <span className="text-[#684DF4]">Africa’s Biggest</span> Developer Community
-          <span className="text-[#684DF4]">.</span>
         </p>
         <p className="text-sm md:text-xl font-normal text-center text-neutral-400 mt-4 max-w-2xl mx-auto">
           {description ||

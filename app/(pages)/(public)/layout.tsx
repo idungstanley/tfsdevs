@@ -1,5 +1,6 @@
 import Footer from '@/app/components/footer';
 import Navbar from '@/app/components/navBar';
+import SnowEffect from '@/app/components/SnowEffect';
 import React, { ReactNode } from 'react';
 
 const PublicLayout = ({ children }: { children: ReactNode }) => {
@@ -10,6 +11,7 @@ const PublicLayout = ({ children }: { children: ReactNode }) => {
       </div>
       <div className="grow flex-1 h-full">{children}</div>
       <Footer />
+      <SnowEffect />
     </div>
   );
 };

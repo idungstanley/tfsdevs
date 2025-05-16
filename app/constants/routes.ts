@@ -12,8 +12,9 @@ export const publicRoutes = [
   '/',
   '/auth/signup',
   '/bootcamp',
-  "verify-payment",
+  'verify-payment',
   '/bootcamp/frontend',
+  '/bootcamp/backend',
   '/bootcamp/checkout/[courseId]',
 ];
 
@@ -34,9 +35,10 @@ export const authRoutes = [
   '/faq',
   '/auth/forgot-password',
   '/auth/reset-password',
-  '/courses/frontend',
-  '/courses/backend',
+  '/bootcamp/frontend',
+  '/bootcamp/backend',
   '/courses/fullstack',
+  '/verify-payment'
 ];
 
 export const openRoutes = [
