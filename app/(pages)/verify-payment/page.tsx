@@ -5,13 +5,14 @@ import { BsPatchCheckFill } from 'react-icons/bs';
 import { FadeLoader } from 'react-spinners';
 
 const VerifyPayment = () => {
-  const loading = false;
+  const loading = true;
 
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center h-screen bg-[#111111] text-white w-full gap-4">
         <div className="flex flex-col items-center justify-center h-screen bg-[#111111] text-white w-full gap-4">
-          <p className="text-2xl">Verifying payment...</p>
+          <p className="text-lg font-bold text-gray-700">Verifying your payment...</p>
+          <p className="text-sm text-gray-500 mb-5">Please wait while we confirm your transaction.</p>
           <FadeLoader color="#684DF4" />
         </div>
       </div>
