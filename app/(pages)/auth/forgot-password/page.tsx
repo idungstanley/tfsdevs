@@ -16,7 +16,7 @@ const ForgotPasswordPage = () => {
           textPosition="md:justify-end justify-center font-[600]"
         />
       </div>
-      <div className="flex items-center flex-col w-full h-full pt-10">
+      <div className="flex items-center flex-col w-full h-full pt-4 md:pt-10">
         <Link href="/" className="md:block hidden">
           <div className="items-center justify-center w-full flex hover:text-[#684DF4]">
             <Image src="/iconpurple.svg" alt="logo" width={500} height={500} className="h-[50px] w-[60px]" />

@@ -1,12 +1,29 @@
 'use client';
 import Button from '@/app/components/button/Button';
 import InputWithLabel from '@/app/components/input/InputWithLabel';
+import { useForgotPasswordMutation } from '@/app/features/auth/authService';
 import React, { useState } from 'react';
 import { FaArrowLeftLong } from 'react-icons/fa6';
 import { IoFingerPrint } from 'react-icons/io5';
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
+  const { mutateAsync, isPending } = useForgotPasswordMutation();
+  const handleSubmit = async () => {
+    try {
+      await mutateAsync({ email });
+    } catch (error) {
+      setError('Failed to send password reset link');
+      console.error('Error sending password reset link:', error);
+      throw new Error('Failed to send password reset link');
+    } finally {
+      setEmail('');
+      setTimeout(() => {
+        setError('');
+      }, 5000);
+    }
+  };
 
   return (
     <div className="flex flex-col w-full items-center max-w-3xl gap-6">
@@ -17,11 +34,12 @@ const ForgotPassword = () => {
         <h1 className="md:text-3xl text-2xl font-bold text-slate-900">Forgot Passord?</h1>
         <p className="text-slate-600 text-sm">Enter your email and we will send you link to reset your password</p>
       </div>
-
       <div className="text-left flex flex-col gap-2 w-full md:w-2/3">
         <InputWithLabel
           name="email"
-          placeholder="Enter your email to access you portal"
+          errorMessage={error}
+          isError={!!error}
+          placeholder="Enter your email to reset your password"
           labelClasses="text-gray-700 font-semibold"
           classes="border px-2 text-[15px] text-gray-700 border border-gray-200"
           value={email}
@@ -30,12 +48,13 @@ const ForgotPassword = () => {
           onBlur={() => {}}
           height="h-[40px] rounded-lg"
         />
+
         <div className="flex flex-col items-center justify-between w-full gap-4 text-center lg:justify-center">
           <Button
-            //   loading={isLoading}
-            type="submit"
+            loading={isPending}
             label="Reset password"
             width="w-full"
+            onClick={handleSubmit}
             buttonStyle="custom"
             height="h-[48px]"
             customClasses="bg-[#684DF4] hover:bg-base-light-hover text-white rounded-[8px] cursor-pointer"

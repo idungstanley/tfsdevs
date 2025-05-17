@@ -88,6 +88,7 @@ export interface TextWithLinksProps {
 export interface InputDataTypes {
     label?: string;
     required?: boolean;
+    disabled?: boolean;
     placeholder?: string;
     hint?: string;
     name: string;

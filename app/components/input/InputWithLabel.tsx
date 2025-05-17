@@ -25,6 +25,7 @@ function InputWithLabel({
   labelClasses,
   isError,
   errorMessage,
+  disabled,
   keyDownFunc
 }: InputDataTypes) {
   const handleTrailingIconClick = () => {
@@ -62,6 +63,7 @@ function InputWithLabel({
             onKeyDown={keyDownFunc}
             required={required}
             name={name}
+            disabled={disabled}
             autoComplete={autoComplete}
             className={`${
               borderRadius ? borderRadius : name === 'search' && !borderRadius ? 'rounded-md py-0.5' : ''
@@ -75,7 +77,7 @@ function InputWithLabel({
         </div>
         {trailingIcon && (
           <div
-            className="absolute inset-y-0 right-0 flex top-4 items-center pr-3 cursor-pointer"
+            className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
             onClick={handleTrailingIconClick}
           >
             {trailingIcon}
@@ -83,7 +85,7 @@ function InputWithLabel({
         )}
       </div>
       {hint && <p className="mt-2 text-sm text-gray-500">{hint}</p>}
-      {isError && <p className="text-red-400 text-[15px]">{errorMessage}</p>}
+      {isError && <p className="text-red-500 text-[14px]">{errorMessage}</p>}
     </div>
   );
 }
