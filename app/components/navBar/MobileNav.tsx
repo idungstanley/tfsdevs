@@ -7,7 +7,6 @@ import { motion } from 'framer-motion';
 import { navItems } from '@/app/constants/navigation';
 import { FaCaretDown, FaCaretUp } from 'react-icons/fa6';
 import { useRouter } from 'next/navigation';
-import { FaCartPlus } from 'react-icons/fa';
 
 const MobileNav = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -115,14 +114,6 @@ const MobileNav = () => {
                 </div>
               </motion.div>
             ))}
-            <Link
-              className="flex items-center justify-start w-full gap-1 hover:text-[#684DF4] text-white"
-              href="https://shop.thefullsnackdevs.com"
-              target="_blank"
-            >
-              <p>Shop</p>
-              <FaCartPlus className="transition-transform duration-300 ease-in-out hover:scale-110 cursor-pointer hover:shadow-md hover:opacity-90 text-xl" />
-            </Link>
             <div
               className={`fixed bottom-0 h-[90px] p-4 w-[80%] gap-8 shadow-sm flex items-center justify-center transition-all duration-500 ${
                 menuOpen ? 'right-0' : '-right-full'

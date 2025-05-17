@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { CardProps } from '@/app/types/index.interface';
 import React from 'react';
 
 interface CarouselIndicatorsProps {
-  slides: Array<any>;
+  slides: CardProps[];
   currentSlide: number;
   setCurrentSlide: (index: number) => void;
 }
@@ -11,7 +12,7 @@ const CarouselIndicators: React.FC<CarouselIndicatorsProps> = ({ slides, current
   return (
     <div className="flex justify-center items-center gap-2 py-4 relative z-10">
       <div className="flex items-center justify-center border border-white p-2 py-1  rounded-full w-fit gap-1">
-        {slides.map((_, index) => (
+        {slides?.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}

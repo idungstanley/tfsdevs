@@ -21,8 +21,8 @@ const CarouselSlide: React.FC<CarouselSlideProps> = ({ title, description, index
           <span>{index + 1}.0</span>
           <span className="opacity-70"> ]</span>
         </div>
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-200 mb-10">{title}</h2>
-        <p className="text-lg md:text-xl text-gray-300 max-w-2xl">{description}</p>
+        <h2 className="text-4xl md:text-2xl lg:text-4xl font-light text-gray-200 mb-10">{title}</h2>
+        <p className="text-base text-wrap max-w-3xl text-gray-300">{description}</p>
       </div>
     </div>
   );

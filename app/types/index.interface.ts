@@ -1,4 +1,5 @@
 import { CSSProperties, ReactElement, SetStateAction } from "react";
+import { IconType } from "react-icons/lib";
 
 export type ErrorResponse = {
     data: {
@@ -61,6 +62,18 @@ export interface Course {
     features: string[];
 }
 
+export interface CourseProjectsProps {
+    title: string;
+    description: string;
+    link: string;
+}
+
+export interface contactInfoProp {
+    icon: IconType;
+    message: string;
+    link: string;
+    value: string;
+}
 export interface Testimonial {
     id: number;
     name: string;
@@ -167,11 +180,12 @@ export interface CourseCardProps {
 export interface CardProps {
     title: string;
     description: string;
-    src: string;
+    price: number;
+
 }
 
 export interface CarouselProps {
-    cards: CardProps[];
+    cards?: CardProps[];
     intSec?: number;
     primaryColor?: string;
 }

@@ -1,5 +1,5 @@
 import { IoCall, IoMail } from "react-icons/io5";
-import { Course } from "../types/index.interface";
+import { contactInfoProp, Course, CourseProjectsProps } from "../types/index.interface";
 
 // Constants for Course Data
 export const courseData: Course[] = [
@@ -38,7 +38,7 @@ export const courseData: Course[] = [
     }
 ];
 
-export const projects = [
+export const projects: CourseProjectsProps[] = [
     {
         title: "Front-End Development",
         description:
@@ -65,7 +65,7 @@ export const projects = [
 
 export const whatWeOffer = ["Certification", "24/7 Support", "Skilled Tutors", "Recorded Classes", "Guaranteed Internship", "Professional guidiance"];
 
-export const contactInformations = [
+export const contactInformations: contactInfoProp[] = [
     { icon: IoCall, message: "Quick Call Us:", link: "tel:+2349039267685", value: "+234-903926-7685" },
     { icon: IoMail, message: "Mail Us On:", link: "mailto: info@thefullsnacksdevs.com", value: "info@thefullsnacksdevs.com" },
 ]

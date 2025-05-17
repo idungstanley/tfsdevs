@@ -1,9 +1,10 @@
 import React from 'react';
-import { cardData } from '@/app/constants/navigation';
 import Carousel from '../carousel/Carousel';
 import { LampContainer } from '../ui/lamp';
+import useBootcamp from '@/app/hooks/useBootcamp';
 
 const Features = () => {
+  const { bootcamps } = useBootcamp();
   return (
     <LampContainer>
       <div className="flex flex-col items-center justify-center">
@@ -18,7 +19,7 @@ const Features = () => {
         </div>
         {/* Cards */}
         <div className="relative z-10 w-full flex flex-col md:flex-row md:items-center justify-start gap-6 md:mt-10">
-          <Carousel cards={cardData} />
+          <Carousel cards={bootcamps} />
         </div>
       </div>
     </LampContainer>
