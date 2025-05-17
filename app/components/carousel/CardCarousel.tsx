@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { LuArrowRight } from 'react-icons/lu';
 import { useMediaQuery } from 'react-responsive';
 import Image from 'next/image';
-import { CarouselProps } from '@/app/types/index.interface';
+import { CardProps, CarouselProps } from '@/app/types/index.interface';
 
 const Carousel: React.FC<CarouselProps> = ({ cards, intSec = 3000 }) => {
   const [index, setIndex] = useState(0);
@@ -12,11 +12,11 @@ const Carousel: React.FC<CarouselProps> = ({ cards, intSec = 3000 }) => {
 
   useEffect(() => {
     const slideInterval = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % cards.length);
+      setIndex((prevIndex) => (prevIndex + 1) % (cards as CardProps[])?.length);
     }, intSec);
 
     return () => clearInterval(slideInterval);
-  }, [intSec, cards.length]);
+  }, [intSec, cards?.length]);
 
   return (
     <div className="relative w-full flex items-center justify-center overflow-x-hidden overflow-y-hidden md:overflow-y-auto md:h-[300px] h-[250px] flex-col md:flex-row">
@@ -24,9 +24,9 @@ const Carousel: React.FC<CarouselProps> = ({ cards, intSec = 3000 }) => {
         className="flex gap-4 md:gap-6 w-full md:w-[900px] h-full"
         animate={{ x: `-${index * (isMobile ? 100 : 33.3)}%` }} // Moves the cards smoothly left
         transition={{ duration: 0.8, ease: 'easeInOut' }}
-        style={{ display: 'flex', width: `${cards.length * (isMobile ? 100 : 33.3)}%` }}
+        style={{ display: 'flex', width: `${(cards as CardProps[])?.length * (isMobile ? 100 : 33.3)}%` }}
       >
-        {cards.concat(cards.slice(0, 4)).map(
+        {cards?.concat(cards?.slice(0, 4)).map(
           (
             card,
             i // Duplicating the first 3 cards for infinite loop effect
@@ -38,7 +38,7 @@ const Carousel: React.FC<CarouselProps> = ({ cards, intSec = 3000 }) => {
               <div className="flex flex-col items-center text-center shrink-0 w-full">
                 <div className="relative">
                   <Image
-                    src={card.src}
+                    src={card?.src as string}
                     alt=""
                     width="500"
                     height="500"

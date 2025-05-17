@@ -181,6 +181,7 @@ export interface CardProps {
     title: string;
     description: string;
     price: number;
+    src?: string;
 
 }
 
