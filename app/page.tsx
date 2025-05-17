@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen font-[family-name:var(--font-geist-sans)] bg-[#111111] w-full">
       <div className="bg-cover bg-no-repeat">
-        <div className="px-4 pt-4">
+        <div className="px-4 pt-6">
           <Navbar />
         </div>
       </div>
