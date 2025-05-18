@@ -19,7 +19,7 @@ export const sampleCourses: CourseCardProp[] = [
         rating: 4.7,
         reviewCount: 158432,
         price: {
-            original: 4000,
+            original: 15000,
             discounted: 3000,
         },
         duration: '47.5 hours',
@@ -37,7 +37,7 @@ export const sampleCourses: CourseCardProp[] = [
         rating: 4.9,
         reviewCount: 94732,
         price: {
-            original: 4500,
+            original: 15000,
             discounted: 4000,
         },
         duration: '63 hours',
