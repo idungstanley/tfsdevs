@@ -220,4 +220,5 @@ export interface CourseCardProp {
     isAvailable: boolean;
     badges?: string[];
     lastUpdated: string;
-  }
+}
+  

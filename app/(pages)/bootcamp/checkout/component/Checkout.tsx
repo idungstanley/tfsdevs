@@ -8,14 +8,10 @@ import { FadeLoader } from 'react-spinners';
 const CheckoutCourse = ({ courseId }: { courseId: number }) => {
   const { data, isLoading } = useGetAllBootCamps({});
   const bootcamps = data?.data?.$values;
-
   
   const course = useMemo(() => {
-    console.log('Bootcamps:->', bootcamps?.[0]?.bootcampId);
     return bootcamps?.find((c) => c?.bootcampId == courseId);
   }, [bootcamps, courseId]);
-  console.log('Bootcamps:', bootcamps);
-  console.log('Course:', course, courseId);
 
   if (isLoading) {
     return (
@@ -27,7 +23,7 @@ const CheckoutCourse = ({ courseId }: { courseId: number }) => {
   }
 
   return (
-    <div className="min-h-screen bg-background md:p-20 p-6 pt-28 text-white w-full">
+    <div className="min-h-screen bg-background md:p-20 p-6 pt-32 text-white w-full">
       <div className="w-full mx-auto">
         <h1 className="text-3xl font-bold mb-8">Checkout</h1>
         <h1 className="text-xl font-bold mb-8">Course: {course?.title}</h1>

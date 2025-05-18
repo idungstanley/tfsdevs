@@ -4,25 +4,28 @@ import { Input } from '../ui/input';
 import { useState } from 'react';
 import { Bootcamp } from '@/app/features/bootcamp/bootcamp.interface';
 import { formatPrice } from '@/app/utils';
+import { LOCALSTORAGE_KEY } from '@/app/constants/localStorage';
+import { useRouter } from 'next/navigation';
 
 interface CheckoutFormProps {
   course: Bootcamp;
 }
 
 export function CheckoutForm({ course }: CheckoutFormProps) {
+  const router = useRouter();
   const [coupon, setCoupon] = useState('');
   const [discount, setDiscount] = useState(0);
   const [isApplying, setIsApplying] = useState(false);
   const [error, setError] = useState('');
   const discount_code = 'happy-coding';
 
+  const checkoutLink = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY.PAYMENT_URL) ?? '');
+
   const handleCheckout = async () => {
-    // Implement checkout logic here
-    console.log('Checking out:', course.title);
+    router.push(checkoutLink);
   };
 
   const handleDownloadBrochure = () => {
-    // Implement brochure download logic here
     // window.open(course.brochureUrl, '_blank');
   };
 
@@ -34,7 +37,6 @@ export function CheckoutForm({ course }: CheckoutFormProps) {
     setIsApplying(true);
     setError('');
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
       if (coupon === discount_code) {
         const discountAmount = Math.round(course.price * 0.1);
         setDiscount(discountAmount);
@@ -95,7 +97,11 @@ export function CheckoutForm({ course }: CheckoutFormProps) {
                 onChange={(e) => setCoupon(e.target.value)}
                 className="flex-1 border ring-0 focus:ring-0 focus:outline-none border-slate-400 bg-transparent outline-none"
               />
-              <button className="w-fit px-2 cursor-pointer bg-blue-600 rounded-md h-10"  onClick={handleApplyCoupon} disabled={isApplying}>
+              <button
+                className="w-fit px-2 cursor-pointer bg-blue-600 rounded-md h-10"
+                onClick={handleApplyCoupon}
+                disabled={isApplying}
+              >
                 {isApplying ? 'Applying...' : 'Apply'}
               </button>
             </div>
@@ -114,7 +120,10 @@ export function CheckoutForm({ course }: CheckoutFormProps) {
               Proceed to Payment
             </button>
 
-            <button className="w-full h-10 rounded-md border flex items-center justify-center gap-4 border-p cursor-pointer" onClick={handleDownloadBrochure}>
+            <button
+              className="w-full h-10 rounded-md border flex items-center justify-center gap-4 border-p cursor-pointer"
+              onClick={handleDownloadBrochure}
+            >
               <Download className="mr-2 h-4 w-4" />
               <p> Download Brochure</p>
             </button>

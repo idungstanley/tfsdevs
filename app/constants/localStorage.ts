@@ -1,3 +1,4 @@
 export const LOCALSTORAGE_KEY = {
-    "BOOTCAMPID": "bootcampId"
+    "BOOTCAMPID": "bootcampId",
+    "PAYMENT_URL": "paymentUrl",
 }
