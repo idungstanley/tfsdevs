@@ -16,7 +16,7 @@ const AuthLayout = ({ children }: { children: ReactNode }) => {
           </div>
         </DShapeSlider>
       </div>
-      <div className="md:w-1/2 w-full h-full bg-white">{children}</div>
+      <div className="md:w-1/2 w-full h-full md:h-screen bg-white md:overflow-y-auto">{children}</div>
     </div>
   );
 };

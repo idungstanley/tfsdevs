@@ -21,6 +21,7 @@ function InputWithLabel({
   classes,
   onBlur,
   styles,
+  trailingIconClasses,
   width = 'w-full',
   labelClasses,
   isError,
@@ -49,7 +50,7 @@ function InputWithLabel({
           </div>
         )}
         <div
-          className={`flex flex-col text-[#9E9E9E] gap-1 items-start justify-center ${width} appearance-none block ${
+          className={`flex relative flex-col text-[#9E9E9E] gap-1 items-start justify-center ${width} appearance-none block ${
             leadingIcon && 'pl-8'
           } ${trailingIcon && 'pr-10'} ${trailingIcon && 'pr-10'} 
           ${bgColor} ${height} dark:bg-brand-dark-base relative focus:border-[#684DF4] focus:outline-base ${
@@ -77,7 +78,7 @@ function InputWithLabel({
         </div>
         {trailingIcon && (
           <div
-            className="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
+            className={`absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer ${trailingIconClasses}`}
             onClick={handleTrailingIconClick}
           >
             {trailingIcon}

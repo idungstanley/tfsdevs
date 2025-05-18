@@ -7,7 +7,7 @@ import AuthTabs from '@/app/components/tabs/AuthTab';
 
 const EnrollPage = () => {
   return (
-    <div className="text-white w-full h-full flex flex-col p-4">
+    <div className="text-white w-full h-full flex flex-col p-4 md:mb-16">
       <AuthTabs />
       <div className="w-full mt-2 md:flex hidden">
         <TextWithLinks

@@ -3,9 +3,11 @@ import React, { useState, useId, useEffect, useRef } from 'react';
 import { courses } from '@/app/constants';
 import { PricingCard } from '@/app/components/card/PricingCard';
 import { IconArrowNarrowRight } from '@tabler/icons-react';
+import useBootcamp from '@/app/hooks/useBootcamp';
 
 const PricingCardList: React.FC = () => {
   const [current, setCurrent] = useState(0);
+  const { bootcamps } = useBootcamp();
 
   const handlePreviousClick = () => {
     const previous = current - 1;
@@ -55,14 +57,13 @@ const PricingCardList: React.FC = () => {
             ref={carouselRef}
             style={{ scrollBehavior: 'smooth' }}
           >
-            {courses.map((slide, index) => (
+            {bootcamps?.map((slide, index) => (
               <PricingCard
-                label={slide.label}
-                route={slide.route}
-                storage={slide.storage}
-                price={slide.price}
-                features={slide.features}
+                label={slide?.title}
+                description={slide?.description}
+                price={slide?.price}
                 index={index}
+                bootcampId={slide?.bootcampId}
                 current={current}
                 handleSlideClick={handleSlideClick}
                 key={index}

@@ -1,19 +1,33 @@
 'use client';
 import Button from '@/app/components/button/Button';
+import { Dropdown } from '@/app/components/dropdown';
 import InputWithLabel from '@/app/components/input/InputWithLabel';
 import Header from '@/app/components/text/Header';
+import { LOCALSTORAGE_KEY } from '@/app/constants/localStorage';
 import { useSignupMutation } from '@/app/features/auth/authService';
+import { Bootcamp } from '@/app/features/bootcamp/bootcamp.interface';
+import { useGetAllBootCamps } from '@/app/features/bootcamp/bootcampService';
 import { SignupProps } from '@/app/types/index.interface';
 import { signupSchema } from '@/app/validationSchema';
 import { useFormik } from 'formik';
 import dynamic from 'next/dynamic';
-import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import { FaArrowRight, FaEye, FaEyeSlash } from 'react-icons/fa6';
 
 const Enroll = () => {
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const { mutateAsync, isPending } = useSignupMutation();
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const { data } = useGetAllBootCamps({});
+  const [selectedBootcamp, setSelectedBootcamp] = useState<Bootcamp>();
+  const bootCampIdLs = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY.BOOTCAMPID) ?? '');
+  const bootcamps = data?.data.$values;
+
+  useEffect(() => {
+    setSelectedBootcamp(bootcamps?.find((data) => data.bootcampId === bootCampIdLs));
+  }, [bootCampIdLs, bootcamps]);
 
   const togglePasswordVisibility = () => {
     setShowPassword((prevState) => !prevState);
@@ -38,26 +52,14 @@ const Enroll = () => {
     validateOnBlur: true,
     validationSchema: signupSchema,
     onSubmit: async (values: SignupProps) => {
-      await mutateAsync(values);
-      const { usePaystackPayment: PaystackPayment } = await import('react-paystack');
-      const config = {
-        reference: new Date().getTime().toString(),
-        email: values.email,
-        amount: 250000 * 100,
-        publicKey: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY || ''
-      };
-
-      const initializePayment = PaystackPayment(config);
-      initializePayment({
-        onSuccess: (reference) => {
-          console.log(reference);
-        },
-        onClose: () => {
-          console.log('closed');
-        }
-      });
+      console.log(values)
+      await mutateAsync({ ...values, bootcampID: selectedBootcamp?.bootcampId });
+      localStorage.setItem(LOCALSTORAGE_KEY.BOOTCAMPID, JSON.stringify(selectedBootcamp?.bootcampId));
+      router.push(`/bootcamp/checkout/${selectedBootcamp?.bootcampId}`);
     }
   });
+
+  console.log()
 
   return (
     <form onSubmit={formik.handleSubmit} className="md:w-[80%] w-full p-4 md:p-0 pt-0">
@@ -176,6 +178,7 @@ const Enroll = () => {
             height="h-[40px] rounded-lg"
             trailingIcon={showPassword ? <FaEye className="text-gray-900" /> : <FaEyeSlash className="text-gray-900" />}
             name="password"
+            trailingIconClasses="top-3.5"
             value={formik.values.password}
             type={showPassword ? 'text' : 'password'}
             placeholder="Password"
@@ -194,6 +197,7 @@ const Enroll = () => {
                 : 'border border-gray-200'
             }`}
             height="h-[40px] rounded-lg"
+            trailingIconClasses="top-3.5"
             trailingIcon={
               showConfirmPassword ? <FaEye className="text-gray-900" /> : <FaEyeSlash className="text-gray-900" />
             }
@@ -206,6 +210,18 @@ const Enroll = () => {
             onBlur={formik.handleBlur}
           />
         </div>
+        <Dropdown
+          options={bootcamps as Bootcamp[]}
+          labelKey="title"
+          labelClasses="text-gray-900"
+          label="Bootcamp"
+          width="min-w-40 w-fit"
+          placeholder="Football"
+          parentWidth="w-full"
+          position="fixed right-4"
+          selectedValue={selectedBootcamp?.title as string}
+          onChange={setSelectedBootcamp}
+        />
         <div className="text-gray-700 flex gap-4 w-full">
           <InputWithLabel
             name="referrerCode"

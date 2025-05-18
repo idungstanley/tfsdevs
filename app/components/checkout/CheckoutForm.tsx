@@ -1,11 +1,12 @@
 'use client';
-import { CheckoutCourses } from '@/app/types/courses';
 import { Download } from 'lucide-react';
 import { Input } from '../ui/input';
 import { useState } from 'react';
+import { Bootcamp } from '@/app/features/bootcamp/bootcamp.interface';
+import { formatPrice } from '@/app/utils';
 
 interface CheckoutFormProps {
-  course: CheckoutCourses;
+  course: Bootcamp;
 }
 
 export function CheckoutForm({ course }: CheckoutFormProps) {
@@ -22,7 +23,7 @@ export function CheckoutForm({ course }: CheckoutFormProps) {
 
   const handleDownloadBrochure = () => {
     // Implement brochure download logic here
-    window.open(course.brochureUrl, '_blank');
+    // window.open(course.brochureUrl, '_blank');
   };
 
   const handleApplyCoupon = async () => {
@@ -46,27 +47,27 @@ export function CheckoutForm({ course }: CheckoutFormProps) {
     }
   };
 
-  const finalPrice = course.price - discount;
+  const finalPrice = course?.price - discount;
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div className="p-6 bg-slate-900 rounded-lg">
         <h2 className="text-xl font-semibold mb-4">Course Details</h2>
-        <p className="text-muted-foreground mb-4">{course.description}</p>
+        <p className="text-muted-foreground mb-4">{course?.description}</p>
 
         <div className="space-y-4">
           <div>
             <h3 className="font-medium">Duration</h3>
-            <p className="text-muted-foreground">{course.duration}</p>
+            <p className="text-muted-foreground">{course?.startDate}</p>
           </div>
 
           <div>
             <h3 className="font-medium">What you&apos;ll learn</h3>
-            <ul className="list-disc list-inside text-muted-foreground">
+            {/* <ul className="list-disc list-inside text-muted-foreground">
               {course.features.map((feature, index) => (
                 <li key={index}>{feature}</li>
               ))}
-            </ul>
+            </ul> */}
           </div>
         </div>
       </div>
@@ -77,7 +78,7 @@ export function CheckoutForm({ course }: CheckoutFormProps) {
         <div className="space-y-4">
           <div className="flex justify-between items-center">
             <span>Course Price</span>
-            <span className="font-medium">#{course.price}</span>
+            <span className="font-medium">{formatPrice(course?.price)}</span>
           </div>
           {discount > 0 && (
             <div className="flex justify-between items-center text-green-600">

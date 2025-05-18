@@ -4,18 +4,19 @@ import { useMutation } from '@tanstack/react-query';
 import { ForgotPasswordProps, ResetPasswordProps } from './auth.interface';
 
 export const signUp = (data: SignupProps) => {
-  const signUpDate = new Date().toISOString();
-  const startDate = new Date();
   const response = requestNew({
-    url: '/academy/createbootcampregistration',
+    url: '/BootcampRegistration/createbootcampregistration',
     method: 'POST',
     data: {
-      ...data,
+      firstName: data.firstName,
+      lastName: data.lastName,
       country: data.countryOfResidence,
       state: data.stateOfResidence,
-      signUpDate,
-      startDate,
-      bootcampID: 1,
+      phoneNumber: data.phoneNumber,
+      email: data.email,
+      referrerCode: data.referrerCode,
+      password: data.password,
+      bootcampID: data.bootcampID,
       assignedInstructor: '',
       notes: '',
       specialRequests: 'None'

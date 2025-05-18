@@ -106,6 +106,7 @@ export interface InputDataTypes {
     hint?: string;
     name: string;
     cornerHint?: string;
+    trailingIconClasses?: string;
     type?: string;
     autoComplete?: string;
     value?: string | number;
@@ -168,12 +169,13 @@ export interface LearningCardProps {
 // types/index.interface.ts
 export interface CourseCardProps {
     label: string;
-    route: string;
     index?: number;
+    bootcampId?: number;
     current?: number;
+    description?: string;
     handleSlideClick?: (index: number) => void;
     storage?: string; // Mock "storage" field like in the image (e.g., "100GB")
-    price?: string; // Mock price field (e.g., "1 month, then $1.7/month")
+    price?: number; // Mock price field (e.g., "1 month, then $1.7/month")
     features?: string[]; // Mock features (e.g., "100 GB storage", "Option to add members")
 }
 
@@ -197,6 +199,7 @@ export interface BootcampCardProps {
     price?: number;
     link?: string;
     src?: string
+    bootcampId?: number;
 }
 
 export interface CourseCardProp {

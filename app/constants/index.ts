@@ -224,6 +224,7 @@ export const courses: CourseCardProps[] = [
     },
 ];
 
+export const features = ['120 Lessons', 'Internship', 'Community Support']
 
 export const recentActivities = [
     {

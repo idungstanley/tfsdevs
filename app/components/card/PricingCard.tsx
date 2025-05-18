@@ -1,18 +1,20 @@
 import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { CourseCardProps } from '@/app/types/index.interface';
+import { features } from '@/app/constants';
+import { formatPrice } from '@/app/utils';
+import { LOCALSTORAGE_KEY } from '@/app/constants/localStorage';
 
 export const PricingCard: React.FC<CourseCardProps> = ({
   label,
-  route,
-  storage,
   price,
-  features,
   index,
   current,
+  description,
+  bootcampId,
   handleSlideClick
 }) => {
-  const slideRef = useRef<HTMLLIElement>(null);
+  const slideRef = useRef<HTMLDivElement>(null);
 
   const xRef = useRef(0);
   const yRef = useRef(0);
@@ -54,10 +56,15 @@ export const PricingCard: React.FC<CourseCardProps> = ({
     yRef.current = 0;
   };
 
+  const handleEnroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.stopPropagation();
+    localStorage.setItem(LOCALSTORAGE_KEY.BOOTCAMPID, JSON.stringify(bootcampId));
+  };
+
   return (
-    <li
+    <div
       ref={slideRef}
-      className="flex flex-1 flex-col items-center justify-center relative text-center text-white opacity-100 transition-all duration-300 ease-in-out md:w-[300px] min-w-max md:min-w-[400px] p-4 rounded-lg md:h-[400px] w-full bg-[#111111]  h-full z-10 "
+      className="flex flex-1 flex-col items-center justify-center relative text-center text-white opacity-100 transition-all duration-300 ease-in-out md:w-[300px] md:min-w-[400px] p-4 rounded-lg md:h-[400px] w-full bg-slate-900  h-full z-10 min-w-full"
       onClick={() => handleSlideClick?.(index as number)}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -76,14 +83,16 @@ export const PricingCard: React.FC<CourseCardProps> = ({
           <div className="flex flex-col">
             <h3 className="text-lg font-semibold uppercase">{label}</h3>
             <div className="my-4">
-              <p className="text-4xl font-bold">{storage}</p>
-              <p className="text-sm text-gray-400">{price}</p>
+              <p className="text-4xl font-bold">Over 100 Lessons</p>
+              <p className="text-sm text-gray-400">{formatPrice(price as number)}</p>
             </div>
           </div>
 
-          <div className="text-neutral-200 mt-4 relative z-20 text-left">
-            Follow these steps to secure your account:
-            <ul className="list-none  mt-2">
+          <div className="text-neutral-200 relative z-20 text-left">
+            <div className="md:w-full">
+              <p className="line-clamp-3 text-gray-300 text-wrap">{description}</p>
+            </div>
+            <ul className="list-none mt-6">
               {features?.map((feature, index) => (
                 <li key={index} className="flex items-center text-gray-300">
                   <Step title={feature} />
@@ -93,16 +102,13 @@ export const PricingCard: React.FC<CourseCardProps> = ({
           </div>
         </div>
 
-        <Link href={route} onClick={(e) => e.stopPropagation()} className="cursor-pointer">
-          <button
-            className="w-full bg-[#684DF4]/90 hover:bg-[#684DF4] text-white py-2 rounded-lg transition-colors cursor-pointer"
-            onClick={(e) => e.stopPropagation()}
-          >
+        <Link href="/auth/enroll" onClick={(e) => handleEnroll(e)} className="cursor-pointer mt-10">
+          <button className="w-full bg-[#684DF4]/90 hover:bg-[#684DF4] text-white py-2 rounded-lg transition-colors cursor-pointer">
             Enroll Now
           </button>
         </Link>
       </div>
-    </li>
+    </div>
   );
 };
 

@@ -1,7 +1,7 @@
-import { Compass, Globe, LayoutGrid, Route, ScrollText, Trophy } from "lucide-react";
-import { AiFillInstagram } from "react-icons/ai";
-import { FaFacebook } from "react-icons/fa";
-import { RiTwitterXLine } from "react-icons/ri";
+import { Compass, Globe, LayoutGrid, Route, ScrollText, Trophy } from 'lucide-react';
+import { AiFillInstagram } from 'react-icons/ai';
+import { FaFacebook } from 'react-icons/fa';
+import { RiTwitterXLine } from 'react-icons/ri';
 
 export const navItems = [
   { label: 'About program', route: '/about' },
@@ -10,27 +10,23 @@ export const navItems = [
     label: 'Bootcamp',
     children: [
       { label: 'Frontend Development', route: '/bootcamp/frontend' },
-      { label: 'Backend Development', route: '/bootcamp/backend' },
-      { label: 'Fullstack Development', route: '/bootcamp/fullstack' },
-      { label: 'UI/UX', route: '/bootcamp/ui-ux' },
-      { label: 'Data Analysis', route: '/bootcamp/data-analysis' }
+      { label: 'Backend Development', route: '/bootcamp/backend' }
     ]
   },
-  {label: 'Courses', route: '/courses'},
+  { label: 'Courses', route: '/courses' },
   { label: 'FAQ', route: '/faq' },
-  { label: 'Pricing', route: '/pricing' },
+  { label: 'Pricing', route: '/pricing' }
 ];
 
 export const socials = [
   { label: 'facebook', url: '', icon: <FaFacebook /> },
   { label: 'twitter', url: '', icon: <RiTwitterXLine /> },
-  { label: 'instagram', url: '', icon: <AiFillInstagram /> },
+  { label: 'instagram', url: '', icon: <AiFillInstagram /> }
 ];
 
 export const footerItems = [
   { title: 'About us', url: '/about' },
   { title: 'Services', url: '/services' },
-  // { title: 'Experience', url: '/experience' },
   { title: 'Courses', url: '/courses' },
   { title: 'FAQ', url: '/faq' },
   { title: 'Contact', url: '/contact' }
@@ -64,8 +60,6 @@ export const cardData = [
     src: '/figma.avif'
   }
 ];
-
-
 
 export const descData = [
   {
