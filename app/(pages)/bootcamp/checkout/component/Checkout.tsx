@@ -7,7 +7,7 @@ import Link from 'next/link';
 import React, { useMemo } from 'react';
 import { FadeLoader } from 'react-spinners';
 
-const CheckoutCourse = ({ courseId }: { courseId: number }) => {
+const CheckoutCourse = ({ courseId }: { courseId: string }) => {
   const { data, isLoading } = useGetAllBootCamps({});
   const bootcamps = data?.data?.$values;
 

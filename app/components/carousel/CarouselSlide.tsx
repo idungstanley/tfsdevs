@@ -15,14 +15,14 @@ const CarouselSlide: React.FC<CarouselSlideProps> = ({ title, description, index
       className={`absolute top-0 left-0 w-full h-full transition-opacity duration-500 ease-in-out 
       ${isActive ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
     >
-      <div className="w-full h-full flex flex-col justify-center px-12 py-16">
+      <div className="w-full h-full flex flex-col justify-center p-4 md:px-12 md:py-16">
         <div className="mb-4 text-[#684DF4]">
           <span className="opacity-70">[ </span>
           <span>{index + 1}.0</span>
           <span className="opacity-70"> ]</span>
         </div>
-        <h2 className="text-4xl md:text-2xl lg:text-4xl font-light text-gray-200 mb-10">{title}</h2>
-        <p className="text-base text-wrap max-w-3xl text-gray-300">{description}</p>
+        <h2 className="text-xl md:text-2xl lg:text-4xl font-light text-gray-200 mb-10">{title}</h2>
+        <p className="md:text-base line-clamp-6 truncate text-sm text-wrap max-w-3xl text-gray-300">{description}</p>
       </div>
     </div>
   );

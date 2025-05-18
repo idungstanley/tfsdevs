@@ -7,7 +7,7 @@ export interface BootcampResponse {
 }
 
 export interface Bootcamp {
-    bootcampId: number;
+    bootcampId: string;
     title: string;
     description: string;
     price: number;

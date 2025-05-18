@@ -90,7 +90,7 @@ export const PricingCard: React.FC<CourseCardProps> = ({
 
           <div className="text-neutral-200 relative z-20 text-left">
             <div className="md:w-full">
-              <p className="line-clamp-3 text-gray-300 text-wrap">{description}</p>
+              <p className="line-clamp-3 text-gray-300 text-wrap text-sm">{description}</p>
             </div>
             <ul className="list-none mt-6">
               {features?.map((feature, index) => (
@@ -102,7 +102,7 @@ export const PricingCard: React.FC<CourseCardProps> = ({
           </div>
         </div>
 
-        <Link href="/auth/enroll" onClick={(e) => handleEnroll(e)} className="cursor-pointer mt-10">
+        <Link href="/auth/enroll" onClick={(e) => handleEnroll(e)} className="cursor-pointer mt-10 md:mt-4">
           <button className="w-full bg-[#684DF4]/90 hover:bg-[#684DF4] text-white py-2 rounded-lg transition-colors cursor-pointer">
             Enroll Now
           </button>

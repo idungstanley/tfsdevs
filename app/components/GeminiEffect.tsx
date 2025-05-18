@@ -58,7 +58,7 @@ export const GeminiEffect = ({
               iconPosition="right"
             />
           </Link>
-          <Link href="/courses/frontend">
+          <Link href="/courses">
             <Button
               label="Browse our courses"
               width="w-fit"
