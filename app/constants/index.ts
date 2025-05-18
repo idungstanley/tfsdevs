@@ -1,4 +1,4 @@
-import { CourseCardProps, LearningCardProps } from '@/app/types/index.interface';
+import { LearningCardProps } from '@/app/types/index.interface';
 
 export const frontendLearningData: LearningCardProps[] = [
     {
@@ -182,45 +182,6 @@ export const backendLearningData: LearningCardProps[] = [
         tags: ['ADVANCED', 'NODEJS', 'EXPRESS', 'TESTING'],
         description:
             'Ensure the reliability of your Node.js APIs by learning how to write comprehensive tests with Mocha, Chai, and Supertest. This advanced lesson covers the fundamentals of backend testing, including unit tests (testing individual functions), integration tests (testing API endpoints), and mocking dependencies (e.g., mocking MongoDB with mongodb-memory-server). You’ll learn how to set up a testing environment, write tests for your Express routes (e.g., testing GET /todos, POST /todos), and assert responses using Chai’s expect syntax. We’ll also cover best practices for testing, such as isolating tests, handling async code, and cleaning up the database between tests. As a project, you’ll write a test suite for the todo list API, covering all CRUD operations and authentication routes. Prerequisites include strong Node.js and Express knowledge (routing, middleware, authentication) and JavaScript proficiency. Tools required: Node.js, npm, Express, MongoDB, Mocha, Chai, Supertest, a text editor, and Postman. Ideal for advanced developers who want to build robust, bug-free APIs.',
-    },
-];
-
-
-export const courses: CourseCardProps[] = [
-    {
-        label: 'Frontend Development',
-        route: '/courses/frontend',
-        storage: '100 Lessons',
-        price: '6 month, #250,000',
-        features: ['100 Lessons', 'Access to Frontend Projects', 'Internship', 'Community Support'],
-    },
-    {
-        label: 'Backend Development',
-        route: '/courses/backend',
-        storage: '120 Lessons',
-        price: '6 month, #250,000',
-        features: ['120 Lessons', 'Backend API Projects', 'Internship', 'Community Support'],
-    },
-    {
-        label: 'Fullstack Development',
-        route: '/courses/fullstack',
-        storage: '200 Lessons',
-        price: '6 month, #500,000',
-        features: ['200 Lessons', 'Fullstack Projects', 'Internship', 'Mentorship Access'],
-    },
-    {
-        label: 'UI/UX',
-        route: '/courses/ui-ux',
-        storage: '80 Lessons',
-        price: '4 month, #250,000',
-        features: ['80 Lessons', 'Design Tools Access', 'Internship', 'Community Support'],
-    },
-    {
-        label: 'Data Analysis',
-        route: '/courses/data-analysis',
-        storage: '90 Lessons',
-        price: '6 month, #200,000',
-        features: ['90 Lessons', 'Data Projects', 'Certification Included'],
     },
 ];
 

@@ -176,7 +176,7 @@ export interface CourseCardProps {
     description?: string;
     handleSlideClick?: (index: number) => void;
     storage?: string; // Mock "storage" field like in the image (e.g., "100GB")
-    price?: string; // Mock price field (e.g., "1 month, then $1.7/month")
+    price?: number; // Mock price field (e.g., "1 month, then $1.7/month")
     features?: string[]; // Mock features (e.g., "100 GB storage", "Option to add members")
 }
 

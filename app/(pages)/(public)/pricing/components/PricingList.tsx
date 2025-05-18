@@ -1,6 +1,5 @@
 'use client';
 import React, { useState, useId, useEffect, useRef } from 'react';
-import { courses } from '@/app/constants';
 import { PricingCard } from '@/app/components/card/PricingCard';
 import { IconArrowNarrowRight } from '@tabler/icons-react';
 import useBootcamp from '@/app/hooks/useBootcamp';
@@ -11,12 +10,12 @@ const PricingCardList: React.FC = () => {
 
   const handlePreviousClick = () => {
     const previous = current - 1;
-    setCurrent(previous < 0 ? courses.length - 1 : previous);
+    setCurrent(previous < 0 ? bootcamps?.length - 1 : previous);
   };
 
   const handleNextClick = () => {
     const next = current + 1;
-    setCurrent(next === courses.length ? 0 : next);
+    setCurrent(next === bootcamps?.length ? 0 : next);
   };
 
   const handleSlideClick = (index: number) => {
