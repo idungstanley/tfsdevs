@@ -1,4 +1,7 @@
+import { bootcampsKeys } from '../constants/bootcamps';
 import { useGetAllBootCamps } from '../features/bootcamp/bootcampService';
+import { BootcampCardProps } from '../types/index.interface';
+
 
 const useBootcamp = () => {
   const { data, isLoading } = useGetAllBootCamps({});
@@ -6,8 +9,9 @@ const useBootcamp = () => {
   const bootcamps = data?.data?.$values.map((bootcamp) => ({
     title: bootcamp.title,
     description: bootcamp.description,
-    price: bootcamp.price
-  }));
+    price: bootcamp.price,
+    link: bootcampsKeys[bootcamp.title as keyof typeof bootcampsKeys] || '/bootcamp'
+  })) as BootcampCardProps[];
 
   const bootcampWithCourses = data?.data?.$values.map((bootcamp) => ({
     title: bootcamp.title,

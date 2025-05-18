@@ -173,4 +173,5 @@ export const checkoutCourses: CheckoutCourses[] = [
         ],
         brochureUrl: '/brochures/devops-master.pdf'
     }
-  ];
+];
+  

@@ -2,8 +2,8 @@
 import { HeroHighlight, Highlight } from '@/app/components/ui/hero-highlight';
 import { HoverEffect } from '@/app/components/ui/hover-effect';
 import { StickyScroll } from '@/app/components/ui/sticky-scroll-reveal';
-import { projects } from '@/app/constants/courseOfferrings';
 import { content } from '@/app/constants/faq';
+import useBootcamp from '@/app/hooks/useBootcamp';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import React from 'react';
@@ -37,6 +37,7 @@ const missionPoints = [
 ];
 
 const About = () => {
+  const { bootcamps } = useBootcamp();
   return (
     <div className="w-full">
       <div className="flex items-center justify-center pt-20 md:px-20">
@@ -173,7 +174,7 @@ const About = () => {
         <h1 className="font-[700] text-white md:text-base text-sm text-wrap w-full]">
           [ <span className="text-[#684DF4]">ACTIVE BOOTCAMP</span> ]
         </h1>
-        <HoverEffect items={projects} />
+        <HoverEffect items={bootcamps} />
       </div>
       <div className="w-full py-4">
         <StickyScroll content={content} />

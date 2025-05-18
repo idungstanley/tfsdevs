@@ -190,3 +190,29 @@ export interface CarouselProps {
     intSec?: number;
     primaryColor?: string;
 }
+
+export interface BootcampCardProps {
+    title: string;
+    description: string;
+    price?: number;
+    link?: string;
+}
+
+export interface CourseCardProp {
+    id: string;
+    title: string;
+    description: string;
+    thumbnail: string;
+    instructor: string;
+    rating: number;
+    reviewCount: number;
+    price: {
+        original: number;
+        discounted?: number;
+    };
+    duration: string;
+    level: 'Beginner' | 'Intermediate' | 'Advanced' | 'All Levels';
+    isAvailable: boolean;
+    badges?: string[];
+    lastUpdated: string;
+  }

@@ -1,24 +1,15 @@
 import { cn } from '@/app/lib/utils';
+import { BootcampCardProps } from '@/app/types/index.interface';
 import { AnimatePresence, motion } from 'motion/react';
 
 import { useState } from 'react';
 
-export const HoverEffect = ({
-  items,
-  className
-}: {
-  items: {
-    title: string;
-    description: string;
-    link: string;
-  }[];
-  className?: string;
-}) => {
+export const HoverEffect = ({ items, className }: { items: BootcampCardProps[]; className?: string }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
     <div className={cn('grid grid-cols-1 md:grid-cols-2 gap-3  lg:grid-cols-3  md:py-10', className)}>
-      {items.map((item, idx) => (
+      {items?.map((item, idx) => (
         <a
           href={item?.link}
           key={item?.link}
@@ -44,8 +35,8 @@ export const HoverEffect = ({
             )}
           </AnimatePresence>
           <Card>
-            <CardTitle>{item.title}</CardTitle>
-            <CardDescription>{item.description}</CardDescription>
+            <CardTitle>{item?.title}</CardTitle>
+            <CardDescription>{item?.description}</CardDescription>
           </Card>
         </a>
       ))}
