@@ -1,13 +1,18 @@
 'use client';
 import Button from '@/app/components/button/Button';
+import { useVerifyPayment } from '@/app/features/bootcamp/bootcampService';
+import { useSearchParams } from 'next/navigation';
 import React from 'react';
 import { BsPatchCheckFill } from 'react-icons/bs';
 import { FadeLoader } from 'react-spinners';
 
 const VerifyPayment = () => {
-  const loading = true;
+  const searchParams = useSearchParams();
+  const txtref = searchParams.get('txtref');
+  const reference = searchParams.get('reference');
+  const { isLoading } = useVerifyPayment({ txtref: txtref as string, reference: reference as string });
 
-  if (loading) {
+  if (isLoading) {
     return (
       <div className="flex flex-col items-center justify-center h-screen bg-[#111111] text-white w-full gap-4">
         <div className="flex flex-col items-center justify-center h-screen bg-[#111111] text-white w-full gap-4">
