@@ -54,7 +54,7 @@ export function CheckoutForm({ course }: CheckoutFormProps) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div className="p-6 bg-slate-900 rounded-lg">
-        <h2 className="text-xl font-semibold mb-4">Course Details</h2>
+        <h2 className="text-xl font-semibold mb-4">Bootcamp Details</h2>
         <p className="text-muted-foreground mb-4">{course?.description}</p>
 
         <div className="space-y-4">
@@ -79,7 +79,7 @@ export function CheckoutForm({ course }: CheckoutFormProps) {
 
         <div className="space-y-4">
           <div className="flex justify-between items-center">
-            <span>Course Price</span>
+            <span>Bootcamp Price</span>
             <span className="font-medium">{formatPrice(course?.price)}</span>
           </div>
           {discount > 0 && (
