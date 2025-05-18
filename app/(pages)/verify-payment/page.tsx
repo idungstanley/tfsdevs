@@ -5,12 +5,13 @@ import { useSearchParams } from 'next/navigation';
 import React from 'react';
 import { BsPatchCheckFill } from 'react-icons/bs';
 import { FadeLoader } from 'react-spinners';
+import { PiSealWarningFill } from 'react-icons/pi';
 
 const VerifyPayment = () => {
   const searchParams = useSearchParams();
   const txtref = searchParams.get('txtref');
   const reference = searchParams.get('reference');
-  const { isLoading } = useVerifyPayment({ txtref: txtref as string, reference: reference as string });
+  const { isLoading, isError } = useVerifyPayment({ txtref: txtref as string, reference: reference as string });
 
   if (isLoading) {
     return (
@@ -20,6 +21,26 @@ const VerifyPayment = () => {
           <p className="text-sm text-gray-500 mb-5">Please wait while we confirm your transaction.</p>
           <FadeLoader color="#684DF4" />
         </div>
+      </div>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div className="flex flex-col items-center justify-center h-screen bg-[#111111] text-white w-full gap-4">
+        <PiSealWarningFill className="text-red-500 text-[50px]" />
+        <p className="text-lg font-bold text-red-500">Payment verification failed</p>
+        <p className="text-sm text-gray-500 mb-5">Please try again later or contact support.</p>
+      </div>
+    );
+  }
+  
+  if (!txtref || !reference) {
+    return (
+      <div className="flex flex-col items-center justify-center h-screen bg-[#111111] text-white w-full gap-4">
+        <PiSealWarningFill className="text-red-500 text-[50px]" />
+        <p className="text-lg font-bold text-red-500">Invalid payment details</p>
+        <p className="text-sm text-gray-500 mb-5">Please check your payment link and try again.</p>
       </div>
     );
   }
