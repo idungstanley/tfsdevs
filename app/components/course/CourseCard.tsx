@@ -4,6 +4,7 @@ import CourseBadge from './CourseBadge';
 import LockOverlay from './LockOverlay';
 import StarRating from './StarRating';
 import { CourseCardProp } from '@/app/types/index.interface';
+import { formatPrice } from '@/app/utils';
 
 interface CourseCardProps {
   course: CourseCardProp;
@@ -11,13 +12,6 @@ interface CourseCardProps {
 }
 
 const CourseCard: React.FC<CourseCardProps> = ({ course, className = '' }) => {
-  const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD'
-    }).format(price);
-  };
-
   return (
     <div
       className={`bg-slate-900 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 max-w-[340px] ${className}`}

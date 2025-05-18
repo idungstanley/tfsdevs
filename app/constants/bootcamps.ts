@@ -19,8 +19,8 @@ export const sampleCourses: CourseCardProp[] = [
         rating: 4.7,
         reviewCount: 158432,
         price: {
-            original: 199.99,
-            discounted: 19.99,
+            original: 4000,
+            discounted: 3000,
         },
         duration: '47.5 hours',
         level: 'All Levels',
@@ -37,8 +37,8 @@ export const sampleCourses: CourseCardProp[] = [
         rating: 4.9,
         reviewCount: 94732,
         price: {
-            original: 249.99,
-            discounted: 24.99,
+            original: 4500,
+            discounted: 4000,
         },
         duration: '63 hours',
         level: 'Intermediate',
@@ -55,7 +55,7 @@ export const sampleCourses: CourseCardProp[] = [
         rating: 4.8,
         reviewCount: 45291,
         price: {
-            original: 179.99,
+            original: 5000,
         },
         duration: '58 hours',
         level: 'Beginner',

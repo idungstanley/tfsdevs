@@ -7,35 +7,7 @@ import useBootcamp from '@/app/hooks/useBootcamp';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import React from 'react';
-
-const offerings = [
-  'A vibrant developer community to ask questions and get instant help',
-  'Live mentorship from experts with real-world industry experience',
-  'In-house webinars hosted by your own mentors',
-  'A structured curriculum that gets you industry-ready before the program ends',
-  'Internship opportunities after the bootcamp',
-  'Interview preparation and career support',
-  'Access to industry-standard tools and resources'
-];
-
-const visionGoals = [
-  'Raising thousands of job-ready developers',
-  'Empowering local talents to compete globally',
-  'Fueling innovation and startups through skilled tech talent',
-  'Building a strong, inclusive tech ecosystem across Africa and beyond'
-];
-
-const missionPoints = [
-  'Bridging the gap between learning and real-world development by creating a collaborative, developer-first learning environment',
-  'Providing mentorship from experienced industry professionals who have walked the path',
-  'Delivering a hands-on curriculum that focuses on practical learning, real projects, and critical thinking',
-  'Equipping learners with industry-standard tools, workflows, and best practices',
-  'Offering internship opportunities, career support, and interview prep to ensure our students are not just employable — but standout talents',
-  'Hosting live in-house webinars, tech talks, and community sessions that simulate real team environments',
-  'Creating a culture of continuous learning, innovation, and peer collaboration',
-  'Ensuring accessibility and inclusivity in tech education for people from diverse backgrounds'
-];
-
+import { visionGoals, missionPoints, offerings } from '../../../constants';
 const About = () => {
   const { bootcamps } = useBootcamp();
   return (

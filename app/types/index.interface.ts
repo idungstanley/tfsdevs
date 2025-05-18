@@ -186,7 +186,7 @@ export interface CardProps {
 }
 
 export interface CarouselProps {
-    cards?: CardProps[];
+    cards?: BootcampCardProps[];
     intSec?: number;
     primaryColor?: string;
 }
@@ -196,6 +196,7 @@ export interface BootcampCardProps {
     description: string;
     price?: number;
     link?: string;
+    src?: string
 }
 
 export interface CourseCardProp {

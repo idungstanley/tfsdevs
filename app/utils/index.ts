@@ -5,3 +5,11 @@ export const cl = (...classes: Array<string | undefined | boolean | null | Recor
         )
         .filter(Boolean)
         .join(' ');
+
+
+export const formatPrice = (price: number) => {
+    return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'NGN'
+    }).format(price);
+};
