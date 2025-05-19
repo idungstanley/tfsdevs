@@ -89,7 +89,7 @@ const MobileNav = () => {
               >
                 <div className="w-full">
                   <button
-                    className="flex items-center justify-between text-[16px] w-full text-whitek py-4"
+                    className="flex items-center justify-between text-[16px] w-full text-whitek py-4 text-white"
                     onClick={() => (route.children ? handleDropdown(idx) : handleRoute(route.route))}
                   >
                     <span className="flex gap-1 lg:text-[16px] text-[14px] whitespace-nowrap">{route.label}</span>

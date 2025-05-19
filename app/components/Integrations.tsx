@@ -2,6 +2,7 @@ import { BsArrowUpRightCircleFill } from "react-icons/bs";
 import Button from "./button/Button";
 import IntegrationsColumn from "./IntegrationsColumn";
 import Tag from "./Tag";
+import { useRouter } from "next/navigation";
 
 const integrations = [
   { name: 'Figma', icon: 'figma-logo.svg', description: 'Figma is a collaborative interface design tool.' },
@@ -20,6 +21,7 @@ export type IntegrationsType = typeof integrations;
 
 
 export default function Integrations() {
+  const router = useRouter()
   return (
     <section className="md:py-24 py-10 md:px-20 px-6 overflow-hidden">
       <div className="container">
@@ -35,6 +37,7 @@ export default function Integrations() {
             <Button
               label="Join now"
               width="w-fit"
+              onClick={() => router.push("/auth/enroll")}
               buttonStyle="custom"
               height="h-[36px]"
               labelSize="text-[15px] font-lg rounded-md"
