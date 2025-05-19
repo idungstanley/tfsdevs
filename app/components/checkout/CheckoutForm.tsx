@@ -54,23 +54,23 @@ export function CheckoutForm({ course }: CheckoutFormProps) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div className="p-6 bg-slate-900 rounded-lg">
-        <h2 className="text-xl font-semibold mb-4">Bootcamp Details</h2>
-        <p className="text-muted-foreground mb-4">{course?.description}</p>
-
-        <div className="space-y-4">
+        <h1 className="text-xl font-bold mb-2">{course?.title}</h1>
+        <h2 className="text-lg font-semibold mb-1">Bootcamp Details:</h2>
+        <p className="text-muted-foreground mb-4 text-sm">{course?.description}</p>
+        <div className="space-y-2">
           <div>
-            <h3 className="font-medium">Duration</h3>
-            <p className="text-muted-foreground">{course?.startDate}</p>
+            <h3 className="font-medium">Duration: {course?.duration}</h3>
+            {/* <p className="text-muted-foreground">{course?.duration}</p> */}
           </div>
 
-          <div>
+          {/* <div>
             <h3 className="font-medium">What you&apos;ll learn</h3>
-            {/* <ul className="list-disc list-inside text-muted-foreground">
+            <ul className="list-disc list-inside text-muted-foreground">
               {course.features.map((feature, index) => (
                 <li key={index}>{feature}</li>
               ))}
-            </ul> */}
-          </div>
+            </ul>
+          </div> */}
         </div>
       </div>
 

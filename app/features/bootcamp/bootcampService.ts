@@ -16,6 +16,23 @@ export const useGetAllBootCamps = ({ pageSize = 10, IncludeCourse = true }: { In
         staleTime: 1000 * 60 * 5,
     });
 };
+
+export const useGetBootCampById = ({ id }: {id: string; }) => {
+    return useQuery({
+        queryKey: ['bootcamps', { id }],
+        enabled: !!id,
+        queryFn: async () => {
+            const data = await requestNew<BootcampResponse>({
+                url: `/Bootcamp/GetAllBootcampsWithCourses?Id=${id}`,
+                method: "GET",
+            });
+            return data;
+        },
+        retry: 1,
+        staleTime: 1000 * 60 * 5,
+    });
+};
+
 export const useVerifyPayment = ({ reference, txtref }: {
     reference: string,
     txtref: string;

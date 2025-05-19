@@ -25,16 +25,15 @@ const CheckoutCourse = ({ courseId }: { courseId: string }) => {
   }
 
   return (
-    <div className="min-h-screen bg-background md:p-20 p-6 pt-32 text-white w-full">
+    <div className="min-h-screen bg-background md:p-20 p-6 md:pt-20 text-white w-full">
       <Link href="/">
-        <div className="items-center justify-center w-full flex hover:text-[#684DF4]">
+        <div className="items-center justify-center w-full flex hover:text-[#684DF4] mb-10">
           <Image src="/iconpurple.svg" alt="logo" width={500} height={500} className="h-[50px] w-[60px]" />
           <Image src="/logotext.svg" alt="logo" width={500} height={500} className="h-[50px] w-[60px]" />
         </div>
       </Link>
-      <div className="w-full mx-auto">
-        <h1 className="text-3xl font-bold mb-8">Checkout</h1>
-        <h1 className="text-xl font-bold mb-8">Bootcamp: {course?.title}</h1>
+      <div className="w-full mx-auto md:mt-10">
+        <h1 className="text-3xl font-bold mb-8 w-full flex items-center justify-center">Complete Payment to Start Learning</h1>
         <CheckoutForm course={course as Bootcamp} />
       </div>
     </div>

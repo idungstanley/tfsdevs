@@ -12,10 +12,17 @@ export interface Bootcamp {
     description: string;
     price: number;
     startDate: string;
+    duration: string;
+    features: FeaturesProps;
     endDate: string;
     createdOn: string;
     updatedOn: string | null;
     courses: { $values: Course[]; };
+}
+
+export interface FeaturesProps {
+    $id: string;
+    $values: string[];
 }
 
 export interface Course {
