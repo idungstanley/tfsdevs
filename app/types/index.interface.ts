@@ -151,7 +151,7 @@ export type SignupProps = {
     phoneNumber: string;
     confirmPassword?: string;
     referrerCode?: string;
-    bootcampID?: number;
+    bootcampID?: string;
     specialRequests?: string;
     assignedInstructor?: string;
     notes?: string;
@@ -170,7 +170,7 @@ export interface LearningCardProps {
 export interface CourseCardProps {
     label: string;
     index?: number;
-    bootcampId?: number;
+    bootcampId?: string;
     route?: string;
     current?: number;
     description?: string;
@@ -200,7 +200,7 @@ export interface BootcampCardProps {
     price?: number;
     link?: string;
     src?: string
-    bootcampId?: number;
+    bootcampId?: string;
 }
 
 export interface CourseCardProp {
