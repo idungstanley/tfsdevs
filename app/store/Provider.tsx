@@ -5,7 +5,7 @@ import React, { Suspense } from 'react';
 import { SessionProvider } from 'next-auth/react';
 import { store } from './store';
 import { ErrorResponse, ISuccessRequest } from '../types/index.interface';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loading from '../loading';
 import { ThemeProvider } from '../context/ThemeContext';
@@ -73,18 +73,6 @@ export function Providers({ children }: React.PropsWithChildren) {
             </Theme>
           </Suspense>
         </Provider>
-        <ToastContainer
-          position="top-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick={false}
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="dark"
-        />
       </QueryClientProvider>
     </ThemeProvider>
   );

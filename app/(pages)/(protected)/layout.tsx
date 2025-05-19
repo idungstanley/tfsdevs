@@ -3,6 +3,7 @@ import Header from '@/app/components/header';
 import Sidebar from '@/app/components/sidebar';
 import { useTheme } from '@/app/context/ThemeContext';
 import React, { useState } from 'react';
+import { ToastContainer } from 'react-toastify';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -30,6 +31,18 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <Header />
         <main className="flex-1 p-4 md:p-6 overflow-auto">{children}</main>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </div>
   );
 };
