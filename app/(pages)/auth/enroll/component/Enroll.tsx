@@ -22,12 +22,18 @@ const Enroll = () => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const { data } = useGetAllBootCamps({});
   const [selectedBootcamp, setSelectedBootcamp] = useState<Bootcamp>();
-  const bootCampIdLs = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY.BOOTCAMPID) ?? '');
+  const raw = localStorage.getItem(LOCALSTORAGE_KEY.BOOTCAMPID);
+  const bootCampIdLs = raw ? JSON.parse(raw) : null;
   const bootcamps = data?.data.$values;
 
   useEffect(() => {
-    setSelectedBootcamp(bootcamps?.find((data) => data.bootcampId === bootCampIdLs));
+    setSelectedBootcamp(bootcamps?.find((data) => data?.bootcampId === bootCampIdLs));
   }, [bootCampIdLs, bootcamps]);
+
+  console.log(
+    'bootcamps',
+    bootcamps?.find((data) => data?.bootcampId === bootCampIdLs)
+  );
 
   const togglePasswordVisibility = () => {
     setShowPassword((prevState) => !prevState);
@@ -52,14 +58,14 @@ const Enroll = () => {
     validateOnBlur: true,
     validationSchema: signupSchema,
     onSubmit: async (values: SignupProps) => {
-      console.log(values)
+      console.log(values);
       await mutateAsync({ ...values, bootcampID: selectedBootcamp?.bootcampId });
       localStorage.setItem(LOCALSTORAGE_KEY.BOOTCAMPID, JSON.stringify(selectedBootcamp?.bootcampId));
       router.push(`/bootcamp/checkout/${selectedBootcamp?.bootcampId}`);
     }
   });
 
-  console.log()
+  console.log();
 
   return (
     <form onSubmit={formik.handleSubmit} className="md:w-[80%] w-full md:p-0 pt-0">
@@ -216,7 +222,7 @@ const Enroll = () => {
           labelClasses="text-gray-900"
           label="Bootcamp"
           width="min-w-40 w-fit"
-          placeholder="Football"
+          placeholder="Select Bootcamp"
           parentWidth="w-full"
           position="fixed right-4"
           selectedValue={selectedBootcamp?.title as string}
