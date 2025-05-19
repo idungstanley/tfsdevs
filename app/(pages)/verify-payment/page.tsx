@@ -76,6 +76,7 @@ const VerifyPayment = () => {
         label="Login to dashboard"
         width="w-fit"
         buttonStyle="custom"
+        onClick={() => router.push('/auth/login')}
         height="h-[45px]"
         labelSize="text-[15px] font-lg rounded-md"
         customClasses="cursor-pointer text-white bg-[#684DF4] px-2 rounded-md transition-transform duration-300 mt-10 ease-in-out hover:scale-110 hover:opacity-90"
