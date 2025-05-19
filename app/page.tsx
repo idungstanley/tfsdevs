@@ -8,7 +8,6 @@ import HeroSection from './components/hero';
 import { RemoteWorldMap } from './components/remote-map';
 import Integrations from './components/Integrations';
 import { FeaturesSection } from './components/what-makes-us-unique/Features';
-import { Testimonials } from './components/testimonial';
 import { motion } from 'framer-motion';
 
 export default function Home() {
@@ -33,7 +32,7 @@ export default function Home() {
           <Integrations />
           <Reviews />
         </div>
-        <Testimonials />
+        {/* <Testimonials /> */}
         <Footer />
       </motion.div>
     </div>

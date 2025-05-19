@@ -1,7 +1,9 @@
+import Button from '@/app/components/button/Button';
 import LearningCard from '@/app/components/card/LearningCard';
 import { backendLearningData } from '@/app/constants';
 import Image from 'next/image';
 import React from 'react';
+import { FaArrowRight } from 'react-icons/fa6';
 
 const BackendLearningPath = () => {
   return (
@@ -18,6 +20,19 @@ const BackendLearningPath = () => {
             structured to build your backend skills progressively, preparing you to become a confident, job-ready
             backend developer.
           </p>
+
+          <div className="flex items-center justify-start w-full gap-4 mt-4">
+            <Button
+              type="submit"
+              label="Enroll Now"
+              width="w-fit"
+              buttonStyle="custom"
+              height="h-[48px]"
+              customClasses="bg-[#684DF4] hover:bg-base-light-hover text-white rounded-[8px] cursor-pointer"
+              icon={<FaArrowRight className="text-white" />}
+              iconPosition="right"
+            />
+          </div>
         </div>
         <Image src="/learning-paths-hero.webp" alt="" width={500} height={500} />
       </section>

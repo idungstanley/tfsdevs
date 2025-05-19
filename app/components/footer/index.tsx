@@ -1,7 +1,7 @@
 'use client';
 
 import React, { ReactNode } from 'react';
-import { SOCIAL_LINKS, QUICK_LINKS, IT_SERVICES, FOOTER_LINKS } from '@/app/constants/footerData';
+import { SOCIAL_LINKS, QUICK_LINKS, FOOTER_LINKS } from '@/app/constants/footerData';
 import { FaTwitter, FaLinkedinIn, FaInstagram, FaYoutube, FaArrowUp } from 'react-icons/fa';
 import ProgressBar from '../ProgressBar';
 import { GoChevronRight } from 'react-icons/go';
@@ -9,6 +9,7 @@ import { FaFacebook } from 'react-icons/fa6';
 import Logo from '../sidebar/Logo';
 import { contactInformations } from '@/app/constants/courseOfferrings';
 import Link from 'next/link';
+import { bootCampItems } from '@/app/constants/navigation';
 
 const ICON_MAP: { [key: string]: ReactNode } = {
   facebook: <FaFacebook />,
@@ -78,10 +79,10 @@ const Footer = () => {
               <ProgressBar />
             </div>
             <ul className="text-gray-400 space-y-2">
-              {IT_SERVICES.map((item) => (
-                <li key={item} className="flex items-center gap-2 hover:text-[#684DF4] cursor-pointer">
-                  <GoChevronRight /> {item}
-                </li>
+              {bootCampItems.map((item) => (
+                <Link href={item.route} key={item.label} className="flex items-center gap-2 hover:text-[#684DF4] cursor-pointer">
+                  <GoChevronRight /> {item.label}
+                </Link>
               ))}
             </ul>
           </div>

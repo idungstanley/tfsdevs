@@ -18,6 +18,11 @@ export const navItems = [
   { label: 'Pricing', route: '/pricing' }
 ];
 
+export const bootCampItems = [
+  { label: 'Frontend Development', route: '/bootcamp/frontend' },
+  { label: 'Backend Development', route: '/bootcamp/backend' }
+];
+
 export const socials = [
   { label: 'facebook', url: '', icon: <FaFacebook /> },
   { label: 'twitter', url: '', icon: <RiTwitterXLine /> },
