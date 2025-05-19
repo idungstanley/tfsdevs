@@ -10,9 +10,9 @@ import { PiSealWarningFill } from 'react-icons/pi';
 const VerifyPayment = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const txtref = searchParams.get('txtref');
+  const trxref = searchParams.get('trxref');
   const reference = searchParams.get('reference');
-  const { isLoading, isError } = useVerifyPayment({ txtref: txtref as string, reference: reference as string });
+  const { isLoading, isError } = useVerifyPayment({ txtref: trxref as string, reference: reference as string });
 
   if (isLoading) {
     return (
@@ -45,7 +45,7 @@ const VerifyPayment = () => {
     );
   }
 
-  if (!txtref || !reference) {
+  if (!trxref || !reference) {
     return (
       <div className="flex flex-col items-center justify-center h-screen bg-[#111111] text-white w-full gap-4">
         <PiSealWarningFill className="text-red-500 text-[50px]" />
