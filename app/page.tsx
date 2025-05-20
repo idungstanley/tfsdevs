@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import Navbar from './components/navBar';
 import Features from './components/features';
 import WhatMakesUsUnique from './components/what-makes-us-unique';
