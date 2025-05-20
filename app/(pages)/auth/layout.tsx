@@ -1,7 +1,8 @@
-'use client'
+'use client';
 import DShapeSlider from '@/app/components/slider/DShapeSlider';
 import { displayItemsSample } from '@/app/constants/authData';
 import React, { ReactNode, useState } from 'react';
+import { ToastContainer } from 'react-toastify';
 
 const AuthLayout = ({ children }: { children: ReactNode }) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -17,6 +18,18 @@ const AuthLayout = ({ children }: { children: ReactNode }) => {
         </DShapeSlider>
       </div>
       <div className="md:w-1/2 w-full h-full md:h-screen bg-white md:overflow-y-auto">{children}</div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </div>
   );
 };
