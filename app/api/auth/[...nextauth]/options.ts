@@ -32,7 +32,6 @@ export const options = {
         };
         try {
           const user = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/v1/auth/login`, body);
-          console.log('user', user.data);
           if (!user.data.status) {
             throw new Error("Invalid email or password");
           }

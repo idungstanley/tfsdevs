@@ -30,11 +30,6 @@ const Enroll = () => {
     setSelectedBootcamp(bootcamps?.find((data) => data?.bootcampId === bootCampIdLs));
   }, [bootCampIdLs, bootcamps]);
 
-  console.log(
-    'bootcamps',
-    bootcamps?.find((data) => data?.bootcampId === bootCampIdLs)
-  );
-
   const togglePasswordVisibility = () => {
     setShowPassword((prevState) => !prevState);
   };
@@ -58,14 +53,11 @@ const Enroll = () => {
     validateOnBlur: true,
     validationSchema: signupSchema,
     onSubmit: async (values: SignupProps) => {
-      console.log(values);
       await mutateAsync({ ...values, bootcampID: selectedBootcamp?.bootcampId });
       localStorage.setItem(LOCALSTORAGE_KEY.BOOTCAMPID, JSON.stringify(selectedBootcamp?.bootcampId));
       router.push(`/bootcamp/checkout/${selectedBootcamp?.bootcampId}`);
     }
   });
-
-  console.log();
 
   return (
     <form onSubmit={formik.handleSubmit} className="md:w-[80%] w-full md:p-0 pt-0">

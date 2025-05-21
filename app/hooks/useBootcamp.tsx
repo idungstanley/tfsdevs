@@ -4,7 +4,6 @@ import { BootcampCardProps } from '../types/index.interface';
 
 const useBootcamp = () => {
   const { data, isLoading } = useGetAllBootCamps({});
-  console.log(data?.data?.$values);
   const bootcamps = data?.data?.$values.map((bootcamp) => ({
     title: bootcamp.title,
     description: bootcamp.description,

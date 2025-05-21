@@ -33,7 +33,6 @@ const Login = () => {
     onSubmit: async (values: LoginProps) => {
       try {
         setIsLoading(true);
-        console.log(values);
         await SignIn({
           email: values.email,
           password: values.password
