@@ -31,11 +31,12 @@ export const options = {
           passWord: password
         };
         try {
-          const user = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/v1/auth/login`, body);
-          if (!user.data.status) {
+          const user = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/v1/Auth/Login`, body);
+          console.log('User data:', user.data);
+          if (user.data.code != "F00") {
             throw new Error("Invalid email or password");
           }
-          return user.data; // must return user object or throw
+          return user.data;
         } catch (error) {
           console.error('Authorization error:', error);
           return null;

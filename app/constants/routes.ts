@@ -29,7 +29,6 @@ export const authRoutes = [
   '/auth/login',
   '/auth/enroll',
   '/about',
-  '/courses',
   '/pricing',
   '/api/auth/providers',
   '/faq',
@@ -37,7 +36,6 @@ export const authRoutes = [
   '/auth/reset-password',
   '/bootcamp/frontend',
   '/bootcamp/backend',
-  '/courses/fullstack',
   '/verify-payment'
 ];
 
