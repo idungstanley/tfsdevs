@@ -6,7 +6,6 @@ import { categories, courses } from '@/app/constants/courses';
 import CourseCard from '@/app/components/card/CoursesCard';
 
 
-
 const CoursesPage: React.FC = () => {
   const { theme } = useTheme();
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -29,7 +28,6 @@ const CoursesPage: React.FC = () => {
           <p className="text-gray-500 mt-1">Expand your knowledge with our comprehensive courses</p>
         </div>
       </div>
-
       {/* Search and Filter Bar */}
       <div className="flex flex-col md:flex-row gap-4">
         <div className="flex-1 relative">
@@ -76,7 +74,6 @@ const CoursesPage: React.FC = () => {
           </button>
         ))}
       </div>
-
       {/* Course Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredCourses.map((course) => (
