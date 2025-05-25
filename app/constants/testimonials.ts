@@ -13,7 +13,7 @@ export const testimonials: Testimonial[] = [
     },
     {
         id: 2,
-        name: 'Gabriel Nicholas',
+        name: 'Nicholas Ifakachukwu',
         profilePicture: '/avatar.jpg',
         stars: 4,
         testimonial: 'Great content and resources. The only downside is the pace of the course, which could be improved.',
@@ -22,7 +22,7 @@ export const testimonials: Testimonial[] = [
     },
     {
         id: 3,
-        name: 'Alex Johnson',
+        name: 'Oluwafemi Johnson',
         profilePicture: '/twitter-photo.jpg',
         stars: 5,
         testimonial: 'The project work really helped me apply what I learned. I’m now more confident in my skills.',
@@ -30,7 +30,7 @@ export const testimonials: Testimonial[] = [
     },
     {
         id: 4,
-        name: 'Emily Davis',
+        name: 'Deborah Emmanuel',
         profilePicture: '/twitter-photo.jpg',
         stars: 5,
         testimonial: 'The best course I’ve taken! Clear explanations and amazing support from the mentors.',

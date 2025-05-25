@@ -11,7 +11,7 @@ export const HoverEffect = ({ items, className }: { items: BootcampCardProps[]; 
     <div className={cn('grid grid-cols-1 md:grid-cols-2 gap-3  lg:grid-cols-3  md:py-10', className)}>
       {items?.map((item, idx) => (
         <a
-          href={item?.link}
+          // href={item?.link}
           key={item?.link}
           className="relative group  block h-full w-full"
           onMouseEnter={() => setHoveredIndex(idx)}

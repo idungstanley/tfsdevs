@@ -32,10 +32,11 @@ const About = () => {
             <h1 className="font-[700] text-left md:text-center md:px-10 text-white md:text-base text-sm text-wrap w-full]">
               [ ABOUT OUR <span className="text-[#684DF4]"> PROGRAM</span> ]
             </h1>
-            <div className="text-left md:text-center">
-              We are committed to delivering top-tier {''}
+            <div className="text-left md:text-center text-[30px]">
+              We are committed to delivering top-tier frontend, backend, and full-stack development Bootcamp programs
+              {''}
               <Highlight className="text-black dark:text-white">
-                frontend, backend, full-stack development bootcamp and more..
+                and courses, along with more tech-driven learning opportunities.{' '}
               </Highlight>
             </div>
           </motion.h1>
@@ -144,7 +145,7 @@ const About = () => {
       {/* bootcamp  */}
       <div className="flex flex-col gap-4 mt-5 bg-[#33333] md:p-10 p-4 text-white md:px-20">
         <h1 className="font-[700] text-white md:text-base text-sm text-wrap w-full]">
-          [ <span className="text-[#684DF4]">ACTIVE BOOTCAMP</span> ]
+          [ <span className="text-[#684DF4]">BOOTCAMP</span> ]
         </h1>
         <HoverEffect items={bootcamps} />
       </div>
