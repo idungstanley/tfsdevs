@@ -9,7 +9,7 @@ import Loading from '@/app/loading';
 import { getTimeWithPeriod } from '@/app/utils';
 
 const Events: React.FC = () => {
-  const { isLoading, data } = useGetEvents();
+  const { isLoading, data, isRefetching } = useGetEvents();
 const [filter, setFilter] = useState<'all' | 'online' | 'offline'>('all');
     
     const events = data?.data?.$values || [];
@@ -19,7 +19,7 @@ const [filter, setFilter] = useState<'all' | 'online' | 'offline'>('all');
     return event.location === filter;
   });
 
-  if (isLoading) {
+  if (isLoading || isRefetching) {
     return <Loading />;
   }
 

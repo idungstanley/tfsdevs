@@ -25,6 +25,7 @@ function CommandModal({
   maxHeight = 'md:max-h-[600px] h-full',
   showHeaderBorder = false,
   bottomHeight = '64px',
+  border_color,
   bottomMargin = '64px',
   classes = 'md:rounded-[15px]',
   animation = 'transition-transform duration-1000 ease-out transform'
@@ -78,25 +79,23 @@ function CommandModal({
       }`}
     >
       <div
-        className={`flex flex-col border border-border-light dark:border-border-dark ${bg_color} md:w-fit md:h-fit ${maxHeight} h-full w-full relative ${classes} items-start  ${animation}
+        className={`flex flex-col border ${border_color} ${bg_color} md:w-fit md:h-fit ${maxHeight} h-full w-full relative ${classes} items-start  ${animation}
         ${isDrag && 'border-brand-base border-r-4 overflow-y-auto md:overflow-hidden cursor-col-resize'} 
         ${showContent ? 'translate-y-0 opacity-100' : 'translate-y-48 opacity-0'}`}
         ref={dropdownRef}
       >
         <Dividers />
         <div
-          className={`flex justify-between items-center  w-full ${
-            showHeaderBorder ? 'border-b border-border-light dark:border-border-dark' : ''
-          } ${headerText ? 'px-4 py-4' : ''}`}
+          className={`flex justify-between items-center  w-full ${showHeaderBorder ? `border-b ${border_color}` : ''} ${
+            headerText ? 'px-4 py-4' : ''
+          }`}
         >
           <div className="flex items-center md:hidden" onClick={handleClose}>
             <Image src="/images/arrow_back.png" alt="arrow" width={100} height={100} className="w-6 h-6" />
             <p className="font-semibold dark:text-white">Back</p>
           </div>
           {headerText && (
-            <p className="w-full md:text-start text-center md:font-semibold font-bold">
-              {headerText as string}
-            </p>
+            <p className="w-full md:text-start text-center md:font-semibold font-bold">{headerText as string}</p>
           )}
           {showCloseIcon && (
             <span

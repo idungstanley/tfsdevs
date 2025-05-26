@@ -7,7 +7,7 @@ export const useGetAllBootCamps = ({ pageSize = 10, IncludeCourse = true }: { In
         queryKey: ['bootcamps'],
         queryFn: async () => {
             const data = await requestNew<BootcampResponse>({
-                url: `/Bootcamp/GetAllBootcampsWithCourses?pageSize=${pageSize}&IncludeCourse=${IncludeCourse}`,
+                url: `api/v1/Bootcamp/GetAllBootcampsWithCourses?pageSize=${pageSize}&IncludeCourse=${IncludeCourse}`,
                 method: "GET",
             });
             return data;
@@ -23,7 +23,7 @@ export const useGetBootCampById = ({ id }: {id: string; }) => {
         enabled: !!id,
         queryFn: async () => {
             const data = await requestNew<BootcampResponse>({
-                url: `/Bootcamp/GetAllBootcampsWithCourses?Id=${id}`,
+                url: `api/v1/Bootcamp/GetAllBootcampsWithCourses?Id=${id}`,
                 method: "GET",
             });
             return data;
@@ -42,7 +42,7 @@ export const useVerifyPayment = ({ reference, txtref }: {
         enabled: !!reference && !!txtref,
         queryFn: async () => {
             const data = await requestNew<BootcampResponse>({
-                url: "/Payment/VerifyFunding",
+                url: "api/v1/Payment/VerifyFunding",
                 method: "POST",
                 data: {
                     reference,

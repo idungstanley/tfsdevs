@@ -6,7 +6,7 @@ import { LOCALSTORAGE_KEY } from '@/app/constants/localStorage';
 
 export const signUp = (data: SignupProps) => {
   const response = requestNew<BootcampSignupResponse>({
-    url: '/BootcampRegistration/createbootcampregistration',
+    url: 'api/v1/BootcampRegistration/createbootcampregistration',
     method: 'POST',
     data: {
       firstName: data.firstName,
@@ -28,7 +28,7 @@ export const signUp = (data: SignupProps) => {
 
 const forgotPassword = (data: ForgotPasswordProps) => {
   const response = requestNew({
-    url: '/Auth/ForgotPassword',
+    url: 'api/v1/Auth/ForgotPassword',
     method: 'POST',
     data
   });
@@ -37,7 +37,7 @@ const forgotPassword = (data: ForgotPasswordProps) => {
 
 const resetPassword = (data: ResetPasswordProps) => {
   const response = requestNew({
-    url: '/Auth/ResetPassword',
+    url: 'api/v1/Auth/ResetPassword',
     method: 'POST',
     data
   });

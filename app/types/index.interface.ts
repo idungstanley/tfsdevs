@@ -141,6 +141,7 @@ export type LoginProps = {
     password: string;
 };
 
+
 export type SignupProps = {
     email: string;
     firstName: string;
@@ -252,6 +253,7 @@ export interface CommandProps {
     commandVisible: boolean;
     headerText?: string;
     maxHeight?: string;
+    border_color?: string;
     onCloseCommandModal: () => void;
     children?: ReactNode;
     title?: string;

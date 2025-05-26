@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, MapPin, Users, Clock, ChevronLeft } from 'lucide-react';
 import { useRouter } from 'next/navigation';
@@ -7,19 +7,21 @@ import Button from '../button/Button';
 import { useGetSingleEvent } from '@/app/features/event/eventService';
 import Loading from '@/app/loading';
 import { getTimeWithPeriod } from '@/app/utils';
+import EventRegistration from './EventRegistration';
 
 const EventDetails = ({ eventId }: { eventId: string }) => {
   const navigate = useRouter();
-  const { data, isLoading } = useGetSingleEvent({ eventId });
+  console.log('Event ID:', eventId);
+  const { data, isLoading, isRefetching } = useGetSingleEvent({ eventId });
+  const [showRegistrationModal, setShowRegistrationModal] = useState(false);
   const event = data?.data;
   if (!event) return null;
 
   const handleRegister = () => {
-    // Handle registration logic here
-    console.log('Registering for event:', event.id);
+    setShowRegistrationModal(true);
   };
 
-  if (isLoading) {
+  if (isLoading || isRefetching) {
     return <Loading />;
   }
 
@@ -125,6 +127,12 @@ const EventDetails = ({ eventId }: { eventId: string }) => {
           </div>
         </div>
       </section>
+      <EventRegistration
+        eventTitle={event.title}
+        setShowRegistrationModal={setShowRegistrationModal}
+        showRegistrationModal={showRegistrationModal}
+        eventId={eventId}
+      />
     </main>
   );
 };

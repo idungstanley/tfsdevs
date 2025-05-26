@@ -26,6 +26,14 @@ export interface SingleEventReq {
     errorMessage: string;
 }
 
+export interface EventRegistrationProps{ 
+    eventId?: string; 
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+}
+
 export interface EventData {
     $id: string;
     id: string;

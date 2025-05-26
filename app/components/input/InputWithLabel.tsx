@@ -50,7 +50,7 @@ function InputWithLabel({
           </div>
         )}
         <div
-          className={`flex relative flex-col text-[#9E9E9E] gap-1 items-start justify-center ${width} appearance-none block ${
+          className={`flex relative flex-col gap-1 items-start justify-center ${width} appearance-none block ${
             leadingIcon && 'pl-8'
           } ${trailingIcon && 'pr-10'} ${trailingIcon && 'pr-10'} 
           ${bgColor} ${height} dark:bg-brand-dark-base relative focus:border-[#684DF4] focus:outline-base ${
@@ -68,7 +68,7 @@ function InputWithLabel({
             autoComplete={autoComplete}
             className={`${
               borderRadius ? borderRadius : name === 'search' && !borderRadius ? 'rounded-md py-0.5' : ''
-            } placeholder-[#676767] text-gray-900 bg-transparent outline-none focus:outline-none w-full`}
+            } bg-transparent outline-none focus:outline-none w-full`}
             placeholder={placeholder}
             value={value}
             onChange={onChange}
