@@ -4,10 +4,10 @@ import useResolution from '@/app/hooks/useResolution';
 import React, { useEffect, useRef, useState } from 'react';
 import { IoMdClose } from 'react-icons/io';
 import { useClickAway } from 'react-use';
-import Image from 'next/image';
 import { CommandProps } from '@/app/types/index.interface';
 import { RESOLUTION_TYPES } from '@/app/constants/resolution';
 import { LOCALSTORAGE_KEY } from '@/app/constants/localStorage';
+import { IoArrowBack } from 'react-icons/io5';
 
 function CommandModal({
   commandVisible,
@@ -91,7 +91,7 @@ function CommandModal({
           }`}
         >
           <div className="flex items-center md:hidden" onClick={handleClose}>
-            <Image src="/images/arrow_back.png" alt="arrow" width={100} height={100} className="w-6 h-6" />
+            <IoArrowBack/>
             <p className="font-semibold dark:text-white">Back</p>
           </div>
           {headerText && (
