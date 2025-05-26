@@ -1,5 +1,5 @@
 import { auth } from '@/auth';
-import { DEFAULT_LOGIN_REDIRECT, apiAuthPrefix, authRoutes, openRoutes, publicRoutes } from '@/app/constants/routes';
+import { DEFAULT_LOGIN_REDIRECT, apiAuthPrefix, authRoutes, isDynamicRouteMatch, openRoutes, publicRoutes } from '@/app/constants/routes';
 import { NextResponse } from 'next/server';
 
 export default auth((req) => {
@@ -8,13 +8,7 @@ export default auth((req) => {
   const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrefix);
   const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
   const isAuthRoute = [...authRoutes, ...publicRoutes].includes(nextUrl.pathname);
-
-  const isOpenRoute = openRoutes.some((route) => {
-    if (route.includes(':courseId*')) {
-      return nextUrl.pathname.startsWith(route.replace(':courseId*', ''));
-    }
-    return route === nextUrl.pathname;
-  });
+  const isOpenRoute = isDynamicRouteMatch(openRoutes, nextUrl.pathname);
 
   // Handle root route ('/')
   if (nextUrl.pathname === '/') {

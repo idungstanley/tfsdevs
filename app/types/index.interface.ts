@@ -1,4 +1,4 @@
-import { CSSProperties, ReactElement, SetStateAction } from "react";
+import { CSSProperties, ReactElement, ReactNode, SetStateAction } from "react";
 import { IconType } from "react-icons/lib";
 
 export type ErrorResponse = {
@@ -222,3 +222,52 @@ export interface CourseCardProp {
     lastUpdated: string;
 }
   
+export interface Event {
+    id: number;
+    title: string;
+    description: string;
+    shortDescription: string;
+    date: string;
+    time: string;
+    location: {
+        type: 'online' | 'offline';
+        platform?: string;
+        address?: string;
+        link?: string;
+    };
+    image: string;
+    speaker: {
+        name: string;
+        role: string;
+        company: string;
+        image: string;
+    };
+    topics: string[];
+    price: number;
+    capacity: number;
+    registeredCount: number;
+}
+  
+export interface CommandProps {
+    commandVisible: boolean;
+    headerText?: string;
+    maxHeight?: string;
+    onCloseCommandModal: () => void;
+    children?: ReactNode;
+    title?: string;
+    showCloseIcon?: boolean;
+    styling?: string;
+    showBottomContent?: boolean;
+    bottomContent?: ReactNode;
+    position?: string;
+    bg_color?: string;
+    showHeaderBorder?: boolean;
+    modalDefaultSize?: number;
+    animation?: string;
+    setPopup: React.Dispatch<React.SetStateAction<boolean>>;
+    header?: string;
+    classes?: string;
+    padding?: string;
+    bottomHeight?: string;
+    bottomMargin?: string;
+  }

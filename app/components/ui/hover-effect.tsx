@@ -1,7 +1,6 @@
 import { cn } from '@/app/lib/utils';
 import { BootcampCardProps } from '@/app/types/index.interface';
 import { AnimatePresence, motion } from 'motion/react';
-
 import { useState } from 'react';
 
 export const HoverEffect = ({ items, className }: { items: BootcampCardProps[]; className?: string }) => {

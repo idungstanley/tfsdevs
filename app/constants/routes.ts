@@ -8,7 +8,7 @@ export const publicRoutes = [
   '/about',
   '/help-center',
   '/privacy-policy',
-  '/pricing',
+  '/events',
   '/',
   '/auth/signup',
   '/bootcamp',
@@ -40,7 +40,9 @@ export const authRoutes = [
 ];
 
 export const openRoutes = [
-  '/bootcamp/checkout/:courseId*'];
+  '/bootcamp/checkout/:courseId*',
+  '/events/:eventId*',
+];
 
 /**
  * The prefix for api authentication routes
@@ -61,3 +63,25 @@ export const DEFAULT_LOGIN_REDIRECT = '/dashboard';
  * @type {string}
  */
 export const DEFAULT_UNAUTHENTICATED_USER_REDIRECT = '/auth/login';
+
+
+/**
+ * Checks if the given pathname matches any of the defined open routes,
+ * supporting dynamic segments like ":eventId*", ":courseId*", etc.
+ *
+ * @param openRoutes - List of open route patterns (e.g., "/events/:eventId*")
+ * @param pathname - The current pathname to check (e.g., "/events/1234/details")
+ * @returns true if matched, false otherwise
+ */
+export function isDynamicRouteMatch(openRoutes: string[], pathname: string): boolean {
+  return openRoutes.some((route) => {
+    // Check for dynamic segments like ":something*"
+    const dynamicMatch = route.match(/:([a-zA-Z0-9]+)\*/);
+    if (dynamicMatch) {
+      const baseRoute = route.replace(dynamicMatch[0], '');
+      return pathname.startsWith(baseRoute);
+    }
+    // Exact match
+    return route === pathname;
+  });
+}

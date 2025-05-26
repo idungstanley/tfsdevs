@@ -1,0 +1,14 @@
+const RESOLUTION_TYPES = {
+  MOBILE: 'mobile',
+  TABLET: 'tablet',
+  LAPTOP: 'laptop',
+  DEFAULT: null
+} as const;
+
+const RESOLUTION_RELATIVE_WIDTH = {
+  MOBILE: 768,
+  TABLET: 1000,
+  LAPTOP: 1550
+};
+
+export { RESOLUTION_TYPES, RESOLUTION_RELATIVE_WIDTH };
