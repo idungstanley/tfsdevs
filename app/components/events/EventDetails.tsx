@@ -12,7 +12,7 @@ import EventRegistration from './EventRegistration';
 const EventDetails = ({ eventId }: { eventId: string }) => {
   const navigate = useRouter();
   console.log('Event ID:', eventId);
-  const { data, isLoading, isRefetching } = useGetSingleEvent({ eventId });
+  const { data, isLoading } = useGetSingleEvent({ eventId });
   const [showRegistrationModal, setShowRegistrationModal] = useState(false);
   const event = data?.data;
   if (!event) return null;
@@ -21,7 +21,7 @@ const EventDetails = ({ eventId }: { eventId: string }) => {
     setShowRegistrationModal(true);
   };
 
-  if (isLoading || isRefetching) {
+  if (isLoading) {
     return <Loading />;
   }
 
@@ -36,13 +36,24 @@ const EventDetails = ({ eventId }: { eventId: string }) => {
             <ChevronLeft className="w-5 h-5 mr-2" />
             Back to Events
           </button>
-
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2">
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
                 <div className="relative aspect-video rounded-xl overflow-hidden mb-8">
                   <img src={event.imageUrl} alt={event.title} className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background-primary to-transparent opacity-60"></div>
+                  <div className="absolute bottom-4 left-4 flex items-center gap-2">
+                    <span
+                      className={`text-xs font-medium px-3 py-1 rounded-full ${
+                        event.isOnline ? 'bg-[#684DF4] text-primary-500' : 'bg-slate-700 text-secondary-500'
+                      }`}
+                    >
+                      {event.isOnline ? 'Online Event' : 'In Person'}
+                    </span>
+                    <span className="text-xs font-medium px-3 py-1 rounded-full bg-orange-500 text-primary-500">
+                      {event.category}
+                    </span>
+                  </div>
                 </div>
 
                 <h1 className="text-4xl font-bold mb-6 text-[#684DF4]">{event.title}</h1>
@@ -50,16 +61,16 @@ const EventDetails = ({ eventId }: { eventId: string }) => {
                   <p className="text-gray-300 whitespace-pre-line">{event.description}</p>
                 </div>
 
-                {/* <div className="mb-8">
-                  <h3 className="text-xl font-semibold mb-4">Topics Covered</h3>
+                <div className="mb-8">
+                  <h3 className="text-xl font-semibold mb-4">Topics to be Covered</h3>
                   <div className="flex flex-wrap gap-2">
-                    {event.topics.map((topic, index) => (
-                      <span key={index} className="bg-background-primary px-4 py-2 rounded-full text-sm text-gray-300">
+                    {event?.bulletPoints.map((topic, index) => (
+                      <span key={index} className="bg-slate-900 px-4 py-2 rounded-full text-sm text-gray-300">
                         {topic}
                       </span>
                     ))}
                   </div>
-                </div> */}
+                </div>
               </motion.div>
             </div>
 
@@ -91,7 +102,7 @@ const EventDetails = ({ eventId }: { eventId: string }) => {
                   </div>
                   <div className="flex items-center text-gray-300">
                     <MapPin className="w-5 h-5 mr-3 text-primary-500" />
-                    <span>{event.location === 'online' ? `Online via ${event.location}` : event.location}</span>
+                    <span>{event.isOnline ? `Online via ${event.location}` : event.location}</span>
                   </div>
                   <div className="flex items-center text-gray-300">
                     <Users className="w-5 h-5 mr-3 text-primary-500" />
@@ -111,16 +122,6 @@ const EventDetails = ({ eventId }: { eventId: string }) => {
                     onClick={handleRegister}
                     disabled={event.registeredCount >= event.maxAttendees}
                   />
-                  {event.location === 'online' && event.location && (
-                    <a
-                      href={event.location}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block text-center text-sm text-gray-400 hover:text-primary-500 transition-colors"
-                    >
-                      View online event platform
-                    </a>
-                  )}
                 </div>
               </div>
             </motion.div>

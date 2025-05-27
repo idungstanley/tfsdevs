@@ -44,6 +44,8 @@ export interface EventData {
     location: string;
     maxAttendees: number;
     price: number;
+    bulletPoints: string[]
+    isOnline: boolean;
     imageUrl: string;
     category: string;
     registeredCount: number;

@@ -9,17 +9,17 @@ import Loading from '@/app/loading';
 import { getTimeWithPeriod } from '@/app/utils';
 
 const Events: React.FC = () => {
-  const { isLoading, data, isRefetching } = useGetEvents();
-const [filter, setFilter] = useState<'all' | 'online' | 'offline'>('all');
-    
-    const events = data?.data?.$values || [];
+  const { isLoading, data } = useGetEvents();
+  const [filter, setFilter] = useState<'all' | 'online' | 'offline'>('all');
+
+  const events = data?.data?.$values || [];
 
   const filteredEvents = events.filter((event) => {
     if (filter === 'all') return true;
-    return event.location === filter;
+    return event.isOnline ? filter === 'online' : filter === 'offline';
   });
 
-  if (isLoading || isRefetching) {
+  if (isLoading) {
     return <Loading />;
   }
 
@@ -88,15 +88,18 @@ const [filter, setFilter] = useState<'all' | 'online' | 'offline'>('all');
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background-primary to-transparent opacity-60"></div>
-                    <div className="absolute bottom-4 left-4">
+                    <div className="absolute bottom-4 left-4 flex items-center gap-2">
                       <span
                         className={`text-xs font-medium px-3 py-1 rounded-full ${
-                          event.location === 'online'
-                            ? 'bg-primary-500/20 text-primary-500'
-                            : 'bg-secondary-500/20 text-secondary-500'
+                          event.isOnline ? 'bg-[#684DF4] text-primary-500' : 'bg-slate-700 text-secondary-500'
                         }`}
                       >
-                        {event.location === 'online' ? 'Online Event' : 'In Person'}
+                        {event.isOnline ? 'Online Event' : 'In Person'}
+                      </span>
+                      <span
+                        className="text-xs font-medium px-3 py-1 rounded-full bg-orange-500 text-primary-500"
+                      >
+                        {event.category}
                       </span>
                     </div>
                   </div>
@@ -126,7 +129,7 @@ const [filter, setFilter] = useState<'all' | 'online' | 'offline'>('all');
                     <div className="flex items-center text-gray-400">
                       <MapPin className="w-4 h-4 mr-2" />
                       <span className="text-sm">
-                        {event.location === 'online' ? `Online via ${event.location}` : event.location}
+                        {event.isOnline ? `Online via ${event.location}` : event.location}
                       </span>
                     </div>
                     <div className="flex items-center text-gray-400">
