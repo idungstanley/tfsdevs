@@ -96,9 +96,7 @@ const Events: React.FC = () => {
                       >
                         {event.isOnline ? 'Online Event' : 'In Person'}
                       </span>
-                      <span
-                        className="text-xs font-medium px-3 py-1 rounded-full bg-orange-500 text-primary-500"
-                      >
+                      <span className="text-xs font-medium px-3 py-1 rounded-full bg-orange-500 text-primary-500">
                         {event.category}
                       </span>
                     </div>
@@ -143,7 +141,12 @@ const Events: React.FC = () => {
                   <div className="flex items-center justify-between">
                     <span className="text-xl font-semibold text-primary-500">${event.price}</span>
                     <Link href={`/events/${event.id}`}>
-                      <Button label="View Details" bgColor="#684DF4" customClasses="rounded-lg" buttonStyle="custom" />
+                      <Button
+                        label="View Details"
+                        bgColor="#684DF4"
+                        customClasses="rounded-lg cursor-pointer "
+                        buttonStyle="custom"
+                      />
                     </Link>
                   </div>
                 </motion.div>

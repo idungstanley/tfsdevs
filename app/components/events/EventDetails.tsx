@@ -116,7 +116,7 @@ const EventDetails = ({ eventId }: { eventId: string }) => {
                   <Button
                     bgColor="#684DF4"
                     width="w-fit"
-                    customClasses="rounded-lg"
+                    customClasses="rounded-lg cursor-pointer"
                     buttonStyle="custom"
                     label={event.registeredCount >= event.maxAttendees ? 'Event Full' : 'Register Now'}
                     onClick={handleRegister}
