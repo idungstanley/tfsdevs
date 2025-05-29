@@ -29,6 +29,7 @@ function InputWithLabel({
   disabled,
   keyDownFunc
 }: InputDataTypes) {
+
   const handleTrailingIconClick = () => {
     if (trailingClick) {
       trailingClick();
@@ -39,7 +40,11 @@ function InputWithLabel({
     <div className=" w-full lg:text-[16px] text-[14px]">
       <div className={`relative rounded-[16px] ${bgColor}`}>
         {leadingIcon && (
-          <div className="absolute inset-y-0 left-0 flex items-center pl-1.5 pointer-events-none">{leadingIcon}</div>
+          <div
+            className={`absolute inset-y-0 left-0 flex items-center pl-1.5 pointer-events-none ${trailingIconClasses}`}
+          >
+            {leadingIcon}
+          </div>
         )}
         {label && (
           <div className="flex justify-between">

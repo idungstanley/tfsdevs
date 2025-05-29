@@ -15,6 +15,22 @@ export const resetSchema = yup.object().shape({
       .oneOf([yup.ref('newPassword'), ''], 'Passwords must match')
     .required('Please confirm your password'),
 });
+export const changePasswordSchema = yup.object().shape({
+  currentPassword: yup.string()
+    .min(8, 'Must contain at least 8 characters')
+    .matches(/[0-9]/, 'Must contain at least 1 number')
+    .matches(/[^\w]/, 'And finally 1 special character')
+    .required('Password field cannot be empty'),
+  newPassword: yup.string()
+    .min(8, 'Must contain at least 8 characters')
+    .matches(/[0-9]/, 'Must contain at least 1 number')
+    .matches(/[^\w]/, 'And finally 1 special character')
+    .required('Password field cannot be empty'),
+    confirmPassword: yup
+    .string()
+      .oneOf([yup.ref('newPassword'), ''], 'Passwords must match')
+    .required('Please confirm your password'),
+});
 
 export const signupSchema = yup.object().shape({
   email: yup.string().email('Invalid email address').required('Please enter your email address'),

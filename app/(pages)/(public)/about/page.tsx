@@ -1,49 +1,32 @@
 'use client';
-import { HeroHighlight, Highlight } from '@/app/components/ui/hero-highlight';
+import { Highlight } from '@/app/components/ui/hero-highlight';
 import { HoverEffect } from '@/app/components/ui/hover-effect';
 import { StickyScroll } from '@/app/components/ui/sticky-scroll-reveal';
 import { content } from '@/app/constants/faq';
 import useBootcamp from '@/app/hooks/useBootcamp';
-import { motion } from 'framer-motion';
 import Image from 'next/image';
 import React from 'react';
 import { visionGoals, missionPoints, offerings } from '../../../constants';
 const About = () => {
   const { bootcamps } = useBootcamp();
   return (
-    <div className="w-full">
-      <div className="flex items-center justify-center pt-20 md:px-20">
-        <HeroHighlight>
-          <motion.h1
-            initial={{
-              opacity: 0,
-              y: 20
-            }}
-            animate={{
-              opacity: 1,
-              y: [20, -5, 0]
-            }}
-            transition={{
-              duration: 0.5,
-              ease: [0.4, 0.0, 0.2, 1]
-            }}
-            className="text-2xl px-4 md:text-4xl lg:text-5xl font-bold text-neutral-700 dark:text-white max-w-4xl leading-relaxed lg:leading-snug text-center mx-auto"
-          >
-            <h1 className="font-[700] text-left md:text-center md:px-10 text-white md:text-base text-sm text-wrap w-full]">
-              [ ABOUT OUR <span className="text-[#684DF4]"> PROGRAM</span> ]
-            </h1>
-            <div className="text-left md:text-center text-[30px]">
-              We are committed to delivering top-tier frontend, backend, and full-stack development Bootcamp programs
-              {''}
-              <Highlight className="text-black dark:text-white">
-                and courses, along with more tech-driven learning opportunities.{' '}
-              </Highlight>
-            </div>
-          </motion.h1>
-        </HeroHighlight>
+    <div className="w-full pt-32 md:px-20 px-4">
+      <div className="flex items-center justify-center md:px-20">
+        <div className='flex flex-col gap-4'>
+          <h1 className="font-[700] text-left md:text-center md:px-10 text-white md:text-base text-sm text-wrap w-full]">
+            [ ABOUT OUR <span className="text-[#684DF4]"> PROGRAM</span> ]
+          </h1>
+          <div className="text-left md:text-center text-[30px] text-white max-w-5xl">
+            We are committed to delivering top-tier frontend, backend, and full-stack development Bootcamp programs
+            {''}
+            <Highlight className="text-black dark:text-white">
+              and courses, along with more tech-driven learning opportunities.{' '}
+            </Highlight>
+          </div>
+        </div>
       </div>
 
-      <div className="flex flex-col md:pt-20 pt-6 md:px-20 p-4 gap-4 w-full">
+      <div className="flex flex-col pt-10 gap-4 w-full">
         <h1 className="font-[700] text-white md:text-base text-sm text-wrap w-full]">
           [<span className="text-[#684DF4]"> OUR VISION</span> ]
         </h1>
@@ -77,7 +60,7 @@ const About = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col pt-6 md:px-20 p-4 gap-4 w-full">
+      <div className="flex flex-col pt-12 gap-4 w-full">
         <h1 className="font-[700] text-white md:text-base text-sm text-wrap w-full]">
           [<span className="text-[#684DF4]"> OUR MISSION</span> ]
         </h1>
@@ -108,7 +91,7 @@ const About = () => {
         </div>
       </div>
 
-      <div className="flex flex-col md:pt-20 md:px-20 pt-6 p-4 gap-4 w-full">
+      <div className="flex flex-col md:pt-20 pt-12 gap-4 w-full">
         <h1 className="font-[700] text-white md:text-base text-sm text-wrap w-full]">
           [ Who We Are <span className="text-[#684DF4]"> TheFullSnackDevs Academy</span> ]
         </h1>
@@ -143,7 +126,7 @@ const About = () => {
       </div>
 
       {/* bootcamp  */}
-      <div className="flex flex-col gap-4 mt-5 bg-[#33333] md:p-10 p-4 text-white md:px-20">
+      <div className="flex flex-col gap-4 pt-12 bg-[#33333] text-white">
         <h1 className="font-[700] text-white md:text-base text-sm text-wrap w-full]">
           [ <span className="text-[#684DF4]">BOOTCAMP</span> ]
         </h1>

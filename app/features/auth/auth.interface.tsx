@@ -8,6 +8,11 @@ export interface ResetPasswordProps {
 export interface ForgotPasswordProps {
   email: string;
 }
+export interface ChangePasswordProps {
+  currentPassword: string;
+  newPassword: string;
+  confirmPassword: string;
+}
 
 
 export interface BootcampSignupResponse {

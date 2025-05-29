@@ -1,7 +1,9 @@
 'use client';
 import React, { useState } from 'react';
-import { User, Lock, Bell, Globe } from 'lucide-react';
+import { User, Bell, Globe } from 'lucide-react';
 import { useTheme } from '@/app/context/ThemeContext';
+import ChangePassword from './ChangePassword';
+import { useGetSelf } from '@/app/features/auth/authService';
 
 interface UserProfile {
   name: string;
@@ -18,6 +20,9 @@ const Settings: React.FC = () => {
     phone: '+1 234 567 8900',
     avatar: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg'
   });
+  const { data } = useGetSelf();
+
+  console.log("data", data);
 
   const bgColor = theme === 'dark' ? 'bg-gray-800' : 'bg-white';
   const borderColor = theme === 'dark' ? 'border-gray-700' : 'border-gray-200';
@@ -25,11 +30,6 @@ const Settings: React.FC = () => {
   const handleProfileUpdate = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle profile update
-  };
-
-  const handlePasswordUpdate = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle password update
   };
 
   return (
@@ -91,35 +91,7 @@ const Settings: React.FC = () => {
               </button>
             </form>
           </div>
-
-          <div className={`${bgColor} rounded-lg p-6 border ${borderColor}`}>
-            <div className="flex items-center gap-3 mb-6">
-              <Lock className="text-indigo-500" size={24} />
-              <h3 className="text-lg font-medium">Password</h3>
-            </div>
-
-            <form onSubmit={handlePasswordUpdate} className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium mb-2">Current Password</label>
-                <input type="password" className="w-full bg-gray-700 rounded-lg px-4 py-2 border border-gray-600" />
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-2">New Password</label>
-                <input type="password" className="w-full bg-gray-700 rounded-lg px-4 py-2 border border-gray-600" />
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-2">Confirm New Password</label>
-                <input type="password" className="w-full bg-gray-700 rounded-lg px-4 py-2 border border-gray-600" />
-              </div>
-
-              <button
-                type="submit"
-                className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
-              >
-                Update Password
-              </button>
-            </form>
-          </div>
+          <ChangePassword />
         </div>
 
         {/* Sidebar Settings */}

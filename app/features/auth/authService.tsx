@@ -1,8 +1,9 @@
 import { SignupProps } from '@/app/types/index.interface';
 import requestNew from '@/app/utils/requestNew';
-import { useMutation } from '@tanstack/react-query';
-import { BootcampSignupResponse, ForgotPasswordProps, ResetPasswordProps } from './auth.interface';
+import { useMutation, useQuery } from '@tanstack/react-query';
+import { BootcampSignupResponse, ChangePasswordProps, ForgotPasswordProps, ResetPasswordProps } from './auth.interface';
 import { LOCALSTORAGE_KEY } from '@/app/constants/localStorage';
+import { BootcampResponse } from '../bootcamp/bootcamp.interface';
 
 export const signUp = (data: SignupProps) => {
   const response = requestNew<BootcampSignupResponse>({
@@ -35,6 +36,15 @@ const forgotPassword = (data: ForgotPasswordProps) => {
   return response;
 };
 
+const changePassword = (data: ChangePasswordProps) => {
+  const response = requestNew({
+    url: 'api/v1/Auth/change-password',
+    method: 'POST',
+    data
+  });
+  return response;
+};
+
 const resetPassword = (data: ResetPasswordProps) => {
   const response = requestNew({
     url: 'api/v1/Auth/ResetPassword',
@@ -59,8 +69,28 @@ export const useForgotPasswordMutation = () => {
   });
 };
 
+export const useChangePasswordMutation = () => {
+  return useMutation({
+    mutationFn: changePassword
+  });
+};
+
 export const useResetPasswordMutation = () => {
   return useMutation({
     mutationFn: resetPassword
+  });
+};
+
+export const useGetSelf = () => {
+  return useQuery({
+    queryKey: ['get-self'],
+    enabled: true,
+    queryFn: async () => {
+      const data = await requestNew<BootcampResponse>({
+        url: 'api/v1/User/self',
+        method: 'GET'
+      });
+      return data;
+    },
   });
 };
