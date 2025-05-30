@@ -1,4 +1,4 @@
-import { AppDispatch } from '@/app/redux/store';
+import { AppDispatch } from '@/app/store/store';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface IOption {
