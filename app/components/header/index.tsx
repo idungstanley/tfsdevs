@@ -8,11 +8,10 @@ const Header: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
   const [showNotifications, setShowNotifications] = useState(false);
 
-  const bgColor = theme === 'dark' ? 'bg-gray-800' : 'bg-white';
-  const borderColor = theme === 'dark' ? 'border-gray-700' : 'border-gray-200';
-
   return (
-    <header className={`${bgColor} border-b ${borderColor} h-16 flex items-center justify-between px-4 lg:px-6`}>
+    <header
+      className="dark:bg-gray-800 border-gray-200 bg-white border-r dark:border-gray-700 border-b h-16 flex items-center justify-between px-4 lg:px-6"
+    >
       {/* Mobile menu button */}
       <button className="md:hidden rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white">
         <Menu size={24} />

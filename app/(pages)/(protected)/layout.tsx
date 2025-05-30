@@ -2,6 +2,7 @@
 import Header from '@/app/components/header';
 import Sidebar from '@/app/components/sidebar';
 import { useTheme } from '@/app/context/ThemeContext';
+import Prompt from '@/app/utils/Prompt';
 import React, { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 
@@ -43,6 +44,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         pauseOnHover
         theme="dark"
       />
+      <Prompt />
     </div>
   );
 };

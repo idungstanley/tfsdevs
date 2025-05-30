@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Search } from 'lucide-react';
-import { useTheme } from '../../context/ThemeContext';
 import { useRouter } from 'next/navigation';
 
 interface SearchResult {
@@ -35,18 +34,11 @@ const mockResults: SearchResult[] = [
 ];
 
 const SearchBar: React.FC = () => {
-  const { theme } = useTheme();
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<SearchResult[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
   const navigate = useRouter();
-
-  const inputBg = theme === 'dark' ? 'bg-gray-700' : 'bg-gray-100';
-  const inputText = theme === 'dark' ? 'text-gray-200' : 'text-gray-800';
-  const inputPlaceholder = theme === 'dark' ? 'text-gray-400' : 'text-gray-500';
-  const dropdownBg = theme === 'dark' ? 'bg-gray-800' : 'bg-white';
-  const borderColor = theme === 'dark' ? 'border-gray-700' : 'border-gray-200';
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -91,14 +83,12 @@ const SearchBar: React.FC = () => {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search courses..."
-        className={`block w-full pl-10 pr-3 py-2 rounded-lg ${inputBg} ${inputText} border-0 focus:ring-2 focus:ring-indigo-500 focus:outline-none placeholder:${inputPlaceholder}`}
+        className="block w-full pl-10 pr-3 py-2 rounded-lg dark:bg-gray-700 bg-gray-200 dark:text-gray-200 text-gray-800 border-0 focus:ring-2 focus:ring-indigo-500 focus:outline-none placeholder:text-gray-400 dark:placeholder:text-gray-500"
       />
 
       {/* Search Results Dropdown */}
       {isOpen && results.length > 0 && (
-        <div
-          className={`absolute mt-2 w-full rounded-lg shadow-lg ${dropdownBg} border ${borderColor} overflow-hidden z-50`}
-        >
+        <div className="absolute mt-2 w-full rounded-lg shadow-lg  borderdark:bg-gray-800 border-gray-200 bg-white border-r dark:border-gray-700 overflow-hidden z-50">
           {results.map((result) => (
             <div
               key={result.id}

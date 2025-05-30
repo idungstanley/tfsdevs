@@ -1,5 +1,7 @@
 'use client';
 import React, { createContext, useState, useContext, useEffect } from 'react';
+import { storageManager } from '../utils/storageManager';
+import { LOCALSTORAGE_KEY } from '../constants/localStorage';
 
 type ThemeType = 'dark' | 'light';
 
@@ -9,14 +11,18 @@ interface ThemeContextType {
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+const themeLs: ThemeType = storageManager.getItem(LOCALSTORAGE_KEY.THEME) ?? 'dark';
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [theme, setTheme] = useState<ThemeType>('dark');
+  const [theme, setTheme] = useState<ThemeType>(themeLs);
 
   useEffect(() => {
     // Apply theme class to body
-    document.body.classList.remove('light-mode', 'dark-mode');
-    document.body.classList.add(`${theme}-mode`);
+    storageManager.setItem(LOCALSTORAGE_KEY.THEME, theme);
+    document.body.classList.remove('light', 'dark');
+    document.body.classList.add(theme);
+    document.body.dataset.theme = theme;
+
   }, [theme]);
 
   const toggleTheme = () => {

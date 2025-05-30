@@ -12,7 +12,6 @@ import {
   Gift,
   SquareLibrary
 } from 'lucide-react';
-import { useTheme } from '../../context/ThemeContext';
 import Logo from './Logo';
 import SidebarItem from './SidebarItem';
 
@@ -23,21 +22,21 @@ const Sidebar = ({
   setExpanded: React.Dispatch<React.SetStateAction<boolean>>;
   expanded: boolean;
 }) => {
-  const { theme } = useTheme();
-
-  const bgColor = theme === 'dark' ? 'bg-gray-800' : 'bg-white';
-  const borderColor = theme === 'dark' ? 'border-gray-700' : 'border-gray-200';
 
   return (
-    <div className={`h-full ${bgColor} border-r ${borderColor} flex flex-col transition-all duration-300 ease-in-out`}>
+    <div className="h-full dark:bg-gray-800 border-gray-200 bg-white border-r dark:border-gray-700 flex flex-col">
       {/* Logo and branding */}
-      <div className={` border-b border-gray-700 flex items-center justify-between h-16 ${expanded ? 'p-4' : 'p-2'}`}>
+      <div
+        className={`border-b border-gray-200 dark:border-gray-700 flex items-center justify-between h-16 ${
+          expanded ? 'p-4' : 'p-2'
+        }`}
+      >
         <Logo expanded={expanded} />
         <button
           onClick={() => setExpanded(!expanded)}
-          className="p-1 rounded-full hover:bg-gray-700 text-gray-400 hover:text-white w-4 ml-2 cursor-pointer shrink-0 h-4 flex items-center justify-center"
+          className="p-1 rounded-full dark:text-gray-200 text-gray-700 hover:text-[#684DF4] cursor-pointer hover:text-[16px] shrink-0 flex items-center justify-center"
         >
-          {expanded ? '«' : '»'}
+          <span>{expanded ? '«' : '»'}</span>
         </button>
       </div>
 
@@ -60,7 +59,7 @@ const Sidebar = ({
         </ul>
 
         <div className="mt-8 px-3">
-          <div className="border-t border-gray-700 pt-4">
+          <div className="border-t border-gray-200 dark:border-gray-700 pt-4">
             <ul className="space-y-1 px-2">
               <SidebarItem icon={<Settings size={20} />} text="Settings" route="settings" expanded={expanded} />
               <SidebarItem icon={<HelpCircle size={20} />} text="Help" route="help" expanded={expanded} />
@@ -71,7 +70,7 @@ const Sidebar = ({
       </nav>
 
       {/* User profile at bottom */}
-      <div className={`p-4 border-t ${borderColor} flex items-center space-x-3`}>
+      <div className="p-4 border-t border-gray-200 dark:border-gray-700 flex items-center space-x-3">
         <div className="flex-shrink-0">
           <div className="h-8 w-8 rounded-full bg-indigo-600 flex items-center justify-center text-white font-medium">
             JS
