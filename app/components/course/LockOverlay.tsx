@@ -25,7 +25,7 @@ const LockOverlay: React.FC<LockOverlayProps> = ({ className = '' }) => {
             className="absolute left-1/2 bottom-full mb-2 -translate-x-1/2 bg-gray-900 text-white text-sm px-3 py-1.5 rounded shadow-lg whitespace-nowrap z-10 animate-fadeIn"
             style={{ animationDuration: '200ms' }}
           >
-            This course is not available in your region
+            Coming soon
             <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-gray-900"></div>
           </div>
         )}

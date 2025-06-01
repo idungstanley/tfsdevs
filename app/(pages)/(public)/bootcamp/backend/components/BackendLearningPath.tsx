@@ -12,6 +12,10 @@ const BackendLearningPath = () => {
         <div className="text-white md:w-1/2 w-full">
           <h1 className="md:text-[50px] text-[35px] font-[700]">Backend Learning Path (Node.js, MongoDB, Express)</h1>
           <p className="font-semibold text-xl">Unlock your potential, one step at a time.</p>
+          <div className="flex items-center gap-3">
+            <p className="my-3 text-xs font-semibold bg-orange-500 w-fit p-2 rounded-md">PRICE: #250,000</p>
+            <p className="my-3 font-semibold bg-green-500 w-fit p-2 rounded-md text-xs">BEGINNER - ADVANCE</p>
+          </div>
           <p>
             Our Backend Learning Path is designed to guide you from beginner to expert in building robust server-side
             applications. Whether you’re new to backend development or aiming to master advanced concepts, this path

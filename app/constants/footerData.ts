@@ -7,7 +7,7 @@ export const SOCIAL_LINKS = [
 ];
 
 export const QUICK_LINKS = [
-    {label: "About Us", route: "/about"},
+    {label: "About program", route: "/about"},
     {label: "FAQ", route: "/faq"},
     { label: "Contact Us", route: "/contact-us"}];
 

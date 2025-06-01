@@ -30,7 +30,7 @@ export const socials = [
 ];
 
 export const footerItems = [
-  { title: 'About us', url: '/about' },
+  { title: 'About program', url: '/about' },
   { title: 'Services', url: '/services' },
   { title: 'Courses', url: '/courses' },
   { title: 'FAQ', url: '/faq' },

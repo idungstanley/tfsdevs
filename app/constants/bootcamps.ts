@@ -26,7 +26,7 @@ export const sampleCourses: CourseCardProp[] = [
         level: 'All Levels',
         isAvailable: false,
         badges: ['Bestseller', 'Hot'],
-        lastUpdated: 'March 2025'
+        lastUpdated: 'May 2025'
     },
     {
         id: '2',
@@ -42,9 +42,9 @@ export const sampleCourses: CourseCardProp[] = [
         },
         duration: '63 hours',
         level: 'Intermediate',
-        isAvailable: true,
+        isAvailable: false,
         badges: ['Bestseller'],
-        lastUpdated: 'April 2025'
+        lastUpdated: 'June 2025'
     },
     {
         id: '3',
@@ -61,6 +61,6 @@ export const sampleCourses: CourseCardProp[] = [
         level: 'Beginner',
         isAvailable: false,
         badges: ['New'],
-        lastUpdated: 'February 2025'
+        lastUpdated: 'June 2025'
     }
 ];

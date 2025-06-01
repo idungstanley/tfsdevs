@@ -64,16 +64,16 @@ export function Providers({ children }: React.PropsWithChildren) {
   const [client] = React.useState(queryClient);
 
   return (
-    <ThemeProvider>
-      <QueryClientProvider client={client}>
-        <Provider store={store}>
-          <Suspense fallback={<Loading />}>
+    <Suspense fallback={<Loading />}>
+      <ThemeProvider>
+        <QueryClientProvider client={client}>
+          <Provider store={store}>
             <Theme>
               <SessionProvider>{children}</SessionProvider>
             </Theme>
-          </Suspense>
-        </Provider>
-      </QueryClientProvider>
-    </ThemeProvider>
+          </Provider>
+        </QueryClientProvider>
+      </ThemeProvider>
+    </Suspense>
   );
 }

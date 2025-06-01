@@ -9,8 +9,16 @@ import { RemoteWorldMap } from './components/remote-map';
 import Integrations from './components/Integrations';
 import { FeaturesSection } from './components/what-makes-us-unique/Features';
 import { motion } from 'framer-motion';
+import useBootcamp from './hooks/useBootcamp';
+import Loading from './loading';
 
 export default function Home() {
+  const { loading } = useBootcamp();
+
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
     <div className="flex flex-col min-h-screen font-[family-name:var(--font-geist-sans)] bg-[#111111] w-full">
       <div className="bg-cover bg-no-repeat">

@@ -47,6 +47,7 @@ const DesktopNav = () => {
                       {item.children.map((child, idx) => (
                         <li key={idx}>
                           <Link
+                            onClick={() => history.pushState(null, '', child.route)}
                             href={child.route}
                             className="group relative flex flex-col gap-1 px-4 py-2 text-white rounded-md transition-all text-nowrap"
                           >
@@ -66,6 +67,7 @@ const DesktopNav = () => {
               </div>
             ) : (
               <Link
+                onClick={() => history.pushState(null, '', item.route)}
                 href={item.route}
                 className={`text-white font-medium hover:text-[#684DF4] transition-all relative px-2 py-1 ${
                   pathname === item.route ? 'border border-[#684DF4] rounded-md' : ''
@@ -81,7 +83,7 @@ const DesktopNav = () => {
         <div className="flex items-center gap-2 md:gap-5">
           <div className="flex items-center justify-end w-full gap-5">
             <FaSearch className="transition-transform hover:text-[#684DF4] duration-300 ease-in-out hover:scale-110 cursor-pointer hover:shadow-md hover:opacity-90 text-white text-xl" />
-            <Link href="/auth/login">
+            <Link href="/auth/login" onClick={() => history.pushState(null, '', '/auth/login')}>
               <Button
                 label="Login"
                 width="w-[120px]"
@@ -91,7 +93,7 @@ const DesktopNav = () => {
                 customClasses="cursor-pointer text-[#080F1C] border border-[#684DF4] hover:text-white hover:bg-[#684DF4] bg-white rounded-full transition-transform duration-300 ease-in-out hover:scale-110 hover:opacity-90"
               />
             </Link>
-            <Link href="/auth/enroll">
+            <Link href="/auth/enroll" onClick={() => history.pushState(null, '', '/auth/enroll')}>
               <Button
                 label="Enroll now"
                 width="w-fit"

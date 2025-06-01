@@ -10,6 +10,7 @@ export const publicRoutes = [
   '/privacy-policy',
   '/events',
   '/',
+  '/courses',
   '/auth/signup',
   '/bootcamp',
   'verify-payment',
