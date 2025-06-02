@@ -4,13 +4,16 @@ import { motion } from 'framer-motion';
 import { Calendar, MapPin, Users, Clock, ChevronLeft } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import Button from '../button/Button';
-import { useGetSingleEvent } from '@/app/features/event/eventService';
+import { useEventRegistrationMutation, useGetSingleEvent } from '@/app/features/event/eventService';
 import Loading from '@/app/loading';
 import { getTimeWithPeriod } from '@/app/utils';
 import EventRegistration from './EventRegistration';
+import { BsPatchCheckFill } from 'react-icons/bs';
 
 const EventDetails = ({ eventId }: { eventId: string }) => {
   const navigate = useRouter();
+  const { isPending, mutateAsync, isSuccess } = useEventRegistrationMutation();
+
   const { data, isLoading, isFetching } = useGetSingleEvent({ eventId });
   const [showRegistrationModal, setShowRegistrationModal] = useState(false);
   const event = data?.data;
@@ -37,11 +40,7 @@ const EventDetails = ({ eventId }: { eventId: string }) => {
           </button>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-              >
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
                 <div className="relative aspect-video rounded-xl overflow-hidden mb-8">
                   <img src={event.imageUrl} alt={event.title} className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background-primary to-transparent opacity-60"></div>
@@ -116,15 +115,22 @@ const EventDetails = ({ eventId }: { eventId: string }) => {
                 </div>
 
                 <div className="space-y-4">
-                  <Button
-                    bgColor="#684DF4"
-                    width="w-fit"
-                    customClasses="rounded-lg cursor-pointer"
-                    buttonStyle="custom"
-                    label={event.registeredCount >= event.maxAttendees ? 'Event Full' : 'Register Now'}
-                    onClick={handleRegister}
-                    disabled={event.registeredCount >= event.maxAttendees}
-                  />
+                  {isSuccess ? (
+                    <div className="flex items-center gap-3">
+                      <BsPatchCheckFill className="text-[#684DF4] animate-bounce text-4xl" />
+                      <p>Thank you for joining the event, check your email for more information about the event!</p>
+                    </div>
+                  ) : (
+                    <Button
+                      bgColor="#684DF4"
+                      width="w-fit"
+                      customClasses="rounded-lg cursor-pointer"
+                      buttonStyle="custom"
+                      label={event.registeredCount >= event.maxAttendees ? 'Event Full' : 'Register Now'}
+                      onClick={handleRegister}
+                      disabled={event.registeredCount >= event.maxAttendees}
+                    />
+                  )}
                 </div>
               </div>
             </motion.div>
@@ -132,6 +138,8 @@ const EventDetails = ({ eventId }: { eventId: string }) => {
         </div>
       </section>
       <EventRegistration
+        mutateAsync={mutateAsync}
+        isPending={isPending}
         eventTitle={event.title}
         setShowRegistrationModal={setShowRegistrationModal}
         showRegistrationModal={showRegistrationModal}

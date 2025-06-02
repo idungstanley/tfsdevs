@@ -1,24 +1,29 @@
 import React from 'react';
 import CommandModal from '../modal/CommandModal';
 import Button from '../button/Button';
-import { useEventRegistrationMutation } from '@/app/features/event/eventService';
+// import { useEventRegistrationMutation } from '@/app/features/event/eventService';
 import InputWithLabel from '../input/InputWithLabel';
 import { EventRegistrationProps } from '@/app/features/event/event.interface';
 import { eventRegistrationSchema } from '@/app/validationSchema';
 import { useFormik } from 'formik';
+import { UseMutateAsyncFunction } from '@tanstack/react-query';
 
 const EventRegistration = ({
   setShowRegistrationModal,
   showRegistrationModal,
   eventId,
-  eventTitle
+  eventTitle,
+  mutateAsync,
+  isPending
 }: {
   eventId?: string;
   eventTitle?: string;
+  isPending: boolean;
+  mutateAsync: UseMutateAsyncFunction<unknown, Error, EventRegistrationProps, unknown>;
   showRegistrationModal: boolean;
   setShowRegistrationModal: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  const { isPending, mutateAsync } = useEventRegistrationMutation();
+  // const { isPending, mutateAsync } = useEventRegistrationMutation();
 
   const formik = useFormik({
     initialValues: {
@@ -49,7 +54,7 @@ const EventRegistration = ({
 
   return (
     <CommandModal
-      border_color="border-slate-400"
+      border_color="border-slate-900"
       maxHeight="lg:max-h-[600px] p-1"
       modalDefaultSize={576}
       commandVisible={showRegistrationModal}
