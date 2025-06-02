@@ -13,10 +13,11 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa6';
 import { MdOutlineLogin } from 'react-icons/md';
-import { toast } from 'react-toastify';
+import { PiWarningOctagonBold } from 'react-icons/pi';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const togglePasswordVisibility = () => {
@@ -42,12 +43,15 @@ const Login = () => {
       } catch (error: any) {
         console.error('Login error:', error);
         if (error instanceof Error) {
-          return toast.error(error.message); // 👈 use error.message
+          setError(error.message); // 👈 use error.message
         } else {
-         return toast.error('Something went wrong'); // fallback
+          setError('Something went wrong'); // fallback
         }
       } finally {
         setIsLoading(false);
+        setTimeout(() => {
+          setError('');
+        }, 6000);
       }
     }
   });
@@ -55,6 +59,12 @@ const Login = () => {
   return (
     <form onSubmit={formik.handleSubmit} className="md:w-[80%] w-full md:p-0 pt-0">
       <div className="text-left lg:my-4 mb-1">
+        {error && (
+          <div className="flex items-center gap-2 text-red-500">
+            <PiWarningOctagonBold />
+            <p>{error}!</p>
+          </div>
+        )}
         <Header text="Sign In" textColor="text-gray-700" textSize="text-[30px]" />
         <p className="text-gray-500">Enter your email address and password to log in to your dashboard</p>
       </div>

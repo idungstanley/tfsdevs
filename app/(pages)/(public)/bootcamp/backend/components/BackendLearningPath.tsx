@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import Button from '@/app/components/button/Button';
 import LearningCard from '@/app/components/card/LearningCard';
 import { backendLearningData } from '@/app/constants';
@@ -8,8 +8,8 @@ import React from 'react';
 import { FaArrowRight } from 'react-icons/fa6';
 
 const BackendLearningPath = () => {
-    const router = useRouter()
-  
+  const router = useRouter();
+
   return (
     <main className="mt-20">
       <section className="p-8 md:px-20 flex flex-col md:flex-row items-center gap-4 w-full">
