@@ -1,3 +1,4 @@
+'use client'
 import Button from '@/app/components/button/Button';
 import LearningCard from '@/app/components/card/LearningCard';
 import { backendLearningData } from '@/app/constants';
