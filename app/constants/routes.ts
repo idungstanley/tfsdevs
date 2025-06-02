@@ -9,6 +9,7 @@ export const publicRoutes = [
   '/help-center',
   '/privacy-policy',
   '/events',
+  '/contact-us',
   '/',
   '/courses',
   '/auth/signup',

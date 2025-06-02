@@ -11,7 +11,7 @@ import { contactInformations } from '@/app/constants/courseOfferrings';
 import Link from 'next/link';
 import { bootCampItems } from '@/app/constants/navigation';
 
-const ICON_MAP: { [key: string]: ReactNode } = {
+export const ICON_MAP: { [key: string]: ReactNode } = {
   facebook: <FaFacebook />,
   twitter: <FaTwitter />,
   linkedin: <FaLinkedinIn />,
@@ -63,6 +63,7 @@ const Footer = () => {
               {QUICK_LINKS.map((item, index) => (
                 <Link
                   href={item.route}
+                  onClick={()=> history.pushState(null, "", item.route)}
                   key={index}
                   className="flex items-center gap-2 hover:text-[#684DF4] cursor-pointer"
                 >

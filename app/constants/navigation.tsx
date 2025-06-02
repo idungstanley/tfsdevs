@@ -15,6 +15,7 @@ export const navItems = [
   },
   { label: 'Courses', route: '/courses' },
   { label: 'FAQ', route: '/faq' },
+  { label: 'Contact us', route: '/contact-us' },
   { label: 'Events', route: '/events' }
 ];
 
