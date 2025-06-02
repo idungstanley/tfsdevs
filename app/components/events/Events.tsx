@@ -7,9 +7,11 @@ import Button from '../button/Button';
 import { useGetEvents } from '@/app/features/event/eventService';
 import Loading from '@/app/loading';
 import { getTimeWithPeriod } from '@/app/utils';
+import { useRouter } from 'next/navigation';
 
 const Events: React.FC = () => {
-  const { isLoading, data } = useGetEvents();
+  const { isLoading, data, isFetching } = useGetEvents();
+  const router = useRouter()
   const [filter, setFilter] = useState<'all' | 'online' | 'offline'>('all');
 
   const events = data?.data?.$values || [];
@@ -19,7 +21,12 @@ const Events: React.FC = () => {
     return event.isOnline ? filter === 'online' : filter === 'offline';
   });
 
-  if (isLoading) {
+  const handleSelect = (id: string) => {
+    history.pushState(null, "",`/events/${id}` )
+    router.push(`/events/${id}`)
+  }
+
+  if (isLoading || isFetching) {
     return <Loading />;
   }
 
@@ -79,7 +86,8 @@ const Events: React.FC = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
-                  className="bg-slate-900 rounded-lg p-4 overflow-hidden group"
+                  className="bg-slate-900 rounded-lg p-4 overflow-hidden group cursor-pointer"
+                  onClick={() => handleSelect(event.id)}
                 >
                   <div className="relative aspect-video mb-6 overflow-hidden rounded-lg">
                     <img
@@ -143,8 +151,7 @@ const Events: React.FC = () => {
                     <Link href={`/events/${event.id}`}>
                       <Button
                         label="View Details"
-                        bgColor="#684DF4"
-                        customClasses="rounded-lg cursor-pointer "
+                        customClasses="rounded-lg cursor-pointer hover:bg-[#684DF4]/80 bg-[#684DF4]"
                         buttonStyle="custom"
                       />
                     </Link>

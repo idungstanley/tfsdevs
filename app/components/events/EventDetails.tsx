@@ -11,8 +11,7 @@ import EventRegistration from './EventRegistration';
 
 const EventDetails = ({ eventId }: { eventId: string }) => {
   const navigate = useRouter();
-  console.log('Event ID:', eventId);
-  const { data, isLoading } = useGetSingleEvent({ eventId });
+  const { data, isLoading, isFetching } = useGetSingleEvent({ eventId });
   const [showRegistrationModal, setShowRegistrationModal] = useState(false);
   const event = data?.data;
   if (!event) return null;
@@ -21,7 +20,7 @@ const EventDetails = ({ eventId }: { eventId: string }) => {
     setShowRegistrationModal(true);
   };
 
-  if (isLoading) {
+  if (isLoading || isFetching) {
     return <Loading />;
   }
 
@@ -38,7 +37,11 @@ const EventDetails = ({ eventId }: { eventId: string }) => {
           </button>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2">
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              >
                 <div className="relative aspect-video rounded-xl overflow-hidden mb-8">
                   <img src={event.imageUrl} alt={event.title} className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background-primary to-transparent opacity-60"></div>
@@ -64,7 +67,7 @@ const EventDetails = ({ eventId }: { eventId: string }) => {
                 <div className="mb-8">
                   <h3 className="text-xl font-semibold mb-4">Topics to be Covered</h3>
                   <div className="flex flex-wrap gap-2">
-                    {event?.bulletPoints.map((topic, index) => (
+                    {event?.bulletPoints?.map((topic, index) => (
                       <span key={index} className="bg-slate-900 px-4 py-2 rounded-full text-sm text-gray-300">
                         {topic}
                       </span>
