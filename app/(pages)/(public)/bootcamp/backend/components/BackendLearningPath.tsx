@@ -2,10 +2,13 @@ import Button from '@/app/components/button/Button';
 import LearningCard from '@/app/components/card/LearningCard';
 import { backendLearningData } from '@/app/constants';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import React from 'react';
 import { FaArrowRight } from 'react-icons/fa6';
 
 const BackendLearningPath = () => {
+    const router = useRouter()
+  
   return (
     <main className="mt-20">
       <section className="p-8 md:px-20 flex flex-col md:flex-row items-center gap-4 w-full">
@@ -27,8 +30,8 @@ const BackendLearningPath = () => {
 
           <div className="flex items-center justify-start w-full gap-4 mt-4">
             <Button
-              type="submit"
               label="Enroll Now"
+              onClick={() => router.push('/auth/enroll')}
               width="w-fit"
               buttonStyle="custom"
               height="h-[48px]"

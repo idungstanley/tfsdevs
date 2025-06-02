@@ -3,13 +3,15 @@ import Button from '@/app/components/button/Button';
 import LearningCard from '@/app/components/card/LearningCard';
 import { frontendLearningData } from '@/app/constants';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import React from 'react';
 import { FaArrowRight } from 'react-icons/fa6';
 import { FiDownload } from 'react-icons/fi';
 import useDownloader from 'react-use-downloader';
 
 const FrontendLearningPath = () => {
-  const { download,isInProgress } = useDownloader();
+  const { download, isInProgress } = useDownloader();
+  const router = useRouter()
 
   const fileUrl = '/TheFullSnackDevs_Frontend_Course_Outline.pdf';
   const filename = 'TheFullSnackDevs Frontend Course Outline';
@@ -32,7 +34,7 @@ const FrontendLearningPath = () => {
           </p>
           <div className="flex items-center justify-start w-full gap-4 mt-4">
             <Button
-              type="submit"
+              onClick={()=> router.push("/auth/enroll")}
               label="Enroll Now"
               width="w-fit"
               buttonStyle="custom"

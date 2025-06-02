@@ -5,7 +5,6 @@ import Image from 'next/image';
 import Button from '../button/Button';
 import { navItems } from '@/app/constants/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaSearch } from 'react-icons/fa';
 import HyphenIcon from '@/public/HyphenIcon';
 import PlusIcon from '@/public/PlusIcon';
 import ArrowRightIcon from '@/public/ArrowRightIcon';
@@ -82,7 +81,6 @@ const DesktopNav = () => {
       <div className="flex items-center gap-2 md:gap-4">
         <div className="flex items-center gap-2 md:gap-5">
           <div className="flex items-center justify-end w-full gap-5">
-            <FaSearch className="transition-transform hover:text-[#684DF4] duration-300 ease-in-out hover:scale-110 cursor-pointer hover:shadow-md hover:opacity-90 text-white text-xl" />
             <Link href="/auth/login" onClick={() => history.pushState(null, '', '/auth/login')}>
               <Button
                 label="Login"

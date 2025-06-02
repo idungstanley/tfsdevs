@@ -1,20 +1,40 @@
+'use client'
 import TextWithLinks from '@/app/components/text/TextWithLinks';
-import React from 'react';
+import React, { useTransition } from 'react';
 import Login from './component/Login';
 import Image from 'next/image';
 import Link from 'next/link';
 import AuthTabs from '@/app/components/tabs/AuthTab';
 import { ImHome } from 'react-icons/im';
 import { IoMdArrowRoundBack } from 'react-icons/io';
+import { useRouter } from 'next/navigation';
+import Loading from '@/app/loading';
 
 const LoginPage = () => {
+  const [isPending, startTransition] = useTransition();
+  const router = useRouter()
+
+  const handleRouteToHome = () => {
+    history.pushState(null, "", "/")
+    startTransition(() => {
+      router.push('/');
+    });
+  };
+
+  if (isPending) {
+    return <Loading/>
+  }
+
   return (
     <div className="text-white w-full h-full flex flex-col p-4">
       <AuthTabs />
       <div className="w-full mt-2 flex flex-col md:flex-row md:items-center md:justify-between">
-        <Link href="/" className="hover:text-[#684DF4] text-gray-800 flex items-center gap-2 cursor-pointer w-full">
+        <div
+          onClick={handleRouteToHome}
+          className="hover:text-[#684DF4] text-gray-800 flex items-center gap-2 cursor-pointer w-full"
+        >
           <ImHome className="hidden md:block" /> <IoMdArrowRoundBack className="md:hidden block" /> <p>Back to home</p>
-        </Link>
+        </div>
         <TextWithLinks
           text="Not a fullSnackDev yet?"
           linkLabel="Enroll now!"
