@@ -100,7 +100,6 @@ export const courses: Course[] = [
         reviews: 256,
         progress: 45
     }
-    // Add more courses here
 ];
 
 
