@@ -7,6 +7,7 @@ import StatCard from '@/app/components/card/StatCard';
 
 
 const Dashboard: React.FC = () => {
+  const isEmpty = true
   return (
     <div className="space-y-6">
       {/* Welcome header */}
@@ -26,32 +27,32 @@ const Dashboard: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <StatCard
           title="Active Courses"
-          value="8"
-          change="2 more than last month"
+          value="0"
+          // change="2 more than last month"
           trend="up"
           icon={<BookOpen size={24} />}
           color="blue"
         />
         <StatCard
           title="Completed"
-          value="16"
-          change="5 more than last month"
+          value="0"
+          // change="5 more than last month"
           trend="up"
           icon={<BarChart size={24} />}
           color="green"
         />
         <StatCard
           title="Upcoming Events"
-          value="3"
-          change="No change"
+          value="0"
+          // change="No change"
           trend="neutral"
           icon={<Calendar size={24} />}
           color="purple"
         />
         <StatCard
           title="Team Members"
-          value="12"
-          change="2 less than last month"
+          value="0"
+          // change="2 less than last month"
           trend="down"
           icon={<Users size={24} />}
           color="yellow"
@@ -67,17 +68,23 @@ const Dashboard: React.FC = () => {
             <button className="text-sm text-indigo-500 hover:text-indigo-400">View All</button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {programsData.map((program) => (
-              <ProgramCard
-                key={program.id}
-                title={program.title}
-                description={program.description}
-                image={program.image}
-                progress={program.progress}
-              />
-            ))}
-          </div>
+          {isEmpty ? (
+            <div className="w-full h-full flex items-center justify-center">
+              <p className="text-primary-light dark:text-primary-dark">You have no active program!</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {programsData.map((program) => (
+                <ProgramCard
+                  key={program.id}
+                  title={program.title}
+                  description={program.description}
+                  image={program.image}
+                  progress={program.progress}
+                />
+              ))}
+            </div>
+          )}
         </div>
 
         {/* Activity feed - takes up 1/3 on larger screens */}

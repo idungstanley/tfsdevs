@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react';
-import { Copy, Share2, Gift, Users } from 'lucide-react';
+import { Copy, Gift, Users } from 'lucide-react';
 import { useTheme } from '@/app/context/ThemeContext';
 
 const Earn: React.FC = () => {
@@ -10,7 +10,7 @@ const Earn: React.FC = () => {
   const bgColor = theme === 'dark' ? 'bg-gray-800' : 'bg-white';
   const borderColor = theme === 'dark' ? 'border-gray-700' : 'border-gray-200';
 
-  const referralLink = 'https://learn.example.com/ref=john123';
+  const referralLink = 'https://academy.thefullsnackdevs.com/auth/enroll?ref=john123';
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(referralLink);
@@ -29,8 +29,9 @@ const Earn: React.FC = () => {
             <h3 className="text-lg font-medium">Total Earnings</h3>
             <Gift className="text-green-500" size={24} />
           </div>
-          <p className="text-3xl font-bold text-green-500">$240</p>
-          <p className="text-sm text-gray-400 mt-2">From 12 successful referrals</p>
+          <p className="text-3xl font-bold text-green-500">#0.00</p>
+          {/* <p className="text-sm text-gray-400 mt-2">From 12 successful referrals</p> */}
+          <p className="text-sm text-gray-400 mt-2">No referrals yet</p>
         </div>
 
         <div className={`${bgColor} w-full rounded-lg p-6 border ${borderColor}`}>
@@ -38,10 +39,11 @@ const Earn: React.FC = () => {
             <h3 className="text-lg font-medium">Pending Rewards</h3>
             <Users className="text-yellow-500" size={24} />
           </div>
-          <p className="text-3xl font-bold text-yellow-500">$80</p>
-          <p className="text-sm text-gray-400 mt-2">From 4 pending referrals</p>
+          <p className="text-3xl font-bold text-yellow-500">#0.00</p>
+          <p className="text-sm text-gray-400 mt-2">No pending referrals</p>
+          {/* <p className="text-sm text-gray-400 mt-2">From 4 pending referrals</p> */}
         </div>
-{/* 
+        {/* 
         <div className={`${bgColor} rounded-lg p-6 border ${borderColor}`}>
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-medium">Available Balance</h3>
@@ -68,9 +70,9 @@ const Earn: React.FC = () => {
           >
             {copied ? 'Copied!' : 'Copy'} <Copy size={16} />
           </button>
-          <button className="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors flex items-center gap-2">
+          {/* <button className="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors flex items-center gap-2">
             Share <Share2 size={16} />
-          </button>
+          </button> */}
         </div>
       </div>
 

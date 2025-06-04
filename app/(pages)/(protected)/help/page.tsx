@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Send, HelpCircle, MessageCircle, Phone } from 'lucide-react';
+import { Send, HelpCircle, Phone } from 'lucide-react';
 import { useTheme } from '@/app/context/ThemeContext';
 
 const Help: React.FC = () => {
@@ -46,7 +46,7 @@ const Help: React.FC = () => {
             </div>
             <button
               type="submit"
-              className="w-full px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors flex items-center justify-center gap-2"
+              className="w-full px-4 py-2 bg-[#684DF4] text-white rounded-lg hover:bg-[#684DF4]/80 transition-colors flex items-center justify-center gap-2 cursor-pointer"
             >
               Send Message <Send size={16} />
             </button>
@@ -79,7 +79,7 @@ const Help: React.FC = () => {
             </ul>
           </div>
 
-          <div className={`${bgColor} rounded-lg p-6 border ${borderColor}`}>
+          {/* <div className={`${bgColor} rounded-lg p-6 border ${borderColor}`}>
             <div className="flex items-center gap-3 mb-4">
               <MessageCircle className="text-indigo-500" size={24} />
               <h3 className="text-lg font-medium">Live Chat</h3>
@@ -88,7 +88,7 @@ const Help: React.FC = () => {
             <button className="w-full px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors">
               Start Chat
             </button>
-          </div>
+          </div> */}
 
           <div className={`${bgColor} rounded-lg p-6 border ${borderColor}`}>
             <div className="flex items-center gap-3 mb-4">

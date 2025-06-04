@@ -101,7 +101,7 @@ export const Dropdown: React.FC<SelectDropdownProps> = ({
                 className="w-full pl-9 pr-3 py-2 text-sm border border-gray-200 rounded-[8px] focus:outline-none text-gray-800"
               />
             </div>
-            {filteredOptions.length > 0 ? (
+            {filteredOptions?.length > 0 ? (
               filteredOptions.map((item, index) => (
                 <button
                   key={index}
