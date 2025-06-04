@@ -16,7 +16,7 @@ const DesktopNav = () => {
 
   return (
     <div className="lg:flex items-center justify-between px-10 w-full hidden text-white">
-      <Link href="/">
+      <Link href="/" onClick={() => history.pushState(null, '', '/')}>
         <div className="items-center justify-center w-full flex hover:text-[#684DF4]">
           <Image src="/iconpurple.svg" alt="logo" width={500} height={500} className="h-[50px] w-[60px]" />
           <Image src="/logotext.svg" alt="logo" width={500} height={500} className="h-[50px] w-[60px]" />

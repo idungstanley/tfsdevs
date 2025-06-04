@@ -42,7 +42,7 @@ const MobileNav = () => {
 
   return (
     <div className="flex items-center justify-between w-full px-2 lg:hidden relative">
-      <Link href="/">
+      <Link href="/" onClick={() => history.pushState(null, '', '/')}>
         <div className="items-center justify-center w-full flex hover:text-[#684DF4]">
           <Image src="/iconpurple.svg" alt="logo" width={500} height={500} className="h-[30px] w-[40px]" />
           <Image src="/logotext.svg" alt="logo" width={500} height={500} className="h-[30px] w-[50px]" />

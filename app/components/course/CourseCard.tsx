@@ -56,12 +56,16 @@ const CourseCard: React.FC<CourseCardProps> = ({ course, className = '' }) => {
         {/* Price */}
         <div className="flex items-baseline">
           <span className="text-xl font-bold text-gray-200">
-            {course.price.discounted ? formatPrice(course.price.discounted) : formatPrice(course.price.original)}
+            {course.price.discounted === 0
+              ? 'Free'
+              : course.price.discounted && course.price.discounted > 0
+              ? formatPrice(course.price.discounted)
+              : formatPrice(course.price.original)}
           </span>
 
-          {course.price.discounted && (
+          {course.price.discounted && course.price.discounted > 0 ? (
             <span className="ml-2 text-sm text-gray-500 line-through">{formatPrice(course.price.original)}</span>
-          )}
+          ): null}
         </div>
         <div className="mt-2 text-xs text-gray-400">Last updated {course.lastUpdated}</div>
       </div>
