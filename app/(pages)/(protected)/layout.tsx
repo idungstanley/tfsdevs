@@ -5,7 +5,7 @@ import { useTheme } from '@/app/context/ThemeContext';
 import withAuth from '@/app/hoc/withAuth';
 import Prompt from '@/app/utils/Prompt';
 import React, { useState } from 'react';
-import { ToastContainer } from 'react-toastify';
+// import { ToastContainer } from 'react-toastify';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -33,7 +33,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <Header />
         <main className="flex-1 p-4 md:p-6 overflow-auto">{children}</main>
       </div>
-      <ToastContainer
+      {/* <ToastContainer
         position="top-right"
         autoClose={5000}
         hideProgressBar={false}
@@ -44,7 +44,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         draggable
         pauseOnHover
         theme="dark"
-      />
+      /> */}
       <Prompt />
     </div>
   );
