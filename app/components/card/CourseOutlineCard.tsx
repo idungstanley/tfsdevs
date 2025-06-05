@@ -87,14 +87,14 @@ const CourseOutlineCard = (props: CourseLevel) => {
             <CardTitle className="text-2xl">{level} Level</CardTitle>
           </div>
           <div className="text-left space-y-2">
-            <div className="text-sm text-gray-500">Level</div>
-            <div className="w-24 bg-gray-200 rounded-full overflow-hidden">
-              <div className="h-2 bg-blue-600" style={{ width: `${getLevelProgress(level)}%` }}></div>
+            <div className="text-sm text-gray-300">Level</div>
+            <div className="w-24 bg-white rounded-full overflow-hidden">
+              <div className="h-2 bg-[#684DF4]" style={{ width: `${getLevelProgress(level)}%` }}></div>
             </div>
           </div>
         </div>
         <CardDescription className="flex items-start gap-2 text-base">
-          <Target className="w-5 h-5 mt-0.5 text-blue-500 flex-shrink-0" />
+          <Target className="w-5 h-5 mt-0.5 text-[#684DF4] flex-shrink-0" />
           {goal}
         </CardDescription>
       </CardHeader>
@@ -107,9 +107,12 @@ const CourseOutlineCard = (props: CourseLevel) => {
           return (
             <Collapsible key={moduleIndex} open={isExpanded} onOpenChange={() => toggleModule(moduleId)}>
               <CollapsibleTrigger asChild>
-                <Button variant="ghost" className="w-full justify-between p-4 h-auto text-left hover:bg-slate-500">
+                <Button
+                  variant="ghost"
+                  className="w-full justify-between p-4 h-auto text-left hover:bg-slate-700 cursor-pointer"
+                >
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-semibold text-sm">
+                    <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-[#684DF4] font-semibold text-sm">
                       {moduleIndex + 1}
                     </div>
                     <div>
