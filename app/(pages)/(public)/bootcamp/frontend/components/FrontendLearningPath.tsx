@@ -1,7 +1,7 @@
-'use client'
+'use client';
 import Button from '@/app/components/button/Button';
-import LearningCard from '@/app/components/card/LearningCard';
-import { frontendLearningData } from '@/app/constants';
+import CourseOutlineCard from '@/app/components/card/CourseOutlineCard';
+import { frontendCourseOutline } from '@/app/constants/bootcamps';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React from 'react';
@@ -11,7 +11,7 @@ import useDownloader from 'react-use-downloader';
 
 const FrontendLearningPath = () => {
   const { download, isInProgress } = useDownloader();
-  const router = useRouter()
+  const router = useRouter();
 
   const fileUrl = '/TheFullSnackDevs_Frontend_Course_Outline.pdf';
   const filename = 'TheFullSnackDevs Frontend Course Outline';
@@ -34,7 +34,7 @@ const FrontendLearningPath = () => {
           </p>
           <div className="flex items-center justify-start w-full gap-4 mt-4">
             <Button
-              onClick={()=> router.push("/auth/enroll")}
+              onClick={() => router.push('/auth/enroll')}
               label="Enroll Now"
               width="w-fit"
               buttonStyle="custom"
@@ -59,15 +59,9 @@ const FrontendLearningPath = () => {
         </div>
         <Image src="/learning-paths-hero.webp" alt="" width={500} height={500} />
       </section>
-      <section className="p-8 md:px-20 flex flex-col gap-6">
-        {frontendLearningData.map((video, index) => (
-          <LearningCard
-            key={index}
-            thumbnailUrl={video.thumbnailUrl}
-            title={video.title}
-            tags={video.tags}
-            description={video.description}
-          />
+      <section className="p-8 md:px-20 grid gap-8">
+        {frontendCourseOutline.map((courseOutline, index) => (
+          <CourseOutlineCard key={index} {...courseOutline} />
         ))}
       </section>
     </main>
