@@ -3,16 +3,27 @@
 import React, { useState } from 'react';
 import { Send, HelpCircle, Phone } from 'lucide-react';
 import { useTheme } from '@/app/context/ThemeContext';
+import { useHelpAndSupportMutation } from '@/app/features/bootcamp/bootcampService';
+import { useAppSelector } from '@/app/store/store';
+import Button from '@/app/components/button/Button';
 
 const Help: React.FC = () => {
   const { theme } = useTheme();
+  const { mutateAsync, isPending } = useHelpAndSupportMutation();
+  const { selfDetails } = useAppSelector((state) => state.auth);
   const [message, setMessage] = useState('');
+  const [subject, setSubject] = useState('Technical Support');
 
   const bgColor = theme === 'dark' ? 'bg-gray-800' : 'bg-white';
   const borderColor = theme === 'dark' ? 'border-gray-700' : 'border-gray-200';
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    mutateAsync({
+      message,
+      subject,
+      userEmail: selfDetails?.email as string
+    });
     // Handle message submission
     setMessage('');
   };
@@ -28,7 +39,11 @@ const Help: React.FC = () => {
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="block text-sm font-medium mb-2">Subject</label>
-              <select className="w-full bg-gray-700 rounded-lg px-4 py-2 border border-gray-600">
+              <select
+                className="w-full bg-gray-700 rounded-lg px-4 py-2 border border-gray-600"
+                value={subject}
+                onChange={(e) => setSubject(e.target.value)}
+              >
                 <option>Technical Support</option>
                 <option>Course Related</option>
                 <option>Billing Issue</option>
@@ -44,12 +59,17 @@ const Help: React.FC = () => {
                 placeholder="How can we help you?"
               />
             </div>
-            <button
-              type="submit"
-              className="w-full px-4 py-2 bg-[#684DF4] text-white rounded-lg hover:bg-[#684DF4]/80 transition-colors flex items-center justify-center gap-2 cursor-pointer"
-            >
-              Send Message <Send size={16} />
-            </button>
+            <Button
+              bgColor="#684DF4"
+              width="w-full"
+              type='submit'
+              loading={isPending}
+              customClasses="w-full px-4 py-2 bg-[#684DF4] text-white rounded-lg hover:bg-[#684DF4]/80 transition-colors flex items-center justify-center gap-2 cursor-pointer"
+              buttonStyle="custom"
+              iconPosition="right"
+              label="Send Message"
+              icon={<Send size={16} />}
+            />
           </form>
         </div>
 

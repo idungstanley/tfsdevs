@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import Logo from './Logo';
 import SidebarItem from './SidebarItem';
+import { useAppSelector } from '@/app/store/store';
 
 const Sidebar = ({
   setExpanded,
@@ -21,7 +22,9 @@ const Sidebar = ({
 }: {
   setExpanded: React.Dispatch<React.SetStateAction<boolean>>;
   expanded: boolean;
-}) => {
+  }) => {
+    const { selfDetails } = useAppSelector((state) => state.auth);
+  
 
   return (
     <div className="h-full dark:bg-gray-800 border-gray-200 bg-white border-r dark:border-gray-700 flex flex-col">
@@ -79,7 +82,7 @@ const Sidebar = ({
         {expanded && (
           <div className="flex-1 min-w-0">
             <p className="text-sm font-medium text-gray-300 truncate">Stanley Sunday</p>
-            <p className="text-xs text-gray-500 truncate">john@example.com</p>
+            <p className="text-xs text-gray-500 truncate">{selfDetails?.email}</p>
           </div>
         )}
       </div>

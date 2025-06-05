@@ -1,19 +1,21 @@
+'use client'
 import React from 'react';
 import { Users, BarChart, Calendar, BookOpen } from 'lucide-react';
 import { programsData, recentActivities } from '@/app/constants';
 import ActivityCard from '@/app/components/card/ActivityCard';
 import ProgramCard from '@/app/components/card/ProgramCard';
 import StatCard from '@/app/components/card/StatCard';
-
+import { useAppSelector } from '@/app/store/store';
 
 const Dashboard: React.FC = () => {
-  const isEmpty = true
+  const { selfDetails } = useAppSelector((state) => state.auth);
+  const isEmpty = true;
   return (
     <div className="space-y-6">
       {/* Welcome header */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between">
         <div>
-          <h1 className="text-2xl font-bold">Welcome back, Stanley</h1>
+          <h1 className="text-2xl font-bold">Welcome back, {selfDetails?.email}</h1>
           <p className="text-gray-500 mt-1">Here&rsquo;s what&rsquo;s happening with your courses today</p>
         </div>
         <div className="mt-4 md:mt-0">

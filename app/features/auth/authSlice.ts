@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { GetSelfProps } from '../bootcamp/bootcamp.interface';
 
 interface InitialState {
     selectedRoleId: null | string;
@@ -6,6 +7,7 @@ interface InitialState {
     signupAccountType: null | string;
     emailToVerify: string | null;
     signupCurrentStep: string;
+    selfDetails: GetSelfProps | null;
 }
 
 const initialState: InitialState = {
@@ -13,6 +15,7 @@ const initialState: InitialState = {
     selectedCategory: null,
     signupAccountType: null,
     emailToVerify: null,
+    selfDetails: null,
     signupCurrentStep: 'sign-up'
 };
 
@@ -34,6 +37,9 @@ export const authSlice = createSlice({
         },
         setSignupCurrentStep: (state, action: PayloadAction<string>) => {
             state.signupCurrentStep = action.payload;
+        },
+        setGetSelfDetails: (state, action: PayloadAction<GetSelfProps>) => {
+            state.selfDetails = action.payload;
         }
     }
 });
@@ -43,6 +49,7 @@ export const {
     setSignupAccountType,
     setSelectedCategory,
     setEmailToVerify,
-    setSignupCurrentStep
+    setSignupCurrentStep,
+    setGetSelfDetails
 } = authSlice.actions;
 export default authSlice.reducer;

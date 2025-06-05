@@ -1,28 +1,27 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { User, Bell, Globe } from 'lucide-react';
 import { useTheme } from '@/app/context/ThemeContext';
 import ChangePassword from './ChangePassword';
-import { useGetSelf } from '@/app/features/auth/authService';
 
 interface UserProfile {
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
   phone: string;
   avatar: string;
 }
 
 const Settings: React.FC = () => {
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
   const { theme } = useTheme();
   const [profile, setProfile] = useState<UserProfile>({
-    name: 'Stanley Sunday',
+    firstName: 'Stanley',
+    lastName: 'Sunday',
     email: 'sundaystanley56@example.com',
-    phone: '+1 234 567 8900',
+    phone: '+123-45-678-900',
     avatar: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg'
   });
-  const { data } = useGetSelf();
-
-  console.log("data", data);
 
   const bgColor = theme === 'dark' ? 'bg-gray-800' : 'bg-white';
   const borderColor = theme === 'dark' ? 'border-gray-700' : 'border-gray-200';
@@ -31,6 +30,22 @@ const Settings: React.FC = () => {
     e.preventDefault();
     // Handle profile update
   };
+
+
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setProfile((prev) => ({
+          ...prev,
+          avatar: reader.result as string
+        }));
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
 
   return (
     <div className="space-y-6">
@@ -47,19 +62,39 @@ const Settings: React.FC = () => {
 
             <form onSubmit={handleProfileUpdate} className="space-y-4">
               <div className="flex items-center gap-4 mb-6">
-                <img src={profile.avatar} alt={profile.name} className="w-20 h-20 rounded-full object-cover" />
-                <button className="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors">
+                <img src={profile.avatar} alt={profile.firstName} className="w-20 h-20 rounded-full object-cover" />
+                <button
+                  type="button"
+                  onClick={() => fileInputRef.current?.click()}
+                  className="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors"
+                >
                   Change Photo
                 </button>
+                <input
+                  type="file"
+                  ref={fileInputRef}
+                  accept="image/*"
+                  className="hidden"
+                  onChange={handleImageChange}
+                />
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium mb-2">Full Name</label>
+                  <label className="block text-sm font-medium mb-2">First Name</label>
                   <input
                     type="text"
-                    value={profile.name}
-                    onChange={(e) => setProfile({ ...profile, name: e.target.value })}
+                    value={profile.firstName}
+                    onChange={(e) => setProfile({ ...profile, firstName: e.target.value })}
+                    className="w-full bg-gray-700 rounded-lg px-4 py-2 border border-gray-600"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">Last Name</label>
+                  <input
+                    type="text"
+                    value={profile.lastName}
+                    onChange={(e) => setProfile({ ...profile, lastName: e.target.value })}
                     className="w-full bg-gray-700 rounded-lg px-4 py-2 border border-gray-600"
                   />
                 </div>

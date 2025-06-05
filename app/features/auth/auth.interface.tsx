@@ -14,6 +14,44 @@ export interface ChangePasswordProps {
   confirmPassword: string;
 }
 
+export interface UserDetails {
+  $id: string;
+  emailAddress: string;
+  id: string;
+  permissions: {
+    $id: string;
+    $values: string[];
+  };
+  role: string;
+  userName: string;
+}
+
+export interface User {
+  $id: string;
+  code: string;
+  data: {
+    id: string;
+    jsonWebToken: {
+      $id: string;
+      accessToken: string;
+      refreshToken: string;
+      refreshTokenExpires: string;
+      tokenExpires: string;
+    };
+    userDetails: UserDetails;
+    errorMessage: string;
+    errors: {
+      $id: string;
+      $values: string[];
+    };
+  };
+}
+
+export interface UserDataProps {
+  expires: string;
+  user: User;
+}
+
 
 export interface BootcampSignupResponse {
   $id: string;

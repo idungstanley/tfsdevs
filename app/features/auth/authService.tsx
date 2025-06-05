@@ -3,7 +3,9 @@ import requestNew from '@/app/utils/requestNew';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { BootcampSignupResponse, ChangePasswordProps, ForgotPasswordProps, ResetPasswordProps } from './auth.interface';
 import { LOCALSTORAGE_KEY } from '@/app/constants/localStorage';
-import { BootcampResponse } from '../bootcamp/bootcamp.interface';
+import { GetSelfResponse } from '../bootcamp/bootcamp.interface';
+import { useAppDispatch } from '@/app/store/store';
+import { setGetSelfDetails } from './authSlice';
 
 export const signUp = (data: SignupProps) => {
   const response = requestNew<BootcampSignupResponse>({
@@ -82,14 +84,16 @@ export const useResetPasswordMutation = () => {
 };
 
 export const useGetSelf = () => {
+  const dispatch = useAppDispatch()
   return useQuery({
     queryKey: ['get-self'],
     enabled: true,
     queryFn: async () => {
-      const data = await requestNew<BootcampResponse>({
+      const data = await requestNew<GetSelfResponse>({
         url: 'api/v1/User/self',
         method: 'GET'
       });
+      dispatch(setGetSelfDetails(data.data));
       return data;
     },
   });

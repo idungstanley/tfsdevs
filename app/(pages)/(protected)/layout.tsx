@@ -2,6 +2,7 @@
 import Header from '@/app/components/header';
 import Sidebar from '@/app/components/sidebar';
 import { useTheme } from '@/app/context/ThemeContext';
+import withAuth from '@/app/hoc/withAuth';
 import Prompt from '@/app/utils/Prompt';
 import React, { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
@@ -49,4 +50,4 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   );
 };
 
-export default Layout;
+export default withAuth(Layout);
