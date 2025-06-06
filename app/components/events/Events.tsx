@@ -8,6 +8,7 @@ import { useGetEvents } from '@/app/features/event/eventService';
 import Loading from '@/app/loading';
 import { getTimeWithPeriod } from '@/app/utils';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 const Events: React.FC = () => {
   const { isLoading, data, isFetching } = useGetEvents();
@@ -90,9 +91,11 @@ const Events: React.FC = () => {
                   onClick={() => handleSelect(event.id)}
                 >
                   <div className="relative aspect-video mb-6 overflow-hidden rounded-lg">
-                    <img
+                    <Image
                       src={event.imageUrl}
                       alt={event.title}
+                      width={500}
+                      height={500}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background-primary to-transparent opacity-60"></div>
