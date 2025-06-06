@@ -20,10 +20,10 @@ const FrontendLearningPath = () => {
     <main className="mt-20">
       <section className="p-8 md:px-20 flex md:flex-row flex-col items-center gap-4 w-full">
         <div className="text-white md:w-1/2 w-full">
-          <h1 className="md:text-[50px] text-[35px] font-[700]">Frontend Learning Path</h1>
+          <h1 className="md:text-[50px] text-[35px] font-[700]">Frontend Development</h1>
           <p className="font-semibold text-xl">Unlock your potential, one step at a time.</p>
           <div className="flex items-center gap-3">
-            <p className="my-3 text-xs font-semibold bg-orange-500 w-fit p-2 rounded-full">PRICE: #250,000</p>
+            <p className="my-3 text-xs font-semibold bg-orange-500 w-fit p-2 rounded-full">PRICE: #300,000</p>
             <p className="my-3 font-semibold bg-green-500 w-fit p-2 rounded-full text-xs">BEGINNER - ADVANCE</p>
           </div>
           <p>

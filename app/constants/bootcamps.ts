@@ -256,4 +256,335 @@ export const frontendCourseOutline = [
             },
         ],
     },
-  ]
+]
+  
+
+export const courseOutline = [
+    {
+        level: "Beginner",
+        goal: "Build a solid foundation in C# programming fundamentals and create basic console and desktop applications.",
+        duration: "12 weeks",
+        modules: [
+            {
+                title: "Introduction to Programming and .NET Ecosystem",
+                duration: "1 week",
+                concepts: [
+                    "What is programming and software development",
+                    "Introduction to .NET ecosystem (.NET Core, .NET Framework, .NET 5+)",
+                    "Understanding compilation and runtime",
+                    "IDE setup (Visual Studio, VS Code, Rider)",
+                    "Solution and project structure"
+                ],
+                skills: [
+                    "Setting up development environment",
+                    "Creating your first console application",
+                    "Understanding the build process"
+                ],
+                project: "Hello World console application with basic user interaction"
+            },
+            {
+                title: "C# Fundamentals",
+                duration: "3 weeks",
+                concepts: [
+                    "Variables, data types, and constants",
+                    "Operators (arithmetic, logical, comparison)",
+                    "Control structures (if/else, switch)",
+                    "Loops (for, while, foreach)",
+                    "Methods and parameters",
+                    "Arrays and basic collections",
+                    "String manipulation",
+                    "Exception handling basics (try/catch)"
+                ],
+                skills: [
+                    "Writing clean, readable code",
+                    "Problem-solving with algorithms",
+                    "Basic debugging techniques"
+                ],
+                project: "Calculator console application with menu system"
+            },
+            {
+                title: "Object-Oriented Programming (OOP)",
+                duration: "3 weeks",
+                concepts: [
+                    "Classes and objects",
+                    "Constructors and destructors",
+                    "Properties and fields",
+                    "Methods and method overloading",
+                    "Encapsulation and access modifiers",
+                    "Inheritance and polymorphism",
+                    "Abstract classes and interfaces",
+                    "Static members and static classes"
+                ],
+                skills: [
+                    "Designing class hierarchies",
+                    "Implementing interfaces",
+                    "Understanding object relationships"
+                ],
+                project: "Library Management System (console-based)"
+            },
+            {
+                title: "Collections and Generics",
+                duration: "2 weeks",
+                concepts: [
+                    "Generic collections (List<T>, Dictionary<TKey, TValue>)",
+                    "Arrays vs. collections",
+                    "LINQ basics (Where, Select, OrderBy)",
+                    "Iterators and yield",
+                    "Generic methods and classes",
+                    "Constraints on generics"
+                ],
+                skills: [
+                    "Choosing appropriate data structures",
+                    "Basic data manipulation with LINQ",
+                    "Working with generic types"
+                ],
+                project: "Student Grade Management System"
+            },
+            {
+                title: "File I/O and Data Persistence",
+                duration: "2 weeks",
+                concepts: [
+                    "File and directory operations",
+                    "Reading and writing text files",
+                    "Working with streams",
+                    "Serialization (JSON, XML)",
+                    "Basic database concepts",
+                    "SQLite integration"
+                ],
+                skills: [
+                    "Persisting application data",
+                    "File system navigation",
+                    "Data serialization/deserialization"
+                ],
+                project: "Personal Expense Tracker with file storage"
+            },
+            {
+                title: "Version Control and Development Practices",
+                duration: "1 week",
+                concepts: [
+                    "Git fundamentals",
+                    "Repository management",
+                    "Branching and merging",
+                    "Code commenting and documentation",
+                    "Basic debugging and testing",
+                    "Code organization and naming conventions"
+                ],
+                tools: ["Git", "GitHub", "Visual Studio debugger"],
+                project: "Refactor previous projects with proper Git workflow"
+            }
+        ]
+    },
+    {
+        level: "Intermediate",
+        goal: "Build dynamic web applications and APIs using ASP.NET Core with database integration.",
+        duration: "13 weeks",
+        modules: [
+            {
+                title: "Advanced C# Features",
+                duration: "2 weeks",
+                concepts: [
+                    "Delegates and events",
+                    "Lambda expressions and functional programming",
+                    "Advanced LINQ operations",
+                    "Async/await programming",
+                    "Nullable reference types",
+                    "Pattern matching",
+                    "Records and init-only properties",
+                    "Extension methods"
+                ],
+                skills: [
+                    "Functional programming concepts",
+                    "Asynchronous programming patterns",
+                    "Modern C# syntax"
+                ],
+                project: "Asynchronous file processor with event notifications"
+            },
+            {
+                title: "Database Programming",
+                duration: "3 weeks",
+                concepts: [
+                    "Relational database fundamentals",
+                    "SQL basics (SELECT, INSERT, UPDATE, DELETE)",
+                    "Entity Framework Core",
+                    "Code-First vs Database-First approaches",
+                    "Migrations and database versioning",
+                    "Repository pattern",
+                    "Unit of Work pattern"
+                ],
+                tools: ["SQL Server", "SQLite", "Entity Framework Core"],
+                project: "Blog application with EF Core"
+            },
+            {
+                title: "ASP.NET Core Web APIs",
+                duration: "3 weeks",
+                concepts: [
+                    "HTTP protocol and REST principles",
+                    "ASP.NET Core architecture",
+                    "Controllers and actions",
+                    "Model binding and validation",
+                    "Dependency injection",
+                    "Middleware pipeline",
+                    "Configuration management",
+                    "Logging and error handling",
+                    "API documentation with Swagger"
+                ],
+                skills: [
+                    "Building RESTful APIs",
+                    "Request/response handling",
+                    "API versioning",
+                    "Authentication basics"
+                ],
+                project: "Task Management API with CRUD operations"
+            },
+            {
+                title: "Web Development with ASP.NET Core MVC",
+                duration: "3 weeks",
+                concepts: [
+                    "MVC pattern and architecture",
+                    "Views and Razor syntax",
+                    "Model binding and validation",
+                    "Partial views and view components",
+                    "Layout pages and sections",
+                    "Client-side validation",
+                    "Working with forms",
+                    "Session and state management"
+                ],
+                skills: [
+                    "Building web applications",
+                    "Server-side rendering",
+                    "Form handling and validation"
+                ],
+                project: "E-commerce product catalog website"
+            },
+            {
+                title: "Testing and Quality Assurance",
+                duration: "2 weeks",
+                concepts: [
+                    "Unit testing fundamentals",
+                    "Test-driven development (TDD)",
+                    "Mocking and test doubles",
+                    "Integration testing",
+                    "Code coverage",
+                    "Testing best practices"
+                ],
+                tools: ["xUnit", "NUnit", "Moq", "FluentAssertions"],
+                project: "Add comprehensive tests to previous projects"
+            }
+        ]
+    },
+    {
+        level: "Advanced",
+        goal: "Master enterprise-level development with microservices, cloud deployment, and advanced architectural patterns.",
+        duration: "7 weeks",
+        modules: [
+            {
+                title: "Advanced ASP.NET Core Features",
+                duration: "2 weeks",
+                concepts: [
+                    "Custom middleware development",
+                    "Background services and hosted services",
+                    "SignalR for real-time communication",
+                    "gRPC services",
+                    "Health checks and monitoring",
+                    "Caching strategies (in-memory, distributed)",
+                    "Rate limiting and throttling"
+                ],
+                project: "Real-time chat application with SignalR"
+            },
+            {
+                title: "Authentication and Authorization",
+                duration: "2 weeks",
+                concepts: [
+                    "Authentication vs. authorization",
+                    "JWT tokens and claims-based authentication",
+                    "OAuth 2.0 and OpenID Connect",
+                    "Identity framework",
+                    "Role-based and policy-based authorization",
+                    "API security best practices",
+                    "CORS and security headers"
+                ],
+                project: "Secure API with user authentication and role-based access"
+            },
+            {
+                title: "Microservices and Distributed Systems",
+                duration: "3 weeks",
+                concepts: [
+                    "Microservices architecture patterns",
+                    "Service communication (HTTP, messaging)",
+                    "API gateways and service discovery",
+                    "Circuit breaker pattern",
+                    "Event-driven architecture",
+                    "Message queues (RabbitMQ, Azure Service Bus)",
+                    "Distributed caching (Redis)"
+                ],
+                tools: ["Docker", "RabbitMQ", "Redis"],
+                project: "Microservices-based e-commerce system"
+            },
+            {
+                title: "Cloud Development and DevOps",
+                duration: "3 weeks",
+                concepts: [
+                    "Cloud platforms (Azure, AWS)",
+                    "Containerization with Docker",
+                    "Container orchestration (Kubernetes basics)",
+                    "CI/CD pipelines",
+                    "Infrastructure as Code",
+                    "Monitoring and logging in production",
+                    "Performance optimization",
+                    "Scalability patterns"
+                ],
+                tools: ["Docker", "Azure/AWS", "GitHub Actions", "Application Insights"],
+                project: "Deploy microservices to cloud with CI/CD pipeline"
+            },
+            {
+                title: "Performance and Optimization",
+                duration: "1 week",
+                concepts: [
+                    "Performance profiling and benchmarking",
+                    "Memory management and garbage collection",
+                    "Async best practices",
+                    "Database optimization",
+                    "Caching strategies",
+                    "Load testing",
+                    "Application monitoring"
+                ],
+                tools: ["BenchmarkDotNet", "dotMemory", "Application Insights"],
+                project: "Performance optimization of existing applications"
+            },
+            {
+                title: "Advanced Topics and Emerging Technologies",
+                duration: "2 weeks",
+                concepts: [
+                    "Blazor for web development",
+                    ".NET MAUI for cross-platform apps",
+                    "Machine Learning with ML.NET",
+                    "GraphQL APIs",
+                    "Event sourcing and CQRS",
+                    "Clean Architecture patterns",
+                    "Domain-Driven Design (DDD)"
+                ],
+                project: "Choose one advanced technology and build a proof-of-concept"
+            },
+            {
+                title: "Portfolio and Career Preparation",
+                duration: "1 week",
+                concepts: [
+                    "Building a professional portfolio",
+                    "Open-source contributions",
+                    "Code review best practices",
+                    "System design principles",
+                    "Interview preparation",
+                    "Soft skills for developers"
+                ],
+                skills: [
+                    "Showcasing projects on GitHub",
+                    "Writing technical documentation",
+                    "Preparing for technical interviews",
+                    "Understanding system architecture"
+                ],
+                project: "Complete portfolio website with deployed applications"
+            }
+        ]
+    }
+];
+  

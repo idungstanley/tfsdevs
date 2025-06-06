@@ -16,6 +16,7 @@ interface Module {
 
 interface CourseLevel {
   level: string;
+  duration?: string;
   goal: string;
   modules: Module[];
 }
