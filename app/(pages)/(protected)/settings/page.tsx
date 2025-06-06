@@ -3,49 +3,57 @@ import React, { useRef, useState } from 'react';
 import { User, Bell, Globe } from 'lucide-react';
 import { useTheme } from '@/app/context/ThemeContext';
 import ChangePassword from './ChangePassword';
+import AvatarWithImage from '@/app/components/Avatar/AvatarWithImages';
+import { useAppSelector } from '@/app/store/store';
+import { useUpdateUserInfoMutation } from '@/app/features/bootcamp/bootcampService';
+import Button from '@/app/components/button/Button';
 
 interface UserProfile {
   firstName: string;
   lastName: string;
   email: string;
   phone: string;
-  avatar: string;
+  profilePictureBlob?: Blob;
+  profilePictureUrl: string;
 }
 
 const Settings: React.FC = () => {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const { theme } = useTheme();
+  const { selfDetails } = useAppSelector((state) => state.auth);
+  const { mutateAsync, isPending } = useUpdateUserInfoMutation();
+
   const [profile, setProfile] = useState<UserProfile>({
-    firstName: 'Stanley',
-    lastName: 'Sunday',
-    email: 'sundaystanley56@example.com',
-    phone: '+123-45-678-900',
-    avatar: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg'
+    firstName: selfDetails?.firstName as string,
+    lastName: selfDetails?.lastName as string,
+    email: selfDetails?.email as string,
+    phone: selfDetails?.phoneNumber as string,
+    profilePictureUrl: selfDetails?.profilePictureUrl as string
   });
 
   const bgColor = theme === 'dark' ? 'bg-gray-800' : 'bg-white';
   const borderColor = theme === 'dark' ? 'border-gray-700' : 'border-gray-200';
 
-  const handleProfileUpdate = (e: React.FormEvent) => {
+  const handleProfileUpdate = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle profile update
+  await mutateAsync({
+      FullName: `${profile.firstName} ${profile.lastName}`,
+      Email: profile.email,
+      PhoneNumber: profile.phone,
+      ProfilePicture: profile.profilePictureBlob as Blob
+    });
   };
-
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setProfile((prev) => ({
-          ...prev,
-          avatar: reader.result as string
-        }));
-      };
-      reader.readAsDataURL(file);
+      setProfile((prev) => ({
+        ...prev,
+        profilePictureUrl: URL.createObjectURL(file),
+        profilePictureBlob: file
+      }));
     }
   };
-
 
   return (
     <div className="space-y-6">
@@ -62,7 +70,12 @@ const Settings: React.FC = () => {
 
             <form onSubmit={handleProfileUpdate} className="space-y-4">
               <div className="flex items-center gap-4 mb-6">
-                <img src={profile.avatar} alt={profile.firstName} className="w-20 h-20 rounded-full object-cover" />
+                <AvatarWithImage
+                  isOnline={selfDetails?.isActive as boolean}
+                  height="h-20"
+                  width="w-20"
+                  image_path={profile?.profilePictureUrl as string}
+                />
                 <button
                   type="button"
                   onClick={() => fileInputRef.current?.click()}
@@ -117,13 +130,16 @@ const Settings: React.FC = () => {
                   />
                 </div>
               </div>
-
-              <button
+              <Button
+                loading={isPending}
                 type="submit"
-                className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
-              >
-                Save Changes
-              </button>
+                label=" Save Changes"
+                width="w-full"
+                buttonStyle="custom"
+                height="h-[48px]"
+                customClasses="bg-[#684DF4] hover:bg-base-light-hover text-white rounded-[8px] cursor-pointer"
+                iconPosition="right"
+              />
             </form>
           </div>
           <ChangePassword />

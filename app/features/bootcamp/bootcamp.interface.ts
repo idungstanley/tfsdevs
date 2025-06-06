@@ -10,6 +10,8 @@ export interface GetSelfProps {
     $id: string;
     id: string;
     userName: string;
+    firstName: string;
+    lastName: string;
     email: string;
     phoneNumber: string | null;
     roleId: string;
@@ -112,4 +114,11 @@ export interface HelpAndSupportProps {
     userEmail?: string;
     userName?: string;
     priority?: number; // e.g., 1 for High, 2 for Medium, etc.
-  }
+}
+  
+export interface UserInfoProps {
+    FullName: string;
+    Email: string;
+    PhoneNumber: string;
+    ProfilePicture: Blob;
+}

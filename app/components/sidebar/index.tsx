@@ -15,6 +15,7 @@ import {
 import Logo from './Logo';
 import SidebarItem from './SidebarItem';
 import { useAppSelector } from '@/app/store/store';
+import AvatarWithImage from '../Avatar/AvatarWithImages';
 
 const Sidebar = ({
   setExpanded,
@@ -74,14 +75,10 @@ const Sidebar = ({
 
       {/* User profile at bottom */}
       <div className="p-4 border-t border-gray-200 dark:border-gray-700 flex items-center space-x-3">
-        <div className="flex-shrink-0">
-          <div className="h-8 w-8 rounded-full bg-indigo-600 flex items-center justify-center text-white font-medium">
-            JS
-          </div>
-        </div>
+        <AvatarWithImage isOnline={selfDetails?.isActive as boolean} height='h-10' width='w-10' image_path={selfDetails?.profilePictureUrl as string} />
         {expanded && (
           <div className="flex-1 min-w-0">
-            <p className="text-sm font-medium text-gray-300 truncate">Stanley Sunday</p>
+            <p className="text-sm font-medium text-gray-300 truncate">{`${selfDetails?.firstName} ${selfDetails?.lastName}`}</p>
             <p className="text-xs text-gray-500 truncate">{selfDetails?.email}</p>
           </div>
         )}

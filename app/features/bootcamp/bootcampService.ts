@@ -1,6 +1,6 @@
 import requestNew from "@/app/utils/requestNew";
-import { useMutation, useQuery } from "@tanstack/react-query";
-import { BootcampResponse, GetReferralLinkReq, GetReferralStats, HelpAndSupportProps } from "./bootcamp.interface";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { BootcampResponse, GetReferralLinkReq, GetReferralStats, HelpAndSupportProps, UserInfoProps } from "./bootcamp.interface";
 
 export const useGetAllBootCamps = ({ pageSize = 10, IncludeCourse = true }: { IncludeCourse?: boolean; pageSize?: number; }) => {
     return useQuery({
@@ -17,7 +17,7 @@ export const useGetAllBootCamps = ({ pageSize = 10, IncludeCourse = true }: { In
     });
 };
 
-export const useGetBootCampById = ({ id }: {id: string; }) => {
+export const useGetBootCampById = ({ id }: { id: string; }) => {
     return useQuery({
         queryKey: ['bootcamps', { id }],
         enabled: !!id,
@@ -111,10 +111,49 @@ const helpAndSupport = (data: HelpAndSupportProps) => {
     });
     return response;
 };
-  
+
+const updateUserInfo = (data: UserInfoProps) => {
+    const formData = new FormData();
+    const appendIfPresent = (key: string, value: string | File | File[] | null | undefined | string[] | Blob) => {
+        if (!value) return;
+
+        if (Array.isArray(value)) {
+            // Append each file under the same key
+            value.forEach((file) => {
+                formData.append(key, file);
+            });
+        } else {
+            formData.append(key, value);
+        }
+    };
+
+    appendIfPresent('FullName', data.FullName);
+    appendIfPresent('Email', data.Email);
+    appendIfPresent('PhoneNumber', data.PhoneNumber);
+    appendIfPresent('ProfilePicture', data.ProfilePicture);
+
+
+    const response = requestNew({
+        url: 'api/v1/User/userinfo',
+        method: 'PUT',
+        data: formData
+    });
+    return response;
+};
+
 export const useHelpAndSupportMutation = () => {
     return useMutation({
         mutationFn: helpAndSupport
     });
-  };
+};
+
+export const useUpdateUserInfoMutation = () => {
+    const queryClient = useQueryClient();
+    return useMutation({
+        mutationFn: updateUserInfo,
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ['get-self'] });
+        }
+    });
+};
 

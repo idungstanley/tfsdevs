@@ -1,3 +1,4 @@
+import { LOCALSTORAGE_KEY } from '@/app/constants/localStorage';
 import { displayPrompt, setVisibility } from '@/app/features/general/prompt/promptSlice';
 import { SignOut } from '@/app/lib/signOut';
 import { useAppDispatch } from '@/app/store/store';
@@ -21,7 +22,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ icon, text, expanded = true, 
   const isActive = pathname === `/${route || ''}`;
 
   const handleRouteToLogout = () => {
-    storageManager.clear()
+    history.pushState(null, '', '/auth/login');
     router.push('/auth/login');
   };
 
@@ -32,11 +33,12 @@ const SidebarItem: React.FC<SidebarItemProps> = ({ icon, text, expanded = true, 
           label: 'Yes, Logout',
           style: 'base',
           callback: async () => {
+            storageManager.removeItem(LOCALSTORAGE_KEY.TOKEN)
             await SignOut();
             startTransition(() => {
               handleRouteToLogout();
+              dispatch(setVisibility(false));
             });
-            dispatch(setVisibility(false));
           }
         },
         {

@@ -1,6 +1,6 @@
 'use client'
 import TextWithLinks from '@/app/components/text/TextWithLinks';
-import React, { useTransition } from 'react';
+import React from 'react';
 import Login from './component/Login';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,22 +8,14 @@ import AuthTabs from '@/app/components/tabs/AuthTab';
 import { ImHome } from 'react-icons/im';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import { useRouter } from 'next/navigation';
-import Loading from '@/app/loading';
 
 const LoginPage = () => {
-  const [isPending, startTransition] = useTransition();
   const router = useRouter()
 
   const handleRouteToHome = () => {
     history.pushState(null, "", "/")
-    startTransition(() => {
-      router.push('/');
-    });
+    router.push('/');
   };
-
-  if (isPending) {
-    return <Loading/>
-  }
 
   return (
     <div className="text-white w-full h-full flex flex-col p-4">

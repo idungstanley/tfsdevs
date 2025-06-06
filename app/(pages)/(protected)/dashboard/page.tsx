@@ -15,7 +15,7 @@ const Dashboard: React.FC = () => {
       {/* Welcome header */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between">
         <div>
-          <h1 className="text-2xl font-bold">Welcome back, {selfDetails?.email}</h1>
+          <h1 className="text-2xl font-bold">Welcome back, {selfDetails?.firstName}</h1>
           <p className="text-gray-500 mt-1">Here&rsquo;s what&rsquo;s happening with your courses today</p>
         </div>
         <div className="mt-4 md:mt-0">

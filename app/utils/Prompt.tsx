@@ -52,7 +52,7 @@ export default function Prompt() {
                   {option.style === 'plain' && (
                     <button
                       type="button"
-                      className="inline-flex justify-center px-4 py-2 text-base font-medium text-primary-light dark:text-white bg-brand-active dark:bg-[#684DF4] dark:border-base-dark rounded-md shadow-sm cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-base-light dark:focus:ring-base-dark sm:mt-0 sm:ml-3 lg:w-[180px] w-fit sm:text-sm"
+                      className="inline-flex justify-center px-4 py-2 text-base font-medium text-primary-light dark:text-white bg-brand-active dark:bg-[#684DF4] dark:border-base-dark rounded-md shadow-sm cursor-pointer hover:text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-base-light dark:focus:ring-base-dark sm:mt-0 sm:ml-3 lg:w-[180px] w-fit sm:text-sm"
                       onClick={option.callback}
                     >
                       {option.label}

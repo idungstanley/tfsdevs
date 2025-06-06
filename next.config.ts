@@ -10,6 +10,10 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'thefullsnackdevstorage.blob.core.windows.net' 
+      },
+      {
+        protocol: 'https',
         hostname: 'images.unsplash.com' 
       },
     ]
