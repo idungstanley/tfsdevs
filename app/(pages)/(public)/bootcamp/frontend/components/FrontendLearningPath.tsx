@@ -44,7 +44,6 @@ const FrontendLearningPath = () => {
               iconPosition="right"
             />
             <Button
-              type="submit"
               label="Download Brochure"
               width="w-fit"
               buttonStyle="custom"

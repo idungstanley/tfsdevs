@@ -6,10 +6,15 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 import { FaArrowRight } from 'react-icons/fa6';
+import { FiDownload } from 'react-icons/fi';
+import useDownloader from 'react-use-downloader';
 
 const BackendLearningPath = () => {
   const router = useRouter();
+  const { download, isInProgress } = useDownloader();
 
+  const fileUrl = '/TheFullSnackDevs_Backend_Course_Outline.pdf';
+  const filename = 'TheFullSnackDevs Backend Course Outline';
   return (
     <main className="mt-20">
       <section className="p-8 md:px-20 flex flex-col md:flex-row items-center gap-4 w-full">
@@ -39,6 +44,17 @@ const BackendLearningPath = () => {
               customClasses="bg-[#684DF4] hover:bg-base-light-hover text-white rounded-[8px] cursor-pointer"
               icon={<FaArrowRight className="text-white" />}
               iconPosition="right"
+            />
+            <Button
+              label="Download Brochure"
+              width="w-fit"
+              buttonStyle="custom"
+              height="h-[48px]"
+              loading={isInProgress}
+              onClick={() => download(fileUrl, filename)}
+              customClasses="bg-red-500 hover:bg-red-500/80 text-white rounded-[8px] cursor-pointer"
+              icon={<FiDownload className="text-white" />}
+              iconPosition="left"
             />
           </div>
         </div>
