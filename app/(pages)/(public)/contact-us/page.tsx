@@ -9,8 +9,10 @@ import { CiUser } from 'react-icons/ci';
 import { AiOutlineMail } from 'react-icons/ai';
 import { SOCIAL_LINKS } from '@/app/constants/footerData';
 import { ICON_MAP } from '@/app/components/footer';
+import { useHelpAndSupportMutation } from '@/app/features/bootcamp/bootcampService';
 
 const Contact: React.FC = () => {
+  const { mutateAsync, isPending } = useHelpAndSupportMutation();
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -18,10 +20,14 @@ const Contact: React.FC = () => {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
+    mutateAsync({
+      subject: formData.subject,
+      message: formData.message,
+      userEmail: formData.email,
+      userName: formData.fullName
+    })
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -146,6 +152,7 @@ const Contact: React.FC = () => {
                     <InputWithLabel
                       name="subject"
                       label="Subject"
+                      required
                       placeholder="Subject"
                       labelClasses="text-white mb-1 font-semibold"
                       classes="border-0.5 px-2 text-[15px] text-white border border-gray-500"
@@ -176,6 +183,7 @@ const Contact: React.FC = () => {
                     label="Send Message"
                     width="w-full"
                     type="submit"
+                    loading={isPending}
                     buttonStyle="custom"
                     height="h-[45px]"
                     labelSize="text-[15px] font-lg rounded-md"
