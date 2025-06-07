@@ -150,7 +150,7 @@ const Events: React.FC = () => {
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <span className="text-xl font-semibold text-primary-500">${event.price}</span>
+                    <span className="text-xl font-semibold text-primary-500">#{event.price}</span>
                     <Link href={`/events/${event.id}`}>
                       <Button
                         label="View Details"
