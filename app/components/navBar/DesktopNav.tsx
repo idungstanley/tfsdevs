@@ -68,7 +68,7 @@ const DesktopNav = () => {
               <Link
                 onClick={() => history.pushState(null, '', item.route)}
                 href={item.route}
-                className={`text-white font-medium hover:text-[#684DF4] transition-all relative px-2 py-1 ${
+                className={`text-white text-nowrap font-medium hover:text-[#684DF4] transition-all relative px-2 py-1 ${
                   pathname === item.route ? 'border border-[#684DF4] rounded-md' : ''
                 }`}
               >

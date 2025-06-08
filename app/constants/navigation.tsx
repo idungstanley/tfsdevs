@@ -4,6 +4,7 @@ import { FaFacebook } from 'react-icons/fa';
 import { RiTwitterXLine } from 'react-icons/ri';
 
 export const navItems = [
+  { label: 'Home', route: '/' },
   { label: 'About program', route: '/about' },
   // { label: 'Experience', route: '/experience' },
   {
@@ -14,8 +15,7 @@ export const navItems = [
     ]
   },
   { label: 'Courses', route: '/courses' },
-  { label: 'FAQ', route: '/faq' },
-  { label: 'Contact us', route: '/contact-us' },
+  // { label: 'FAQ', route: '/faq' },
   { label: 'Events', route: '/events' }
 ];
 
