@@ -4,6 +4,7 @@ import { Search, Filter } from 'lucide-react';
 import { useTheme } from '@/app/context/ThemeContext';
 import { categories, courses } from '@/app/constants/courses';
 import CourseCard from '@/app/components/card/CoursesCard';
+import Overlay from '@/app/components/overlay';
 
 
 const CoursesPage: React.FC = () => {
@@ -80,6 +81,7 @@ const CoursesPage: React.FC = () => {
           <CourseCard key={course.id} course={course} />
         ))}
       </div>
+      <Overlay />
     </div>
   );
 };
