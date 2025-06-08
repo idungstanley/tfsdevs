@@ -1,11 +1,13 @@
 'use client';
 import Button from '@/app/components/button/Button';
-import { useVerifyPayment } from '@/app/features/bootcamp/bootcampService';
+import { useReferralRegistration, useVerifyPayment } from '@/app/features/bootcamp/bootcampService';
 import { useRouter, useSearchParams } from 'next/navigation';
 import React from 'react';
 import { BsPatchCheckFill } from 'react-icons/bs';
 import { FadeLoader } from 'react-spinners';
 import { PiSealWarningFill } from 'react-icons/pi';
+import { storageManager } from '@/app/utils/storageManager';
+import { LOCALSTORAGE_KEY } from '@/app/constants/localStorage';
 
 const VerifyPayment = () => {
   const searchParams = useSearchParams();
@@ -13,6 +15,9 @@ const VerifyPayment = () => {
   const trxref = searchParams.get('trxref');
   const reference = searchParams.get('reference');
   const { isLoading, isError } = useVerifyPayment({ txtref: trxref as string, reference: reference as string });
+  const email = storageManager.getItem(LOCALSTORAGE_KEY.REFERRAL_EMAIL);
+  const referralCode = storageManager.getItem(LOCALSTORAGE_KEY.REFERRAL_ID);
+  useReferralRegistration({ email: email as string, referralCode: referralCode as string });
 
   if (isLoading) {
     return (

@@ -1,6 +1,6 @@
 import requestNew from "@/app/utils/requestNew";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { BootcampResponse, GetReferralLinkReq, GetReferralStats, HelpAndSupportProps, UserInfoProps } from "./bootcamp.interface";
+import { BootcampResponse, GetApplicationHistoryReq, GetReferralLinkReq, GetReferralStats, HelpAndSupportProps, UserInfoProps } from "./bootcamp.interface";
 
 export const useGetAllBootCamps = ({ pageSize = 10, IncludeCourse = true }: { IncludeCourse?: boolean; pageSize?: number; }) => {
     return useQuery({
@@ -40,6 +40,38 @@ export const useGetReferralLink = () => {
         queryFn: async () => {
             const data = await requestNew<GetReferralLinkReq>({
                 url: 'api/Referral/link',
+                method: "GET",
+            });
+            return data;
+        },
+        retry: 1,
+        staleTime: 1000 * 60 * 5,
+    });
+};
+
+export const useGetApplicationHistory = () => {
+    return useQuery({
+        queryKey: ['application-history'],
+        enabled: true,
+        queryFn: async () => {
+            const data = await requestNew<GetApplicationHistoryReq>({
+                url: 'api/v1/Bootcamp/GetUserRegistrations',
+                method: "GET",
+            });
+            return data;
+        },
+        retry: 1,
+        staleTime: 1000 * 60 * 5,
+    });
+};
+
+export const useGetPaymentHistory = () => {
+    return useQuery({
+        queryKey: ['payment-history'],
+        enabled: true,
+        queryFn: async () => {
+            const data = await requestNew<GetApplicationHistoryReq>({
+                url: 'api/v1/Bootcamp/GetUserPayments',
                 method: "GET",
             });
             return data;
@@ -94,6 +126,28 @@ export const useVerifyPayment = ({ reference, txtref }: {
                 data: {
                     reference,
                     txtref,
+                },
+            });
+            return data;
+        },
+        retry: 1,
+        staleTime: 1000 * 60 * 5,
+    });
+};
+export const useReferralRegistration = ({ referralCode, email }: {
+    referralCode: string,
+    email: string;
+}) => {
+    return useQuery({
+        queryKey: ['referral-registration', { referralCode, email }],
+        enabled: !!referralCode && !!email,
+        queryFn: async () => {
+            const data = await requestNew<BootcampResponse>({
+                url: "api/Referral/register",
+                method: "POST",
+                data: {
+                    referralCode,
+                    email,
                 },
             });
             return data;

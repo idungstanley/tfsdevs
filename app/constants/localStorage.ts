@@ -3,5 +3,7 @@ export const LOCALSTORAGE_KEY = {
     "PAYMENT_URL": "paymentUrl",
     "MODAL_WIDTH": "modalWidth",
     "THEME": "theme",
-    "TOKEN": "token"
+    "TOKEN": "token",
+    "REFERRAL_ID": "referralId",
+    "REFERRAL_EMAIL": "referralEmail"
 };

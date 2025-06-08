@@ -8,6 +8,9 @@ import {
   useGetReferralStat
 } from '@/app/features/bootcamp/bootcampService';
 import { FadeLoader } from 'react-spinners';
+import ReferralGuideCard from './components/ReferralGuideCard';
+import ReferralTableList from './components/ReferralTableList';
+import { Referral } from '@/app/features/bootcamp/bootcamp.interface';
 
 const Earn: React.FC = () => {
   const { theme } = useTheme();
@@ -21,6 +24,7 @@ const Earn: React.FC = () => {
   const totalReferrals = referralStats?.data?.totalReferrals as number;
   const totalEarnings = referralStats?.data?.totalEarnings as number;
   const referralLink = data?.data?.referralLink as string;
+  const referralDetails = referralStats?.data?.referrals?.$values as Referral[];
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(referralLink);
@@ -38,7 +42,6 @@ const Earn: React.FC = () => {
     return (
       <div className="space-y-6">
         <h2 className="text-2xl font-bold">Earn With Referrals</h2>
-
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className={`${bgColor} w-full rounded-lg p-6 border ${borderColor}`}>
@@ -56,12 +59,12 @@ const Earn: React.FC = () => {
 
           <div className={`${bgColor} w-full rounded-lg p-6 border ${borderColor}`}>
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-medium">Pending Rewards</h3>
+              <h3 className="text-lg font-medium">Total Referrals</h3>
               <Users className="text-yellow-500" size={24} />
             </div>
-            <p className="text-3xl font-bold text-yellow-500">#{totalEarnings}.00</p>
+            <p className="text-3xl font-bold text-yellow-500">{totalReferrals}</p>
             {totalReferrals && totalReferrals > 0 ? (
-              <p className="text-sm text-gray-400 mt-2">From {totalReferrals} pending referrals</p>
+              <p className="text-sm text-gray-400 mt-2">{totalReferrals} successful referrals</p>
             ) : (
               <p className="text-sm text-gray-400 mt-2">No pending referrals</p>
             )}
@@ -76,7 +79,6 @@ const Earn: React.FC = () => {
             <p className="text-sm text-gray-400 mt-2">Ready to withdraw</p>
           </div>
         </div>
-
         {/* Referral Link */}
         <div className={`${bgColor} rounded-lg p-6 border ${borderColor}`}>
           <h3 className="text-lg font-medium mb-4">Your Referral Link</h3>
@@ -98,34 +100,10 @@ const Earn: React.FC = () => {
           </button> */}
           </div>
         </div>
-
         {/* How it Works */}
-        <div className={`${bgColor} rounded-lg p-6 border ${borderColor}`}>
-          <h3 className="text-lg font-medium mb-4">How It Works</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="text-center">
-              <div className="w-12 h-12 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center mx-auto mb-4">
-                1
-              </div>
-              <h4 className="font-medium mb-2">Share Your Link</h4>
-              <p className="text-sm text-gray-400">Share your unique referral link with friends</p>
-            </div>
-            <div className="text-center">
-              <div className="w-12 h-12 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center mx-auto mb-4">
-                2
-              </div>
-              <h4 className="font-medium mb-2">Friends Join</h4>
-              <p className="text-sm text-gray-400">When they enroll in any course using your link</p>
-            </div>
-            <div className="text-center">
-              <div className="w-12 h-12 rounded-full bg-indigo-500/10 text-indigo-500 flex items-center justify-center mx-auto mb-4">
-                3
-              </div>
-              <h4 className="font-medium mb-2">Earn Rewards</h4>
-              <p className="text-sm text-gray-400">Get 10% of their first purchase amount</p>
-            </div>
-          </div>
-        </div>
+        <ReferralGuideCard />
+        {/* Referral History */}
+        <ReferralTableList data={referralDetails} />
       </div>
     );
 };

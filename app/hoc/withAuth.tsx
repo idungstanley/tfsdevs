@@ -13,8 +13,6 @@ const withAuth = <P extends object>(WrappedComponent: React.ComponentType<P>) =>
   const AuthWrapper = (props: P) => {
     const { data: session, status } = useSession();
     const dispatch = useAppDispatch();
-    console.log('session:>>', session);
-
     const { isError, error, isLoading: isGetSelfLoading } = useGetSelf();
 
     const token = session?.user.data.jsonWebToken.accessToken as string;

@@ -7,7 +7,7 @@ import {
   HelpCircle,
   BookOpen,
   LogOut,
-  // ClipboardList,
+  ClipboardList,
   CreditCard,
   Gift,
   SquareLibrary
@@ -50,14 +50,14 @@ const Sidebar = ({
           <SidebarItem icon={<Home size={20} />} text="Dashboard" route="dashboard" expanded={expanded} />
           {/* <SidebarItem icon={<BarChart2 size={20} />} text="Analytics" route="analytics" expanded={expanded} /> */}
           {/* <SidebarItem icon={<Calendar size={20} />} text="Calendar" route="calendar" expanded={expanded} /> */}
-          <SidebarItem icon={<BookOpen size={20} />} text="Courses" route="courses" expanded={expanded} />
+          <SidebarItem icon={<BookOpen size={20} />} text="Courses" route="courses/all" expanded={expanded} />
           <SidebarItem icon={<SquareLibrary size={20} />} text="My learning" route="my-learning" expanded={expanded} />
-          {/* <SidebarItem
+          <SidebarItem
             icon={<ClipboardList size={20} />}
             text="Applications"
             route="application-history"
             expanded={expanded}
-          /> */}
+          /> 
           <SidebarItem icon={<CreditCard size={20} />} text="Payments" route="payment-history" expanded={expanded} />
           <SidebarItem icon={<Gift size={20} />} text="Earn" route="earn" expanded={expanded} />
         </ul>

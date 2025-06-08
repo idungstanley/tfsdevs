@@ -105,7 +105,11 @@ export interface GetReferralStats {
 }
 
 export interface Referral {
-   value: string
+    $id: string;
+    earningFromReferral: number;
+    email: string;
+    joinedAt: string;
+    name: string;
 }
   
 export interface HelpAndSupportProps {
@@ -122,3 +126,33 @@ export interface UserInfoProps {
     PhoneNumber: string;
     ProfilePicture: Blob;
 }
+
+export interface GetApplicationHistoryReq {
+    $id: string;
+    code: string;
+    message: string;
+    status: boolean;
+    errorMessage: string;
+    errors: {
+        $id: string;
+        $values: string[];
+    };
+    data: {
+        $id: string;
+        $values: ApplicationHistory[];
+    };
+}
+
+export interface ApplicationHistory {
+    $id: string;
+    registrationId: number;
+    fullName: string;
+    bootcampTitle: string;
+    paymentAmount: number;
+    paymentStatus: PaymentStatusType
+    signUpDate: string; // ISO 8601 string
+    status: StatusType;
+}
+
+export type StatusType = 'Registered' | 'Onboarded' | 'Completed' | 'Inprogress';
+export type PaymentStatusType = "Pending" | "Completed" | "Failed" | "Refunded";

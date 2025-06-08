@@ -8,15 +8,18 @@ import { useSignupMutation } from '@/app/features/auth/authService';
 import { Bootcamp } from '@/app/features/bootcamp/bootcamp.interface';
 import { useGetAllBootCamps } from '@/app/features/bootcamp/bootcampService';
 import { SignupProps } from '@/app/types/index.interface';
+import { storageManager } from '@/app/utils/storageManager';
 import { signupSchema } from '@/app/validationSchema';
 import { useFormik } from 'formik';
 import dynamic from 'next/dynamic';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { FaArrowRight, FaEye, FaEyeSlash } from 'react-icons/fa6';
 
 const Enroll = () => {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const referralId = searchParams.get('ref');
   const [showPassword, setShowPassword] = useState(false);
   const { mutateAsync, isPending } = useSignupMutation();
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -25,6 +28,7 @@ const Enroll = () => {
   const raw = localStorage.getItem(LOCALSTORAGE_KEY.BOOTCAMPID);
   const bootCampIdLs = raw ? JSON.parse(raw) : null;
   const bootcamps = data?.data.$values;
+  console.log(referralId);
 
   useEffect(() => {
     setSelectedBootcamp(bootcamps?.find((data) => data?.bootcampId === bootCampIdLs));
@@ -48,13 +52,15 @@ const Enroll = () => {
       stateOfResidence: '',
       phoneNumber: '',
       confirmPassword: '',
-      referrerCode: ''
+      referrerCode: referralId || ''
     },
     validateOnBlur: true,
     validationSchema: signupSchema,
     onSubmit: async (values: SignupProps) => {
       await mutateAsync({ ...values, bootcampID: selectedBootcamp?.bootcampId });
-      localStorage.setItem(LOCALSTORAGE_KEY.BOOTCAMPID, JSON.stringify(selectedBootcamp?.bootcampId));
+      storageManager.setItem(LOCALSTORAGE_KEY.BOOTCAMPID, selectedBootcamp?.bootcampId);
+      storageManager.setItem(LOCALSTORAGE_KEY.REFERRAL_ID, referralId);
+      storageManager.setItem(LOCALSTORAGE_KEY.REFERRAL_EMAIL, values.email);
       router.push(`/bootcamp/checkout/${selectedBootcamp?.bootcampId}`);
     }
   });
