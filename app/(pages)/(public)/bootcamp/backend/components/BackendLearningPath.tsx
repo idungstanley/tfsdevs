@@ -14,7 +14,7 @@ const BackendLearningPath = () => {
   const { download, isInProgress } = useDownloader();
 
   const fileUrl = '/TheFullSnackDevs_Backend_Course_Outline.pdf';
-  const filename = 'TheFullSnackDevs Backend Course Outline';
+  const filename = 'TheFullSnackDevs_Backend_Course_Outline.pdf';
   return (
     <main className="mt-20">
       <section className="p-8 md:px-20 flex flex-col md:flex-row items-center gap-4 w-full">

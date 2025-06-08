@@ -14,7 +14,7 @@ const FrontendLearningPath = () => {
   const router = useRouter();
 
   const fileUrl = '/TheFullSnackDevs_Frontend_Course_Outline.pdf';
-  const filename = 'TheFullSnackDevs Frontend Course Outline';
+  const filename = 'TheFullSnackDevs_Frontend_Course_Outline.pdf';
 
   return (
     <main className="mt-20">
