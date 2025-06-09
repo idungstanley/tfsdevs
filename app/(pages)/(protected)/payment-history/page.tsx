@@ -73,7 +73,18 @@ const PaymentHistory: React.FC = () => {
                       {payment?.paymentStatus}
                     </span>
                   </td>
-                  {payment?.paymentStatus === 'Pending' && (
+                  {payment?.paymentStatus === 'Pending' ? (
+                    <td className="p-4">
+                      <Button
+                        label="Make payment"
+                        onClick={() => handleInitializePayment(payment)}
+                        width="w-fit"
+                        buttonStyle="custom"
+                        height="h-[35px]"
+                        customClasses="bg-red-500 hover:bg-red-600 text-white rounded-[6px] cursor-pointer"
+                      />
+                    </td>
+                  ) : (
                     <td className="p-4">
                       <Button
                         label="Make payment"

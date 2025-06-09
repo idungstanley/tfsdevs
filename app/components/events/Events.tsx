@@ -138,7 +138,7 @@ const Events: React.FC = () => {
                     <div className="flex items-center text-gray-400">
                       <MapPin className="w-4 h-4 mr-2" />
                       <span className="text-sm">
-                        {event.isOnline ? `Online via ${event.location}` : event.location}
+                        {event.isOnline ? `Online` : event.location}
                       </span>
                     </div>
                     <div className="flex items-center text-gray-400">
