@@ -119,6 +119,12 @@ export interface HelpAndSupportProps {
     userName?: string;
     priority?: number; // e.g., 1 for High, 2 for Medium, etc.
 }
+export interface InitializePaymentProps {
+    reference: string;
+    email?: string;
+    currency?: string;
+    amount?: number; // e.g., 1 for High, 2 for Medium, etc.
+}
   
 export interface UserInfoProps {
     FullName: string;
@@ -154,7 +160,7 @@ export interface GetPaymentHistoryReq {
     };
     data: {
         $id: string;
-        $values: PaymentHistory[];
+        $values: PaymentHistoryProps[];
     };
 }
 
@@ -168,7 +174,7 @@ export interface ApplicationHistory {
     signUpDate: string; // ISO 8601 string
     status: StatusType;
 }
-export interface PaymentHistory {
+export interface PaymentHistoryProps {
     $id: string;
     amount: number;
     paymentId: string;

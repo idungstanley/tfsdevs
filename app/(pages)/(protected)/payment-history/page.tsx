@@ -1,14 +1,29 @@
 'use client';
-import React from 'react';
-import { Download } from 'lucide-react';
-import { useGetPaymentHistory } from '@/app/features/bootcamp/bootcampService';
+import React, { useState } from 'react';
+import { useGetPaymentHistory, useInitializePaymentMutation } from '@/app/features/bootcamp/bootcampService';
 import { FadeLoader } from 'react-spinners';
-import { formatDateTime, getPaymentStatusColor } from '@/app/utils';
+import { formatDateTime, formatPrice, getPaymentStatusColor } from '@/app/utils';
 import { useRouter } from 'next/navigation';
+import Button from '@/app/components/button/Button';
+import { useAppSelector } from '@/app/store/store';
+import { PaymentHistoryProps } from '@/app/features/bootcamp/bootcamp.interface';
 
 const PaymentHistory: React.FC = () => {
   const { data, isLoading } = useGetPaymentHistory();
+  const [activeRow, setActiveRow] = useState("")
+  const { mutateAsync, isPending } = useInitializePaymentMutation()
+  const {selfDetails} = useAppSelector(state=> state.auth)
   const router = useRouter();
+
+  const handleInitializePayment = async (value: PaymentHistoryProps) => {
+    setActiveRow(value.$id)
+    await mutateAsync({
+      email: selfDetails?.email as string,
+      reference: value?.paymentReference,
+      amount: value?.amount * 100,
+      currency: 'NGN'
+    });
+  };
 
   if (isLoading) {
     return (
@@ -25,9 +40,9 @@ const PaymentHistory: React.FC = () => {
         <p className="text-gray-500 mb-4">You haven&rsquo;t made any payments yet.</p>
         <button
           className="px-4 py-2 cursor-pointer bg-[#684DF4] text-white rounded-md hover:bg-[#684DF4]/80 transition-colors"
-          onClick={() => router.push('/courses/all')}
+          onClick={() => router.push('/explore')}
         >
-          Browse Courses
+          Explore our programs
         </button>
       </div>
     );
@@ -45,7 +60,8 @@ const PaymentHistory: React.FC = () => {
               <th className="text-left p-4">Amount</th>
               <th className="text-left p-4">Payment Date</th>
               <th className="text-left p-4">Payment Status</th>
-              <th className="text-left p-4">Invoice</th>
+              <th className="text-left p-4">Action</th>
+              {/* <th className="text-left p-4">Invoice</th> */}
             </tr>
           </thead>
           <tbody>
@@ -55,7 +71,7 @@ const PaymentHistory: React.FC = () => {
               return (
                 <tr key={payment?.$id} className="border-b dark:border-gray-700 border-gray-200 hover:bg-gray-700/10">
                   <td className="p-4">{payment?.bootcampTitle}</td>
-                  <td className="p-4">#{payment?.amount}</td>
+                  <td className="p-4">{formatPrice(payment?.amount)}</td>
                   <td className="p-4">{payment.paymentDate ? <div>{`${date}, ${time}`}</div> : <div>-</div>}</td>
                   <td className="p-4">
                     <span
@@ -66,13 +82,27 @@ const PaymentHistory: React.FC = () => {
                       {payment?.paymentStatus}
                     </span>
                   </td>
-                  <td className="p-4">
+                  {payment?.paymentStatus === 'Pending' && (
+                    <td className="p-4">
+                      <Button
+                        label="Make payment"
+                        onClick={() => handleInitializePayment(payment)}
+                        width="w-fit"
+                        loading={isPending && activeRow === payment.$id}
+                        buttonStyle="custom"
+                        height="h-[35px]"
+                        customClasses="bg-red-500 hover:bg-red-600 text-white rounded-[6px] cursor-pointer"
+                      />
+                    </td>
+                  )}
+
+                  {/* <td className="p-4">
                     {payment?.paymentStatus === 'Completed' && (
                       <button className="p-2 hover:bg-gray-700 rounded-full transition-colors">
                         <Download size={18} />
                       </button>
                     )}
-                  </td>
+                  </td> */}
                 </tr>
               );
             })}

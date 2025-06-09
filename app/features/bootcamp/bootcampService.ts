@@ -1,6 +1,6 @@
 import requestNew from "@/app/utils/requestNew";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { BootcampResponse, GetApplicationHistoryReq, GetPaymentHistoryReq, GetReferralLinkReq, GetReferralStats, HelpAndSupportProps, UserInfoProps } from "./bootcamp.interface";
+import { BootcampResponse, GetApplicationHistoryReq, GetPaymentHistoryReq, GetReferralLinkReq, GetReferralStats, HelpAndSupportProps, InitializePaymentProps, UserInfoProps } from "./bootcamp.interface";
 
 export const useGetAllBootCamps = ({ pageSize = 10, IncludeCourse = true }: { IncludeCourse?: boolean; pageSize?: number; }) => {
     return useQuery({
@@ -96,6 +96,7 @@ export const useGetReferralStat = () => {
         staleTime: 1000 * 60 * 5,
     });
 };
+
 export const useGetReferralEarnings = () => {
     return useQuery({
         queryKey: ['referral-earnings'],
@@ -166,6 +167,15 @@ const helpAndSupport = (data: HelpAndSupportProps) => {
     return response;
 };
 
+const initializePayment = (data: InitializePaymentProps) => {
+    const response = requestNew({
+        url: 'api/v1/Payment/InitializeFunding',
+        method: 'POST',
+        data
+    });
+    return response;
+};
+
 const updateUserInfo = (data: UserInfoProps) => {
     const formData = new FormData();
     const appendIfPresent = (key: string, value: string | File | File[] | null | undefined | string[] | Blob) => {
@@ -198,6 +208,12 @@ const updateUserInfo = (data: UserInfoProps) => {
 export const useHelpAndSupportMutation = () => {
     return useMutation({
         mutationFn: helpAndSupport
+    });
+};
+
+export const useInitializePaymentMutation = () => {
+    return useMutation({
+        mutationFn: initializePayment
     });
 };
 

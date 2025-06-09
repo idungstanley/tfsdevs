@@ -2,6 +2,7 @@
 import Button from '@/app/components/button/Button';
 import CourseOutlineCard from '@/app/components/card/CourseOutlineCard';
 import { frontendCourseOutline } from '@/app/constants/bootcamps';
+import { formatPrice } from '@/app/utils';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React from 'react';
@@ -29,7 +30,9 @@ const FrontendLearningPath = ({
           <h1 className="md:text-[50px] text-[35px] font-[700]">Frontend Development</h1>
           <p className="font-semibold text-xl">Unlock your potential, one step at a time.</p>
           <div className="flex items-center gap-3">
-            <p className="my-3 text-xs font-semibold bg-orange-500 w-fit p-2 rounded-full">PRICE: #250,000</p>
+            <p className="my-3 text-xs font-semibold bg-orange-500 w-fit p-2 rounded-full">
+              PRICE: {formatPrice(250000)}
+            </p>
             <p className="my-3 font-semibold bg-green-500 w-fit p-2 rounded-full text-xs">BEGINNER - ADVANCE</p>
           </div>
           <p>

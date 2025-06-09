@@ -2,6 +2,7 @@
 import Button from '@/app/components/button/Button';
 import CourseOutlineCard from '@/app/components/card/CourseOutlineCard';
 import { courseOutline } from '@/app/constants/bootcamps';
+import { formatPrice } from '@/app/utils';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React from 'react';
@@ -22,7 +23,9 @@ const BackendLearningPath = ({ margin = 'mt-20', padding = 'p-8 md:px-20' }: { m
           <h1 className="md:text-[50px] text-[35px] font-[700]">Backend Development (C# and .NET Core)</h1>
           <p className="font-semibold text-xl">Unlock your potential, one step at a time.</p>
           <div className="flex items-center gap-3">
-            <p className="my-3 text-xs font-semibold bg-orange-500 w-fit p-2 rounded-md">PRICE: #350,000</p>
+            <p className="my-3 text-xs font-semibold bg-orange-500 w-fit p-2 rounded-md">
+              PRICE: {formatPrice(350000)}
+            </p>
             <p className="my-3 font-semibold bg-green-500 w-fit p-2 rounded-md text-xs">BEGINNER - ADVANCE</p>
           </div>
           <p>

@@ -111,7 +111,7 @@ export function CheckoutForm({ course }: CheckoutFormProps) {
           <div className="border-t border-slate-400 pt-4">
             <div className="flex justify-between items-center text-lg font-semibold">
               <span>Total</span>
-              <span>#{finalPrice}</span>
+              <span>{formatPrice(finalPrice)}</span>
             </div>
           </div>
 

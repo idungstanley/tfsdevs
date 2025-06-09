@@ -6,7 +6,7 @@ import Link from 'next/link';
 import Button from '../button/Button';
 import { useGetEvents } from '@/app/features/event/eventService';
 import Loading from '@/app/loading';
-import { getTimeWithPeriod } from '@/app/utils';
+import { formatPrice, getTimeWithPeriod } from '@/app/utils';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
@@ -150,7 +150,7 @@ const Events: React.FC = () => {
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <span className="text-xl font-semibold text-primary-500">#{event.price}</span>
+                    <span className="text-xl font-semibold text-primary-500">{formatPrice(event.price)}</span>
                     <Link href={`/events/${event.id}`}>
                       <Button
                         label="View Details"

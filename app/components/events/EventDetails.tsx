@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import Button from '../button/Button';
 import { useEventRegistrationMutation, useGetSingleEvent } from '@/app/features/event/eventService';
 import Loading from '@/app/loading';
-import { getTimeWithPeriod } from '@/app/utils';
+import { formatPrice, getTimeWithPeriod } from '@/app/utils';
 import EventRegistration from './EventRegistration';
 import { BsPatchCheckFill } from 'react-icons/bs';
 
@@ -83,7 +83,7 @@ const EventDetails = ({ eventId }: { eventId: string }) => {
             >
               <div className="card sticky top-24">
                 <div className="text-3xl font-bold mb-6">
-                  <span className="gradient-text">#{event.price}</span>
+                  <span className="gradient-text">{formatPrice(event.price)}</span>
                 </div>
 
                 <div className="space-y-4 mb-6">
