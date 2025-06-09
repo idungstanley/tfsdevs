@@ -19,13 +19,13 @@ function CommandModal({
   showBottomContent = false,
   bottomContent,
   modalDefaultSize = 500,
-  bg_color = 'bg-[#FCFCFC] dark:bg-brand-dark dark:bg-opacity-none',
+  bg_color = 'bg-white dark:bg-gray-900 border',
   headerText,
   padding = 'md:p-4 p-4 md:pr-4',
   maxHeight = 'md:max-h-[600px] h-full',
   showHeaderBorder = false,
   bottomHeight = '64px',
-  border_color,
+  border_color = 'border-gray-200 dark:border-gray-800',
   bottomMargin = '64px',
   classes = 'md:rounded-[15px]',
   animation = 'transition-transform duration-1000 ease-out transform'
@@ -74,7 +74,7 @@ function CommandModal({
   if (!commandVisible) return null;
   return (
     <div
-      className={`fixed bottom-0 left-0 right-0 z-[1000000] flex items-center justify-center w-full h-full mb-6 bg-[#ffffff]/40 bg-opacity-50 dark:bg-brand-dark dark:bg-opacity-50 ${styling} backdrop-opacity-50 transition-opacity duration-100 ease-out ${
+      className={`fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm ${styling} ${
         showContent ? 'opacity-100' : 'opacity-0'
       }`}
     >
@@ -91,7 +91,7 @@ function CommandModal({
           }`}
         >
           <div className="flex items-center md:hidden" onClick={handleClose}>
-            <IoArrowBack/>
+            <IoArrowBack />
             <p className="font-semibold dark:text-white">Back</p>
           </div>
           {headerText && (

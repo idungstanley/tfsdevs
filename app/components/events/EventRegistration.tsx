@@ -54,14 +54,12 @@ const EventRegistration = ({
 
   return (
     <CommandModal
-      border_color="border-slate-900"
       maxHeight="lg:max-h-[600px] p-1"
       modalDefaultSize={576}
       commandVisible={showRegistrationModal}
       setPopup={setShowRegistrationModal}
       onCloseCommandModal={handleCloseModal}
       showHeaderBorder
-      bg_color="bg-slate-900"
       showCloseIcon={true}
       headerText={`${eventTitle} Registration`}
     >

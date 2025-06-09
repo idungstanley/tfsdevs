@@ -9,20 +9,20 @@ import { FaArrowRight } from 'react-icons/fa6';
 import { FiDownload } from 'react-icons/fi';
 import useDownloader from 'react-use-downloader';
 
-const BackendLearningPath = () => {
+const BackendLearningPath = ({ margin = 'mt-20', padding = 'p-8 md:px-20' }: { margin?: string; padding?: string }) => {
   const router = useRouter();
   const { download, isInProgress } = useDownloader();
 
   const fileUrl = '/TheFullSnackDevs_Backend_Course_Outline.pdf';
   const filename = 'TheFullSnackDevs_Backend_Course_Outline.pdf';
   return (
-    <main className="mt-20">
-      <section className="p-8 md:px-20 flex flex-col md:flex-row items-center gap-4 w-full">
+    <main className={`${margin}`}>
+      <section className={`${padding} flex md:flex-row flex-col items-center gap-4 w-full"`}>
         <div className="text-white md:w-1/2 w-full">
           <h1 className="md:text-[50px] text-[35px] font-[700]">Backend Development (C# and .NET Core)</h1>
           <p className="font-semibold text-xl">Unlock your potential, one step at a time.</p>
           <div className="flex items-center gap-3">
-            <p className="my-3 text-xs font-semibold bg-orange-500 w-fit p-2 rounded-md">PRICE: #300,000</p>
+            <p className="my-3 text-xs font-semibold bg-orange-500 w-fit p-2 rounded-md">PRICE: #350,000</p>
             <p className="my-3 font-semibold bg-green-500 w-fit p-2 rounded-md text-xs">BEGINNER - ADVANCE</p>
           </div>
           <p>
@@ -58,7 +58,7 @@ const BackendLearningPath = () => {
         </div>
         <Image src="/learning-paths-hero.webp" alt="" width={500} height={500} />
       </section>
-      <section className="p-8 md:px-20 flex flex-col gap-6">
+      <section className={`grid gap-8 ${padding}`}>
         {courseOutline.map((courseOutline, index) => (
           <CourseOutlineCard key={index} {...courseOutline} />
         ))}

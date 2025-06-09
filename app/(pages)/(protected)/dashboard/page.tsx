@@ -19,7 +19,7 @@ const Dashboard: React.FC = () => {
           <p className="text-gray-500 mt-1">Here&rsquo;s what&rsquo;s happening with your courses today</p>
         </div>
         <div className="mt-4 md:mt-0">
-          <button className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors">
+          <button className="px-4 py-2 bg-[#684DF4] text-white rounded-md hover:bg-[#684DF4]/80 cursor-pointer transition-colors">
             Explore Programs
           </button>
         </div>
