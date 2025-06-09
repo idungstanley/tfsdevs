@@ -4,9 +4,11 @@ import { Download } from 'lucide-react';
 import { useGetPaymentHistory } from '@/app/features/bootcamp/bootcampService';
 import { FadeLoader } from 'react-spinners';
 import { formatDateTime, getStatusColor } from '@/app/utils';
+import { useRouter } from 'next/navigation';
 
 const PaymentHistory: React.FC = () => {
   const { data, isLoading } = useGetPaymentHistory();
+  const router = useRouter()
 
   if (isLoading) {
     return (
@@ -18,12 +20,13 @@ const PaymentHistory: React.FC = () => {
 
   if (data?.data?.$values?.length === 0) {
     return (
-      <div
-        className="dark:bg-gray-800 bg-white dark:border-gray-700 border-gray-200 rounded-lg p-8 text-center border "
-      >
+      <div className="dark:bg-gray-800 bg-white dark:border-gray-700 border-gray-200 rounded-lg p-8 text-center border ">
         <h3 className="text-xl font-medium mb-2">No Payment history found.</h3>
         <p className="text-gray-500 mb-4">You haven&rsquo;t made any payments yet.</p>
-        <button className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors">
+        <button
+          className="px-4 py-2 cursor-pointer bg-[#684DF4] text-white rounded-md hover:bg-[#684DF4]/80 transition-colors"
+          onClick={() => router.push('/courses/all')}
+        >
           Browse Courses
         </button>
       </div>

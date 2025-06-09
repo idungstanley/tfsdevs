@@ -1,4 +1,5 @@
 import { LearningCardProps } from '@/app/types/index.interface';
+import { NotificationProps } from '../components/header/NotificationDropdown';
 
 export const frontendLearningData: LearningCardProps[] = [
     {
@@ -253,28 +254,28 @@ export const programsData = [
     }
 ];
 
-export const notifications = [
-    {
-        id: 1,
-        title: 'New message received',
-        description: 'You have a new message from Alex',
-        time: '5 min ago',
-        read: false
-    },
-    {
-        id: 2,
-        title: 'Meeting reminder',
-        description: 'Team meeting in 30 minutes',
-        time: '30 min ago',
-        read: false
-    },
-    {
-        id: 3,
-        title: 'Task completed',
-        description: 'Project "Dashboard" has been completed',
-        time: '2 hours ago',
-        read: true
-    }
+export const notifications: NotificationProps[] = [
+    // {
+    //     id: 1,
+    //     title: 'New message received',
+    //     description: 'You have a new message from Alex',
+    //     time: '5 min ago',
+    //     read: false
+    // },
+    // {
+    //     id: 2,
+    //     title: 'Meeting reminder',
+    //     description: 'Team meeting in 30 minutes',
+    //     time: '30 min ago',
+    //     read: false
+    // },
+    // {
+    //     id: 3,
+    //     title: 'Task completed',
+    //     description: 'Project "Dashboard" has been completed',
+    //     time: '2 hours ago',
+    //     read: true
+    // }
 ];
 
 

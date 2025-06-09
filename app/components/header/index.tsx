@@ -3,15 +3,14 @@ import { Bell, Menu, Moon, Sun } from 'lucide-react';
 import { useTheme } from '@/app/context/ThemeContext';
 import SearchBar from './SearchBar';
 import NotificationDropdown from './NotificationDropdown';
+import { notifications } from '@/app/constants';
 
 const Header: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
   const [showNotifications, setShowNotifications] = useState(false);
 
   return (
-    <header
-      className="dark:bg-gray-800 border-gray-200 bg-white border-r dark:border-gray-700 border-b h-16 flex items-center justify-between px-4 lg:px-6"
-    >
+    <header className="dark:bg-gray-800 border-gray-200 bg-white border-r dark:border-gray-700 border-b h-16 flex items-center justify-between px-4 lg:px-6">
       {/* Mobile menu button */}
       <button className="md:hidden rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white">
         <Menu size={24} />
@@ -36,12 +35,14 @@ const Header: React.FC = () => {
             className="p-2 rounded-full hover:bg-gray-700 text-gray-400 hover:text-white"
           >
             <Bell size={20} />
-            <span className="absolute top-0 right-0 h-4 w-4 bg-red-500 rounded-full flex items-center justify-center text-xs text-white">
-              3
-            </span>
+            {notifications.length > 0 && (
+              <span className="absolute top-0 right-0 h-4 w-4 bg-red-500 rounded-full flex items-center justify-center text-xs text-white">
+                {notifications.length}
+              </span>
+            )}
           </button>
 
-          {showNotifications && <NotificationDropdown />}
+          <NotificationDropdown showNotifications={showNotifications} setShowNotifications={setShowNotifications} />
         </div>
 
         {/* User profile pic */}
