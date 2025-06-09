@@ -63,8 +63,8 @@ const ChangePassword = () => {
           type={showCurrentPassword ? 'text' : 'password'}
           placeholder="Enter current password"
           label="Current Password"
-          labelClasses="text-white font-semibold"
-          classes="border px-2 text-[15px] text-white border bg-gray-700 rounded-lg px-4 py-2 border-gray-600"
+          labelClasses="dark:text-white text-gray-700 font-semibold"
+          classes="border px-2 text-[15px] border bg-gray-200 hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white text-gray-700 dark:border-gray-600 border-gray-300 rounded-lg px-4 py-2"
           value={formik.values.currentPassword}
           isError={!!formik.errors.currentPassword && formik.touched.currentPassword}
           errorMessage={formik.touched.currentPassword ? formik.errors.currentPassword : ''}
@@ -89,8 +89,8 @@ const ChangePassword = () => {
           type={showPassword ? 'text' : 'password'}
           placeholder="Enter new password"
           trailingIconClasses="top-4"
-          labelClasses="text-white font-semibold"
-          classes="border px-2 text-[15px] text-white bg-gray-700 rounded-lg border border-gray-600"
+          labelClasses="dark:text-white text-gray-700 font-semibold"
+          classes="border px-2 text-[15px] bg-gray-200 hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white text-gray-700 rounded-lg border dark:border-gray-600 border-gray-300"
           value={formik.values.newPassword}
           isError={!!formik.errors.newPassword && formik.touched.newPassword}
           errorMessage={formik.touched.newPassword ? formik.errors.newPassword : ''}
@@ -113,8 +113,8 @@ const ChangePassword = () => {
           trailingIconClasses="top-4"
           type={showConfirmPassword ? 'text' : 'password'}
           placeholder="Enter confirm password"
-          labelClasses="text-white font-semibold"
-          classes="border px-2 text-[15px] text-white bg-gray-700 rounded-lg  border border-gray-600"
+          labelClasses="dark:text-white text-gray-700 font-semibold"
+          classes="border px-2 text-[15px] bg-gray-200 hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white text-gray-700 rounded-lg  border dark:border-gray-600 border-gray-300"
           value={formik.values.confirmPassword}
           isError={!!formik.errors.confirmPassword && formik.touched.confirmPassword}
           errorMessage={formik.touched.confirmPassword ? formik.errors.confirmPassword : ''}

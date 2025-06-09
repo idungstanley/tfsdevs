@@ -1,7 +1,6 @@
 'use client';
 import React, { useRef, useState } from 'react';
 import { User, Bell, Globe } from 'lucide-react';
-import { useTheme } from '@/app/context/ThemeContext';
 import ChangePassword from './ChangePassword';
 import AvatarWithImage from '@/app/components/Avatar/AvatarWithImages';
 import { useAppSelector } from '@/app/store/store';
@@ -19,7 +18,6 @@ interface UserProfile {
 
 const Settings: React.FC = () => {
   const fileInputRef = useRef<HTMLInputElement | null>(null);
-  const { theme } = useTheme();
   const { selfDetails } = useAppSelector((state) => state.auth);
   const { mutateAsync, isPending } = useUpdateUserInfoMutation();
 
@@ -30,9 +28,6 @@ const Settings: React.FC = () => {
     phone: selfDetails?.phoneNumber as string,
     profilePictureUrl: selfDetails?.profilePictureUrl as string
   });
-
-  const bgColor = theme === 'dark' ? 'bg-gray-800' : 'bg-white';
-  const borderColor = theme === 'dark' ? 'border-gray-700' : 'border-gray-200';
 
   const handleProfileUpdate = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -62,7 +57,7 @@ const Settings: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Profile Settings */}
         <div className="lg:col-span-2 space-y-6">
-          <div className={`${bgColor} rounded-lg p-6 border ${borderColor}`}>
+          <div className="dark:bg-gray-800 bg-white dark:border-gray-700 border-gray-200 rounded-lg p-6 border">
             <div className="flex items-center gap-3 mb-6">
               <User className="text-indigo-500" size={24} />
               <h3 className="text-lg font-medium">Profile Information</h3>
@@ -79,7 +74,7 @@ const Settings: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => fileInputRef.current?.click()}
-                  className="px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors"
+                  className="px-4 py-2 bg-gray-200 hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white text-gray-700 cursor-pointer rounded-lg  transition-colors"
                 >
                   Change Photo
                 </button>
@@ -99,7 +94,7 @@ const Settings: React.FC = () => {
                     type="text"
                     value={profile.firstName}
                     onChange={(e) => setProfile({ ...profile, firstName: e.target.value })}
-                    className="w-full bg-gray-700 rounded-lg px-4 py-2 border border-gray-600"
+                    className="w-full bg-gray-200 hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white text-gray-700 rounded-lg px-4 py-2 border dark:border-gray-600 border-gray-300"
                   />
                 </div>
                 <div>
@@ -108,7 +103,7 @@ const Settings: React.FC = () => {
                     type="text"
                     value={profile.lastName}
                     onChange={(e) => setProfile({ ...profile, lastName: e.target.value })}
-                    className="w-full bg-gray-700 rounded-lg px-4 py-2 border border-gray-600"
+                    className="w-full bg-gray-200 hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white text-gray-700 rounded-lg px-4 py-2 border dark:border-gray-600 border-gray-300"
                   />
                 </div>
                 <div>
@@ -117,7 +112,7 @@ const Settings: React.FC = () => {
                     type="email"
                     value={profile.email}
                     onChange={(e) => setProfile({ ...profile, email: e.target.value })}
-                    className="w-full bg-gray-700 rounded-lg px-4 py-2 border border-gray-600"
+                    className="w-full bg-gray-200 hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white text-gray-700 rounded-lg px-4 py-2 border dark:border-gray-600 border-gray-300"
                   />
                 </div>
                 <div>
@@ -126,7 +121,7 @@ const Settings: React.FC = () => {
                     type="tel"
                     value={profile.phone}
                     onChange={(e) => setProfile({ ...profile, phone: e.target.value })}
-                    className="w-full bg-gray-700 rounded-lg px-4 py-2 border border-gray-600"
+                    className="w-full bg-gray-200 hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white text-gray-700 rounded-lg px-4 py-2 border dark:border-gray-600 border-gray-300"
                   />
                 </div>
               </div>
@@ -147,7 +142,7 @@ const Settings: React.FC = () => {
 
         {/* Sidebar Settings */}
         <div className="space-y-6">
-          <div className={`${bgColor} rounded-lg p-6 border ${borderColor}`}>
+          <div className="dark:bg-gray-800 bg-white dark:border-gray-700 border-gray-200 rounded-lg p-6 border">
             <div className="flex items-center gap-3 mb-6">
               <Bell className="text-indigo-500" size={24} />
               <h3 className="text-lg font-medium">Notifications</h3>
@@ -169,7 +164,7 @@ const Settings: React.FC = () => {
             </div>
           </div>
 
-          <div className={`${bgColor} rounded-lg p-6 border ${borderColor}`}>
+          <div className="dark:bg-gray-800 bg-white dark:border-gray-700 border-gray-200 rounded-lg p-6 border">
             <div className="flex items-center gap-3 mb-6">
               <Globe className="text-indigo-500" size={24} />
               <h3 className="text-lg font-medium">Language & Region</h3>
@@ -178,7 +173,7 @@ const Settings: React.FC = () => {
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium mb-2">Language</label>
-                <select className="w-full bg-gray-700 rounded-lg px-4 py-2 border border-gray-600">
+                <select className="w-full bg-gray-200 hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white text-gray-700 dark:border-gray-600 border-gray-300 rounded-lg px-4 py-2 border">
                   <option>English</option>
                   <option>Spanish</option>
                   <option>French</option>
@@ -186,7 +181,7 @@ const Settings: React.FC = () => {
               </div>
               <div>
                 <label className="block text-sm font-medium mb-2">Time Zone</label>
-                <select className="w-full bg-gray-700 rounded-lg px-4 py-2 border border-gray-600">
+                <select className="w-full bg-gray-200 hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white text-gray-700 dark:border-gray-600 border-gray-300 rounded-lg px-4 py-2 border">
                   <option>UTC-05:00 Eastern Time</option>
                   <option>UTC-08:00 Pacific Time</option>
                   <option>UTC+00:00 GMT</option>

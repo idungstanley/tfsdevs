@@ -87,7 +87,7 @@ const Earn: React.FC = () => {
               type="text"
               value={referralLink}
               readOnly
-              className="flex-1 bg-gray-700 rounded-lg px-4 py-2 text-sm"
+              className="flex-1 bg-gray-200 hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white text-gray-700 dark:border-gray-600 border-gray-300 rounded-lg px-4 py-2 text-sm"
             />
             <button
               onClick={copyToClipboard}
