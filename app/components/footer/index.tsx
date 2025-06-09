@@ -20,6 +20,7 @@ export const ICON_MAP: { [key: string]: ReactNode } = {
 };
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
   return (
     <footer className="relative text-white pt-12">
       {/* Background Animation */}
@@ -63,7 +64,7 @@ const Footer = () => {
               {QUICK_LINKS.map((item, index) => (
                 <Link
                   href={item.route}
-                  onClick={()=> history.pushState(null, "", item.route)}
+                  onClick={() => history.pushState(null, '', item.route)}
                   key={index}
                   className="flex items-center gap-2 hover:text-[#684DF4] cursor-pointer"
                 >
@@ -81,7 +82,11 @@ const Footer = () => {
             </div>
             <ul className="text-gray-400 space-y-2">
               {bootCampItems.map((item) => (
-                <Link href={item.route} key={item.label} className="flex items-center gap-2 hover:text-[#684DF4] cursor-pointer">
+                <Link
+                  href={item.route}
+                  key={item.label}
+                  className="flex items-center gap-2 hover:text-[#684DF4] cursor-pointer"
+                >
                   <GoChevronRight /> {item.label}
                 </Link>
               ))}
@@ -94,7 +99,7 @@ const Footer = () => {
       <div className="border-t border-gray-600 mt-8 py-6 px-6 md:px-28 h-20 w-full">
         <div className="relative z-10 flex flex-col md:flex-row items-center justify-between w-full">
           <p className="text-gray-400 text-sm">
-            Copyright © 2024 <span className="text-[#684DF4]">TheFullSnackDevs</span>
+            {`Copyright © ${currentYear}`} <span className="text-[#684DF4]">TheFullSnackDevs</span>
           </p>
 
           {/* Footer Links */}

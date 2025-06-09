@@ -40,7 +40,7 @@ const Help: React.FC = () => {
             <div>
               <label className="block text-sm font-medium mb-2">Subject</label>
               <select
-                className="w-full bg-gray-700 rounded-lg px-4 py-2 border border-gray-600"
+                className="w-full bg-gray-200 hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white text-gray-700 dark:border-gray-600 border-gray-300 rounded-lg px-4 py-2 border"
                 value={subject}
                 onChange={(e) => setSubject(e.target.value)}
               >
@@ -55,14 +55,14 @@ const Help: React.FC = () => {
               <textarea
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                className="w-full bg-gray-700 rounded-lg px-4 py-2 border border-gray-600 h-32"
+                className="w-full bg-gray-200 hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white text-gray-700 dark:border-gray-600 border-gray-300 rounded-lg px-4 py-2 border h-32"
                 placeholder="How can we help you?"
               />
             </div>
             <Button
               bgColor="#684DF4"
               width="w-full"
-              type='submit'
+              type="submit"
               loading={isPending}
               customClasses="w-full px-4 py-2 bg-[#684DF4] text-white rounded-lg hover:bg-[#684DF4]/80 transition-colors flex items-center justify-center gap-2 cursor-pointer"
               buttonStyle="custom"
