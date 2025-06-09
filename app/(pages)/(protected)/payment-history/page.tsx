@@ -3,12 +3,12 @@ import React from 'react';
 import { Download } from 'lucide-react';
 import { useGetPaymentHistory } from '@/app/features/bootcamp/bootcampService';
 import { FadeLoader } from 'react-spinners';
-import { formatDateTime, getStatusColor } from '@/app/utils';
+import { formatDateTime, getPaymentStatusColor } from '@/app/utils';
 import { useRouter } from 'next/navigation';
 
 const PaymentHistory: React.FC = () => {
   const { data, isLoading } = useGetPaymentHistory();
-  const router = useRouter()
+  const router = useRouter();
 
   if (isLoading) {
     return (
@@ -43,32 +43,31 @@ const PaymentHistory: React.FC = () => {
             <tr className="border-b dark:border-gray-700 border-gray-200">
               <th className="text-left p-4">Course</th>
               <th className="text-left p-4">Amount</th>
-              <th className="text-left p-4">Date</th>
-              <th className="text-left p-4">Status</th>
+              <th className="text-left p-4">Payment Date</th>
+              <th className="text-left p-4">Payment Status</th>
               <th className="text-left p-4">Invoice</th>
             </tr>
           </thead>
           <tbody>
             {data?.data?.$values?.map((payment) => {
-              const { date, time } = formatDateTime(payment.signUpDate);
+              const { date, time } = formatDateTime(payment?.paymentDate);
 
               return (
-                <tr
-                  key={payment.$id}
-                  className="border-b dark:border-gray-700 border-gray-200 hover:bg-gray-700/10"
-                >
-                  <td className="p-4">{payment.bootcampTitle}</td>
-                  <td className="p-4">${payment.paymentAmount}</td>
+                <tr key={payment?.$id} className="border-b dark:border-gray-700 border-gray-200 hover:bg-gray-700/10">
+                  <td className="p-4">{payment?.bootcampTitle}</td>
+                  <td className="p-4">#{payment?.amount}</td>
+                  <td className="p-4">{payment.paymentDate ? <div>{`${date}, ${time}`}</div> : <div>-</div>}</td>
                   <td className="p-4">
-                    <div>{`${date}, ${time}`}</div>
-                  </td>
-                  <td className="p-4">
-                    <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(payment.status)}`}>
-                      {payment.status.charAt(0).toUpperCase() + payment.status.slice(1)}
+                    <span
+                      className={`px-2 py-1 rounded-full text-xs font-medium ${getPaymentStatusColor(
+                        payment.paymentStatus
+                      )}`}
+                    >
+                      {payment?.paymentStatus}
                     </span>
                   </td>
                   <td className="p-4">
-                    {payment.paymentStatus === 'Completed' && (
+                    {payment?.paymentStatus === 'Completed' && (
                       <button className="p-2 hover:bg-gray-700 rounded-full transition-colors">
                         <Download size={18} />
                       </button>

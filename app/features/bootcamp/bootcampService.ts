@@ -1,6 +1,6 @@
 import requestNew from "@/app/utils/requestNew";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { BootcampResponse, GetApplicationHistoryReq, GetReferralLinkReq, GetReferralStats, HelpAndSupportProps, UserInfoProps } from "./bootcamp.interface";
+import { BootcampResponse, GetApplicationHistoryReq, GetPaymentHistoryReq, GetReferralLinkReq, GetReferralStats, HelpAndSupportProps, UserInfoProps } from "./bootcamp.interface";
 
 export const useGetAllBootCamps = ({ pageSize = 10, IncludeCourse = true }: { IncludeCourse?: boolean; pageSize?: number; }) => {
     return useQuery({
@@ -70,7 +70,7 @@ export const useGetPaymentHistory = () => {
         queryKey: ['payment-history'],
         enabled: true,
         queryFn: async () => {
-            const data = await requestNew<GetApplicationHistoryReq>({
+            const data = await requestNew<GetPaymentHistoryReq>({
                 url: 'api/v1/Bootcamp/GetUserPayments',
                 method: "GET",
             });

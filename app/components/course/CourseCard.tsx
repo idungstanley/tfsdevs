@@ -14,7 +14,7 @@ interface CourseCardProps {
 const CourseCard: React.FC<CourseCardProps> = ({ course, className = '' }) => {
   return (
     <div
-      className={`bg-slate-900 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 max-w-[340px] ${className}`}
+      className={`dark:bg-slate-900 bg-gray-200 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 max-w-[340px] ${className}`}
     >
       {/* Thumbnail with lock overlay */}
       <div className="relative aspect-video">
@@ -32,8 +32,8 @@ const CourseCard: React.FC<CourseCardProps> = ({ course, className = '' }) => {
 
       {/* Course details */}
       <div className="p-4">
-        <h3 className="font-bold text-lg mb-1 text-white line-clamp-2">{course.title}</h3>
-        <p className="text-sm text-gray-400 mb-2 line-clamp-2">{course.description}</p>
+        <h3 className="font-bold text-lg mb-1 dark:text-white text-gray-700 line-clamp-2">{course.title}</h3>
+        <p className="text-sm dark:text-gray-400 text-gray-700 mb-2 line-clamp-2">{course.description}</p>
 
         <div className="text-xs text-gray-500 mb-3">By {course.instructor}</div>
 
@@ -42,7 +42,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course, className = '' }) => {
           <span className="text-xs text-gray-400 ml-1">({course.reviewCount.toLocaleString()})</span>
         </div>
 
-        <div className="flex items-center gap-4 mb-3 text-xs text-gray-400">
+        <div className="flex items-center gap-4 mb-3 text-xs dark:text-gray-400 text-gray-700">
           <div className="flex items-center">
             <Clock className="w-3 h-3 mr-1" />
             <span>{course.duration}</span>
@@ -55,7 +55,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course, className = '' }) => {
 
         {/* Price */}
         <div className="flex items-baseline">
-          <span className="text-xl font-bold text-gray-200">
+          <span className="text-xl font-bold dark:text-white text-gray-700">
             {course.price.discounted === 0
               ? 'Free'
               : course.price.discounted && course.price.discounted > 0
@@ -65,9 +65,9 @@ const CourseCard: React.FC<CourseCardProps> = ({ course, className = '' }) => {
 
           {course.price.discounted && course.price.discounted > 0 ? (
             <span className="ml-2 text-sm text-gray-500 line-through">{formatPrice(course.price.original)}</span>
-          ): null}
+          ) : null}
         </div>
-        <div className="mt-2 text-xs text-gray-400">Last updated {course.lastUpdated}</div>
+        <div className="mt-2 text-xs dark:text-gray-400 text-gray-700">Last updated {course.lastUpdated}</div>
       </div>
     </div>
   );

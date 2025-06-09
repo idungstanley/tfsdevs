@@ -50,7 +50,7 @@ const Sidebar = ({
           <SidebarItem icon={<Home size={20} />} text="Dashboard" route="dashboard" expanded={expanded} />
           {/* <SidebarItem icon={<BarChart2 size={20} />} text="Analytics" route="analytics" expanded={expanded} /> */}
           {/* <SidebarItem icon={<Calendar size={20} />} text="Calendar" route="calendar" expanded={expanded} /> */}
-          <SidebarItem icon={<BookOpen size={20} />} text="Courses" route="courses/all" expanded={expanded} />
+          <SidebarItem icon={<BookOpen size={20} />} text="Explore" route="explore" expanded={expanded} />
           <SidebarItem icon={<SquareLibrary size={20} />} text="My learning" route="my-learning" expanded={expanded} />
           <SidebarItem
             icon={<ClipboardList size={20} />}

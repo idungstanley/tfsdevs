@@ -63,14 +63,14 @@ export function CheckoutForm({ course }: CheckoutFormProps) {
             {/* <p className="text-muted-foreground">{course?.duration}</p> */}
           </div>
 
-          {/* <div>
+          <div>
             <h3 className="font-medium">What you&apos;ll learn</h3>
             <ul className="list-disc list-inside text-muted-foreground">
-              {course.features.map((feature, index) => (
+              {course?.features?.$values.map((feature, index) => (
                 <li key={index}>{feature}</li>
               ))}
             </ul>
-          </div> */}
+          </div>
         </div>
       </div>
 

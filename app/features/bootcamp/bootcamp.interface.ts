@@ -142,6 +142,21 @@ export interface GetApplicationHistoryReq {
         $values: ApplicationHistory[];
     };
 }
+export interface GetPaymentHistoryReq {
+    $id: string;
+    code: string;
+    message: string;
+    status: boolean;
+    errorMessage: string;
+    errors: {
+        $id: string;
+        $values: string[];
+    };
+    data: {
+        $id: string;
+        $values: PaymentHistory[];
+    };
+}
 
 export interface ApplicationHistory {
     $id: string;
@@ -152,6 +167,15 @@ export interface ApplicationHistory {
     paymentStatus: PaymentStatusType
     signUpDate: string; // ISO 8601 string
     status: StatusType;
+}
+export interface PaymentHistory {
+    $id: string;
+    amount: number;
+    paymentId: string;
+    bootcampTitle: string;
+    paymentReference: string;
+    paymentStatus: PaymentStatusType
+    paymentDate: string; // ISO 8601 string
 }
 
 export type StatusType = 'Registered' | 'Onboarded' | 'Completed' | 'Inprogress';
