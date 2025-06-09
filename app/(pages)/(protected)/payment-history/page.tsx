@@ -1,28 +1,19 @@
 'use client';
-import React, { useState } from 'react';
-import { useGetPaymentHistory, useInitializePaymentMutation } from '@/app/features/bootcamp/bootcampService';
+import React from 'react';
+import { useGetPaymentHistory } from '@/app/features/bootcamp/bootcampService';
 import { FadeLoader } from 'react-spinners';
 import { formatDateTime, formatPrice, getPaymentStatusColor } from '@/app/utils';
 import { useRouter } from 'next/navigation';
 import Button from '@/app/components/button/Button';
-import { useAppSelector } from '@/app/store/store';
 import { PaymentHistoryProps } from '@/app/features/bootcamp/bootcamp.interface';
 
 const PaymentHistory: React.FC = () => {
   const { data, isLoading } = useGetPaymentHistory();
-  const [activeRow, setActiveRow] = useState("")
-  const { mutateAsync, isPending } = useInitializePaymentMutation()
-  const {selfDetails} = useAppSelector(state=> state.auth)
   const router = useRouter();
 
   const handleInitializePayment = async (value: PaymentHistoryProps) => {
-    setActiveRow(value.$id)
-    await mutateAsync({
-      email: selfDetails?.email as string,
-      reference: value?.paymentReference,
-      amount: value?.amount * 100,
-      currency: 'NGN'
-    });
+    const url = value.paymentUrl;
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   if (isLoading) {
@@ -88,7 +79,6 @@ const PaymentHistory: React.FC = () => {
                         label="Make payment"
                         onClick={() => handleInitializePayment(payment)}
                         width="w-fit"
-                        loading={isPending && activeRow === payment.$id}
                         buttonStyle="custom"
                         height="h-[35px]"
                         customClasses="bg-red-500 hover:bg-red-600 text-white rounded-[6px] cursor-pointer"

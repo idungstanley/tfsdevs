@@ -180,6 +180,7 @@ export interface PaymentHistoryProps {
     paymentId: string;
     bootcampTitle: string;
     paymentReference: string;
+    paymentUrl: string;
     paymentStatus: PaymentStatusType
     paymentDate: string; // ISO 8601 string
 }
