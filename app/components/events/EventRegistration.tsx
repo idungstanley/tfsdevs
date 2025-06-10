@@ -60,6 +60,11 @@ const EventRegistration = ({
       });
       setShowRegistrationModal(false);
       formik.resetForm();
+      formik.resetForm();
+      setSelectedInterest('');
+      setExperienceLevel('');
+      setPaidProgramInterest('');
+      setSocialMediaFollow('');
     }
   });
 
