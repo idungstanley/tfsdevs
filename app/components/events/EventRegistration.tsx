@@ -84,7 +84,7 @@ const EventRegistration = ({
       showCloseIcon={true}
       headerText={`${eventTitle} Registration`}
     >
-      <form onSubmit={formik.handleSubmit} className="flex flex-col gap-4 justify-center items-center w-full">
+      <form onSubmit={formik.handleSubmit} className="flex flex-col gap-4 justify-center items-center w-full py-10 md:py-0">
         <div className="flex flex-col gap-2 items-center justify-center w-full text-white">
           <div className="flex flex-col gap-4 w-full">
             <h3 className="text-lg font-semibold">Personal Information</h3>
