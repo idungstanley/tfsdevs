@@ -29,7 +29,7 @@ export const useGetSingleEvent = ({ eventId }: { eventId: string; }) => {
     });
 };
 
-const eventRegistration = ({ eventId, firstName, lastName, email, phone }: EventRegistrationProps) => {
+const eventRegistration = ({ eventId, firstName, lastName, email, phone, metaData }: EventRegistrationProps) => {
     const res = requestNew({
         url: `api/events/${eventId}/EventRegistrations/RegisterForEvent`,
         method: "POST",
@@ -37,7 +37,8 @@ const eventRegistration = ({ eventId, firstName, lastName, email, phone }: Event
             firstName,
             lastName,
             email,
-            phone
+            phone,
+            metaData: JSON.stringify(metaData)
         }
     });
     return res;

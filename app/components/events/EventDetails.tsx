@@ -9,14 +9,19 @@ import Loading from '@/app/loading';
 import { formatPrice, getTimeWithPeriod } from '@/app/utils';
 import EventRegistration from './EventRegistration';
 import { BsPatchCheckFill } from 'react-icons/bs';
+import { useGetAllBootCamps } from '@/app/features/bootcamp/bootcampService';
+import { Bootcamp } from '@/app/features/bootcamp/bootcamp.interface';
 
 const EventDetails = ({ eventId }: { eventId: string }) => {
   const navigate = useRouter();
   const { isPending, mutateAsync, isSuccess } = useEventRegistrationMutation();
+  const { data: bootCampData } = useGetAllBootCamps({});
 
   const { data, isLoading, isFetching } = useGetSingleEvent({ eventId });
   const [showRegistrationModal, setShowRegistrationModal] = useState(false);
   const event = data?.data;
+  const bootcamps = bootCampData?.data.$values;
+
   if (!event) return null;
 
   const handleRegister = () => {
@@ -104,7 +109,7 @@ const EventDetails = ({ eventId }: { eventId: string }) => {
                   </div>
                   <div className="flex items-center text-gray-300">
                     <MapPin className="w-5 h-5 mr-3 text-primary-500" />
-                    <span>{event.isOnline ? "Online" : event.location}</span>
+                    <span>{event.isOnline ? 'Online' : event.location}</span>
                   </div>
                   <div className="flex items-center text-gray-300">
                     <Users className="w-5 h-5 mr-3 text-primary-500" />
@@ -138,6 +143,7 @@ const EventDetails = ({ eventId }: { eventId: string }) => {
         </div>
       </section>
       <EventRegistration
+        bootcamps={bootcamps as Bootcamp[]}
         mutateAsync={mutateAsync}
         isPending={isPending}
         eventTitle={event.title}

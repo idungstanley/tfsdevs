@@ -44,9 +44,15 @@ function CommandModal({
     defaultSize: modalDefaultSize
   });
 
-  useClickAway(dropdownRef, () => {
-    setPopup(false);
-    onCloseCommandModal();
+  useClickAway(dropdownRef, (e) => {
+    if (!commandVisible) return;
+    if (
+      dropdownRef.current && !(e.target as HTMLElement).closest('[data-radix-popper-content-wrapper]')
+    ) {
+      onCloseCommandModal();
+      setPopup(false);
+    }
+    // onCloseCommandModal();
   });
 
   const handleClose = (e?: React.MouseEvent) => {

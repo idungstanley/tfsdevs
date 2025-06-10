@@ -28,7 +28,6 @@ const Enroll = () => {
   const raw = localStorage.getItem(LOCALSTORAGE_KEY.BOOTCAMPID);
   const bootCampIdLs = raw ? JSON.parse(raw) : null;
   const bootcamps = data?.data.$values;
-  console.log(referralId);
 
   useEffect(() => {
     setSelectedBootcamp(bootcamps?.find((data) => data?.bootcampId === bootCampIdLs));

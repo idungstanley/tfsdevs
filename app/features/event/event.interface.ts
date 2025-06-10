@@ -32,6 +32,12 @@ export interface EventRegistrationProps{
     lastName: string;
     email: string;
     phone: string;
+    metaData?: {
+        selectedInterest?: string;
+        experienceLevel?: string;
+        paidProgramInterest?: string;
+        socialMediaFollow?: string;
+    };
 }
 
 export interface EventData {
