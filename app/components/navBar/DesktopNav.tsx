@@ -93,7 +93,7 @@ const DesktopNav = () => {
             </Link>
             <Link href="/auth/enroll" onClick={() => history.pushState(null, '', '/auth/enroll')}>
               <Button
-                label="Enroll now"
+                label="Create account"
                 width="w-fit"
                 buttonStyle="custom"
                 height="h-[32px]"

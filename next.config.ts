@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'thefullsnackdevstorage.blob.core.windows.net' 
+        hostname: 'tfsdstorageaccount.blob.core.windows.net' 
       },
       {
         protocol: 'https',
