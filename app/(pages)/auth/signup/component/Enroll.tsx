@@ -5,33 +5,40 @@ import InputWithLabel from '@/app/components/input/InputWithLabel';
 import Header from '@/app/components/text/Header';
 import { LOCALSTORAGE_KEY } from '@/app/constants/localStorage';
 import { useSignupMutation } from '@/app/features/auth/authService';
-import { Bootcamp } from '@/app/features/bootcamp/bootcamp.interface';
-import { useGetAllBootCamps } from '@/app/features/bootcamp/bootcampService';
-import { SignupProps } from '@/app/types/index.interface';
+import { CountryProps, SignupProps, StateProps, UserGender } from '@/app/types/index.interface';
 import { storageManager } from '@/app/utils/storageManager';
 import { signupSchema } from '@/app/validationSchema';
 import { useFormik } from 'formik';
 import dynamic from 'next/dynamic';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { FaArrowRight, FaEye, FaEyeSlash } from 'react-icons/fa6';
+import { Country, State } from 'country-state-city';
+
+const genderOptions = [
+  { value: 'male', label: 'Male' },
+  { value: 'female', label: 'Female' },
+  { value: 'other', label: 'Other' }
+];
 
 const Enroll = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const referralId = searchParams.get('ref');
-  const [showPassword, setShowPassword] = useState(false);
   const { mutateAsync, isPending } = useSignupMutation();
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const { data } = useGetAllBootCamps({});
-  const [selectedBootcamp, setSelectedBootcamp] = useState<Bootcamp>();
-  const raw = localStorage.getItem(LOCALSTORAGE_KEY.BOOTCAMPID);
-  const bootCampIdLs = raw ? JSON.parse(raw) : null;
-  const bootcamps = data?.data.$values;
 
-  useEffect(() => {
-    setSelectedBootcamp(bootcamps?.find((data) => data?.bootcampId === bootCampIdLs));
-  }, [bootCampIdLs, bootcamps]);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [selectedCountry, setSelectedCountry] = useState<CountryProps | null>(null);
+  const [selectedGender, setSelectedGender] = useState<{
+    value: UserGender;
+    label: string;
+  } | null>(null);
+  const [selectedState, setSelectedState] = useState<StateProps | null>(null);
+  const countryWithFlag = Country.getAllCountries().map((item) => ({
+    ...item,
+    nameWithFlag: `${item.flag}  ${item.name}`
+  }));
 
   const togglePasswordVisibility = () => {
     setShowPassword((prevState) => !prevState);
@@ -47,27 +54,32 @@ const Enroll = () => {
       password: '',
       firstName: '',
       lastName: '',
-      countryOfResidence: '',
-      stateOfResidence: '',
+      userName: '',
       phoneNumber: '',
-      confirmPassword: '',
-      referrerCode: referralId || ''
+      confirmPassword: ''
     },
     validateOnBlur: true,
     validationSchema: signupSchema,
     onSubmit: async (values: SignupProps) => {
-      await mutateAsync({ ...values, bootcampID: selectedBootcamp?.bootcampId });
-      storageManager.setItem(LOCALSTORAGE_KEY.BOOTCAMPID, selectedBootcamp?.bootcampId);
+      await mutateAsync({
+        ...values,
+        countryOfResidence: selectedCountry?.name as string,
+        stateOfResidence: selectedState?.name as string,
+        role: 'user',
+        gender: selectedGender?.value
+      });
       storageManager.setItem(LOCALSTORAGE_KEY.REFERRAL_ID, referralId);
       storageManager.setItem(LOCALSTORAGE_KEY.REFERRAL_EMAIL, values.email);
-      router.push(`/bootcamp/checkout/${selectedBootcamp?.bootcampId}`);
+      router.push('/auth/login');
     }
   });
+
+  console.log("test:", formik.errors)
 
   return (
     <form onSubmit={formik.handleSubmit} className="md:w-[80%] w-full md:p-0 pt-0">
       <div className="text-left lg:my-4 mb-1">
-        <Header text="Enroll" textColor="text-gray-700" textSize="text-[30px]" />
+        <Header text="Sign up" textColor="text-gray-700" textSize="text-[30px]" />
         <p className="text-gray-500 md:w-[80%] w-full text-wrap">
           Enter your email address and password to log in to your dashboard
         </p>
@@ -107,34 +119,52 @@ const Enroll = () => {
         </div>
         <div className="text-left flex gap-5  flex-col md:flex-row">
           <InputWithLabel
-            name="countryOfResidence"
-            placeholder="Country of Residence"
-            label="Country of Residence"
+            name="userName"
+            placeholder="Enter your user name"
+            label="User Name"
             labelClasses="text-gray-700"
             classes={`border px-2 text-[15px] text-gray-700 ${
-              formik.errors.countryOfResidence && formik.touched.countryOfResidence
+              formik.errors.userName && formik.touched.userName
                 ? 'border-red-400 text-red-400'
                 : 'border border-gray-200'
             }`}
-            value={formik.values.countryOfResidence}
+            value={formik.values.userName}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             height="h-[40px] rounded-lg"
           />
-          <InputWithLabel
-            name="stateOfResidence"
+          <Dropdown
+            options={genderOptions}
+            labelKey="label"
+            label="Gender"
+            placeholder="Male"
+            parentWidth="w-full"
+            width="w-[240px]"
+            selectedValue={selectedGender?.label as string}
+            onChange={setSelectedGender}
+          />
+        </div>
+        <div className="text-left flex gap-5  flex-col md:flex-row">
+          <Dropdown
+            options={countryWithFlag}
+            labelKey="nameWithFlag"
+            activeKey="name"
+            parentWidth="w-full"
+            placeholder="Country of Residence"
+            label="Country of Residence"
+            width="w-[240px]"
+            selectedValue={selectedCountry?.name as string}
+            onChange={setSelectedCountry}
+          />
+          <Dropdown
+            options={State?.getStatesOfCountry(selectedCountry?.isoCode)}
+            labelKey="name"
+            parentWidth="w-full"
+            width="w-[240px]"
             placeholder="State of Residence"
             label="State of Residence"
-            labelClasses="text-gray-700"
-            classes={`border px-2 text-[15px] text-gray-700 ${
-              formik.errors.stateOfResidence && formik.touched.stateOfResidence
-                ? 'border-red-400 text-red-400'
-                : 'border border-gray-200'
-            }`}
-            value={formik.values.stateOfResidence}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            height="h-[40px] rounded-lg"
+            selectedValue={selectedState?.name as string}
+            onChange={setSelectedState}
           />
         </div>
         <div className="text-left flex gap-5  flex-col md:flex-row">
@@ -213,43 +243,11 @@ const Enroll = () => {
             onBlur={formik.handleBlur}
           />
         </div>
-        <Dropdown
-          options={bootcamps as Bootcamp[]}
-          labelKey="title"
-          labelClasses="text-gray-900"
-          label="Bootcamp"
-          width="min-w-40 w-fit"
-          placeholder="Select Bootcamp"
-          parentWidth="w-full"
-          position="fixed right-4"
-          selectedValue={selectedBootcamp?.title as string}
-          onChange={setSelectedBootcamp}
-        />
-        <div className="text-gray-700 flex gap-4 w-full">
-          <InputWithLabel
-            name="referrerCode"
-            isError={!!formik.errors.referrerCode && formik.touched.referrerCode}
-            errorMessage={formik.touched.referrerCode ? formik.errors.referrerCode : ''}
-            label="How did you hear about us?"
-            labelClasses="text-gray-900"
-            classes={`border px-2 text-[15px] text-gray-900 ${
-              formik.errors.referrerCode && formik.touched.referrerCode
-                ? 'border-red-400 text-red-400'
-                : 'border border-gray-200'
-            }`}
-            height="h-[40px] rounded-lg"
-            value={formik.values.referrerCode}
-            type="text"
-            placeholder="Optional: let us know where you hear about us/referral id"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-        </div>
         <div className="flex flex-col items-center justify-between w-full gap-4 text-center lg:justify-center">
           <Button
             loading={isPending}
             type="submit"
-            label="Enroll"
+            label="Sign up"
             width="w-full"
             buttonStyle="custom"
             height="h-[48px]"

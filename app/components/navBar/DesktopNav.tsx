@@ -91,7 +91,7 @@ const DesktopNav = () => {
                 customClasses="cursor-pointer text-[#080F1C] border border-[#684DF4] hover:text-white hover:bg-[#684DF4] bg-white rounded-full transition-transform duration-300 ease-in-out hover:scale-110 hover:opacity-90"
               />
             </Link>
-            <Link href="/auth/enroll" onClick={() => history.pushState(null, '', '/auth/enroll')}>
+            <Link href="/auth/signup" onClick={() => history.pushState(null, '', '/auth/signup')}>
               <Button
                 label="Create account"
                 width="w-fit"

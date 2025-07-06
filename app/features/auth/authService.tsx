@@ -9,7 +9,7 @@ import { setGetSelfDetails } from './authSlice';
 
 export const signUp = (data: SignupProps) => {
   const response = requestNew<BootcampSignupResponse>({
-    url: 'api/v1/BootcampRegistration/createbootcampregistration',
+    url: 'api/v1/Auth/Register',
     method: 'POST',
     data: {
       firstName: data.firstName,
@@ -17,13 +17,12 @@ export const signUp = (data: SignupProps) => {
       country: data.countryOfResidence,
       state: data.stateOfResidence,
       phoneNumber: data.phoneNumber,
-      email: data.email,
-      referrerCode: data.referrerCode,
-      password: data.password,
-      bootcampID: data.bootcampID,
-      assignedInstructor: '',
-      notes: '',
-      specialRequests: 'None'
+      emailAddress: data.email,
+      passWord: data.password,
+      userName: data.userName,
+      role: data.role,
+      gender: data.gender,
+      isActive: true
     }
   });
   return response;

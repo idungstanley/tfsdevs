@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { FaCaretDown } from 'react-icons/fa';
 import { TbSearch } from 'react-icons/tb';
 import { useClickAway } from 'react-use';
+import MenuDropdown from '../menu/MenuDropdown';
 
 interface SelectDropdownProps {
   options: any[];
@@ -70,21 +71,32 @@ export const Dropdown: React.FC<SelectDropdownProps> = ({
     <div className="flex w-full flex-col gap-1 relative overflow-visible">
       {label && (
         <div className="flex justify-between">
-          <label className={`z-10 ${labelClasses} text-[#9E9E9E]`}>
+          <label className={`z-10 ${labelClasses} text-gray-800 text-[14px]`}>
             {label} {required && <span className="ml-1 text-red-500">*</span>}
           </label>
           {cornerHint && <span className="text-gray-500">{cornerHint}</span>}
         </div>
       )}
       <div className="relative" ref={inputRef}>
-        <div
-          className={`flex items-center justify-between border p-2 rounded-lg  bg-white text-gray-900 border-gray-200 appearance-none focus:outline-none ${parentWidth}`}
-          onClick={() => setOpen((prev) => !prev)}
+        <MenuDropdown
+          isMenuOpen={open}
+          setIsMenuOpen={setOpen}
+          hasBaseStyles={false}
+          menuPlacement="bottom"
+          menuWidth={180}
+          menuHeight="auto"
+          offsetValue={8}
+          triggerParentClass="flex items-center justify-start cursor-pointer h-full"
+          triggerNode={
+            <div
+              className={`flex items-center justify-between border p-2 rounded-lg  bg-white text-gray-900 border-gray-200 appearance-none focus:outline-none ${parentWidth}`}
+              onClick={() => setOpen((prev) => !prev)}
+            >
+              {selectedValue ? <span>{selectedValue}</span> : <span className='text-gray-400'>{placeholder}</span>}
+              <FaCaretDown className="text-[10px] text-gray-600" />
+            </div>
+          }
         >
-          <span>{selectedValue || placeholder}</span>
-          <FaCaretDown className="text-[10px] text-gray-600" />
-        </div>
-        {open && (
           <div
             ref={dropdownRef}
             className={`p-2 rounded-lg shadow-custom bg-white border border-gray-200 z-[50] max-h-[200px] h-fit overflow-y-scroll scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200 ${width} absolute left-0 ${
@@ -119,7 +131,7 @@ export const Dropdown: React.FC<SelectDropdownProps> = ({
               <div className="flex items-center justify-center">No items found</div>
             )}
           </div>
-        )}
+        </MenuDropdown>
       </div>
     </div>
   );

@@ -46,7 +46,7 @@ export const GeminiEffect = ({
           transition={{ duration: 1.1, ease: 'easeOut' }}
           className="flex items-center gap-6 mt-10 justify-center"
         >
-          <Link href="/auth/enroll">
+          <Link href="/auth/signup">
             <Button
               label="Get Started"
               width="w-fit"

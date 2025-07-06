@@ -38,7 +38,7 @@ const BackendLearningPath = ({ margin = 'mt-20', padding = 'p-8 md:px-20' }: { m
           <div className="flex items-center justify-start w-full gap-4 mt-4">
             <Button
               label="Enroll Now"
-              onClick={() => router.push('/auth/enroll')}
+              onClick={() => router.push('/auth/signup')}
               width="w-fit"
               buttonStyle="custom"
               height="h-[48px]"

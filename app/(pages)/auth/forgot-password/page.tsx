@@ -11,7 +11,7 @@ const ForgotPasswordPage = () => {
         <TextWithLinks
           text="Not a fullSnackDev yet?"
           linkLabel="Enroll now!"
-          linkRoute="/auth/enroll"
+          linkRoute="/auth/signup"
           textColor="text-gray-700"
           textPosition="md:justify-end justify-center font-[600]"
         />
@@ -23,7 +23,7 @@ const ForgotPasswordPage = () => {
             <Image src="/black-logo-text.svg" alt="logo" width={500} height={500} className="h-[90px] w-[100px]" />
           </div>
         </Link>
-        <ForgotPassword/>
+        <ForgotPassword />
       </div>
     </div>
   );

@@ -20,9 +20,9 @@ const AuthTabs = () => {
 
       {/* Sign Up Tab */}
       <button
-        onClick={() => router.push('/auth/enroll')}
+        onClick={() => router.push('/auth/signup')}
         className={`flex-1 py-2 cursor-pointer text-center rounded-lg transition-all ${
-          pathname === '/auth/enroll' ? 'bg-white shadow-md font-semibold text-black' : 'text-white'
+          pathname === '/auth/signup' ? 'bg-white shadow-md font-semibold text-black' : 'text-white'
         }`}
       >
         Signup

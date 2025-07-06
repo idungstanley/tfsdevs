@@ -1,3 +1,4 @@
+import { Timezones } from "country-state-city/lib/interface";
 import { CSSProperties, ReactElement, ReactNode, SetStateAction } from "react";
 import { IconType } from "react-icons/lib";
 
@@ -141,22 +142,23 @@ export type LoginProps = {
     password: string;
 };
 
+export type UserRole = "user" | "admin";
+export type UserGender = "male" | "female" | "others";
 
 export type SignupProps = {
     email: string;
     firstName: string;
     lastName: string;
     password: string;
-    countryOfResidence: string;
-    stateOfResidence: string;
+    countryOfResidence?: string;
+    stateOfResidence?: string;
     phoneNumber: string;
+    userName?: string;
     confirmPassword?: string;
+    role?: UserRole;
     referrerCode?: string;
-    bootcampID?: string;
-    specialRequests?: string;
-    assignedInstructor?: string;
-    notes?: string;
     signUpDate?: string;
+    gender?: UserGender;
     startDate?: string;
 };
 
@@ -200,7 +202,7 @@ export interface BootcampCardProps {
     description: string;
     price?: number;
     link?: string;
-    src?: string
+    src?: string;
     bootcampId?: string;
 }
 
@@ -222,7 +224,7 @@ export interface CourseCardProp {
     badges?: string[];
     lastUpdated: string;
 }
-  
+
 export interface Event {
     id: number;
     title: string;
@@ -248,7 +250,7 @@ export interface Event {
     capacity: number;
     registeredCount: number;
 }
-  
+
 export interface CommandProps {
     commandVisible: boolean;
     headerText?: string;
@@ -272,4 +274,24 @@ export interface CommandProps {
     padding?: string;
     bottomHeight?: string;
     bottomMargin?: string;
+}
+
+
+export interface CountryProps {
+    currency: string;
+    flag: string;
+    isoCode: string;
+    latitude: string;
+    longitude: string;
+    name: string;
+    phonecode: string;
+    timezones: Timezones[];
+  }
+
+export interface StateProps {
+    countryCode: string; // Example: "AF"
+    isoCode: string; // Example: "BDS"
+    latitude: string; // Example: "36.73477250"
+    longitude: string; // Example: "70.81199530"
+    name: string; // Example: "Badakhshan"
   }

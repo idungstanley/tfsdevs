@@ -102,7 +102,7 @@ export const PricingCard: React.FC<CourseCardProps> = ({
           </div>
         </div>
 
-        <Link href="/auth/enroll" onClick={(e) => handleEnroll(e)} className="cursor-pointer mt-10 md:mt-4">
+        <Link href="/auth/signup" onClick={(e) => handleEnroll(e)} className="cursor-pointer mt-10 md:mt-4">
           <button className="w-full bg-[#684DF4]/90 hover:bg-[#684DF4] text-white py-2 rounded-lg transition-colors cursor-pointer">
             Enroll Now
           </button>

@@ -37,7 +37,7 @@ export default function Integrations() {
             <Button
               label="Join now"
               width="w-fit"
-              onClick={() => router.push("/auth/enroll")}
+              onClick={() => router.push('/auth/signup')}
               buttonStyle="custom"
               height="h-[36px]"
               labelSize="text-[15px] font-lg rounded-md"

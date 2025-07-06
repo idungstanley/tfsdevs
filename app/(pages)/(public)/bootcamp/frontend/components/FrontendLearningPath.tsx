@@ -43,7 +43,7 @@ const FrontendLearningPath = ({
           </p>
           <div className="flex items-center justify-start w-full gap-4 mt-4">
             <Button
-              onClick={() => router.push('/auth/enroll')}
+              onClick={() => router.push('/auth/signup')}
               label="Enroll Now"
               width="w-fit"
               buttonStyle="custom"

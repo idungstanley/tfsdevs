@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 const PricingPage = () => {
   const router = useRouter();
   const handleEnroll = () => {
-    router.push('/auth/enroll');
+    router.push('/auth/signup');
   };
   return (
     <main className="h-full w-full mt-20">
