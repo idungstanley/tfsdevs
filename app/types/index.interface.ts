@@ -143,7 +143,7 @@ export type LoginProps = {
 };
 
 export type UserRole = "user" | "admin";
-export type UserGender = "male" | "female" | "others";
+export type UserGender = "Male" | "Female" | "Others";
 
 export type SignupProps = {
     email: string;
