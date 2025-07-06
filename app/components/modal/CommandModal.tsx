@@ -48,11 +48,10 @@ function CommandModal({
     if (!commandVisible) return;
 
     const target = e.target as HTMLElement;
-    const clickedInsideDropdown = dropdownRef.current?.contains(target);
     const clickedRadixContent = target.closest('[data-radix-popper-content-wrapper]');
     const clickedRadixGuard = document.querySelector('[data-radix-focus-guard]')?.contains(target);
 
-    if (clickedInsideDropdown && !clickedRadixContent && !clickedRadixGuard) {
+    if (!clickedRadixContent && !clickedRadixGuard) {
       onCloseCommandModal();
       setPopup(false);
     }
