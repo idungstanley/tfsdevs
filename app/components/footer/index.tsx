@@ -96,7 +96,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom Section */}
-      <div className="border-t border-gray-600 mt-8 py-6 px-6 md:px-28 h-20 w-full">
+      <div className="border-t border-gray-900 mt-8 py-6 px-6 md:px-28 h-20 w-full">
         <div className="relative z-10 flex flex-col md:flex-row items-center justify-between w-full">
           <p className="text-gray-400 text-sm">
             {`Copyright © ${currentYear}`} <span className="text-[#684DF4]">TheFullSnackDevs</span>

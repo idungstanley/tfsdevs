@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import Footer from '@/app/components/footer';
 import Navbar from '@/app/components/navBar';
 import SnowEffect from '@/app/components/SnowEffect';
@@ -12,14 +12,15 @@ const PublicLayout = ({ children }: { children: ReactNode }) => {
         <Navbar />
       </div>
       <motion.div
+        className="flex flex-col flex-1"
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.2, ease: 'easeOut' }}
       >
         <div className="grow flex-1 h-full">{children}</div>
         <Footer />
-        <SnowEffect />
       </motion.div>
+      <SnowEffect />
     </div>
   );
 };
