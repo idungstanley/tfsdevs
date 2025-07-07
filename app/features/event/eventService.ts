@@ -1,5 +1,5 @@
 import requestNew from "@/app/utils/requestNew";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { EventRegistrationProps, EventReq, SingleEventReq } from "./event.interface";
 
 export const useGetEvents = () => {
@@ -17,7 +17,7 @@ export const useGetEvents = () => {
 };
 export const useGetSingleEvent = ({ eventId }: { eventId: string; }) => {
     return useQuery({
-        queryKey: ['events'],
+        queryKey: ['single-event'],
         enabled: !!eventId,
         queryFn: async () => {
             const data = await requestNew<SingleEventReq>({
@@ -45,7 +45,11 @@ const eventRegistration = ({ eventId, firstName, lastName, email, phone, metaDat
 };
 
 export const useEventRegistrationMutation = () => {
+    const queryClient = useQueryClient();
     return useMutation({
-        mutationFn: eventRegistration
+        mutationFn: eventRegistration,
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ["single-event"] });
+        }
     });
 };
