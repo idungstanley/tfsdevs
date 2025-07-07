@@ -11,6 +11,7 @@ import Loading from '../loading';
 import { ThemeProvider } from '../context/ThemeContext';
 import '@radix-ui/themes/styles.css';
 import { Theme } from '@radix-ui/themes';
+import { queryClientConfig } from '@/queryClientConfig';
 
 export function Providers({ children }: React.PropsWithChildren) {
   const onError = (error: unknown): unknown => {
@@ -47,11 +48,7 @@ export function Providers({ children }: React.PropsWithChildren) {
     toast.success(title);
   };
   const queryClient = new QueryClient({
-    defaultOptions: {
-      queries: {
-        retry: 1
-      }
-    },
+    defaultOptions: queryClientConfig.defaultOptions,
     mutationCache: new MutationCache({
       onError,
       onSuccess
