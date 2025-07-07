@@ -82,7 +82,7 @@ function CommandModal({
   if (!commandVisible) return null;
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm ${styling} ${
+      className={`fixed inset-0 z-[999999] flex items-center justify-center bg-black/60 backdrop-blur-sm ${styling} ${
         showContent ? 'opacity-100' : 'opacity-0'
       }`}
     >
