@@ -54,7 +54,7 @@ export const GeminiEffect = ({
               height="h-[45px]"
               labelSize="text-[15px] font-lg rounded-md"
               customClasses="cursor-pointer text-white bg-[#684DF4] px-2 rounded-full transition-transform duration-300 ease-in-out hover:scale-110 hover:opacity-90"
-              icon={<BsArrowUpRightCircleFill className="text-white text-[20px]" />}
+              icon={<BsArrowUpRightCircleFill className="text-white text-[20px] hover:text-black" />}
               iconPosition="right"
             />
           </Link>

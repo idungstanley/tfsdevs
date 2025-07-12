@@ -9,6 +9,7 @@ export const publicRoutes = [
   '/help-center',
   '/privacy-policy',
   '/events',
+  '/hackathon',
   '/contact-us',
   '/',
   '/courses',
@@ -44,6 +45,7 @@ export const authRoutes = [
 export const openRoutes = [
   '/bootcamp/checkout/:courseId*',
   '/events/:eventId*',
+  '/hackathon/:hackathonId*',
 ];
 
 /**

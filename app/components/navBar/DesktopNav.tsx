@@ -68,8 +68,8 @@ const DesktopNav = () => {
               <Link
                 onClick={() => history.pushState(null, '', item.route)}
                 href={item.route}
-                className={`text-white text-nowrap font-medium hover:text-[#684DF4] transition-all relative px-2 py-1 ${
-                  pathname === item.route ? 'border border-[#684DF4] rounded-md' : ''
+                className={`text-nowrap font-medium hover:text-[#684DF4] transition-all relative px-2 py-1 ${
+                  pathname === item.route ? 'border-2 border-white text-[#684DF4] rounded-full' : 'text-white'
                 }`}
               >
                 {item.label}
@@ -83,17 +83,17 @@ const DesktopNav = () => {
           <div className="flex items-center justify-end w-full gap-5">
             <Link href="/auth/login" onClick={() => history.pushState(null, '', '/auth/login')}>
               <Button
-                label="Login"
-                width="w-[120px]"
+                label="Log in"
+                width="w-[65px]"
                 buttonStyle="custom"
                 height="h-[32px]"
                 labelSize="text-[15px] font-lg"
-                customClasses="cursor-pointer text-[#080F1C] border border-[#684DF4] hover:text-white hover:bg-[#684DF4] bg-white rounded-full transition-transform duration-300 ease-in-out hover:scale-110 hover:opacity-90"
+                customClasses="cursor-pointer text-white hover:text-white hover:bg-[#684DF4]  rounded-full transition-transform duration-300 ease-in-out hover:scale-110 hover:opacity-90"
               />
             </Link>
             <Link href="/auth/signup" onClick={() => history.pushState(null, '', '/auth/signup')}>
               <Button
-                label="Create account"
+                label="Sign up"
                 width="w-fit"
                 buttonStyle="custom"
                 height="h-[32px]"

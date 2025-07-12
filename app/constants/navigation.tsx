@@ -16,7 +16,8 @@ export const navItems = [
   },
   { label: 'Courses', route: '/courses' },
   // { label: 'FAQ', route: '/faq' },
-  { label: 'Events', route: '/events' }
+  { label: 'Events', route: '/events' },
+  { label: 'Hackathon', route: '/hackathon' }
 ];
 
 export const bootCampItems = [
